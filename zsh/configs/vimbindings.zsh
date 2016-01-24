@@ -8,6 +8,8 @@ bindkey "^E" end-of-line
 bindkey "^K" kill-line
 bindkey "^R" history-incremental-search-backward
 bindkey "^Y" yank
+bindkey "^[f" forward-word    # alt-right
+bindkey "^[b" backward-word   # alt-left
 
 # Reduce mode change lag
 export KEYTIMEOUT=1
