@@ -21,11 +21,11 @@ cd "${dotfile_dir}"
 git submodule update --init --recursive > /dev/null
 
 if command -v rcup >/dev/null 2>&1; then
+  echo "Linking Files..."
+  env RCRC=${dotfile_dir}/rcrc rcup
+else
   echo >&2 "ERROR: RCM must be installed to complete installation."
   echo >&2 "Follow instructions linked below and re-run the installation file:"
   echo >&2 "  https://github.com/thoughtbot/rcm#installation"
   exit 1
 fi
-
-echo "Linking Files..."
-env RCRC=${dotfile_dir}/rcrc rcup
