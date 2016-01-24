@@ -17,8 +17,6 @@
   autosquash = true
 [include]
   path = ~/.gitconfig.local
-[credential]
-  helper = osxkeychain
 [user]
   name = rliebz
   email = rliebz@gmail.com
