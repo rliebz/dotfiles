@@ -1,2 +1,2 @@
-EXCLUDES="README.md install"
+EXCLUDES="README.md Dots.terminal install"
 DOTFILES_DIRS="${HOME}/.dotfiles-local ${HOME}/.dotfiles"
