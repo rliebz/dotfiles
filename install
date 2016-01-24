@@ -4,11 +4,11 @@
 set -e
 
 # Get base project directory and dotfiles directory
-local base_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-local dotfile_dir="${HOME}/.dotfiles"
+base_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+dotfile_dir="${HOME}/.dotfiles"
 
-# Make sure it's in the right location
 if [[ ! -e ${dotfile_dir} ]]; then
+  echo "Moving dotfiles to ${dotfile_dir}"
   mv ${base_dir} ${dotfile_dir}
 elif [[ ${base_dir} != ${dotfile_dir} ]]; then
   echo >&2 "ERROR: A dotfiles directory already exists."
@@ -16,15 +16,16 @@ elif [[ ${base_dir} != ${dotfile_dir} ]]; then
   exit 1
 fi
 
-# Update submodules
+echo "Updating submodules..."
 cd "${dotfile_dir}"
-git submodule update --init --recursive
+git submodule update --init --recursive > /dev/null
 
-if [[ command -v rcup >/dev/null 2>&1 ]]; then
+if command -v rcup >/dev/null 2>&1; then
   echo >&2 "ERROR: RCM must be installed to complete installation."
   echo >&2 "Follow instructions linked below and re-run the installation file:"
   echo >&2 "  https://github.com/thoughtbot/rcm#installation"
   exit 1
-else
-  env RCRC=${dotfile_dir}/rcrc rcup
 fi
+
+echo "Linking Files..."
+env RCRC=${dotfile_dir}/rcrc rcup
