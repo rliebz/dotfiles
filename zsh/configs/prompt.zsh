@@ -6,6 +6,14 @@ prompt_theme=(
   magenta
 )
 
+# Echo user and machine if ssh
+prompt_ssh() {
+  if [[ -n "${SSH_TTY}" ]]; then
+      echo "%{$fg[blue]%}@%m%{$reset_color%}:"
+  fi
+}
+
+
 # Echo abbreviated working directory
 abbreviated_pwd() {
   local pwd="${PWD/#${HOME}/~}"
@@ -36,9 +44,9 @@ git_prompt_info() {
 
 # Echo symbols and space to prompt user input
 separator() {
-  echo "%{$fg_bold[${prompt_theme[3]}]%}|▶%{$reset_color%} "
+  echo "%{$fg_bold[${prompt_theme[3]}]%}|%{%G▶%}%{$reset_color%} "
 }
 
 
 # Prompt format
-PS1='$(prompt_pwd) $(git_prompt_info)$(separator)'
+PS1='$(prompt_ssh)$(prompt_pwd) $(git_prompt_info)$(separator)'
