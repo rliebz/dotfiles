@@ -26,10 +26,14 @@ if command -v rcup >/dev/null 2>&1; then
 else
   echo >&2 "ERROR: RCM must be installed to complete installation."
   echo >&2 "Follow instructions linked below and re-run the installation file:"
-  echo >&2 "  https://github.com/thoughtbot/rcm#installation"
+  echo >&2 "    https://github.com/thoughtbot/rcm#installation"
   exit 1
 fi
 
-echo "Configuring shell to use zsh..."
-zsh
-chsh -s $(which zsh)
+if [[ ! ${SHELL} =~ zsh$ ]]; then
+  echo "Configuring shell to use zsh..."
+  chsh -s $(which zsh)
+fi
+
+echo "Your dotfiles are all ready!"
+echo "Restart your shell or open a new tab to get started."
