@@ -155,6 +155,8 @@
 	QXJjaGl2ZXLRFxhUcm9vdIABCBEaIy0yNztBSE5bYpGTlZqlrra5wtTX3AAAAAAAAAEB
 	AAAAAAAAABkAAAAAAAAAAAAAAAAAAADe
 	</data>
+	<key>Bell</key>
+	<false/>
 	<key>BlinkText</key>
 	<false/>
 	<key>CursorColor</key>
@@ -214,6 +216,8 @@
 	</data>
 	<key>UseBrightBold</key>
 	<true/>
+	<key>VisualBell</key>
+	<false/>
 	<key>columnCount</key>
 	<integer>120</integer>
 	<key>name</key>
