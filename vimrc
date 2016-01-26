@@ -35,7 +35,6 @@ let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar = '·'
 let g:indentLine_color_term = 8
 
-
 " python-syntax: Highlight python commands
 let python_highlight_all = 1
 
@@ -162,6 +161,20 @@ set smarttab
 " 1 tab == 4 spaces
 set shiftwidth=4
 set tabstop=4
+
+" Override tab size for specific file types
+autocmd FileType clojure setl shiftwidth=2 tabstop=2
+autocmd FileType css setl shiftwidth=2 tabstop=2
+autocmd FileType haskell setl shiftwidth=2 tabstop=2
+autocmd FileType html setl shiftwidth=2 tabstop=2
+autocmd FileType javascript setl shiftwidth=2 tabstop=2
+autocmd FileType lisp setl shiftwidth=2 tabstop=2
+autocmd FileType r setl shiftwidth=2 tabstop=2
+autocmd FileType ruby setl shiftwidth=2 tabstop=2
+autocmd FileType sql setl shiftwidth=2 tabstop=2
+autocmd FileType sh setl shiftwidth=2 tabstop=2
+autocmd FileType xml setl shiftwidth=2 tabstop=2
+autocmd FileType zsh setl shiftwidth=2 tabstop=2
 
 " Linebreak on 500 characters
 set lbr
