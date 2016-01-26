@@ -93,8 +93,10 @@ let s:gutter_fg_grey    = s:dark_cyan
 let s:gutter_bg_grey    = s:black
 let s:vertsplit         = s:dark_cyan
 
-" Cursor on bottom of screen
+" Cursor color
 let s:cursor_grey       = s:dark_cyan
+
+" Visual highlighting
 let s:visual_grey       = s:dark_cyan
 let s:visual_black      = s:black
 
@@ -176,7 +178,7 @@ call s:h("ModeMsg",     {}) " 'showmode' message (e.g., "-- INSERT --")
 call s:h("MoreMsg",     {}) " more-prompt
 call s:h("NonText",     { "fg": s:special_grey }) " '~' and '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., '>' displayed when a double-wide character doesn't fit at the end of the line).
 call s:h("Normal",      { "fg": s:white }) " normal text
-call s:h("Pmenu",       {}) " Popup menu: normal item.
+call s:h("Pmenu",       { "bg": s:bright_black }) " Popup menu: normal item.
 call s:h("PmenuSel",    { "bg": s:visual_grey }) " Popup menu: selected item.
 call s:h("PmenuSbar",   { "bg": s:visual_grey }) " Popup menu: scrollbar.
 call s:h("PmenuThumb",  { "bg": s:white }) " Popup menu: Thumb of the scrollbar.
@@ -187,11 +189,11 @@ call s:h("SpellBad",    { "fg": s:red }) " Word that is not recognized by the sp
 call s:h("SpellCap",    { "fg": s:dark_yellow }) " Word that should start with a capital. This will be combined with the highlighting used otherwise.
 call s:h("SpellLocal",  { "fg": s:dark_yellow }) " Word that is recognized by the spellchecker as one that is used in another region. This will be combined with the highlighting used otherwise.
 call s:h("SpellRare",   { "fg": s:dark_yellow }) " Word that is recognized by the spellchecker as one that is hardly ever used. spell This will be combined with the highlighting used otherwise.
-call s:h("StatusLine",  { "fg": s:black, "bg": s:cursor_grey }) " status line of current window
+call s:h("StatusLine",  { "fg": s:black, "bg": s:dark_cyan }) " status line of current window
 call s:h("StatusLineNC", { "fg": s:comment_grey }) " status lines of not-current windows Note: if this is equal to 'StatusLine' Vim will use '^^^' in the status line of the current window.
-call s:h("TabLine",     {}) " tab pages line, not active tab page label
+call s:h("TabLine",     { "fg": s:black, "bg": s:dark_cyan }) " tab pages line, not active tab page label
 call s:h("TabLineFill", { "fg": s:white, "bg": s:bright_black }) " tab pages line, where there are no labels
-call s:h("TabLineSel",  { "fg": s:black, "bg": s:dark_cyan }) " tab pages line, active tab page label
+call s:h("TabLineSel",  { "fg": s:black, "bg": s:cyan }) " tab pages line, active tab page label
 call s:h("Title",       { "fg": s:green }) " titles for output from ":set all", ":autocmd" etc.
 call s:h("Visual",      { "fg": s:visual_black, "bg": s:visual_grey }) " Visual mode selection
 call s:h("VisualNOS",   { "bg": s:visual_grey }) " Visual mode selection when vim is 'Not Owning the Selection'. Only X11 Gui's gui-x11 and xterm-clipboard supports this.
@@ -211,7 +213,7 @@ call s:h("rubyBlockParameterList",  { "fg": s:red })
 call s:h("rubyInterpolation",       { "fg": s:green })
 call s:h("rubyInterpolationDelimiter", { "fg": s:red })
 
-call s:h("pythonDecorator",         { "fg": s:white, "gui": "bold", "cterm": "bold" })
+call s:h("pythonDecorator",         { "fg": s:dark_yellow, "gui": "bold", "cterm": "bold" })
 call s:h("pythonDottedName",        { "fg": s:dark_yellow })
 call s:h("pythonRawString",         { "fg": s:dark_green })
 call s:h("pythonBuiltinFunc",       { "fg": s:dark_blue })
