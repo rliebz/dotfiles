@@ -26,6 +26,18 @@ nmap <leader>w :w!<cr>
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" indentLine: Enable leading spaces
+let g:indentLine_enabled = 0
+let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_leadingSpaceChar = '·'
+let g:indentLine_color_term = 8
+
+
+" python-syntax: Highlight python commands
+let python_highlight_all = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -52,9 +64,6 @@ endif
 
 "Always show current position
 set ruler
-
-" Highlight python commands
-let python_highlight_all = 1
 
 " Height of the command bar
 set cmdheight=2

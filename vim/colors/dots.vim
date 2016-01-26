@@ -89,8 +89,8 @@ let s:comment_grey      = s:dark_white
 let s:special_grey      = s:bright_black
 
 " Gutter on left of screen and vertical dividers
-let s:gutter_fg_grey    = s:black
-let s:gutter_bg_grey    = s:bright_black
+let s:gutter_fg_grey    = s:dark_cyan
+let s:gutter_bg_grey    = s:black
 let s:vertsplit         = s:dark_cyan
 
 " Cursor on bottom of screen
@@ -105,7 +105,7 @@ let s:visual_black      = s:black
 call s:h("Comment",     { "fg": s:comment_grey, "gui": "italic", "cterm": "italic" }) " any comment
 
 call s:h("Constant",    { "fg": s:cyan }) " any constant
-call s:h("String",      { "fg": s:green }) " a string constant: "this is a string"
+call s:h("String",      { "fg": s:green }) " a string constant: 'this is a string'
 call s:h("Character",   { "fg": s:dark_green }) " a character constant: 'c', '\n'
 call s:h("Number",      { "fg": s:dark_yellow }) " a number constant: 234, 0xff
 call s:h("Boolean",     { "fg": s:red, "gui": "italic", "cterm": "italic" }) " a boolean constant: TRUE, false
@@ -118,7 +118,7 @@ call s:h("Statement",   { "fg": s:magenta }) " any statement
 call s:h("Conditional", { "fg": s:magenta }) " if, then, else, endif, switch, etc.
 call s:h("Repeat",      { "fg": s:magenta }) " for, do, while, etc.
 call s:h("Label",       { "fg": s:magenta }) " case, default, etc.
-call s:h("Operator",    { "fg": s:magenta }) " sizeof", "+", "*", etc.
+call s:h("Operator",    { "fg": s:magenta }) " 'sizeof', '+', '*', etc.
 call s:h("Keyword",     { "fg": s:red }) " any other keyword
 call s:h("Exception",   { "fg": s:dark_red }) " try, catch, throw
 
@@ -168,33 +168,33 @@ call s:h("VertSplit",   { "fg": s:vertsplit }) " the column separating verticall
 call s:h("Folded",      {}) " line used for closed folds
 call s:h("FoldColumn",  {}) " 'foldcolumn'
 call s:h("SignColumn",  {}) " column where signs are displayed
-call s:h("IncSearch",   { "fg": s:visual_black, "bg": s:visual_grey }) " 'incsearch' highlighting; also used for the text replaced with ":s///c"
-call s:h("LineNr",      { "fg": s:gutter_fg_grey, "bg": s:gutter_bg_grey }) " Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+call s:h("IncSearch",   { "fg": s:visual_black, "bg": s:visual_grey }) " 'incsearch' highlighting; also used for the text replaced with ':s///c'
+call s:h("LineNr",      { "fg": s:gutter_fg_grey, "bg": s:gutter_bg_grey }) " Line number for ':number' and ':#' commands, and when 'number' or 'relativenumber' option is set.
 call s:h("CursorLineNr", {}) " Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 call s:h("MatchParen",  { "fg": s:blue, "gui": "underline" }) " The character under the cursor or just before it, if it is a paired bracket, and its match.
 call s:h("ModeMsg",     {}) " 'showmode' message (e.g., "-- INSERT --")
 call s:h("MoreMsg",     {}) " more-prompt
-call s:h("NonText",     { "fg": s:special_grey }) " '~' and '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line).
-call s:h("Normal",      { "fg": s:white, "bg": s:black }) " normal text
+call s:h("NonText",     { "fg": s:special_grey }) " '~' and '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., '>' displayed when a double-wide character doesn't fit at the end of the line).
+call s:h("Normal",      { "fg": s:white }) " normal text
 call s:h("Pmenu",       {}) " Popup menu: normal item.
 call s:h("PmenuSel",    { "bg": s:visual_grey }) " Popup menu: selected item.
 call s:h("PmenuSbar",   { "bg": s:visual_grey }) " Popup menu: scrollbar.
 call s:h("PmenuThumb",  { "bg": s:white }) " Popup menu: Thumb of the scrollbar.
 call s:h("Question",    { "fg": s:magenta }) " hit-enter prompt and yes/no questions
 call s:h("Search",      { "bg": s:visual_grey }) " Last search pattern highlighting (see 'hlsearch'). Also used for highlighting the current line in the quickfix window and similar items that need to stand out.
-call s:h("SpecialKey",  { "fg": s:special_grey }) " Meta and special keys listed with ":map", also for text used to show unprintable characters in the text, 'listchars'. Generally: text that is displayed differently from what it really is.
+call s:h("SpecialKey",  { "fg": s:special_grey }) " Meta and special keys listed with ':map', also for text used to show unprintable characters in the text, 'listchars'. Generally: text that is displayed differently from what it really is.
 call s:h("SpellBad",    { "fg": s:red }) " Word that is not recognized by the spellchecker. This will be combined with the highlighting used otherwise.
 call s:h("SpellCap",    { "fg": s:dark_yellow }) " Word that should start with a capital. This will be combined with the highlighting used otherwise.
 call s:h("SpellLocal",  { "fg": s:dark_yellow }) " Word that is recognized by the spellchecker as one that is used in another region. This will be combined with the highlighting used otherwise.
 call s:h("SpellRare",   { "fg": s:dark_yellow }) " Word that is recognized by the spellchecker as one that is hardly ever used. spell This will be combined with the highlighting used otherwise.
-call s:h("StatusLine",  { "fg": s:white, "bg": s:cursor_grey }) " status line of current window
-call s:h("StatusLineNC", { "fg": s:comment_grey }) " status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+call s:h("StatusLine",  { "fg": s:black, "bg": s:cursor_grey }) " status line of current window
+call s:h("StatusLineNC", { "fg": s:comment_grey }) " status lines of not-current windows Note: if this is equal to 'StatusLine' Vim will use '^^^' in the status line of the current window.
 call s:h("TabLine",     {}) " tab pages line, not active tab page label
-call s:h("TabLineFill", {}) " tab pages line, where there are no labels
-call s:h("TabLineSel",  {}) " tab pages line, active tab page label
+call s:h("TabLineFill", { "fg": s:white, "bg": s:bright_black }) " tab pages line, where there are no labels
+call s:h("TabLineSel",  { "fg": s:black, "bg": s:dark_cyan }) " tab pages line, active tab page label
 call s:h("Title",       { "fg": s:green }) " titles for output from ":set all", ":autocmd" etc.
 call s:h("Visual",      { "fg": s:visual_black, "bg": s:visual_grey }) " Visual mode selection
-call s:h("VisualNOS",   { "bg": s:visual_grey }) " Visual mode selection when vim is "Not Owning the Selection". Only X11 Gui's gui-x11 and xterm-clipboard supports this.
+call s:h("VisualNOS",   { "bg": s:visual_grey }) " Visual mode selection when vim is 'Not Owning the Selection'. Only X11 Gui's gui-x11 and xterm-clipboard supports this.
 call s:h("WarningMsg",  { "fg": s:dark_yellow }) " warning messages
 call s:h("WildMenu",    {}) " current match in 'wildmenu' completion
 
