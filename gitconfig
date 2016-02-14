@@ -1,3 +1,6 @@
+[user]
+  name = rliebz
+  email = rliebz@gmail.com
 [push]
   default = current
 [color]
@@ -17,6 +20,3 @@
   autosquash = true
 [include]
   path = ~/.gitconfig.local
-[user]
-  name = rliebz
-  email = rliebz@gmail.com
