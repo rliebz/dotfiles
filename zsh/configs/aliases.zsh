@@ -12,3 +12,6 @@ alias ......='cd ../../../../..'
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
+
+# IPython virtualenv support
+alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
