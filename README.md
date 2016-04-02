@@ -6,7 +6,7 @@ Install
 
 Clone onto your laptop:
 
-    git clone git://github.com/thoughtbot/dotfiles.git
+    git clone https://gitlab.com/rliebz/dotfiles.git
 
 Install [rcm](https://github.com/thoughtbot/rcm):
 
