@@ -4,6 +4,7 @@ prompt_theme=(
   cyan
   green
   magenta
+  yellow
 )
 
 # Echo user and machine if ssh
@@ -37,10 +38,17 @@ prompt_pwd() {
 git_prompt_info() {
   local current_branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
   if [[ -n ${current_branch} ]]; then
-    echo "[%{$fg[${prompt_theme[2]}]%}${current_branch}%{$reset_color%}]"
+    echo "[%{$fg[${prompt_theme[2]}]%}${current_branch}%{$reset_color%}$(git_branch_dirty)]"
   fi
 }
 
+
+# Echo star for dirty git branch
+git_branch_dirty() {
+  if ! [[ $(git status 2> /dev/null | tail -n1) =~ "nothing to commit" ]]; then
+    echo "%{$fg[${prompt_theme[4]}]%}*%{$reset_color%}"
+  fi
+}
 
 # Echo symbols and space to prompt user input
 separator() {
