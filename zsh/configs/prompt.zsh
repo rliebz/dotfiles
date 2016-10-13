@@ -46,7 +46,7 @@ git_prompt_info() {
 # Echo star for dirty git branch
 git_branch_dirty() {
   if ! [[ $(git status 2> /dev/null | tail -n1) =~ "nothing to commit" ]]; then
-    echo "%{$fg[${prompt_theme[4]}]%}*%{$reset_color%}"
+    echo "%{$fg_bold[${prompt_theme[4]}]%}*%{$reset_color%}"
   fi
 }
 
