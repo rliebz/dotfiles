@@ -26,6 +26,7 @@ nmap <leader>w :w!<cr>
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -42,6 +43,7 @@ let python_highlight_all = 1
 let g:NERDSpaceDelims = 1
 let g:NERDRemoveExtraSpaces = 1
 let g:NERDTrimTrailingWhitespace = 1
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -110,6 +112,12 @@ set tm=500
 
 " Add a bit extra margin to the left
 set foldcolumn=1
+
+" Show line numbers in left margin
+set number
+
+" Show right margin
+set colorcolumn=80
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -393,7 +401,6 @@ function! VisualSelection(direction, extra_filter) range
     let @/ = l:pattern
     let @" = l:saved_reg
 endfunction
-
 
 " Returns true if paste mode is enabled
 function! HasPaste()
