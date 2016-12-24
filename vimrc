@@ -80,8 +80,8 @@ set ignorecase
 " When searching try to be smart about cases
 set smartcase
 
-" Highlight search results
-set hlsearch
+" Don't highlight search results
+set nohlsearch
 
 " Perform searches after each character press
 set incsearch
