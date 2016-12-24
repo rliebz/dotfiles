@@ -154,7 +154,7 @@ call s:h("Todo",        { "fg": s:magenta }) " anything that needs extra attenti
 " | Highlighting Groups (descriptions and ordering from `:h hitest.vim`) |
 " +----------------------------------------------------------------------+
 
-call s:h("ColorColumn", { "bg": s:bright_black }) " used for the columns set with 'colorcolumn'
+call s:h("ColorColumn", { "bg": s:dark_blue }) " used for the columns set with 'colorcolumn'
 call s:h("Conceal",     {}) " placeholder characters substituted for concealed text (see 'conceallevel')
 call s:h("Cursor",      { "fg": s:black, "bg": s:blue }) " the character under the cursor
 call s:h("CursorIM",    {}) " like Cursor, but used when in IME mode
