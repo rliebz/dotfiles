@@ -38,6 +38,11 @@ let g:indentLine_color_term = 8
 " python-syntax: Highlight python commands
 let python_highlight_all = 1
 
+" nerdcommenter: Improve handling of whitespace
+let g:NERDSpaceDelims = 1
+let g:NERDRemoveExtraSpaces = 1
+let g:NERDTrimTrailingWhitespace = 1
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
