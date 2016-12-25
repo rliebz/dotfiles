@@ -1,3 +1,6 @@
+# Specify new column format to avoid deprecation warning
+export PIP_FORMAT=columns
+
 # Configure virtualenvwrapper
 export WORKON_HOME=${HOME}/.envs
 export PROJECT_HOME=${HOME}/Projects
