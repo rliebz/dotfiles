@@ -5,7 +5,11 @@ export PIP_FORMAT=columns
 export WORKON_HOME=${HOME}/.envs
 export PROJECT_HOME=${HOME}/Projects
 export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
-[[ -f ${VIRTUALENVWRAPPER_SCRIPT} ]] && source ${VIRTUALENVWRAPPER_SCRIPT}
+if [[ -f ${VIRTUALENVWRAPPER_SCRIPT} ]]; then
+  source ${VIRTUALENVWRAPPER_SCRIPT}
+  alias mkvirtualenv2="mkvirtualenv -p $(which python2)"
+  alias mkvirtualenv3="mkvirtualenv -p $(which python3)"
+fi
 
 # IPython virtualenv support
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
