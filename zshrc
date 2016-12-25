@@ -1,11 +1,3 @@
-# Load custom executable functions
-for function in ~/.zsh/functions/*; do
-  source ${function}
-done
-
-# Add corresponding manual pages
-export MANPATH=~/.zsh/man:
-
 # Load ~/.zsh/configs/pre , ~/.zsh/configs , and ~/.zsh/configs/post, in order
 _load_settings() {
   local _dir="$1"
