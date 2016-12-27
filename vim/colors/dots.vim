@@ -58,29 +58,29 @@ endfunction
 " | Color Variables |
 " +-----------------+
 
-let s:red           = { "gui": "#E06C75", "cterm": "1", "cterm16": "1" }
-let s:dark_red      = { "gui": "#e64040", "cterm": "9", "cterm16": "9" }
+let s:red           = { "gui": "#C00C03", "cterm": "1", "cterm16": "1" }
+let s:dark_red      = { "gui": "#7D0701", "cterm": "9", "cterm16": "9" }
 
-let s:green         = { "gui": "#98C379", "cterm": "2", "cterm16": "2" }
-let s:dark_green    = { "gui": "#6dc35c", "cterm": "10", "cterm16": "10" }
+let s:green         = { "gui": "#63A60A", "cterm": "2", "cterm16": "2" }
+let s:dark_green    = { "gui": "#355A05", "cterm": "10", "cterm16": "10" }
 
-let s:yellow        = { "gui": "#E5C07B", "cterm": "3", "cterm16": "3" }
-let s:dark_yellow   = { "gui": "#D19A66", "cterm": "11", "cterm16": "11" }
+let s:yellow        = { "gui": "#DEA000", "cterm": "3", "cterm16": "3" }
+let s:dark_yellow   = { "gui": "#A07300", "cterm": "11", "cterm16": "11" }
 
-let s:blue          = { "gui": "#61AFEF", "cterm": "4", "cterm16": "4" }
-let s:dark_blue     = { "gui": "#6097dc", "cterm": "12", "cterm16": "12" }
+let s:blue          = { "gui": "#A663FF", "cterm": "4", "cterm16": "4" }
+let s:dark_blue     = { "gui": "#4B2C73", "cterm": "12", "cterm16": "12" }
 
-let s:magenta       = { "gui": "#C678DD", "cterm": "5", "cterm16": "5" }
-let s:dark_magenta  = { "gui": "#8d73de", "cterm": "13", "cterm16": "13" }
+let s:magenta       = { "gui": "#DD187A", "cterm": "5", "cterm16": "5" }
+let s:dark_magenta  = { "gui": "#760D41", "cterm": "13", "cterm16": "13" }
 
-let s:cyan          = { "gui": "#56B6C2", "cterm": "6", "cterm16": "6" }
-let s:dark_cyan     = { "gui": "#53d3d2", "cterm": "14", "cterm16": "14" }
+let s:cyan          = { "gui": "#00ADD6", "cterm": "6", "cterm16": "6" }
+let s:dark_cyan     = { "gui": "#00566A", "cterm": "14", "cterm16": "14" }
 
-let s:white         = { "gui": "#ABB2BF", "cterm": "7", "cterm16": "7" }
-let s:dark_white    = { "gui": "#ABB2BF", "cterm": "15", "cterm16": "15" }
+let s:white         = { "gui": "#B1CDD0", "cterm": "7", "cterm16": "7" }
+let s:dark_white    = { "gui": "#515D5F", "cterm": "15", "cterm16": "15" }
 
 let s:black         = { "gui": "#001014", "cterm": "0", "cterm16": "0" }
-let s:bright_black  = { "gui": "#003947", "cterm": "8", "cterm16": "8" }
+let s:bright_black  = { "gui": "#002B36", "cterm": "8", "cterm16": "8" }
 
 " Comments
 let s:comment_grey      = s:dark_white
