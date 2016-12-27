@@ -178,6 +178,7 @@ set tabstop=4
 " Override tab size for specific file types
 autocmd FileType clojure setl shiftwidth=2 tabstop=2
 autocmd FileType css setl shiftwidth=2 tabstop=2
+autocmd FileType go setl noexpandtab
 autocmd FileType haskell setl shiftwidth=2 tabstop=2
 autocmd FileType html setl shiftwidth=2 tabstop=2
 autocmd FileType javascript setl shiftwidth=2 tabstop=2
