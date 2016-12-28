@@ -17,7 +17,9 @@ _complete_invoke() {
     fi
     # `reply` is the array of valid completions handed back to `compctl`.
     # Use ${=...} to force whitespace splitting in expansion of $collection_arg
-    reply=( $(invoke ${=collection_arg} --complete -- ${words}) )
+    if command -v invoke &> /dev/null; then
+        reply=( $(invoke ${=collection_arg} --complete -- ${words}) )
+    fi
 }
 
 
