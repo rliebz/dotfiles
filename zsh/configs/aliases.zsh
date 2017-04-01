@@ -3,13 +3,7 @@ alias cp='nocorrect cp -i'
 alias ln='nocorrect ln -i'
 alias mv='nocorrect mv -i'
 alias rm='nocorrect rm'
-if ls --color -d . &>/dev/null && ls -G . &>/dev/null; then
-  alias ls='ls --color=tty -G'
-elif ls --color -d . &>/dev/null && ls -G . &>/dev/null; then
-  alias ls='ls --color=tty'
-elif ls -G . &>/dev/null; then
-  alias ls='ls -G'
-fi
+ls --color -d . &>/dev/null && alias ls='ls --color=tty'
 
 # Allow upward navigation
 alias ...='cd ../..'
