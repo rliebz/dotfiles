@@ -1,0 +1,20 @@
+- defaults:
+    link:
+        relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.editorconfig: editorconfig
+    ~/.gitconfig: gitconfig
+    ~/.gitignore: gitignore
+    ~/.pylintrc: pylintrc
+    ~/.vim: vim
+    ~/.vimrc: vimrc
+    ~/.zsh: zsh
+    ~/.zshenv: zshenv
+    ~/.zshrc: zshrc
+
+- shell:
+    - [mkdir -p ~/.man/man1, Creating custom man directory]
+    - [git submodule update --init --recursive, Installing submodules]

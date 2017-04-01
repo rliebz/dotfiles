@@ -1,2 +1,0 @@
-EXCLUDES="README.md Dots.terminal install update"
-DOTFILES_DIRS="${HOME}/.dotfiles-local ${HOME}/.dotfiles"
