@@ -19,3 +19,6 @@
 [submodule "zsh/vendor/z"]
 	path = zsh/vendor/z
 	url = https://github.com/rupa/z.git
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot

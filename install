@@ -1,39 +1,14 @@
 #!/usr/bin/env bash
 
-# Exit on Failure
 set -e
 
-# Get base project directory and dotfiles directory
-base_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-dotfile_dir="${HOME}/.dotfiles"
+CONFIG="install.conf.yaml"
+DOTBOT_DIR="dotbot"
 
-if [[ ! -e ${dotfile_dir} ]]; then
-  echo "Moving dotfiles to ${dotfile_dir}"
-  mv ${base_dir} ${dotfile_dir}
-elif [[ ${base_dir} != ${dotfile_dir} ]]; then
-  echo >&2 "ERROR: A dotfiles directory already exists."
-  echo >&2 "Please remove ${dotfile_dir} before continuing."
-  exit 1
-fi
+DOTBOT_BIN="bin/dotbot"
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-echo "Updating submodules..."
-cd "${dotfile_dir}"
-git submodule update --init --recursive > /dev/null
+cd "${BASEDIR}"
+git submodule update --init --recursive "${DOTBOT_DIR}"
 
-if command -v rcup >/dev/null 2>&1; then
-  echo "Linking Files..."
-  env RCRC=${dotfile_dir}/rcrc rcup
-else
-  echo >&2 "ERROR: RCM must be installed to complete installation."
-  echo >&2 "Follow instructions linked below and re-run the installation file:"
-  echo >&2 "    https://github.com/thoughtbot/rcm#installation"
-  exit 1
-fi
-
-if [[ ! ${SHELL} =~ zsh$ ]]; then
-  echo "Configuring shell to use zsh..."
-  chsh -s $(which zsh)
-fi
-
-echo "Your dotfiles are all ready!"
-echo "Restart your shell or open a new tab to get started."
+"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
