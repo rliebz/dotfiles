@@ -4,52 +4,47 @@ rliebz's Dotfiles
 Install
 -------
 
-Clone onto your laptop:
+Clone onto your machine:
 
-    git clone https://gitlab.com/rliebz/dotfiles.git
-
-Install [rcm](https://github.com/thoughtbot/rcm):
-
-    brew tap thoughtbot/formulae
-    brew install rcm
+    git clone https://gitlab.com/rliebz/dotfiles.git $HOME/.dotfiles
+    cd $HOME/.dotfiles
 
 Run the installation script:
 
-    ./dotfiles/install
+    ./install
 
-You should run `rcup` after pulling a new version of the repository to symlink
-any new files in the repository.
+You may also want to change your default shell:
 
-    rcup
+    chsh -s $(which zsh)
 
 
 Making Changes
 --------------
 
+After making any changes, or to update submodules:
+
+    ./install
+
 To add a new file to your dotfiles:
 
 1. Create a new file in the `~/.dotfiles` directory.
-    - New `zsh` files should go in one of the subdirectories under `zsh/`,
-      depending on its purpose.
-    - Do not include a leading period in the file name.
-2. Run `rcup`.
+    - New `zsh` files should go in one of the subdirectories under `zsh/`
+    - Do not include a leading period in the file name
+2. Create an entry in install.conf.yaml
 
 To add a new Vim package:
 
     cd vim/bundle
     git submodule add <git-repo-url>
-    rcup
-
-To update to the latest submodules:
-
-    git submodule update --recursive --remote
 
 
 Local Customizations
 --------------------
 
 For overriding dotfiles, place a newer version in `~/.dotfiles-local`. This
-can be version controlled separately or excluded from version control.
+can be version controlled separately or excluded from version control. Then,
+follow the instructions at https://github.com/anishathalye/dotbot to link any
+desired files to your home directory.
 
 To utilize a local dotfile without overriding existing configuration, place it
 in your home directory as a dotfile with the suffix `.local`. These can either
@@ -61,7 +56,3 @@ The following local dotfiles files are supported:
 - `~/.vimrc.local`
 - `~/.zshrc.local`
 - `~/.zsh/configs/*`
-
-After finishing, run:
-
-    rcup
