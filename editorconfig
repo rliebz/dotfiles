@@ -17,6 +17,14 @@ indent_style = space
 [*.md]
 trim_trailing_whitespace = false
 
+[*.tf{,vars}]
+indent_size = 2
+indent_style = space
+
+[*.yml]
+indent_size = 2
+indent_style = space
+
 [package.json]
 indent_style = space
 indent_size = 2
