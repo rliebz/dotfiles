@@ -1,4 +1,7 @@
-import os, dotbot
+import os
+
+import dotbot
+
 
 class Uninstall(dotbot.Plugin):
     '''
@@ -45,7 +48,8 @@ class Uninstall(dotbot.Plugin):
                     self._log.lowinfo('Link %s -> %s not removed.' % (path, points_at))
         return True
 
-    def _in_directory(self, path, directory):
+    @staticmethod
+    def _in_directory(path, directory):
         '''
         Returns true if the path is in the directory.
         '''
