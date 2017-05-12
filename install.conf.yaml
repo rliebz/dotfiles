@@ -5,6 +5,7 @@
 - clean: ['~']
 
 - link:
+    ~/.config/flake8: flake8
     ~/.editorconfig: editorconfig
     ~/.gitconfig: gitconfig
     ~/.gitignore: gitignore
