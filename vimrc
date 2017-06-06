@@ -44,6 +44,10 @@ let g:NERDSpaceDelims = 1
 let g:NERDRemoveExtraSpaces = 1
 let g:NERDTrimTrailingWhitespace = 1
 
+" vim-go: Avoid conflicts with syntastic
+let g:go_fmt_fail_silently = 1
+let g:go_list_type = "quickfix"
+
 " syntastic: Recommended settings
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -55,8 +59,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " syntastic: Language-specific settings
-let g:syntastic_go_checkers = ['gometalinter']
-let g:syntastic_go_gometalinter_args = '--fast'
+let g:syntastic_go_checkers = ["gometalinter"]
+let g:syntastic_go_gometalinter_args = "--fast"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
