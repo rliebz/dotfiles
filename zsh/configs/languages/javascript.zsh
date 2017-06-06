@@ -6,3 +6,9 @@ if command -v yarn &> /dev/null; then
   fi
   export PATH="$PATH:$(yarn global bin)"
 fi
+
+# NVM Configuration
+if [[ -f /usr/local/opt/nvm/nvm.sh ]]; then
+  export NVM_DIR="$HOME/.nvm"
+  source "/usr/local/opt/nvm/nvm.sh"
+fi
