@@ -54,6 +54,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" syntastic: Language-specific settings
+let g:syntastic_go_checkers = ['gometalinter']
+let g:syntastic_go_gometalinter_args = '--fast'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
