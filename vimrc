@@ -4,15 +4,27 @@
 " Sets how many lines of history VIM has to remember
 set history=500
 
-" Enable filetype plugins
-filetype plugin on
-filetype indent on
-
-" Include packages from ~/.vim/bundle/
-execute pathogen#infect()
+" Include plugins
+call plug#begin('~/.vim/plugged')
+" General purpose plugins
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'vim-syntastic/syntastic'
+Plug 'wellle/targets.vim'
+Plug 'Yggdroot/indentLine'
+" Language-specific plugins
+Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'hdima/python-syntax', { 'for': 'python' }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'cespare/vim-toml', { 'for': 'toml' }
+call plug#end()
 
 " Set to auto read when a file is changed from the outside
 set autoread
+
+" Reduce updatetime from default 4 seconds
+set updatetime=250
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
