@@ -51,10 +51,8 @@ let g:indentLine_color_term = 8
 " python-syntax: Highlight python commands
 let python_highlight_all = 1
 
-" nerdcommenter: Improve handling of whitespace
-let g:NERDSpaceDelims = 1
-let g:NERDRemoveExtraSpaces = 1
-let g:NERDTrimTrailingWhitespace = 1
+" gitgutter: Always show sign column
+let g:gitgutter_sign_column_always = 1
 
 " vim-go: Avoid conflicts with syntastic
 let g:go_fmt_fail_silently = 1
