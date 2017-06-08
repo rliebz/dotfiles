@@ -8,6 +8,7 @@ set history=500
 call plug#begin('~/.vim/plugged')
 " General purpose plugins
 Plug 'airblade/vim-gitgutter'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'vim-syntastic/syntastic'
