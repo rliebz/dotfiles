@@ -5,6 +5,13 @@
 	default = current
 [color]
 	ui = auto
+[color "diff"]
+	context = white
+	meta = blue
+	old = red
+	new = green
+	func = yellow
+	frag = cyan
 [color "status"]
 	added = green
 	changed = yellow
