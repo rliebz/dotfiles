@@ -85,6 +85,9 @@ set langmenu=en
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
+" Don't open preview window
+set completeopt-=preview
+
 " Turn on the WiLd menu
 set wildmenu
 
