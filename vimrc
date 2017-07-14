@@ -16,6 +16,7 @@ Plug 'wellle/targets.vim'
 Plug 'Yggdroot/indentLine'
 " Language-specific plugins
 Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'hashivim/vim-terraform'
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
@@ -222,6 +223,10 @@ autocmd FileType sql setl shiftwidth=2 tabstop=2
 autocmd FileType sh setl shiftwidth=2 tabstop=2
 autocmd FileType xml setl shiftwidth=2 tabstop=2
 autocmd FileType zsh setl shiftwidth=2 tabstop=2
+
+augroup filetypedetect
+    au BufRead,BufNewFile Jenkinsfile set filetype=groovy
+augroup END
 
 " Linebreak on 500 characters
 set lbr
