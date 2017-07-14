@@ -18,3 +18,12 @@ if test -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zs
   source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
   source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 fi
+
+# asdf
+if [[ -f /usr/local/opt/asdf/asdf.sh ]]; then
+  source /usr/local/opt/asdf/asdf.sh
+fi
+
+if [[ -f /usr/local/etc/bash_completion.d/asdf.bash ]]; then
+  source /usr/local/etc/bash_completion.d/asdf.bash
+fi
