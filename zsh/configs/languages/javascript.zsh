@@ -4,7 +4,7 @@ if command -v yarn &> /dev/null; then
     mkdir -p /usr/local/lib/yarnpkg
     yarn config set prefix /usr/local/lib/yarnpkg &> /dev/null
   fi
-  export PATH="$PATH:$(yarn global bin)"
+  export PATH="$PATH:$(yarn global bin 2> /dev/null)"
 fi
 
 # NVM Configuration
