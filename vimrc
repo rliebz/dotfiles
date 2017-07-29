@@ -9,8 +9,9 @@ call plug#begin('~/.vim/plugged')
 " General purpose plugins
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-surround'
 Plug 'vim-syntastic/syntastic'
 Plug 'wellle/targets.vim'
 Plug 'Yggdroot/indentLine'
