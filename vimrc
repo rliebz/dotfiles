@@ -60,6 +60,7 @@ let g:gitgutter_sign_column_always = 1
 " vim-go: Avoid conflicts with syntastic
 let g:go_fmt_fail_silently = 1
 let g:go_list_type = "quickfix"
+let g:go_fmt_command = "goimports"
 
 " syntastic: General settings
 set statusline+=%#warningmsg#
