@@ -55,6 +55,17 @@ separator() {
   echo "%{$fg_bold[${prompt_theme[3]}]%}|%{%G▶%}%{$reset_color%} "
 }
 
+# Echo terraform workspace name if non-default was ever selected
+terraform_workspace_info() {
+  # This file is not considered stable and may be phased out.
+  # See https://github.com/hashicorp/terraform/pull/15157#issuecomment-306888513
+  local env_file="./.terraform/environment"
+  if [[ -f "${env_file}" ]]; then
+    local current_workspace="$(cat "${env_file}")"
+    echo "{%{$fg[${prompt_theme[4]}]%}${current_workspace}%{$reset_color%}}"
+  fi
+}
+
 
 # Prompt format
-PS1='$(prompt_ssh)$(prompt_pwd) $(git_prompt_info)$(separator)'
+PS1='$(prompt_ssh)$(prompt_pwd) $(git_prompt_info)$(terraform_workspace_info)$(separator)'
