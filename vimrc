@@ -16,6 +16,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'wellle/targets.vim'
 Plug 'Yggdroot/indentLine'
 " Language-specific plugins
+Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'hashivim/vim-terraform'
 Plug 'hdima/python-syntax', { 'for': 'python' }
@@ -61,6 +62,9 @@ let g:gitgutter_sign_column_always = 1
 let g:go_fmt_fail_silently = 1
 let g:go_list_type = "quickfix"
 let g:go_fmt_command = "goimports"
+
+" vim-json
+let g:vim_json_syntax_conceal = 0
 
 " syntastic: General settings
 set statusline+=%#warningmsg#
