@@ -56,7 +56,7 @@ let g:indentLine_color_term = 8
 let python_highlight_all = 1
 
 " gitgutter: Always show sign column
-let g:gitgutter_sign_column_always = 1
+set signcolumn=yes
 
 " vim-go: Avoid conflicts with syntastic
 let g:go_fmt_fail_silently = 1
