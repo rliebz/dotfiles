@@ -18,7 +18,3 @@ if test -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zs
   source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
   source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 fi
-
-# asdf
-source ${VENDOR_PATH}/asdf/asdf.sh
-source ${VENDOR_PATH}/asdf/completions/asdf.bash

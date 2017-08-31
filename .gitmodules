@@ -7,6 +7,3 @@
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
-[submodule "zsh/vendor/asdf"]
-	path = zsh/vendor/asdf
-	url = https://github.com/asdf-vm/asdf.git
