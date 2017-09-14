@@ -1,3 +1,7 @@
+" Set utf-8 as standard encoding and en_US as the standard language
+set encoding=utf-8
+scriptencoding utf-8
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -32,8 +36,7 @@ set updatetime=250
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-let mapleader = ","
-let g:mapleader = ","
+let g:mapleader = ','
 
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -57,7 +60,7 @@ let g:indentLine_leadingSpaceChar = '·'
 let g:indentLine_color_term = 8
 
 " python-syntax: Highlight python commands
-let python_highlight_all = 1
+let g:python_highlight_all = 1
 
 " gitgutter: Always show sign column
 set signcolumn=yes
@@ -67,8 +70,8 @@ map <leader>c gc
 
 " vim-go: Avoid conflicts with syntastic
 let g:go_fmt_fail_silently = 1
-let g:go_list_type = "quickfix"
-let g:go_fmt_command = "goimports"
+let g:go_list_type = 'quickfix'
+let g:go_fmt_command = 'goimports'
 
 " vim-json
 let g:vim_json_syntax_conceal = 0
@@ -93,7 +96,7 @@ set wildmenu
 
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
-if has("win16") || has("win32")
+if has('win16') || has('win32')
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 else
     set wildignore+=.git\*,.hg\*,.svn\*
@@ -106,7 +109,7 @@ set ruler
 set cmdheight=2
 
 " A buffer becomes hidden when it is abandoned
-set hid
+set hidden
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
@@ -133,16 +136,13 @@ set magic
 " Show matching brackets when text indicator is over them
 set showmatch
 " How many tenths of a second to blink when matching brackets
-set mat=2
+set matchtime=2
 
 " No annoying sound on errors
 set noerrorbells
 set novisualbell
 set t_vb=
-set tm=500
-
-" Add a bit extra margin to the left
-set foldcolumn=1
+set timeoutlen=500
 
 " Show line numbers in left margin
 set number
@@ -162,22 +162,11 @@ try
 catch
 endtry
 
-" set background=dark
-" highlight Normal ctermfg=none ctermbg=none
-
-" Set extra options when running in GUI mode
-if has("gui_running")
-    set guioptions-=T
-    set guioptions-=e
-    set t_Co=256
-    set guitablabel=%M\ %t
-endif
-
-" Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
+set background=dark
+highlight Normal ctermfg=none ctermbg=none
 
 " Use Unix as the standard file type
-set ffs=unix,dos,mac
+set fileformats=unix,dos,mac
 
 " Show whitespace
 set list
@@ -189,7 +178,7 @@ set listchars=tab:»\ ,trail:·,nbsp:·,eol:¬
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup
-set nowb
+set nowritebackup
 set noswapfile
 
 
@@ -199,7 +188,7 @@ set noswapfile
 " Use spaces instead of tabs
 set expandtab
 
-" Be smart when using tabs ;)
+" Be smart when using tabs
 set smarttab
 
 " 1 tab == 4 spaces
@@ -226,12 +215,12 @@ augroup filetypedetect
 augroup END
 
 " Linebreak on 500 characters
-set lbr
-set tw=500
+set linebreak
+set textwidth=500
 
-set ai "Auto indent
-set si "Smart indent
-set wrap "Wrap lines
+set autoindent
+set smartindent
+set wrap
 
 
 """"""""""""""""""""""""""""""
@@ -249,10 +238,6 @@ vnoremap <silent> # :call VisualSelection('b', '')<CR>
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
 map k gk
-
-" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
-map <c-space> ?
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
@@ -281,7 +266,6 @@ let g:lasttab = 1
 nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
 
-
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
@@ -292,7 +276,7 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 " Specify the behavior when switching between buffers
 try
   set switchbuf=useopen,usetab,newtab
-  set stal=2
+  set showtabline=2
 catch
 endtry
 
@@ -328,21 +312,12 @@ nmap <M-k> mz:m-2<cr>`z
 vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
-if has("mac") || has("macunix")
+if has('mac') || has('macunix')
   nmap <D-j> <M-j>
   nmap <D-k> <M-k>
   vmap <D-j> <M-j>
   vmap <D-k> <M-k>
 endif
-
-" Delete trailing white space on save, useful for Python and CoffeeScript ;)
-func! DeleteTrailingWS()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
-endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -368,7 +343,7 @@ noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 map <leader>pp :setlocal paste!<cr>
 
 " Local config
-if filereadable($HOME . "/.vimrc.local")
+if filereadable($HOME . '/.vimrc.local')
   source ~/.vimrc.local
 endif
 
@@ -377,26 +352,26 @@ endif
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! CmdLine(str)
-    exe "menu Foo.Bar :" . a:str
+    exe 'menu Foo.Bar :' . a:str
     emenu Foo.Bar
     unmenu Foo
 endfunction
 
 function! VisualSelection(direction, extra_filter) range
     let l:saved_reg = @"
-    execute "normal! vgvy"
+    execute 'normal! vgvy'
 
     let l:pattern = escape(@", '\\/.*$^~[]')
-    let l:pattern = substitute(l:pattern, "\n$", "", "")
+    let l:pattern = substitute(l:pattern, '\n$', '', '')
 
     if a:direction == 'b'
-        execute "normal ?" . l:pattern . "^M"
+        execute 'normal ?' . l:pattern . '^M'
     elseif a:direction == 'gv'
-        call CmdLine("Ag \"" . l:pattern . "\" " )
+        call CmdLine('Ag "' . l:pattern . '" ' )
     elseif a:direction == 'replace'
-        call CmdLine("%s" . '/'. l:pattern . '/')
+        call CmdLine('%s' . '/'. l:pattern . '/')
     elseif a:direction == 'f'
-        execute "normal /" . l:pattern . "^M"
+        execute 'normal /' . l:pattern . '^M'
     endif
 
     let @/ = l:pattern
@@ -414,8 +389,8 @@ endfunction
 " Don't close window, when deleting a buffer
 command! Bclose call <SID>BufcloseCloseIt()
 function! <SID>BufcloseCloseIt()
-   let l:currentBufNum = bufnr("%")
-   let l:alternateBufNum = bufnr("#")
+   let l:currentBufNum = bufnr('%')
+   let l:alternateBufNum = bufnr('#')
 
    if buflisted(l:alternateBufNum)
      buffer #
@@ -423,11 +398,11 @@ function! <SID>BufcloseCloseIt()
      bnext
    endif
 
-   if bufnr("%") == l:currentBufNum
+   if bufnr('%') == l:currentBufNum
      new
    endif
 
    if buflisted(l:currentBufNum)
-     execute("bdelete! ".l:currentBufNum)
+     execute('bdelete! '.l:currentBufNum)
    endif
 endfunction
