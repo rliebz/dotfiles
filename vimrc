@@ -62,6 +62,9 @@ let python_highlight_all = 1
 " gitgutter: Always show sign column
 set signcolumn=yes
 
+" vim-commentary: Custom mappings
+map <leader>c gc
+
 " vim-go: Avoid conflicts with syntastic
 let g:go_fmt_fail_silently = 1
 let g:go_list_type = "quickfix"
