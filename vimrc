@@ -76,6 +76,7 @@ let g:go_fmt_command = 'goimports'
 " vim-json
 let g:vim_json_syntax_conceal = 0
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -155,7 +156,9 @@ set colorcolumn=80
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
-syntax enable
+if !exists('g:syntax_on')
+  syntax enable
+endif
 
 try
     colorscheme dots
@@ -195,21 +198,6 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 
-" Override tab size for specific file types
-autocmd FileType clojure setl shiftwidth=2 tabstop=2
-autocmd FileType css setl shiftwidth=2 tabstop=2
-autocmd FileType go setl noexpandtab
-autocmd FileType haskell setl shiftwidth=2 tabstop=2
-autocmd FileType html setl shiftwidth=2 tabstop=2
-autocmd FileType javascript setl shiftwidth=2 tabstop=2
-autocmd FileType lisp setl shiftwidth=2 tabstop=2
-autocmd FileType r setl shiftwidth=2 tabstop=2
-autocmd FileType ruby setl shiftwidth=2 tabstop=2
-autocmd FileType sql setl shiftwidth=2 tabstop=2
-autocmd FileType sh setl shiftwidth=2 tabstop=2
-autocmd FileType xml setl shiftwidth=2 tabstop=2
-autocmd FileType zsh setl shiftwidth=2 tabstop=2
-
 augroup filetypedetect
     au BufRead,BufNewFile Jenkinsfile set filetype=groovy
 augroup END
@@ -227,7 +215,6 @@ set wrap
 " => Visual mode related
 """"""""""""""""""""""""""""""
 " Visual mode pressing * or # searches for the current selection
-" Super useful! From an idea by Michael Naumann
 vnoremap <silent> * :call VisualSelection('f', '')<CR>
 vnoremap <silent> # :call VisualSelection('b', '')<CR>
 
@@ -235,7 +222,7 @@ vnoremap <silent> # :call VisualSelection('b', '')<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Treat long lines as break lines (useful when moving around in them)
+" Treat long lines as break lines
 map j gj
 map k gk
 
@@ -261,11 +248,6 @@ map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
 map <leader>t<leader> :tabnext
 
-" Let 'tl' toggle between this and the last accessed tab
-let g:lasttab = 1
-nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
-au TabLeave * let g:lasttab = tabpagenr()
-
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
@@ -281,11 +263,13 @@ catch
 endtry
 
 " Return to last edit position when opening files (You want this!)
-autocmd BufReadPost *
-     \ if &filetype != "gitcommit" && line("'\"") > 0
-     \     && line("'\"") <= line("$") |
-     \   exe "normal! g`\"" |
-     \ endif
+augroup lastedit
+  autocmd BufReadPost *
+        \ if &filetype != "gitcommit" && line("'\"") > 0
+        \     && line("'\"") <= line("$") |
+        \   exe "normal! g`\"" |
+        \ endif
+augroup END
 " Remember info about open buffers on close
 set viminfo^=%
 
@@ -323,15 +307,6 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Pressing ,ss will toggle and untoggle spell checking
-map <leader>ss :setlocal spell!<cr>
-
-" Shortcuts using <leader>
-map <leader>sn ]s
-map <leader>sp [s
-map <leader>sa zg
-map <leader>s? z=
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
@@ -339,70 +314,13 @@ map <leader>s? z=
 " Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
-" Toggle paste mode on and off
+" Toggle paste mode
 map <leader>pp :setlocal paste!<cr>
+
+" Toggle spell checking
+map <leader>ss :setlocal spell!<cr>
 
 " Local config
 if filereadable($HOME . '/.vimrc.local')
   source ~/.vimrc.local
 endif
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Helper functions
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! CmdLine(str)
-    exe 'menu Foo.Bar :' . a:str
-    emenu Foo.Bar
-    unmenu Foo
-endfunction
-
-function! VisualSelection(direction, extra_filter) range
-    let l:saved_reg = @"
-    execute 'normal! vgvy'
-
-    let l:pattern = escape(@", '\\/.*$^~[]')
-    let l:pattern = substitute(l:pattern, '\n$', '', '')
-
-    if a:direction == 'b'
-        execute 'normal ?' . l:pattern . '^M'
-    elseif a:direction == 'gv'
-        call CmdLine('Ag "' . l:pattern . '" ' )
-    elseif a:direction == 'replace'
-        call CmdLine('%s' . '/'. l:pattern . '/')
-    elseif a:direction == 'f'
-        execute 'normal /' . l:pattern . '^M'
-    endif
-
-    let @/ = l:pattern
-    let @" = l:saved_reg
-endfunction
-
-" Returns true if paste mode is enabled
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    endif
-    return ''
-endfunction
-
-" Don't close window, when deleting a buffer
-command! Bclose call <SID>BufcloseCloseIt()
-function! <SID>BufcloseCloseIt()
-   let l:currentBufNum = bufnr('%')
-   let l:alternateBufNum = bufnr('#')
-
-   if buflisted(l:alternateBufNum)
-     buffer #
-   else
-     bnext
-   endif
-
-   if bufnr('%') == l:currentBufNum
-     new
-   endif
-
-   if buflisted(l:currentBufNum)
-     execute('bdelete! '.l:currentBufNum)
-   endif
-endfunction
