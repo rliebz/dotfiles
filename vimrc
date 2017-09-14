@@ -12,7 +12,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
-Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
 Plug 'wellle/targets.vim'
 Plug 'Yggdroot/indentLine'
 " Language-specific plugins
@@ -46,6 +46,10 @@ command W w !sudo tee % > /dev/null
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ale
+let g:ale_linters = {'go': ['gometalinter']}
+let g:ale_go_metalinter_options = '--fast'
+
 " indentLine: Enable leading spaces
 let g:indentLine_enabled = 0
 let g:indentLine_leadingSpaceEnabled = 1
@@ -65,22 +69,6 @@ let g:go_fmt_command = "goimports"
 
 " vim-json
 let g:vim_json_syntax_conceal = 0
-
-" syntastic: General settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" syntastic: Language-specific settings
-let g:syntastic_go_checkers = ["gometalinter"]
-let g:syntastic_go_gometalinter_args = "--fast"
-
-" syntastic: Custom mappings
-map <leader>c gc
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
