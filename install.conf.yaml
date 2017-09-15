@@ -1,6 +1,7 @@
+---
 - defaults:
     link:
-        relink: true
+      relink: true
 
 - clean: ['~']
 
@@ -9,6 +10,8 @@
     ~/.editorconfig: editorconfig
     ~/.gitconfig: gitconfig
     ~/.gitignore: gitignore
+    ~/.mdlrc: mdlrc
+    ~/.mdlstyle: mdlstyle
     ~/.pylintrc: pylintrc
     ~/.vim: vim
     ~/.vimrc: vimrc
