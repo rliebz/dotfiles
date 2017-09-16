@@ -154,7 +154,7 @@ call s:h("Todo",        { "fg": s:magenta }) " anything that needs extra attenti
 " | Highlighting Groups (descriptions and ordering from `:h hitest.vim`) |
 " +----------------------------------------------------------------------+
 
-call s:h("ColorColumn", { "bg": s:dark_blue }) " used for the columns set with 'colorcolumn'
+call s:h("ColorColumn", { "bg": s:bright_black }) " used for the columns set with 'colorcolumn'
 call s:h("Conceal",     {}) " placeholder characters substituted for concealed text (see 'conceallevel')
 call s:h("Cursor",      { "fg": s:black, "bg": s:blue }) " the character under the cursor
 call s:h("CursorIM",    {}) " like Cursor, but used when in IME mode
@@ -166,7 +166,7 @@ call s:h("DiffChange",  { "fg": s:dark_yellow }) " diff mode: Changed line
 call s:h("DiffDelete",  { "fg": s:red }) " diff mode: Deleted line
 call s:h("DiffText",    { "fg": s:blue }) " diff mode: Changed text within a changed line
 call s:h("ErrorMsg",    { "fg": s:dark_red }) " error messages on the command line
-call s:h("VertSplit",   { "fg": s:vertsplit }) " the column separating vertically split windows
+call s:h("VertSplit",   { "fg": s:vertsplit, "bg": s:vertsplit }) " the column separating vertically split windows
 call s:h("Folded",      {}) " line used for closed folds
 call s:h("FoldColumn",  {}) " 'foldcolumn'
 call s:h("SignColumn",  {}) " column where signs are displayed
@@ -189,16 +189,16 @@ call s:h("SpellBad",    { "fg": s:red }) " Word that is not recognized by the sp
 call s:h("SpellCap",    { "fg": s:dark_yellow }) " Word that should start with a capital. This will be combined with the highlighting used otherwise.
 call s:h("SpellLocal",  { "fg": s:dark_yellow }) " Word that is recognized by the spellchecker as one that is used in another region. This will be combined with the highlighting used otherwise.
 call s:h("SpellRare",   { "fg": s:dark_yellow }) " Word that is recognized by the spellchecker as one that is hardly ever used. spell This will be combined with the highlighting used otherwise.
-call s:h("StatusLine",  { "fg": s:black, "bg": s:dark_cyan }) " status line of current window
-call s:h("StatusLineNC", { "fg": s:comment_grey }) " status lines of not-current windows Note: if this is equal to 'StatusLine' Vim will use '^^^' in the status line of the current window.
+call s:h("StatusLine",  { "fg": s:cyan, "bg": s:dark_cyan }) " status line of current window
+call s:h("StatusLineNC", { "fg": s:comment_grey, "bg": s:bright_black }) " status lines of not-current windows Note: if this is equal to 'StatusLine' Vim will use '^^^' in the status line of the current window.
 call s:h("TabLine",     { "fg": s:black, "bg": s:dark_cyan }) " tab pages line, not active tab page label
 call s:h("TabLineFill", { "fg": s:white, "bg": s:bright_black }) " tab pages line, where there are no labels
 call s:h("TabLineSel",  { "fg": s:black, "bg": s:cyan }) " tab pages line, active tab page label
-call s:h("Title",       { "fg": s:green }) " titles for output from ":set all", ":autocmd" etc.
+call s:h("Title",       { "fg": s:bright_black }) " titles for output from ":set all", ":autocmd" etc.
 call s:h("Visual",      { "fg": s:visual_black, "bg": s:visual_grey }) " Visual mode selection
 call s:h("VisualNOS",   { "bg": s:visual_grey }) " Visual mode selection when vim is 'Not Owning the Selection'. Only X11 Gui's gui-x11 and xterm-clipboard supports this.
 call s:h("WarningMsg",  { "fg": s:dark_yellow }) " warning messages
-call s:h("WildMenu",    {}) " current match in 'wildmenu' completion
+call s:h("WildMenu",    { "fg": s:white, "bg": s:dark_cyan }) " current match in 'wildmenu' completion
 
 " +--------------------------------+
 " | Language-Specific Highlighting |

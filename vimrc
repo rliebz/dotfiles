@@ -39,11 +39,14 @@ set updatetime=250
 " like <leader>w saves the current file
 let g:mapleader = ','
 
+" Fast reload vimrc
+nmap <leader>v :source ~/.vimrc<cr>
+
 " Fast saving
 nmap <leader>w :w!<cr>
 
 " :W sudo saves the file
-command W w !sudo tee % > /dev/null
+command! W w !sudo tee % > /dev/null
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -240,7 +243,7 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Close the current buffer
-map <leader>bd :Bclose<cr>:tabclose<cr>gT
+map <leader>bd :bd<cr>
 
 " Close all the buffers
 map <leader>ba :bufdo bd<cr>
@@ -253,7 +256,6 @@ map <leader>tm :tabmove
 map <leader>t<leader> :tabnext
 
 " Opens a new tab with the current buffer's path
-" Super useful when editing files in the same directory
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 " Switch CWD to the directory of the open buffer
