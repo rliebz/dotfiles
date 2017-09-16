@@ -30,7 +30,7 @@
 	autosquash = true
 [http "https://gopkg.in"]
 	followRedirects = true
-[merge]
+[pull]
 	ff = only
 [include]
 	path = ~/.gitconfig.local
