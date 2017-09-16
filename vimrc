@@ -294,7 +294,7 @@ set statusline+=%w " preview flag
 set statusline+=%{HasPaste()}
 set statusline+=\ " separator
 " File / Direcotry
-set statusline+=File:\ %F " fule file path
+set statusline+=File:\ %f " file name
 set statusline+=\ \│\  " separator
 set statusline+=Dir:\ %{WorkingDir()}
 " Right aligned
@@ -308,16 +308,23 @@ set statusline+=\ \│\  " separator
 set statusline+=%y " file type
 set statusline+=\  " whitespace
 
+function! FormatPath(path)
+  let l:path = substitute(a:path, escape($HOME, '~'), '~', '')
+  let l:gopath = substitute($GOPATH, escape($HOME, '~'), '~', '')
+  let l:path = substitute(l:path, escape(l:gopath, '~'), '$GOPATH', '')
+  return l:path
+endfunction
+
 function! WorkingDir()
-    return substitute(getcwd(), $HOME, "~", "")
+  return FormatPath(getcwd())
 endfunction
 
 " Returns true if paste mode is enabled
 function! HasPaste()
-    if &paste
-        return '[Paste]'
-    endif
-    return ''
+  if &paste
+    return '[Paste]'
+  endif
+  return ''
 endfunction
 
 
