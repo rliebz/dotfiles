@@ -12,6 +12,7 @@ set history=500
 call plug#begin('~/.vim/plugged')
 " General purpose plugins
 Plug 'airblade/vim-gitgutter'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
@@ -42,7 +43,6 @@ let g:mapleader = ','
 nmap <leader>w :w!<cr>
 
 " :W sudo saves the file
-" (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
 
 
@@ -52,6 +52,10 @@ command W w !sudo tee % > /dev/null
 " ale
 let g:ale_linters = {'go': ['gometalinter']}
 let g:ale_go_metalinter_options = '--fast'
+
+" ctrlp
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
 " indentLine: Enable leading spaces
 let g:indentLine_enabled = 0
