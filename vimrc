@@ -287,12 +287,35 @@ set viminfo^=%
 set laststatus=2
 
 " Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+" Flags
+set statusline=\   " Leading whitespace
+set statusline+=%m " modified flag
+set statusline+=%w " preview flag
+set statusline+=%{HasPaste()}
+set statusline+=\ " separator
+" File / Direcotry
+set statusline+=File:\ %F " fule file path
+set statusline+=\ \│\  " separator
+set statusline+=Dir:\ %{WorkingDir()}
+" Right aligned
+set statusline+=%= " Right aligned
+" Line / Column
+set statusline+=Line:\ %l " Line number
+set statusline+=\ \│\  " separator
+set statusline+=Col:\ %c " Column number
+" Language
+set statusline+=\ \│\  " separator
+set statusline+=%y " file type
+set statusline+=\  " whitespace
+
+function! WorkingDir()
+    return substitute(getcwd(), $HOME, "~", "")
+endfunction
 
 " Returns true if paste mode is enabled
 function! HasPaste()
     if &paste
-        return 'PASTE MODE  '
+        return '[Paste]'
     endif
     return ''
 endfunction
