@@ -310,8 +310,10 @@ set statusline+=\  " whitespace
 
 function! FormatPath(path)
   let l:path = substitute(a:path, escape($HOME, '~'), '~', '')
-  let l:gopath = substitute($GOPATH, escape($HOME, '~'), '~', '')
-  let l:path = substitute(l:path, escape(l:gopath, '~'), '$GOPATH', '')
+  if !empty($GOPATH)
+    let l:gopath = substitute($GOPATH, escape($HOME, '~'), '~', '')
+    let l:path = substitute(l:path, escape(l:gopath, '~'), '$GOPATH', '')
+  endif
   return l:path
 endfunction
 
