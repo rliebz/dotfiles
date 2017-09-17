@@ -17,6 +17,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
+Plug 'vim-scripts/BufOnly.vim'
 Plug 'w0rp/ale'
 Plug 'wellle/targets.vim'
 Plug 'Yggdroot/indentLine'
@@ -147,6 +148,7 @@ set magic
 
 " Show matching brackets when text indicator is over them
 set showmatch
+
 " How many tenths of a second to blink when matching brackets
 set matchtime=2
 
@@ -222,12 +224,23 @@ set smartindent
 set wrap
 
 
-""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Visual mode related
-""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Visual mode pressing * or # searches for the current selection
 vnoremap <silent> * :call VisualSelection('f', '')<CR>
 vnoremap <silent> # :call VisualSelection('b', '')<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Netrw
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Easy way to open file explorer
+map <leader>e :Explore<cr>
+
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_list_hide = '\.DS_Store,\.git,\.gitmodules'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -246,11 +259,13 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" Close the current buffer
-map <leader>bd :bd<cr>
-
-" Close all the buffers
-map <leader>ba :bufdo bd<cr>
+" Buffer navigation
+map <leader>bf :bfirst<cr>
+map <leader>bn :bnext<cr>
+map <leader>bp :bprevious<cr>
+map <leader>bd :bdelete<cr>
+map <leader>bo :BufOnly<cr>
+map <leader>ba :bufdo bdelete<cr>
 
 " Useful mappings for managing tabs
 map <leader>tn :tabnew<cr>
