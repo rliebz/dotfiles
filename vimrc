@@ -272,7 +272,7 @@ map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
-map <leader>t<leader> :tabnext
+map <leader>t<leader> :tabnext<cr>
 
 " Opens a new tab with the current buffer's path
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
@@ -281,11 +281,11 @@ map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " Specify the behavior when switching between buffers
-try
-  set switchbuf=useopen,usetab,newtab
-  set showtabline=2
-catch
-endtry
+set switchbuf=useopen,usetab,vsplit
+set showtabline=1
+
+" Close preview window
+map <leader>pc :pclose<cr>
 
 " Return to last edit position when opening files (You want this!)
 augroup lastedit
