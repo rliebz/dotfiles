@@ -59,6 +59,10 @@ let g:ale_go_metalinter_options = '--fast'
 " ctrlp
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_user_command = [
+      \'.git/',
+      \'git --git-dir=%s/.git ls-files -oc --exclude-standard',
+      \]
 
 " indentLine: Enable leading spaces
 let g:indentLine_enabled = 0
