@@ -178,8 +178,8 @@ call s:h("ModeMsg",     {}) " 'showmode' message (e.g., "-- INSERT --")
 call s:h("MoreMsg",     {}) " more-prompt
 call s:h("NonText",     { "fg": s:special_grey }) " '~' and '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., '>' displayed when a double-wide character doesn't fit at the end of the line).
 call s:h("Normal",      { "fg": s:white }) " normal text
-call s:h("Pmenu",       { "bg": s:bright_black }) " Popup menu: normal item.
-call s:h("PmenuSel",    { "bg": s:visual_grey }) " Popup menu: selected item.
+call s:h("Pmenu",       { "fg": s:white, "bg": s:bright_black }) " Popup menu: normal item.
+call s:h("PmenuSel",    { "fg": s:yellow, "bg": s:dark_cyan }) " Popup menu: selected item.
 call s:h("PmenuSbar",   { "bg": s:visual_grey }) " Popup menu: scrollbar.
 call s:h("PmenuThumb",  { "bg": s:white }) " Popup menu: Thumb of the scrollbar.
 call s:h("Question",    { "fg": s:magenta }) " hit-enter prompt and yes/no questions
@@ -198,7 +198,7 @@ call s:h("Title",       { "fg": s:bright_black }) " titles for output from ":set
 call s:h("Visual",      { "fg": s:visual_black, "bg": s:visual_grey }) " Visual mode selection
 call s:h("VisualNOS",   { "bg": s:visual_grey }) " Visual mode selection when vim is 'Not Owning the Selection'. Only X11 Gui's gui-x11 and xterm-clipboard supports this.
 call s:h("WarningMsg",  { "fg": s:dark_yellow }) " warning messages
-call s:h("WildMenu",    { "fg": s:white, "bg": s:dark_cyan }) " current match in 'wildmenu' completion
+call s:h("WildMenu",    { "fg": s:yellow, "bg": s:dark_cyan }) " current match in 'wildmenu' completion
 
 " +--------------------------------+
 " | Language-Specific Highlighting |
