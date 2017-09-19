@@ -49,6 +49,14 @@ nmap <leader>w :w!<cr>
 " :W sudo saves the file
 command! W w !sudo tee % > /dev/null
 
+" Autocomplete
+set completeopt=menuone
+inoremap <C-Space> <C-x><C-o>
+imap <C-@> <C-Space>
+imap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-g>u\<Tab>"
+imap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-g>u\<S-Tab>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
