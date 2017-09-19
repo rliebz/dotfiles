@@ -247,7 +247,6 @@ vnoremap <silent> # :call VisualSelection('b', '')<CR>
 map <leader>e :Explore<cr>
 
 let g:netrw_banner = 0
-let g:netrw_liststyle = 3
 let g:netrw_list_hide = '\.DS_Store,\.git,\.gitmodules'
 
 
@@ -275,12 +274,13 @@ map <leader>bd :bdelete<cr>
 map <leader>bo :BufOnly<cr>
 map <leader>ba :bufdo bdelete<cr>
 
-" Useful mappings for managing tabs
-map <leader>tn :tabnew<cr>
+" Tab navigation
+map <leader>te :tabedit<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
+map <leader>tn :tabnext<cr>
+map <leader>tp :tabprevious<cr>
 map <leader>tm :tabmove
-map <leader>t<leader> :tabnext<cr>
 
 " Opens a new tab with the current buffer's path
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
@@ -290,7 +290,7 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " Specify the behavior when switching between buffers
 set switchbuf=useopen,usetab,vsplit
-set showtabline=1
+set showtabline=2
 
 " Close preview window
 map <leader>pc :pclose<cr>
