@@ -92,9 +92,6 @@ let s:gutter_fg_grey    = s:dark_cyan
 let s:gutter_bg_grey    = s:black
 let s:vertsplit         = s:dark_cyan
 
-" Cursor color
-let s:cursor_grey       = s:dark_cyan
-
 " Visual highlighting
 let s:visual_grey       = s:dark_cyan
 let s:visual_black      = s:black
@@ -157,8 +154,8 @@ call s:h('ColorColumn', { 'bg': s:bright_black }) " used for the columns set wit
 call s:h('Conceal',     {}) " placeholder characters substituted for concealed text (see 'conceallevel')
 call s:h('Cursor',      { 'fg': s:black, 'bg': s:blue }) " the character under the cursor
 call s:h('CursorIM',    {}) " like Cursor, but used when in IME mode
-call s:h('CursorColumn', { 'bg': s:cursor_grey }) " the screen column that the cursor is in when 'cursorcolumn' is set
-call s:h('CursorLine',  { 'bg': s:cursor_grey }) " the screen line that the cursor is in when 'cursorline' is set
+call s:h('CursorColumn', { 'bg': s:bright_black }) " the screen column that the cursor is in when 'cursorcolumn' is set
+call s:h('CursorLine',  { 'bg': s:bright_black }) " the screen line that the cursor is in when 'cursorline' is set
 call s:h('Directory',   {}) " directory names (and other special names in listings)
 call s:h('DiffAdd',     { 'fg': s:green }) " diff mode: Added line
 call s:h('DiffChange',  { 'fg': s:dark_yellow }) " diff mode: Changed line
@@ -172,8 +169,8 @@ call s:h('SignColumn',  {}) " column where signs are displayed
 call s:h('IncSearch',   { 'fg': s:visual_black, 'bg': s:visual_grey }) " 'incsearch' highlighting; also used for the text replaced with ':s///c'
 call s:h('LineNr',      { 'fg': s:gutter_fg_grey, 'bg': s:gutter_bg_grey }) " Line number for ':number' and ':#' commands, and when 'number' or 'relativenumber' option is set.
 call s:h('CursorLineNr', {}) " Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-call s:h('MatchParen',  { 'fg': s:blue, 'gui': "underline" }) " The character under the cursor or just before it, if it is a paired bracket, and its match.
-call s:h('ModeMsg',     {}) " 'showmode' message (e.g., "-- INSERT --")
+call s:h('MatchParen',  { 'fg': s:blue, 'gui': 'underline' }) " The character under the cursor or just before it, if it is a paired bracket, and its match.
+call s:h('ModeMsg',     {}) " 'showmode' message (e.g., '-- INSERT --')
 call s:h('MoreMsg',     {}) " more-prompt
 call s:h('NonText',     { 'fg': s:special_grey }) " '~' and '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., '>' displayed when a double-wide character doesn't fit at the end of the line).
 call s:h('Normal',      { 'fg': s:white }) " normal text
