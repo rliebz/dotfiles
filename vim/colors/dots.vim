@@ -190,8 +190,8 @@ call s:h('StatusLineNC', { 'fg': s:comment_grey, 'bg': s:bright_black }) " statu
 call s:h('TabLine',     { 'fg': s:black, 'bg': s:dark_cyan }) " tab pages line, not active tab page label
 call s:h('TabLineFill', { 'fg': s:white, 'bg': s:bright_black }) " tab pages line, where there are no labels
 call s:h('TabLineSel',  { 'fg': s:black, 'bg': s:cyan }) " tab pages line, active tab page label
-call s:h('Title',       { 'fg': s:bright_black }) " titles for output from ":set all", ":autocmd" etc.
-call s:h('Visual',      { 'fg': s:visual_black, 'bg': s:visual_grey }) " Visual mode selection
+call s:h('Title',       { 'fg': s:red, 'gui': 'bold', 'cterm': 'bold' }) " titles for output from ':set all', ':autocmd' etc.
+call s:h('Visual',      { 'bg': s:dark_green }) " Visual mode selection
 call s:h('VisualNOS',   { 'bg': s:visual_grey }) " Visual mode selection when vim is 'Not Owning the Selection'. Only X11 Gui's gui-x11 and xterm-clipboard supports this.
 call s:h('WarningMsg',  { 'fg': s:dark_yellow }) " warning messages
 call s:h('WildMenu',    { 'fg': s:yellow, 'bg': s:dark_cyan }) " current match in 'wildmenu' completion
