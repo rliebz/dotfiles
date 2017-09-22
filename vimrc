@@ -298,7 +298,7 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " Specify the behavior when switching between buffers
 set switchbuf=useopen,usetab,vsplit
-set showtabline=2
+set showtabline=1
 
 " Close preview window
 map <leader>pc :pclose<cr>

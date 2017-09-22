@@ -33,16 +33,18 @@ let s:p.normal.left = [ [ s:black, s:blue ], [ s:black, s:cyan ] ]
 let s:p.insert.left = [ [ s:black, s:yellow ], [ s:black, s:cyan ] ]
 let s:p.replace.left = [ [ s:black, s:magenta ], [ s:black, s:cyan ] ]
 let s:p.visual.left = [ [ s:black, s:green ], [ s:black, s:cyan ] ]
-
 let s:p.normal.right = [ [ s:black, s:white ], [ s:black, s:cyan ] ]
 let s:p.normal.middle = [ [ s:black, s:dark_cyan ] ]
+
 let s:p.inactive.right = [ [ s:black, s:bright_black ], [ s:black, s:bright_black ] ]
 let s:p.inactive.left =  [ [ s:black, s:bright_black ], [ s:black, s:bright_black ] ]
 let s:p.inactive.middle = [ [ s:black, s:bright_black ] ]
-let s:p.tabline.left = [ [ s:white, s:dark_green ] ]
-let s:p.tabline.tabsel = [ [ s:white, s:black ] ]
-let s:p.tabline.middle = [ [ s:dark_green, s:white ] ]
-let s:p.tabline.right = copy(s:p.normal.right)
+
+let s:p.tabline.left = [ [ s:black, s:dark_cyan ] ]
+let s:p.tabline.tabsel = [ [ s:black, s:cyan ] ]
+let s:p.tabline.middle = [ [ s:black, s:bright_black ] ]
+let s:p.tabline.right = [ [ s:black, s:dark_cyan ] ]
+
 let s:p.normal.error = [ [ s:white, s:red ] ]
 let s:p.normal.warning = [ [ s:black, s:yellow ] ]
 
