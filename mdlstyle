@@ -3,6 +3,7 @@ all
 
 exclude_rule "MD002" # first header should be level 1
 exclude_rule "MD022" # headers should be surrounded by blank lines
+exclude_rule "MD024" # multiple headers with the same content
 exclude_rule "MD025" # only 1 level 1 header
 exclude_rule "MD029" # ordered list item prefix: ones vs. ordered
 exclude_rule "MD032" # lists should be surrounded by blank lines
