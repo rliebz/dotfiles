@@ -36,9 +36,9 @@ let s:p.visual.left = [ [ s:black, s:green ], [ s:black, s:cyan ] ]
 let s:p.normal.right = [ [ s:black, s:white ], [ s:black, s:cyan ] ]
 let s:p.normal.middle = [ [ s:black, s:dark_cyan ] ]
 
-let s:p.inactive.right = [ [ s:black, s:bright_black ], [ s:black, s:bright_black ] ]
-let s:p.inactive.left =  [ [ s:black, s:bright_black ], [ s:black, s:bright_black ] ]
-let s:p.inactive.middle = [ [ s:black, s:bright_black ] ]
+let s:p.inactive.right = [ [ s:dark_cyan, s:bright_black ], [ s:dark_cyan, s:bright_black ] ]
+let s:p.inactive.left =  [ [ s:dark_cyan, s:bright_black ], [ s:dark_cyan, s:bright_black ] ]
+let s:p.inactive.middle = [ [ s:dark_cyan, s:bright_black ] ]
 
 let s:p.tabline.left = [ [ s:black, s:dark_cyan ] ]
 let s:p.tabline.tabsel = [ [ s:black, s:cyan ] ]

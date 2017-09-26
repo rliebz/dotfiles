@@ -64,6 +64,8 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " => Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ale
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '>>'
 let g:ale_linters = {'go': ['gometalinter']}
 let g:ale_go_metalinter_options = '--fast'
 

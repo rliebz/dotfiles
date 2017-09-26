@@ -88,13 +88,14 @@ let s:comment_grey      = s:dark_white
 let s:special_grey      = s:bright_black
 
 " Gutter on left of screen and vertical dividers
-let s:gutter_fg_grey    = s:dark_cyan
-let s:gutter_bg_grey    = s:black
+let s:gutter_fg         = s:dark_cyan
+let s:gutter_bg         = s:bright_black
 let s:vertsplit         = s:dark_cyan
 
 " Visual highlighting
-let s:visual_grey       = s:dark_cyan
-let s:visual_black      = s:black
+let s:visual_bg         = s:dark_green
+let s:search_bg         = s:dark_cyan
+let s:search_fg         = s:yellow
 
 " +---------------------------------------------------------+
 " | Syntax Groups (descriptions and ordering from `:h w18`) |
@@ -142,7 +143,7 @@ call s:h('Underlined',  {}) " text that stands out, HTML links
 
 call s:h('Ignore',      {}) " left blank, hidden
 
-call s:h('Error',       { 'fg': s:red, 'bg': s:gutter_bg_grey }) " any erroneous construct
+call s:h('Error',       { 'fg': s:red, 'bg': s:gutter_bg }) " any erroneous construct
 
 call s:h('Todo',        { 'fg': s:magenta }) " anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
@@ -166,8 +167,8 @@ call s:h('VertSplit',   { 'fg': s:vertsplit, 'bg': s:vertsplit }) " the column s
 call s:h('Folded',      {}) " line used for closed folds
 call s:h('FoldColumn',  {}) " 'foldcolumn'
 call s:h('SignColumn',  {}) " column where signs are displayed
-call s:h('IncSearch',   { 'fg': s:visual_black, 'bg': s:visual_grey }) " 'incsearch' highlighting; also used for the text replaced with ':s///c'
-call s:h('LineNr',      { 'fg': s:gutter_fg_grey, 'bg': s:gutter_bg_grey }) " Line number for ':number' and ':#' commands, and when 'number' or 'relativenumber' option is set.
+call s:h('IncSearch',   { 'fg': s:search_fg, 'bg': s:search_bg }) " 'incsearch' highlighting; also used for the text replaced with ':s///c'
+call s:h('LineNr',      { 'fg': s:gutter_fg, 'bg': s:gutter_bg }) " Line number for ':number' and ':#' commands, and when 'number' or 'relativenumber' option is set.
 call s:h('CursorLineNr', {}) " Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 call s:h('MatchParen',  { 'fg': s:blue, 'gui': 'underline' }) " The character under the cursor or just before it, if it is a paired bracket, and its match.
 call s:h('ModeMsg',     {}) " 'showmode' message (e.g., '-- INSERT --')
@@ -176,10 +177,10 @@ call s:h('NonText',     { 'fg': s:special_grey }) " '~' and '@' at the end of th
 call s:h('Normal',      { 'fg': s:white }) " normal text
 call s:h('Pmenu',       { 'fg': s:white, 'bg': s:bright_black }) " Popup menu: normal item.
 call s:h('PmenuSel',    { 'fg': s:yellow, 'bg': s:dark_cyan }) " Popup menu: selected item.
-call s:h('PmenuSbar',   { 'bg': s:visual_grey }) " Popup menu: scrollbar.
+call s:h('PmenuSbar',   { 'bg': s:dark_cyan }) " Popup menu: scrollbar.
 call s:h('PmenuThumb',  { 'bg': s:white }) " Popup menu: Thumb of the scrollbar.
 call s:h('Question',    { 'fg': s:magenta }) " hit-enter prompt and yes/no questions
-call s:h('Search',      { 'bg': s:visual_grey }) " Last search pattern highlighting (see 'hlsearch'). Also used for highlighting the current line in the quickfix window and similar items that need to stand out.
+call s:h('Search',      { 'bg': s:search_bg }) " Last search pattern highlighting (see 'hlsearch'). Also used for highlighting the current line in the quickfix window and similar items that need to stand out.
 call s:h('SpecialKey',  { 'fg': s:special_grey }) " Meta and special keys listed with ':map', also for text used to show unprintable characters in the text, 'listchars'. Generally: text that is displayed differently from what it really is.
 call s:h('SpellBad',    { 'fg': s:red }) " Word that is not recognized by the spellchecker. This will be combined with the highlighting used otherwise.
 call s:h('SpellCap',    { 'fg': s:dark_yellow }) " Word that should start with a capital. This will be combined with the highlighting used otherwise.
@@ -191,8 +192,8 @@ call s:h('TabLine',     { 'fg': s:black, 'bg': s:dark_cyan }) " tab pages line, 
 call s:h('TabLineFill', { 'fg': s:white, 'bg': s:bright_black }) " tab pages line, where there are no labels
 call s:h('TabLineSel',  { 'fg': s:black, 'bg': s:cyan }) " tab pages line, active tab page label
 call s:h('Title',       { 'fg': s:red, 'gui': 'bold', 'cterm': 'bold' }) " titles for output from ':set all', ':autocmd' etc.
-call s:h('Visual',      { 'bg': s:dark_green }) " Visual mode selection
-call s:h('VisualNOS',   { 'bg': s:visual_grey }) " Visual mode selection when vim is 'Not Owning the Selection'. Only X11 Gui's gui-x11 and xterm-clipboard supports this.
+call s:h('Visual',      { 'bg': s:visual_bg }) " Visual mode selection
+call s:h('VisualNOS',   { 'bg': s:visual_bg }) " Visual mode selection when vim is 'Not Owning the Selection'. Only X11 Gui's gui-x11 and xterm-clipboard supports this.
 call s:h('WarningMsg',  { 'fg': s:dark_yellow }) " warning messages
 call s:h('WildMenu',    { 'fg': s:yellow, 'bg': s:dark_cyan }) " current match in 'wildmenu' completion
 
@@ -219,11 +220,17 @@ call s:h('pythonBuiltinFunc',       { 'fg': s:dark_blue })
 " | Plugin Highlighting |
 " +---------------------+
 
-" Signify, git-gutter
+" ALE
+call s:h('ALEErrorSign',   {'fg': s:red, 'bg': s:gutter_bg })
+call s:h('ALEWarningSign', {'fg': s:yellow, 'bg': s:gutter_bg })
+
+" Signify
 hi link SignifySignAdd              LineNr
 hi link SignifySignDelete           LineNr
 hi link SignifySignChange           LineNr
-call s:h('GitGutterAdd',            { 'fg': s:green, 'bg': s:gutter_bg_grey })
-call s:h('GitGutterDelete',         { 'fg': s:red, 'bg': s:gutter_bg_grey })
-call s:h('GitGutterChange',         { 'fg': s:yellow, 'bg': s:gutter_bg_grey })
-call s:h('GitGutterChangeDelete',   { 'fg': s:red, 'bg': s:gutter_bg_grey })
+
+" GitGutter
+call s:h('GitGutterAdd',            { 'fg': s:green, 'bg': s:gutter_bg })
+call s:h('GitGutterDelete',         { 'fg': s:red, 'bg': s:gutter_bg })
+call s:h('GitGutterChange',         { 'fg': s:yellow, 'bg': s:gutter_bg })
+call s:h('GitGutterChangeDelete',   { 'fg': s:red, 'bg': s:gutter_bg })
