@@ -143,7 +143,7 @@ call s:h('Underlined',  {}) " text that stands out, HTML links
 
 call s:h('Ignore',      {}) " left blank, hidden
 
-call s:h('Error',       { 'fg': s:red, 'bg': s:gutter_bg }) " any erroneous construct
+call s:h('Error',       { 'bg': s:dark_red }) " any erroneous construct
 
 call s:h('Todo',        { 'fg': s:magenta }) " anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
