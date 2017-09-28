@@ -10,6 +10,7 @@ set history=500
 
 " Include plugins
 call plug#begin('~/.vim/plugged')
+
 " General purpose plugins
 Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -23,13 +24,17 @@ Plug 'vim-scripts/BufOnly.vim'
 Plug 'w0rp/ale'
 Plug 'wellle/targets.vim'
 Plug 'Yggdroot/indentLine'
+
 " Language-specific plugins
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'hashivim/vim-terraform'
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
+
 call plug#end()
 
 " Set to auto read when a file is changed from the outside
@@ -66,7 +71,14 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " ale
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '>>'
-let g:ale_linters = {'go': ['gometalinter']}
+
+" ale: Status-line options
+let g:ale_echo_msg_format = '[%linter%]: %s'
+
+" ale: Language-specific options
+let g:ale_linters = {
+      \'go': ['gometalinter'],
+      \}
 let g:ale_go_metalinter_options = '--fast'
 
 " ctrlp
@@ -91,6 +103,9 @@ let g:python_highlight_all = 1
 
 " gitgutter: Always show sign column
 set signcolumn=yes
+
+" tsuquyomi: Let ale do the linting
+let g:tsuquyomi_disable_quickfix = 1
 
 " vim-commentary: Custom mappings
 map <leader>c gc
