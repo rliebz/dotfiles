@@ -1,7 +1,8 @@
 # Load custom completion functions
 fpath=(
-  ${HOME}/.zsh/completions
-  /usr/local/share/zsh/site-functions
+  "${HOME}/.zsh/completions"
+  "/usr/local/share/zsh/site-functions"
+  "${VENDOR_PATH}/zsh-completions/src"
   ${fpath}
 )
 
