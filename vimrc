@@ -120,6 +120,14 @@ let g:vim_json_syntax_conceal = 0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Language-specific settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:markdown_fenced_languages = [
+      \'html', 'python', 'go', 'javascript', 'bash=sh', 'yaml',
+      \]
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Always show the status line
