@@ -103,7 +103,11 @@ let g:lightline = { 'colorscheme': 'dots' }
 let g:python_highlight_all = 1
 
 " gitgutter: Always show sign column
-set signcolumn=yes
+if exists('&signcolumn')
+  set signcolumn=yes
+else
+  let g:gitgutter_sign_column_always = 1
+endif
 
 " tsuquyomi: Let ale do the linting
 let g:tsuquyomi_disable_quickfix = 1
