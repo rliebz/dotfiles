@@ -78,6 +78,7 @@ let g:ale_echo_msg_format = '[%linter%]: %s'
 " ale: Language-specific options
 let g:ale_linters = {
       \'go': ['gometalinter'],
+      \'typescript': ['prettier', 'tslint', 'tsserver'],
       \}
 let g:ale_go_metalinter_options = '--fast'
 
