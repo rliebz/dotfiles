@@ -13,9 +13,9 @@ call plug#begin('~/.vim/plugged')
 
 " General purpose plugins
 Plug 'airblade/vim-gitgutter'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
+Plug 'Shougo/denite.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
@@ -82,13 +82,30 @@ let g:ale_linters = {
       \}
 let g:ale_go_metalinter_options = '--fast'
 
-" ctrlp
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_user_command = [
-      \'.git/',
-      \'git --git-dir=%s/.git ls-files -oc --exclude-standard',
-      \]
+" denite
+call denite#custom#var('file_rec', 'command',
+      \ ['rg', '--files', '--glob', '!.git', ''])
+call denite#custom#var('grep', 'command', ['rg'])
+call denite#custom#var('grep', 'default_opts',
+      \ ['--hidden', '--vimgrep', '--no-heading', '-S'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+call denite#custom#map(
+      \ 'insert',
+      \ '<C-j>',
+      \ '<denite:move_to_next_line>',
+      \ 'noremap'
+      \)
+call denite#custom#map(
+      \ 'insert',
+      \ '<C-k>',
+      \ '<denite:move_to_previous_line>',
+      \ 'noremap'
+      \)
+nnoremap <C-p> :<C-u>Denite file_rec<CR>
+nnoremap <C-f> :<C-u>Denite grep:. -mode=normal<CR>
 
 " indentLine: Enable leading spaces
 let g:indentLine_enabled = 0
