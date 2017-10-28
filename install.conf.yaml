@@ -6,7 +6,12 @@
 - clean: ['~']
 
 - link:
-    ~/.config/flake8: flake8
+    ~/.config/flake8:
+      create: true
+      path: flake8
+    ~/.config/yamllint/config:
+      create: true
+      path: yamllint
     ~/.editorconfig: editorconfig
     ~/.gitconfig: gitconfig
     ~/.gitignore: gitignore
