@@ -55,4 +55,5 @@ The following local dotfiles files are supported:
 - `~/.gitconfig.local`
 - `~/.vimrc.local`
 - `~/.zshrc.local`
+- `~/.secrets.local`
 - `~/.zsh/configs/*`

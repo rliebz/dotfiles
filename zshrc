@@ -38,3 +38,4 @@ _load_settings "${HOME}/.zsh/configs"
 
 # Load local configuration settings
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+[[ -f ~/.secrets.local ]] && source ~/.secrets.local
