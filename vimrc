@@ -28,9 +28,10 @@ Plug 'Yggdroot/indentLine'
 " Language-specific plugins
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'hashivim/vim-terraform'
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'hashivim/vim-terraform'
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
@@ -149,6 +150,7 @@ let g:vim_json_syntax_conceal = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Language-specific settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:markdown_syntax_conceal = 0
 let g:markdown_fenced_languages = [
       \'html', 'python', 'go', 'javascript', 'bash=sh', 'yaml',
       \]
