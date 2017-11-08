@@ -132,6 +132,11 @@ let g:tsuquyomi_disable_quickfix = 1
 " vim-commentary: Custom mappings
 map <leader>c gc
 
+" vim-commentary: Language settings
+augroup commentary
+  autocmd FileType markdown setlocal commentstring=<!--%s-->
+augroup END
+
 " vim-go: Avoid conflicts with syntastic
 let g:go_fmt_fail_silently = 1
 let g:go_list_type = 'quickfix'
