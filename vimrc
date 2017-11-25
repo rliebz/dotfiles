@@ -140,6 +140,8 @@ augroup END
 
 " vim-go: Avoid conflicts with syntastic
 let g:go_fmt_fail_silently = 1
+
+" vim-go: Various settings
 let g:go_list_type = 'quickfix'
 let g:go_fmt_command = 'goimports'
 
