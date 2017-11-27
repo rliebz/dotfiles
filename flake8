@@ -1,5 +1,8 @@
 [flake8]
 max-line-length = 100
+ignore =
+    E266,  # Multiple leading # for block comment
+    W503,  # Line break before binary operator
 exclude =
     .git,
     __pycache__,
