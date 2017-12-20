@@ -26,6 +26,7 @@ Plug 'wellle/targets.vim'
 Plug 'Yggdroot/indentLine'
 
 " Language-specific plugins
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
