@@ -274,6 +274,10 @@ set noswapfile
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 1 tab == 4 spaces
+set shiftwidth=4
+set tabstop=4
+
 augroup filetypedetect
     au BufRead,BufNewFile Jenkinsfile set filetype=groovy
 augroup END
