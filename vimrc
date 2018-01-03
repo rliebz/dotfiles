@@ -26,6 +26,7 @@ Plug 'wellle/targets.vim'
 Plug 'Yggdroot/indentLine'
 
 " Language-specific plugins
+Plug 'ekalinin/Dockerfile.vim'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'fatih/vim-go', { 'for': 'go' }
@@ -78,6 +79,9 @@ let g:ale_sign_warning = '>>'
 let g:ale_echo_msg_format = '[%linter%%: code%] %s'
 
 " ale: Language-specific options
+let g:ale_linter_aliases = {
+      \'docker-compose': ['yaml'],
+      \}
 let g:ale_linters = {
       \'go': ['gometalinter'],
       \'typescript': ['prettier', 'tslint', 'tsserver'],
