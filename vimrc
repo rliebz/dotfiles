@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
+Plug 'janko-m/vim-test'
 Plug 'Shougo/denite.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
@@ -131,6 +132,12 @@ if exists('&signcolumn')
 else
   let g:gitgutter_sign_column_always = 1
 endif
+
+" test
+nmap <silent> <leader>tn :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>ts :TestSuite<CR>
+nmap <silent> <leader>tl :TestLast<CR>
 
 " tsuquyomi: Let ale do the linting
 let g:tsuquyomi_disable_quickfix = 1
