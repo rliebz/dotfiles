@@ -349,7 +349,7 @@ map <leader>hc :helpclose<cr>
 map <leader>pc :pclose<cr>
 
 " Close quickfix window
-map <leader>qc cclose<cr>
+map <leader>qc :cclose<cr>
 
 " Return to last edit position when opening files (You want this!)
 augroup lastedit
