@@ -335,8 +335,14 @@ map <leader>ba :bufdo bdelete<cr>
 set switchbuf=useopen,vsplit
 set showtabline=1
 
+" Close help window
+map <leader>hc :helpclose<cr>
+
 " Close preview window
 map <leader>pc :pclose<cr>
+
+" Close quickfix window
+map <leader>qc cclose<cr>
 
 " Return to last edit position when opening files (You want this!)
 augroup lastedit
