@@ -331,22 +331,8 @@ map <leader>bd :bdelete<cr>
 map <leader>bo :BufOnly<cr>
 map <leader>ba :bufdo bdelete<cr>
 
-" Tab navigation
-map <leader>te :tabedit<cr>
-map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tn :tabnext<cr>
-map <leader>tp :tabprevious<cr>
-map <leader>tm :tabmove
-
-" Opens a new tab with the current buffer's path
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
-
-" Switch CWD to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>:pwd<cr>
-
 " Specify the behavior when switching between buffers
-set switchbuf=useopen,usetab,vsplit
+set switchbuf=useopen,vsplit
 set showtabline=1
 
 " Close preview window
@@ -373,9 +359,6 @@ set laststatus=2
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remap VIM 0 to first non-blank character
-map 0 ^
-
 " Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
