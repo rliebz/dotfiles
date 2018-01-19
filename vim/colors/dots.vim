@@ -213,7 +213,7 @@ call s:h('rubyInterpolationDelimiter', { 'fg': s:red })
 call s:h('pythonDecorator',         { 'fg': s:yellow, 'gui': 'bold', 'cterm': 'bold' })
 call s:h('pythonDottedName',        { 'fg': s:yellow })
 call s:h('pythonRawString',         { 'fg': s:yellow })
-call s:h('pythonBuiltinFunc',       { 'fg': s:dark_blue })
+call s:h('pythonBuiltinFunc',       { 'fg': s:blue })
 
 
 " +---------------------+
