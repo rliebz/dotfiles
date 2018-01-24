@@ -8,3 +8,6 @@ export LESS='-F -g -i -M -R -S -w -X -z-4'
 
 # Set tab size to 4
 tabs -4
+
+# Set language
+export LANG=en_US.UTF-8
