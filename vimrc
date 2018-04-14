@@ -120,8 +120,15 @@ let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar = '·'
 let g:indentLine_color_term = 8
 
+
 " lightline
-let g:lightline = { 'colorscheme': 'dots' }
+let g:lightline = {
+    \ 'colorscheme': 'dots',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'readonly', 'relativepath', 'modified' ] ]
+    \ }
+    \ }
 
 " python-syntax: Highlight python commands
 let g:python_highlight_all = 1
