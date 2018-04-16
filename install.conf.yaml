@@ -15,6 +15,7 @@
     ~/.editorconfig: editorconfig
     ~/.gitconfig: gitconfig
     ~/.gitignore: gitignore
+    ~/.hyper.js: hyper.js
     ~/.mdlrc: mdlrc
     ~/.mdlstyle: mdlstyle
     ~/.pylintrc: pylintrc
