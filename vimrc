@@ -300,9 +300,7 @@ augroup filetypedetect
     au BufRead,BufNewFile Jenkinsfile set filetype=groovy
 augroup END
 
-" Linebreak on 500 characters
-set linebreak
-set textwidth=500
+set textwidth=80
 
 set autoindent
 set smartindent
