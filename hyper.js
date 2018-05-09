@@ -136,7 +136,6 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     'hypercwd',
-    'hyperterm-cursor',
     'hyperterm-tabs',
     'hyper-search',
   ],
