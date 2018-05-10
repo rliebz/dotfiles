@@ -13,13 +13,10 @@ call plug#begin('~/.vim/plugged')
 
 " General purpose plugins
 Plug 'airblade/vim-gitgutter'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'janko-m/vim-test'
+Plug 'prabirshrestha/vim-lsp' | Plug 'prabirshrestha/async.vim'
 Plug 'Shougo/denite.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
@@ -124,19 +121,6 @@ let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar = '·'
 let g:indentLine_color_term = 8
 
-" LanguageClient-neovim
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'typescript': ['javascript-typescript-stdio'],
-    \ }
-
-augroup LanguageClient
-    let s:language_client_languages = join(keys(g:LanguageClient_serverCommands), ',')
-    execute 'autocmd FileType ' . s:language_client_languages . ' nnoremap <silent> <buffer> K :call LanguageClient#textDocument_hover()<CR>'
-    execute 'autocmd FileType ' . s:language_client_languages . ' nnoremap <silent> <buffer> <F2> :call LanguageClient#textDocument_rename()<CR>'
-augroup END
-
 " lightline
 let g:lightline = {
     \ 'colorscheme': 'dots',
@@ -182,6 +166,23 @@ let g:go_fmt_command = 'goimports'
 
 " vim-json
 let g:vim_json_syntax_conceal = 0
+
+" vim-lsp
+augroup lsp
+  autocmd FileType javascript,typescript call s:LspKeyBindings()
+  function s:LspKeyBindings()
+    nnoremap <silent> <buffer> K :LspHover<CR>
+    nnoremap <silent> <buffer> <F2> :LspRename<CR>
+  endfunction
+
+  if executable('javascript-typescript-stdio')
+    autocmd User lsp_setup call lsp#register_server({
+          \ 'name': 'javascript-typescript-langserver',
+          \ 'cmd': {server_info->[&shell, &shellcmdflag, 'javascript-typescript-stdio']},
+          \ 'whitelist': ['javascript', 'typescript'],
+          \ })
+  endif
+augroup END
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
