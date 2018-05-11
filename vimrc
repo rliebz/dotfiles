@@ -160,6 +160,7 @@ map <leader>c gc
 
 " vim-commentary: Language settings
 augroup vim_commentary_settings
+  autocmd!
   autocmd FileType markdown setlocal commentstring=<!--%s-->
 augroup END
 
@@ -175,6 +176,8 @@ let g:vim_json_syntax_conceal = 0
 
 " vim-lsp
 augroup vim_lsp_settings
+  autocmd!
+
   autocmd FileType javascript,typescript,css,less,sass call s:ConfigureLspBuffer()
   function! s:ConfigureLspBuffer()
     setlocal omnifunc=lsp#complete
@@ -330,7 +333,8 @@ set shiftwidth=4
 set tabstop=4
 
 augroup file_type_detect
-    autocmd BufRead,BufNewFile Jenkinsfile set filetype=groovy
+  autocmd!
+  autocmd BufRead,BufNewFile Jenkinsfile set filetype=groovy
 augroup END
 
 set textwidth=80
@@ -391,6 +395,7 @@ map <leader>qc :cclose<cr>
 
 " Return to last edit position when opening files (You want this!)
 augroup last_edit
+  autocmd!
   autocmd BufReadPost *
         \ if &filetype != "gitcommit" && line("'\"") > 0
         \     && line("'\"") <= line("$") |
