@@ -37,7 +37,6 @@ Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'hashivim/vim-terraform'
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 
 call plug#end()
@@ -74,10 +73,13 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " => Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ale
+let g:ale_fix_on_save = 1
+nmap <silent> <leader>an :ALENext<CR>
+nmap <silent> <leader>ap :ALEPrevious<CR>
+
+" ale: Style
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '>>'
-
-" ale: Status-line options
 let g:ale_echo_msg_format = '[%linter%%: code%] %s'
 
 " ale: Language-specific options
@@ -88,10 +90,13 @@ let g:ale_linters = {
       \'go': ['gometalinter'],
       \'typescript': ['prettier', 'tslint', 'tsserver'],
       \}
+let g:ale_fixers = {
+      \'typescript': ['prettier'],
+      \}
 let g:ale_go_metalinter_options = '--fast'
 
 " denite
-call denite#custom#var('file_rec', 'command',
+call denite#custom#var('file/rec', 'command',
       \ ['rg', '--hidden', '--files', '--glob', '!.git'])
 call denite#custom#var('grep', 'command', ['rg'])
 call denite#custom#var('grep', 'default_opts',
@@ -112,8 +117,12 @@ call denite#custom#map(
       \ '<denite:move_to_previous_line>',
       \ 'noremap'
       \)
-nnoremap <C-p> :<C-u>Denite file_rec<CR>
+nnoremap <C-p> :<C-u>Denite file/rec<CR>
 nnoremap <C-f> :<C-u>Denite grep:. -mode=normal<CR>
+
+" gitgutter
+nmap <silent> <leader>gn :GitGutterNextHunk<CR>
+nmap <silent> <leader>gp :GitGutterPrevHunk<CR>
 
 " indentLine: Enable leading spaces
 let g:indentLine_enabled = 0
@@ -146,14 +155,11 @@ nmap <silent> <leader>tf :TestFile<CR>
 nmap <silent> <leader>ts :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 
-" tsuquyomi: Let ale do the linting
-let g:tsuquyomi_disable_quickfix = 1
-
 " vim-commentary: Custom mappings
 map <leader>c gc
 
 " vim-commentary: Language settings
-augroup commentary
+augroup vim_commentary_settings
   autocmd FileType markdown setlocal commentstring=<!--%s-->
 augroup END
 
@@ -168,10 +174,12 @@ let g:go_fmt_command = 'goimports'
 let g:vim_json_syntax_conceal = 0
 
 " vim-lsp
-augroup lsp
-  autocmd FileType javascript,typescript call s:LspKeyBindings()
-  function s:LspKeyBindings()
+augroup vim_lsp_settings
+  autocmd FileType javascript,typescript,css,less,sass call s:ConfigureLspBuffer()
+  function! s:ConfigureLspBuffer()
+    setlocal omnifunc=lsp#complete
     nnoremap <silent> <buffer> K :LspHover<CR>
+    nnoremap <silent> <buffer> <C-]> :LspDefinition<CR>
     nnoremap <silent> <buffer> <F2> :LspRename<CR>
   endfunction
 
@@ -180,6 +188,14 @@ augroup lsp
           \ 'name': 'javascript-typescript-langserver',
           \ 'cmd': {server_info->[&shell, &shellcmdflag, 'javascript-typescript-stdio']},
           \ 'whitelist': ['javascript', 'typescript'],
+          \ })
+  endif
+
+  if executable('css-languageserver')
+    autocmd User lsp_setup call lsp#register_server({
+          \ 'name': 'css-languageserver',
+          \ 'cmd': {server_info->['css-languageserver --stdio']},
+          \ 'whitelist': ['css', 'less', 'sass'],
           \ })
   endif
 augroup END
@@ -313,8 +329,8 @@ set noswapfile
 set shiftwidth=4
 set tabstop=4
 
-augroup filetypedetect
-    au BufRead,BufNewFile Jenkinsfile set filetype=groovy
+augroup file_type_detect
+    autocmd BufRead,BufNewFile Jenkinsfile set filetype=groovy
 augroup END
 
 set textwidth=80
@@ -374,7 +390,7 @@ map <leader>pc :pclose<cr>
 map <leader>qc :cclose<cr>
 
 " Return to last edit position when opening files (You want this!)
-augroup lastedit
+augroup last_edit
   autocmd BufReadPost *
         \ if &filetype != "gitcommit" && line("'\"") > 0
         \     && line("'\"") <= line("$") |
