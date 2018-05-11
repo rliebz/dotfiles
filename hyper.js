@@ -61,7 +61,7 @@ module.exports = {
       background-color: black;
     }
     .tab_tab.tab_active {
-      color: ${colors.lightCyan};
+      color: ${colors.cyan};
       background-color: ${colors.black};
     }
     .tabs_title {

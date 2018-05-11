@@ -105,7 +105,7 @@ call s:h('Comment',     { 'fg': s:comment_grey, 'gui': 'italic', 'cterm': 'itali
 
 call s:h('Constant',    { 'fg': s:cyan }) " any constant
 call s:h('String',      { 'fg': s:green }) " a string constant: 'this is a string'
-call s:h('Character',   { 'fg': s:dark_green }) " a character constant: 'c', '\n'
+call s:h('Character',   { 'fg': s:dark_magenta }) " a character constant: 'c', '\n'
 call s:h('Number',      { 'fg': s:yellow }) " a number constant: 234, 0xff
 call s:h('Boolean',     { 'fg': s:red, 'gui': 'italic', 'cterm': 'italic' }) " a boolean constant: TRUE, false
 call s:h('Float',       { 'fg': s:yellow }) " a floating point constant: 2.3e10
