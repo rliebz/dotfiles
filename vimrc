@@ -196,7 +196,7 @@ augroup vim_lsp_settings
 
   if executable('css-languageserver')
     autocmd User lsp_setup call lsp#register_server({
-          \ 'name': 'css-languageserver',
+          \ 'name': 'vscode-css-languageserver-bin',
           \ 'cmd': {server_info->['css-languageserver --stdio']},
           \ 'whitelist': ['css', 'less', 'sass'],
           \ })
