@@ -107,19 +107,19 @@ call s:h('Constant',    { 'fg': s:cyan }) " any constant
 call s:h('String',      { 'fg': s:green }) " a string constant: 'this is a string'
 call s:h('Character',   { 'fg': s:dark_magenta }) " a character constant: 'c', '\n'
 call s:h('Number',      { 'fg': s:yellow }) " a number constant: 234, 0xff
-call s:h('Boolean',     { 'fg': s:red, 'gui': 'italic', 'cterm': 'italic' }) " a boolean constant: TRUE, false
+call s:h('Boolean',     { 'fg': s:cyan, 'gui': 'italic', 'cterm': 'italic' }) " a boolean constant: TRUE, false
 call s:h('Float',       { 'fg': s:yellow }) " a floating point constant: 2.3e10
 
-call s:h('Identifier',  { 'fg': s:red }) " any variable name
+call s:h('Identifier',  { 'fg': s:cyan }) " any variable name
 call s:h('Function',    { 'fg': s:blue }) " function name (also: methods for classes)
 
 call s:h('Statement',   { 'fg': s:magenta }) " any statement
 call s:h('Conditional', { 'fg': s:magenta }) " if, then, else, endif, switch, etc.
 call s:h('Repeat',      { 'fg': s:magenta }) " for, do, while, etc.
 call s:h('Label',       { 'fg': s:magenta }) " case, default, etc.
-call s:h('Operator',    { 'fg': s:magenta }) " 'sizeof', '+', '*', etc.
+call s:h('Operator',    { 'fg': s:blue }) " 'sizeof', '+', '*', etc.
 call s:h('Keyword',     { 'fg': s:red }) " any other keyword
-call s:h('Exception',   { 'fg': s:dark_red }) " try, catch, throw
+call s:h('Exception',   { 'fg': s:red }) " try, catch, throw
 
 call s:h('PreProc',     { 'fg': s:yellow }) " generic Preprocessor
 call s:h('Include',     { 'fg': s:magenta }) " preprocessor #include
@@ -182,7 +182,7 @@ call s:h('PmenuThumb',  { 'bg': s:white }) " Popup menu: Thumb of the scrollbar.
 call s:h('Question',    { 'fg': s:magenta }) " hit-enter prompt and yes/no questions
 call s:h('Search',      { 'bg': s:search_bg }) " Last search pattern highlighting (see 'hlsearch'). Also used for highlighting the current line in the quickfix window and similar items that need to stand out.
 call s:h('SpecialKey',  { 'fg': s:special_grey }) " Meta and special keys listed with ':map', also for text used to show unprintable characters in the text, 'listchars'. Generally: text that is displayed differently from what it really is.
-call s:h('SpellBad',    { 'fg': s:red }) " Word that is not recognized by the spellchecker. This will be combined with the highlighting used otherwise.
+call s:h('SpellBad',    { 'bg': s:dark_red }) " Word that is not recognized by the spellchecker. This will be combined with the highlighting used otherwise.
 call s:h('SpellCap',    { 'fg': s:yellow }) " Word that should start with a capital. This will be combined with the highlighting used otherwise.
 call s:h('SpellLocal',  { 'fg': s:yellow }) " Word that is recognized by the spellchecker as one that is used in another region. This will be combined with the highlighting used otherwise.
 call s:h('SpellRare',   { 'fg': s:yellow }) " Word that is recognized by the spellchecker as one that is hardly ever used. spell This will be combined with the highlighting used otherwise.
