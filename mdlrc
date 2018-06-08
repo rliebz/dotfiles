@@ -1,2 +1,2 @@
 #!/usr/bin/env ruby
-style "/Users/rliebz/.mdlstyle"
+style "#{Dir.home}/.mdlstyle"
