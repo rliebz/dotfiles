@@ -47,9 +47,9 @@ set autoread
 " Reduce updatetime from default 4 seconds
 set updatetime=250
 
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
-let g:mapleader = ','
+" Set leader as space
+map <space> <nop>
+let g:mapleader = ' '
 
 " Fast reload vimrc
 nmap <leader>v :source ~/.vimrc<cr>
