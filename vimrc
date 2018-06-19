@@ -220,7 +220,7 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:markdown_syntax_conceal = 0
 let g:markdown_fenced_languages = [
-      \'html', 'python', 'go', 'javascript', 'bash=sh', 'yaml',
+      \'html', 'python', 'go', 'javascript', 'bash=sh', 'typescript', 'yaml',
       \]
 
 
