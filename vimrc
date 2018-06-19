@@ -68,6 +68,8 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-g>u\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-g>u\<S-Tab>"
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
+" Variables
+let s:gutter_info_char = '●'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
@@ -79,8 +81,8 @@ nmap <silent> <leader>ap :ALEPrevious<CR>
 nmap <silent> <leader>ad :ALEDetail<CR>
 
 " ale: Style
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '>>'
+let g:ale_sign_error = s:gutter_info_char
+let g:ale_sign_warning = s:gutter_info_char
 let g:ale_echo_msg_format = '[%linter%%: code%] %s'
 
 " ale: Language-specific options
