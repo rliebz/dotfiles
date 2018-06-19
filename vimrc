@@ -233,43 +233,11 @@ set laststatus=2
 " Set number of lines to the cursor - when moving vertically using j/k
 set scrolloff=5
 
-" Avoid garbled characters in Chinese language windows OS
-let $LANG='en'
-set langmenu=en
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
-
-" Don't open preview window
-set completeopt-=preview
-
 " Turn on the WiLd menu
 set wildmenu
 
-" Ignore compiled files
-set wildignore=*.o,*~,*.pyc
-if has('win16') || has('win32')
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
-else
-    set wildignore+=.git\*,.hg\*,.svn\*
-endif
-
-"Always show current position
-set ruler
-
-" Height of the command bar
-set cmdheight=2
-
-" A buffer becomes hidden when it is abandoned
-set hidden
-
-" Configure backspace so it acts as it should act
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
-
-" Ignore case when searching
-set ignorecase
-
 " When searching try to be smart about cases
+set ignorecase
 set smartcase
 
 " Don't highlight search results
@@ -356,14 +324,6 @@ set wrap
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Visual mode related
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Visual mode pressing * or # searches for the current selection
-vnoremap <silent> * :call VisualSelection('f', '')<CR>
-vnoremap <silent> # :call VisualSelection('b', '')<CR>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Netrw
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Easy way to open file explorer
@@ -404,7 +364,7 @@ map <leader>pc :pclose<cr>
 " Close quickfix window
 map <leader>qc :cclose<cr>
 
-" Return to last edit position when opening files (You want this!)
+" Return to last edit position when opening files
 augroup last_edit
   autocmd!
   autocmd BufReadPost *
@@ -417,35 +377,9 @@ augroup END
 set viminfo^=%
 
 
-""""""""""""""""""""""""""""""
-" => Status line
-""""""""""""""""""""""""""""""
-" Always show the status line
-set laststatus=2
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Editing mappings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
-nmap <M-j> mz:m+<cr>`z
-nmap <M-k> mz:m-2<cr>`z
-vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
-
-if has('mac') || has('macunix')
-  nmap <D-j> <M-j>
-  nmap <D-k> <M-k>
-  vmap <D-j> <M-j>
-  vmap <D-k> <M-k>
-endif
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remove the Windows ^M - when the encodings gets messed up
-noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
-
 " Toggle paste mode
 map <leader>pp :setlocal paste!<cr>
 
