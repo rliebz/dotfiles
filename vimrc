@@ -76,6 +76,7 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 let g:ale_fix_on_save = 1
 nmap <silent> <leader>an :ALENext<CR>
 nmap <silent> <leader>ap :ALEPrevious<CR>
+nmap <silent> <leader>ad :ALEDetail<CR>
 
 " ale: Style
 let g:ale_sign_error = '>>'
