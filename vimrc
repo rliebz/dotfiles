@@ -179,13 +179,21 @@ let g:vim_json_syntax_conceal = 0
 augroup vim_lsp_settings
   autocmd!
 
-  autocmd FileType javascript,typescript,css,less,sass call s:ConfigureLspBuffer()
+  autocmd FileType sh,javascript,typescript,css,less,sass call s:ConfigureLspBuffer()
   function! s:ConfigureLspBuffer()
     setlocal omnifunc=lsp#complete
     nnoremap <silent> <buffer> K :LspHover<CR>
     nnoremap <silent> <buffer> <C-]> :LspDefinition<CR>
     nnoremap <silent> <buffer> <F2> :LspRename<CR>
   endfunction
+
+  if executable('bash-language-server')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'bash-language-server',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'bash-language-server start']},
+        \ 'whitelist': ['sh'],
+        \ })
+  endif
 
   if executable('javascript-typescript-stdio')
     autocmd User lsp_setup call lsp#register_server({
