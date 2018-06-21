@@ -227,6 +227,9 @@ let g:markdown_fenced_languages = [
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Fix backspace behavior
+set backspace=indent,eol,start
+
 " Always show the status line
 set laststatus=2
 
