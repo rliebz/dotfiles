@@ -5,9 +5,6 @@ scriptencoding utf-8
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Sets how many lines of history VIM has to remember
-set history=500
-
 " Include plugins
 call plug#begin('~/.vim/plugged')
 
@@ -30,7 +27,7 @@ Plug 'Yggdroot/indentLine'
 " Language-specific plugins
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'elzr/vim-json', { 'for': 'json' }
+Plug 'elzr/vim-json'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'hdima/python-syntax', { 'for': 'python' }
@@ -40,6 +37,9 @@ Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 
 call plug#end()
+
+" How many lines of history to remember
+set history=200
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -181,7 +181,7 @@ let g:vim_json_syntax_conceal = 0
 augroup vim_lsp_settings
   autocmd!
 
-  autocmd FileType sh,javascript,typescript,css,less,sass call s:ConfigureLspBuffer()
+  autocmd FileType sh,javascript,typescript,css,less,sass,scss call s:ConfigureLspBuffer()
   function! s:ConfigureLspBuffer()
     setlocal omnifunc=lsp#complete
     nnoremap <silent> <buffer> K :LspHover<CR>
@@ -209,7 +209,7 @@ augroup vim_lsp_settings
     autocmd User lsp_setup call lsp#register_server({
           \ 'name': 'vscode-css-languageserver-bin',
           \ 'cmd': {server_info->['css-languageserver --stdio']},
-          \ 'whitelist': ['css', 'less', 'sass'],
+          \ 'whitelist': ['css', 'less', 'sass', 'scss'],
           \ })
   endif
 augroup END
@@ -352,6 +352,7 @@ map <leader>bo :BufOnly<cr>
 map <leader>ba :bufdo bdelete<cr>
 
 " Specify the behavior when switching between buffers
+set hidden
 set switchbuf=useopen,vsplit
 set showtabline=1
 
