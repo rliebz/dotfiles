@@ -9,11 +9,14 @@ scriptencoding utf-8
 call plug#begin('~/.vim/plugged')
 
 " General purpose plugins
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'janko-m/vim-test'
-Plug 'prabirshrestha/vim-lsp' | Plug 'prabirshrestha/async.vim'
 Plug 'Shougo/denite.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
@@ -177,41 +180,28 @@ let g:go_fmt_command = 'goimports'
 " vim-json
 let g:vim_json_syntax_conceal = 0
 
-" vim-lsp
-augroup vim_lsp_settings
+" LanguageClient-neovim
+augroup LanguageClient
   autocmd!
 
-  autocmd FileType sh,javascript,typescript,css,less,sass,scss call s:ConfigureLspBuffer()
-  function! s:ConfigureLspBuffer()
-    setlocal omnifunc=lsp#complete
-    nnoremap <silent> <buffer> K :LspHover<CR>
-    nnoremap <silent> <buffer> <C-]> :LspDefinition<CR>
-    nnoremap <silent> <buffer> <F2> :LspRename<CR>
+  let g:LanguageClient_serverCommands = {
+        \ 'sh': ['bash-language-server', 'start'],
+        \ 'css': ['css-languageserver', '--stdio'],
+        \ 'less': ['css-languageserver', '--stdio'],
+        \ 'scss': ['css-languageserver', '--stdio'],
+        \ 'javascript': ['javascript-typescript-stdio'],
+        \ 'typescript': ['javascript-typescript-stdio'],
+        \ 'python': ['pyls'],
+        \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+        \ }
+
+  autocmd FileType sh,css,less,scss,javascript,typescript,rust call s:ConfigureLanguageClientBuffer()
+  function! s:ConfigureLanguageClientBuffer()
+    nnoremap <silent> <buffer> K :call LanguageClient#textDocument_hover()<CR>
+    nnoremap <silent> <buffer> <C-]> :call LanguageClient#textDocument_definition()<CR>
+    nnoremap <silent> <buffer> <F2> :call LanguageClient#textDocument_rename()<CR>
   endfunction
 
-  if executable('bash-language-server')
-  au User lsp_setup call lsp#register_server({
-        \ 'name': 'bash-language-server',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'bash-language-server start']},
-        \ 'whitelist': ['sh'],
-        \ })
-  endif
-
-  if executable('javascript-typescript-stdio')
-    autocmd User lsp_setup call lsp#register_server({
-          \ 'name': 'javascript-typescript-langserver',
-          \ 'cmd': {server_info->[&shell, &shellcmdflag, 'javascript-typescript-stdio']},
-          \ 'whitelist': ['javascript', 'typescript'],
-          \ })
-  endif
-
-  if executable('css-languageserver')
-    autocmd User lsp_setup call lsp#register_server({
-          \ 'name': 'vscode-css-languageserver-bin',
-          \ 'cmd': {server_info->['css-languageserver --stdio']},
-          \ 'whitelist': ['css', 'less', 'sass', 'scss'],
-          \ })
-  endif
 augroup END
 
 
