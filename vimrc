@@ -181,19 +181,19 @@ let g:go_fmt_command = 'goimports'
 let g:vim_json_syntax_conceal = 0
 
 " LanguageClient-neovim
+let g:LanguageClient_serverCommands = {
+      \ 'sh': ['bash-language-server', 'start'],
+      \ 'css': ['css-languageserver', '--stdio'],
+      \ 'less': ['css-languageserver', '--stdio'],
+      \ 'scss': ['css-languageserver', '--stdio'],
+      \ 'javascript': ['javascript-typescript-stdio'],
+      \ 'typescript': ['javascript-typescript-stdio'],
+      \ 'python': ['pyls'],
+      \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+      \ }
+
 augroup LanguageClient
   autocmd!
-
-  let g:LanguageClient_serverCommands = {
-        \ 'sh': ['bash-language-server', 'start'],
-        \ 'css': ['css-languageserver', '--stdio'],
-        \ 'less': ['css-languageserver', '--stdio'],
-        \ 'scss': ['css-languageserver', '--stdio'],
-        \ 'javascript': ['javascript-typescript-stdio'],
-        \ 'typescript': ['javascript-typescript-stdio'],
-        \ 'python': ['pyls'],
-        \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-        \ }
 
   autocmd FileType sh,css,less,scss,javascript,typescript,rust call s:ConfigureLanguageClientBuffer()
   function! s:ConfigureLanguageClientBuffer()
