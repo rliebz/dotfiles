@@ -14,9 +14,9 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 Plug 'airblade/vim-gitgutter'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'janko-m/vim-test'
+Plug 'sgur/vim-editorconfig'
 Plug 'Shougo/denite.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
