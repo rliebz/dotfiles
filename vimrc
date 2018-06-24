@@ -36,7 +36,7 @@ Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'hashivim/vim-terraform'
-Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'markdown'] }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 
 call plug#end()
