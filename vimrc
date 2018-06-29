@@ -177,6 +177,11 @@ let g:go_fmt_fail_silently = 1
 let g:go_list_type = 'quickfix'
 let g:go_fmt_command = 'goimports'
 
+augroup VimGo
+  autocmd!
+  autocmd FileType go nmap <silent> <buffer> <F2> <Plug>(go-rename)
+augroup END
+
 " vim-json
 let g:vim_json_syntax_conceal = 0
 
