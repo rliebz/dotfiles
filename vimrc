@@ -2,6 +2,11 @@
 set encoding=utf-8
 scriptencoding utf-8
 
+" Temporary python3.7 fix: https://github.com/vim/vim/issues/3117
+if has('python3')
+  silent! python3 1
+endif
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
