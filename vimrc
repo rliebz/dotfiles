@@ -1,6 +1,4 @@
-" Set utf-8 as standard encoding and en_US as the standard language
 set encoding=utf-8
-scriptencoding utf-8
 
 " Temporary python3.7 fix: https://github.com/vim/vim/issues/3117
 if has('python3')
