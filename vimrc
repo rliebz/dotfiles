@@ -20,10 +20,11 @@ call plug#begin('~/.vim/plugged')
 
 " General purpose plugins
 Plug 'airblade/vim-gitgutter'
+Plug 'dyng/ctrlsf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'janko-m/vim-test'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'sgur/vim-editorconfig'
-Plug 'Shougo/denite.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
@@ -68,30 +69,18 @@ let g:ale_fixers = {
       \}
 let g:ale_go_metalinter_options = '--fast'
 
-" denite
-call denite#custom#var('file/rec', 'command',
-      \ ['rg', '--hidden', '--files', '--glob', '!.git'])
-call denite#custom#var('grep', 'command', ['rg'])
-call denite#custom#var('grep', 'default_opts',
-      \ ['--hidden', '--vimgrep', '--no-heading', '-S'])
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
-call denite#custom#map(
-      \ 'insert',
-      \ '<C-j>',
-      \ '<denite:move_to_next_line>',
-      \ 'noremap'
-      \)
-call denite#custom#map(
-      \ 'insert',
-      \ '<C-k>',
-      \ '<denite:move_to_previous_line>',
-      \ 'noremap'
-      \)
-nnoremap <C-p> :<C-u>Denite file/rec<CR>
-nnoremap <C-f> :<C-u>Denite grep:. -mode=normal<CR>
+" ctrlsf
+let g:ctrlsf_ackprg = 'rg'
+let g:ctrlsf_auto_focus = { 'at': 'start' }
+let g:ctrlsf_confirm_save = 0
+nnoremap <C-F> <nop>
+nmap     <C-F>f <Plug>CtrlSFPrompt
+nnoremap <C-F>o :CtrlSFOpen<CR>
+nnoremap <C-F>t :CtrlSFToggle<CR>
+
+" fzf
+nnoremap <C-P> :FZF<CR>
+let g:fzf_layout = { 'down': 15 }
 
 " gitgutter
 nmap <silent> <leader>gn :GitGutterNextHunk<CR>
