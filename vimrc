@@ -301,11 +301,6 @@ set noswapfile
 set shiftwidth=4
 set tabstop=4
 
-augroup file_type_detect
-  autocmd!
-  autocmd BufRead,BufNewFile Jenkinsfile set filetype=groovy
-augroup END
-
 set textwidth=80
 
 set autoindent
