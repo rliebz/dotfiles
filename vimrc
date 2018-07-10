@@ -5,8 +5,11 @@ if has('python3')
   silent! python3 1
 endif
 
+" Multi-Purpose Variables
+let s:gutter_info_char = '●'
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General
+" => Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Include plugins
 call plug#begin('~/.vim/plugged')
@@ -37,42 +40,6 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 
 call plug#end()
 
-" How many lines of history to remember
-set history=200
-
-" Set to auto read when a file is changed from the outside
-set autoread
-
-" Reduce updatetime from default 4 seconds
-set updatetime=250
-
-" Set leader as space
-map <space> <nop>
-let g:mapleader = ' '
-
-" Fast reload vimrc
-nmap <leader>v :source ~/.vimrc<cr>
-
-" Fast saving
-nmap <leader>w :w!<cr>
-
-" :W sudo saves the file
-command! W w !sudo tee % > /dev/null
-
-" Autocomplete
-set completeopt=menuone
-inoremap <C-Space> <C-x><C-o>
-imap <C-@> <C-Space>
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-g>u\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-g>u\<S-Tab>"
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Variables
-let s:gutter_info_char = '●'
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Plugins
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ale
 let g:ale_fix_on_save = 1
 nmap <silent> <leader>an :ALENext<CR>
@@ -212,53 +179,68 @@ let g:markdown_fenced_languages = [
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => VIM user interface
+" => General Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set autoread
+set colorcolumn=80
+set history=1000
+set laststatus=2
+set lazyredraw
+set magic
+set number
+set scrolloff=5
+set wildmenu
+set wrap
+
+" Better timeouts
+set timeoutlen=500  " From 1000
+set updatetime=250  " From 4000
+
+" Indentation
+set shiftwidth=4
+set tabstop=4
+set autoindent
+set smartindent
+
 " Fix backspace behavior
 set backspace=indent,eol,start
 
-" Always show the status line
-set laststatus=2
+" Delete comment character when joining commented lines
+if v:version > 703 || v:version == 703 && has("patch541")
+  set formatoptions+=j
+endif
 
-" Set number of lines to the cursor - when moving vertically using j/k
-set scrolloff=5
-
-" Turn on the WiLd menu
-set wildmenu
-
-" When searching try to be smart about cases
+" Search options
 set ignorecase
 set smartcase
-
-" Don't highlight search results
 set nohlsearch
-
-" Perform searches after each character press
 set incsearch
-
-" Don't redraw while executing macros (good performance config)
-set lazyredraw
-
-" For regular expressions turn magic on
-set magic
 
 " Show matching brackets when text indicator is over them
 set showmatch
-
-" How many tenths of a second to blink when matching brackets
 set matchtime=2
 
 " No annoying sound on errors
 set noerrorbells
 set novisualbell
 set t_vb=
-set timeoutlen=500
 
-" Show line numbers in left margin
-set number
+" Turn backup off
+set nobackup
+set nowritebackup
+set noswapfile
 
-" Show right margin
-set colorcolumn=80
+" Leader
+map <space> <nop>
+let g:mapleader = ' '
+
+" Autocomplete
+set completeopt=menuone
+inoremap <C-Space> <C-x><C-o>
+imap <C-@> <C-Space>
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-g>u\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-g>u\<S-Tab>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -283,29 +265,6 @@ set fileformats=unix,dos,mac
 " Show whitespace
 set list
 set listchars=tab:»\ ,trail:·,nbsp:·
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Files, backups and undo
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Turn backup off, since most stuff is in git anyway
-set nobackup
-set nowritebackup
-set noswapfile
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
-
-set textwidth=80
-
-set autoindent
-set smartindent
-set wrap
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -341,13 +300,9 @@ set hidden
 set switchbuf=useopen,vsplit
 set showtabline=1
 
-" Close help window
+" Window-closing shortcuts
 map <leader>hc :helpclose<cr>
-
-" Close preview window
 map <leader>pc :pclose<cr>
-
-" Close quickfix window
 map <leader>qc :cclose<cr>
 
 " Return to last edit position when opening files
@@ -366,6 +321,15 @@ set viminfo^=%
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Reload vimrc
+nmap <leader>v :source ~/.vimrc<cr>
+
+" Fast writes
+nmap <leader>w :w!<cr>
+
+" Write with `sudo`
+command! W w !sudo tee % > /dev/null
+
 " Toggle paste mode
 map <leader>pp :setlocal paste!<cr>
 
