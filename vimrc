@@ -5,6 +5,10 @@ if has('python3')
   silent! python3 1
 endif
 
+" Leader
+map <space> <nop>
+let g:mapleader = ' '
+
 " Multi-Purpose Variables
 let s:gutter_info_char = '●'
 
@@ -229,10 +233,6 @@ set t_vb=
 set nobackup
 set nowritebackup
 set noswapfile
-
-" Leader
-map <space> <nop>
-let g:mapleader = ' '
 
 " Autocomplete
 set completeopt=menuone
