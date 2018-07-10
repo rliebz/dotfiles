@@ -234,3 +234,20 @@ call s:h('GitGutterAdd',            { 'fg': s:green, 'bg': s:gutter_bg })
 call s:h('GitGutterDelete',         { 'fg': s:red, 'bg': s:gutter_bg })
 call s:h('GitGutterChange',         { 'fg': s:yellow, 'bg': s:gutter_bg })
 call s:h('GitGutterChangeDelete',   { 'fg': s:red, 'bg': s:gutter_bg })
+
+" FZF
+let g:fzf_colors = {
+      \ 'fg':      ['fg', 'Normal'],
+      \ 'bg':      ['bg', 'Normal'],
+      \ 'hl':      ['fg', 'Comment'],
+      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+      \ 'hl+':     ['fg', 'Statement'],
+      \ 'info':    ['fg', 'PreProc'],
+      \ 'border':  ['fg', 'Ignore'],
+      \ 'prompt':  ['fg', 'Conditional'],
+      \ 'pointer': ['fg', 'Exception'],
+      \ 'marker':  ['fg', 'Keyword'],
+      \ 'spinner': ['fg', 'Label'],
+      \ 'header':  ['fg', 'Comment'],
+      \ }
