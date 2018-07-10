@@ -12,10 +12,6 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " General purpose plugins
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 Plug 'janko-m/vim-test'
@@ -31,16 +27,13 @@ Plug 'wellle/targets.vim'
 Plug 'Yggdroot/indentLine'
 
 " Language-specific plugins
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'elzr/vim-json'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-markdown'
 Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'tpope/vim-markdown', { 'for': 'markdown' }
-Plug 'hdima/python-syntax', { 'for': 'python' }
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'hashivim/vim-terraform'
-Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'markdown'] }
-Plug 'cespare/vim-toml', { 'for': 'toml' }
 
 call plug#end()
 
@@ -148,9 +141,6 @@ let g:lightline = {
     \ }
     \ }
 
-" python-syntax: Highlight python commands
-let g:python_highlight_all = 1
-
 " gitgutter: Always show sign column
 if exists('&signcolumn')
   set signcolumn=yes
@@ -185,9 +175,6 @@ augroup VimGo
   autocmd FileType go nmap <silent> <buffer> <F2> <Plug>(go-rename)
 augroup END
 
-" vim-json
-let g:vim_json_syntax_conceal = 0
-
 " LanguageClient-neovim
 let g:LanguageClient_serverCommands = {
       \ 'sh': ['bash-language-server', 'start'],
@@ -202,23 +189,25 @@ let g:LanguageClient_serverCommands = {
 
 augroup LanguageClient
   autocmd!
-
   autocmd FileType sh,css,less,scss,javascript,typescript,rust call s:ConfigureLanguageClientBuffer()
   function! s:ConfigureLanguageClientBuffer()
     nnoremap <silent> <buffer> K :call LanguageClient#textDocument_hover()<CR>
     nnoremap <silent> <buffer> <C-]> :call LanguageClient#textDocument_definition()<CR>
     nnoremap <silent> <buffer> <F2> :call LanguageClient#textDocument_rename()<CR>
   endfunction
-
 augroup END
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Language-specific settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-markdown
+let g:polyglot_disabled = ['markdown']
 let g:markdown_syntax_conceal = 0
 let g:markdown_fenced_languages = [
-      \'html', 'python', 'go', 'javascript', 'bash=sh', 'typescript', 'yaml',
+      \'bash=sh', 'sh',
+      \'html',
+      \'javascript', 'js=javascript',
+      \'typescript', 'ts=typescript',
+      \'go',
+      \'python',
+      \'json', 'toml', 'yaml',
       \]
 
 
