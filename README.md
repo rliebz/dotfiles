@@ -6,7 +6,7 @@ Install
 
 Clone onto your machine:
 
-    git clone https://gitlab.com/rliebz/dotfiles.git $HOME/.dotfiles
+    git clone https://github.com/rliebz/dotfiles.git $HOME/.dotfiles
     cd $HOME/.dotfiles
 
 Run the installation script:
