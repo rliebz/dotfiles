@@ -21,10 +21,10 @@ call plug#begin('~/.vim/plugged')
 " General purpose plugins
 Plug 'airblade/vim-gitgutter'
 Plug 'dyng/ctrlsf.vim'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plug 'sgur/vim-editorconfig'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
