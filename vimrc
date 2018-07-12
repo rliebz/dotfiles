@@ -295,16 +295,13 @@ map <leader>pc :pclose<cr>
 map <leader>qc :cclose<cr>
 
 " Return to last edit position when opening files
-augroup last_edit
+augroup lastEdit
   autocmd!
   autocmd BufReadPost *
-        \ if &filetype != "gitcommit" && line("'\"") > 0
-        \     && line("'\"") <= line("$") |
-        \   exe "normal! g`\"" |
-        \ endif
+        \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+        \ |   exe "normal! g`\""
+        \ | endif
 augroup END
-" Remember info about open buffers on close
-set viminfo^=%
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
