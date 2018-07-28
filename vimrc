@@ -71,7 +71,9 @@ let g:ale_fixers = {
 let g:ale_go_metalinter_options = '--fast'
 
 " ctrlsf
-let g:ctrlsf_ackprg = 'rg'
+if executable('rg')
+  let g:ctrlsf_ackprg = 'rg'
+endif
 let g:ctrlsf_auto_focus = { 'at': 'start' }
 let g:ctrlsf_confirm_save = 0
 nnoremap <C-F> <nop>
@@ -82,6 +84,9 @@ nnoremap <C-F>t :CtrlSFToggle<CR>
 " fzf
 nnoremap <C-P> :FZF<CR>
 let g:fzf_layout = { 'down': 15 }
+if executable('rg')
+  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+endif
 
 " gitgutter
 nmap <silent> <leader>gn :GitGutterNextHunk<CR>
