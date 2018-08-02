@@ -1,7 +1,7 @@
 set encoding=utf-8
 
-" Temporary python3.7 fix: https://github.com/vim/vim/issues/3117
-if has('python3')
+" python3.7 fix: https://github.com/vim/vim/issues/3117
+if has('python3') && !has('patch-8.1.201')
   silent! python3 1
 endif
 
