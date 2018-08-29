@@ -206,15 +206,23 @@ call s:h('javaScriptIdentifier',    { 'fg': s:magenta })
 call s:h('javaScriptNull',          { 'fg': s:yellow })
 call s:h('javaScriptNumber',        { 'fg': s:yellow })
 
-call s:h('rubyBlockParameterList',  { 'fg': s:red })
-call s:h('rubyInterpolation',       { 'fg': s:green })
-call s:h('rubyInterpolationDelimiter', { 'fg': s:red })
-
 call s:h('pythonDecorator',         { 'fg': s:yellow, 'gui': 'bold', 'cterm': 'bold' })
 call s:h('pythonDottedName',        { 'fg': s:yellow })
 call s:h('pythonRawString',         { 'fg': s:yellow })
 call s:h('pythonBuiltinFunc',       { 'fg': s:blue })
 
+call s:h('rubyBlockParameterList',     { 'fg': s:red })
+call s:h('rubyInterpolation',          { 'fg': s:green })
+call s:h('rubyInterpolationDelimiter', { 'fg': s:red })
+
+call s:h('tomlKey',        { 'fg': s:magenta })
+call s:h('tomlKeyDq',      { 'fg': s:magenta })
+call s:h('tomlKeySq',      { 'fg': s:magenta })
+call s:h('tomlTable',      { 'fg': s:red })
+call s:h('tomlTableArray', { 'fg': s:red })
+
+call s:h('yamlConstant', { 'fg': s:cyan })
+call s:h('yamlKey',      { 'fg': s:magenta })
 
 " +---------------------+
 " | Plugin Highlighting |
