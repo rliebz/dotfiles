@@ -14,6 +14,8 @@
 	<integer>0</integer>
 	<key>AppleSmoothFixedFontsSizeThreshold</key>
 	<integer>1</integer>
+	<key>AppleWindowTabbingMode</key>
+	<string>manual</string>
 	<key>AutoHideTmuxClientSession</key>
 	<false/>
 	<key>CheckTestRelease</key>
@@ -354,7 +356,7 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>307 267 918 512 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>296 236 850 530 0 0 1440 877 </string>
+	<string>93 243 850 507 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>590 84 850 507 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
@@ -3122,7 +3124,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-06-19T12:16:02Z</date>
+	<date>2018-09-06T02:26:29Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -3164,7 +3166,7 @@
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>3.1.beta.4</string>
+	<string>3.1.5.beta.2</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
