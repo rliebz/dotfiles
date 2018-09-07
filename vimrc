@@ -62,13 +62,14 @@ let g:ale_linter_aliases = {
       \'docker-compose': ['yaml'],
       \}
 let g:ale_linters = {
-      \'go': ['gometalinter'],
+      \'go': ['golangci-lint'],
       \'typescript': ['prettier', 'tslint', 'tsserver'],
       \}
 let g:ale_fixers = {
       \'typescript': ['prettier'],
       \}
-let g:ale_go_metalinter_options = '--fast'
+let g:ale_go_golangci_lint_options = ''
+let g:ale_go_golangci_lint_package = 1
 
 " ctrlsf
 if executable('rg')
