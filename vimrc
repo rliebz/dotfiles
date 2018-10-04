@@ -211,8 +211,6 @@ set timeoutlen=500  " From 1000
 set updatetime=250  " From 4000
 
 " Indentation
-set shiftwidth=4
-set tabstop=4
 set autoindent
 set smartindent
 
