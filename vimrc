@@ -73,6 +73,7 @@ let g:ale_fixers = {
       \}
 let g:ale_go_golangci_lint_options = ''
 let g:ale_go_golangci_lint_package = 1
+let g:ale_rust_rls_toolchain = 'stable'
 
 " ctrlsf
 if executable('rg')
