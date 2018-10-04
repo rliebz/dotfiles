@@ -63,9 +63,11 @@ let g:ale_linter_aliases = {
       \}
 let g:ale_linters = {
       \'go': ['golangci-lint'],
+      \'rust': ['rls'],
       \'typescript': ['prettier', 'tslint', 'tsserver'],
       \}
 let g:ale_fixers = {
+      \'rust': ['rustfmt'],
       \'typescript': ['prettier'],
       \}
 let g:ale_go_golangci_lint_options = ''
@@ -154,6 +156,7 @@ let g:LanguageClient_serverCommands = {
       \ 'python': ['pyls'],
       \ 'rust': ['rustup', 'run', 'stable', 'rls'],
       \ }
+let g:LanguageClient_diagnosticsEnable = 0
 
 augroup LanguageClient
   autocmd!
