@@ -79,6 +79,14 @@ let g:ale_rust_rls_toolchain = 'stable'
 if executable('rg')
   let g:ctrlsf_ackprg = 'rg'
 endif
+let g:ctrlsf_extra_backend_args = {
+      \ 'rg': '
+      \   --hidden
+      \   --glob !.git
+      \   --glob !*.min.js
+      \   --glob !*.js.map
+      \ ',
+      \ }
 let g:ctrlsf_auto_focus = { 'at': 'start' }
 let g:ctrlsf_confirm_save = 0
 nnoremap <C-F> <nop>
