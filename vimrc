@@ -63,6 +63,7 @@ let g:ale_linter_aliases = {
       \}
 let g:ale_linters = {
       \'go': ['golangci-lint'],
+      \'javascript': ['eslint'],
       \'rust': ['rls'],
       \'typescript': ['prettier', 'tslint', 'tsserver'],
       \}
