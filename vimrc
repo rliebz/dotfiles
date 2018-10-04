@@ -197,6 +197,7 @@ let g:markdown_fenced_languages = [
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set autoread
 set colorcolumn=80
+set cursorline
 set history=1000
 set laststatus=2
 set lazyredraw
