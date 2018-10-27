@@ -172,7 +172,7 @@ let g:LanguageClient_diagnosticsEnable = 0
 
 augroup LanguageClient
   autocmd!
-  autocmd FileType sh,css,less,scss,javascript,typescript,rust call s:ConfigureLanguageClientBuffer()
+  autocmd FileType sh,css,less,scss,javascript,typescript,python,rust call s:ConfigureLanguageClientBuffer()
   function! s:ConfigureLanguageClientBuffer()
     nnoremap <silent> <buffer> K :call LanguageClient#textDocument_hover()<CR>
     nnoremap <silent> <buffer> <C-]> :call LanguageClient#textDocument_definition()<CR>
