@@ -42,7 +42,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-markdown'
-Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'fatih/vim-go'
 
 call plug#end()
 
