@@ -41,3 +41,6 @@ indent_size = 2
 
 [Makefile]
 indent_style = tab
+
+[{.vimrc,vimrc,*.vim}]
+indent_size = 2
