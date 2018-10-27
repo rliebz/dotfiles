@@ -84,7 +84,7 @@ endif
 let g:ctrlsf_extra_backend_args = {
       \ 'rg': '
       \   --hidden
-      \   --glob !.git
+      \   --glob !.git/*
       \   --glob !*.min.js
       \   --glob !*.js.map
       \ ',
@@ -285,7 +285,7 @@ set listchars=tab:»\ ,trail:·,nbsp:·
 map <leader>e :Explore<cr>
 
 let g:netrw_banner = 0
-let g:netrw_list_hide = '\.DS_Store,\.git,\.gitmodules'
+let g:netrw_list_hide = '\.DS_Store,\.git/,\.gitmodules'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
