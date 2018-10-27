@@ -1,6 +1,8 @@
-# rliebz's Dotfiles
+rliebz's Dotfiles
+=================
 
-## Install
+Install
+-------
 
 Clone onto your machine:
 
@@ -15,7 +17,9 @@ You may also want to change your default shell:
 
     chsh -s $(which zsh)
 
-## Making Changes
+
+Making Changes
+--------------
 
 After making any changes, or to update submodules:
 
@@ -23,21 +27,23 @@ After making any changes, or to update submodules:
 
 To add a new file to your dotfiles:
 
-1.  Create a new file in the `~/.dotfiles` directory.
+1. Create a new file in the `~/.dotfiles` directory.
     - New `zsh` files should go in one of the subdirectories under `zsh/`
     - Do not include a leading period in the file name
-2.  Create an entry in install.conf.yaml
+2. Create an entry in install.conf.yaml
 
 To add a new Vim package:
 
     cd vim/bundle
     git submodule add <git-repo-url>
 
-## Local Customizations
+
+Local Customizations
+--------------------
 
 For overriding dotfiles, place a newer version in `~/.dotfiles-local`. This
 can be version controlled separately or excluded from version control. Then,
-follow the instructions at <https://github.com/anishathalye/dotbot> to link any
+follow the instructions at https://github.com/anishathalye/dotbot to link any
 desired files to your home directory.
 
 To utilize a local dotfile without overriding existing configuration, place it

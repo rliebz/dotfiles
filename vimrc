@@ -64,12 +64,10 @@ let g:ale_linter_aliases = {
 let g:ale_linters = {
       \'go': ['golangci-lint'],
       \'javascript': ['eslint'],
-      \'markdown': ['mdl', 'prettier'],
       \'rust': ['rls'],
       \'typescript': ['prettier', 'tslint', 'tsserver'],
       \}
 let g:ale_fixers = {
-      \'markdown': ['prettier'],
       \'rust': ['rustfmt'],
       \'typescript': ['prettier'],
       \}
