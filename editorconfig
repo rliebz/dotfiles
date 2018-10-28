@@ -9,7 +9,7 @@ trim_trailing_whitespace = true
 [*.{css,scss}]
 indent_size = 2
 
-[*.go]
+[{*.go,go.mod}]
 indent_style = tab
 
 [*.{js,ts}]
