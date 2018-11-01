@@ -1,3 +1,8 @@
-# Explicitly set GOPATH and add to PATH
+# Explicitly set GOPATH
 export GOPATH=${HOME}/Projects/go
-export PATH=${PATH}:${GOPATH}/bin
+
+# Allow `go install` outside of GOPATH
+export GOBIN=${GOPATH}/bin
+
+# Add GOBIN to end of path
+export PATH=${PATH}:${GOBIN}
