@@ -40,9 +40,11 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
-Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-markdown'
 Plug 'fatih/vim-go'
+" polyglot can cause issues if not plugged last
+Plug 'sheerun/vim-polyglot'
+let g:polyglot_disabled = ['go', 'markdown']
 
 call plug#end()
 
@@ -179,7 +181,6 @@ augroup LanguageClient
 augroup END
 
 " vim-markdown
-let g:polyglot_disabled = ['markdown']
 let g:markdown_syntax_conceal = 0
 let g:markdown_fenced_languages = [
       \'bash=sh', 'sh',
