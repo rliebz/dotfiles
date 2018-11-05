@@ -297,14 +297,6 @@ map k gk
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 
-" Buffer navigation
-map <leader>bf :bfirst<cr>
-map <leader>bn :bnext<cr>
-map <leader>bp :bprevious<cr>
-map <leader>bd :bdelete<cr>
-map <leader>bo :BufOnly<cr>
-map <leader>ba :bufdo bdelete<cr>
-
 " Specify the behavior when switching between buffers
 set hidden
 set switchbuf=useopen,vsplit
