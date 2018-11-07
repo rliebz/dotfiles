@@ -300,9 +300,7 @@ set switchbuf=useopen,vsplit
 set showtabline=1
 
 " Window-closing shortcuts
-map <leader>hc :helpclose<cr>
-map <leader>pc :pclose<cr>
-map <leader>qc :cclose<cr>
+map <silent> <leader>qq :cclose <bar> pclose <bar> helpclose<cr>
 
 " Return to last edit position when opening files
 augroup lastEdit
