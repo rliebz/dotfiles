@@ -91,10 +91,7 @@ let g:ctrlsf_extra_backend_args = {
       \ }
 let g:ctrlsf_auto_focus = { 'at': 'start' }
 let g:ctrlsf_confirm_save = 0
-nnoremap <C-F> <nop>
-nmap     <C-F>f <Plug>CtrlSFPrompt
-nnoremap <C-F>o :CtrlSFOpen<CR>
-nnoremap <C-F>t :CtrlSFToggle<CR>
+nmap <C-F> <Plug>CtrlSFPrompt
 
 " fzf
 nnoremap <C-P> :FZF<CR>
