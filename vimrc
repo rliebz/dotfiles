@@ -324,6 +324,9 @@ nmap <leader>w :w!<cr>
 " Write with `sudo`
 command! W w !sudo tee % > /dev/null
 
+" Copy to system clipboard
+noremap <leader>y "*y
+
 " Toggle paste mode
 map <leader>pp :setlocal paste!<cr>
 
