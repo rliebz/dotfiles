@@ -71,7 +71,6 @@ let g:ale_linters = {
       \}
 let g:ale_fixers = {
       \'rust': ['rustfmt'],
-      \'typescript': ['prettier'],
       \}
 let g:ale_go_golangci_lint_options = ''
 let g:ale_go_golangci_lint_package = 1
