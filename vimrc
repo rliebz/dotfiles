@@ -256,7 +256,7 @@ set fileformats=unix,dos,mac
 
 " Show whitespace
 set list
-set listchars=tab:»\ ,trail:·,nbsp:·
+set listchars=eol:¬,tab:»\ ,trail:·,nbsp:·
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
