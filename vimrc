@@ -193,6 +193,8 @@ let g:markdown_fenced_languages = [
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+colorscheme dots
+
 set autoread
 set colorcolumn=80
 set cursorline
@@ -248,23 +250,6 @@ imap <C-@> <C-Space>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-g>u\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-g>u\<S-Tab>"
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colors and Fonts
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Enable syntax highlighting
-if !exists('g:syntax_on')
-  syntax enable
-endif
-
-try
-    colorscheme dots
-catch
-endtry
-
-set background=dark
-highlight Normal ctermfg=none ctermbg=none
 
 " Use Unix as the standard file type
 set fileformats=unix,dos,mac
