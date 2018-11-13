@@ -31,10 +31,8 @@ Plug 'tpope/vim-fugitive' | Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
-Plug 'vim-scripts/BufOnly.vim'
 Plug 'w0rp/ale'
 Plug 'wellle/targets.vim'
-Plug 'Yggdroot/indentLine'
 
 " Language-specific plugins
 Plug 'autozimu/LanguageClient-neovim', {
@@ -104,12 +102,6 @@ endif
 nmap <silent> <leader>gn :GitGutterNextHunk<CR>
 nmap <silent> <leader>gp :GitGutterPrevHunk<CR>
 
-" indentLine: Enable leading spaces
-let g:indentLine_enabled = 0
-let g:indentLine_leadingSpaceEnabled = 1
-let g:indentLine_leadingSpaceChar = '·'
-let g:indentLine_color_term = 8
-
 " lightline
 let g:lightline = {
     \ 'colorscheme': 'dots',
@@ -132,21 +124,11 @@ nmap <silent> <leader>tf :TestFile<CR>
 nmap <silent> <leader>ts :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 
-" vim-commentary: Custom mappings
-map <leader>c gc
-
-" vim-commentary: Language settings
-augroup vim_commentary_settings
-  autocmd!
-  autocmd FileType markdown setlocal commentstring=<!--%s-->
-augroup END
-
-" vim-go: Avoid conflicts with syntastic
+" vim-go: Avoid conflicts with ale
 let g:go_fmt_fail_silently = 1
 
 " vim-go: Various settings
 let g:go_highlight_operators = 1
-let g:go_list_type = 'quickfix'
 let g:go_fmt_command = 'goimports'
 
 augroup VimGo
@@ -256,7 +238,7 @@ set fileformats=unix,dos,mac
 
 " Show whitespace
 set list
-set listchars=eol:¬,tab:»\ ,trail:·,nbsp:·
+set listchars=eol:¬,tab:»\ ,trail:·,nbsp:·,space:·
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -305,9 +287,6 @@ nmap <leader>v :source ~/.vimrc<cr>
 
 " Fast writes
 nmap <leader>w :w!<cr>
-
-" Write with `sudo`
-command! W w !sudo tee % > /dev/null
 
 " Copy to system clipboard
 noremap <leader>y "*y
