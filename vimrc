@@ -82,9 +82,9 @@ endif
 let g:ctrlsf_extra_backend_args = {
       \ 'rg': '
       \   --hidden
-      \   --glob !.git/*
-      \   --glob !*.min.js
-      \   --glob !*.js.map
+      \   --glob "!.git/*"
+      \   --glob "!*.min.js"
+      \   --glob "!*.js.map"
       \ ',
       \ }
 let g:ctrlsf_auto_focus = { 'at': 'start' }
