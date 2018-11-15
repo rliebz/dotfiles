@@ -264,7 +264,6 @@ map <silent> <leader><cr> :noh<cr>
 " Specify the behavior when switching between buffers
 set hidden
 set switchbuf=useopen,vsplit
-set showtabline=1
 
 " Window-closing shortcuts
 map <silent> <leader>qq :cclose <bar> pclose <bar> helpclose<cr>
