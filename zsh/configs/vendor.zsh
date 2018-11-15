@@ -12,3 +12,7 @@ if test -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zs
   source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
   source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 fi
+
+# asdf
+source $HOME/.dotfiles/zsh/vendor/asdf/asdf.sh
+source $HOME/.dotfiles/zsh/vendor/asdf/completions/asdf.bash
