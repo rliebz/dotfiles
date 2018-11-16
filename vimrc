@@ -15,7 +15,6 @@ let s:gutter_info_char = '●'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Include plugins
 call plug#begin('~/.vim/plugged')
 
 " General purpose plugins
@@ -49,9 +48,9 @@ call plug#end()
 
 " ale
 let g:ale_fix_on_save = 1
-nmap <silent> <leader>an :ALENext<CR>
-nmap <silent> <leader>ap :ALEPrevious<CR>
-nmap <silent> <leader>ad :ALEDetail<CR>
+nmap <silent> [a <Plug>(ale_previous)
+nmap <silent> ]a <Plug>(ale_next)
+nmap <silent> <leader>ad <Plug>(ale_detail)
 
 " ale: Style
 let g:ale_sign_error = s:gutter_info_char
@@ -97,10 +96,6 @@ let g:fzf_layout = { 'down': 15 }
 if executable('rg')
   let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
 endif
-
-" gitgutter
-nmap <silent> <leader>gn :GitGutterNextHunk<CR>
-nmap <silent> <leader>gp :GitGutterPrevHunk<CR>
 
 " lightline
 let g:lightline = {
