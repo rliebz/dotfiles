@@ -224,8 +224,8 @@ set noswapfile
 set completeopt=menuone
 inoremap <C-Space> <C-x><C-o>
 imap <C-@> <C-Space>
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-g>u\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-g>u\<S-Tab>"
+inoremap <expr> <Tab> pumvisible() ? "\<Down>" : "\<C-g>u\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<Up>" : "\<C-g>u\<S-Tab>"
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Use Unix as the standard file type
