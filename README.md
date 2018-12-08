@@ -4,6 +4,8 @@ rliebz's Dotfiles
 Install
 -------
 
+Requires `git`, `python`, and `curl`.
+
 Clone onto your machine:
 
     git clone https://github.com/rliebz/dotfiles.git $HOME/.dotfiles

@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
-
 set -e
+
+for req in curl git python3; do
+  if ! command -v $req &> /dev/null; then
+    >&2 echo "$req is required for installation"
+    exit 1
+  fi
+done
 
 CONFIG="install.conf.yaml"
 DOTBOT_DIR="dotbot"
@@ -14,6 +20,3 @@ git submodule update --init --recursive "${DOTBOT_DIR}"
 
 # Run dotbot
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
-
-# Install vim plugins
-vim +PlugInstall +qall
