@@ -180,7 +180,6 @@ colorscheme dots
 
 set autoread
 set colorcolumn=80
-set cursorline
 set history=1000
 set laststatus=2
 set lazyredraw
@@ -189,6 +188,10 @@ set number
 set scrolloff=5
 set wildmenu
 set wrap
+
+if &t_Co >= 16
+  set cursorline
+endif
 
 " Better timeouts
 set timeoutlen=500  " From 1000
