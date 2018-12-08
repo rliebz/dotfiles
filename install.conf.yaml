@@ -1,9 +1,8 @@
----
 - defaults:
     link:
       relink: true
 
-- clean: ['~']
+- clean: ["~"]
 
 - link:
     ~/.config/flake8:
@@ -18,6 +17,9 @@
     ~/.hyper.js: hyper.js
     ~/.mdlrc: mdlrc
     ~/.mdlstyle: mdlstyle
+    ~/.config/nvim/init.vim:
+      create: true
+      path: nvim/init.vim
     ~/.pylintrc: pylintrc
     ~/.vim: vim
     ~/.vimrc: vimrc
