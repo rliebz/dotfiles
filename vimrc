@@ -68,6 +68,7 @@ let g:ale_linter_aliases = {
       \'docker-compose': ['yaml'],
       \}
 let g:ale_linters = {
+      \'sh': ['shellcheck'],
       \'go': ['golangci-lint'],
       \'javascript': ['eslint'],
       \'rust': ['rls'],
