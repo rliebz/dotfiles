@@ -243,6 +243,10 @@ set fileformats=unix,dos,mac
 set list
 set listchars=eol:¬,tab:»\ ,space:·,trail:·,nbsp:␣
 
+" Allow italics
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Netrw
