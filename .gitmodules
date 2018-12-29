@@ -10,3 +10,6 @@
 [submodule "zsh/vendor/asdf"]
 	path = zsh/vendor/asdf
 	url = https://github.com/asdf-vm/asdf.git
+[submodule "zsh/vendor/zsh-syntax-highlighting"]
+	path = zsh/vendor/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
