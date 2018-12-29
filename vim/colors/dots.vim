@@ -55,6 +55,7 @@ let s:bright_black  = { 'gui': '#002B36', 'cterm': '8' }
 
 " Related colors
 let s:special_grey  = s:bright_black
+let s:gutter_fg     = s:dark_cyan
 let s:gutter_bg     = s:bright_black
 let s:visual_bg     = s:dark_green
 
@@ -127,11 +128,11 @@ call s:h('DiffDelete',  { 'fg': s:red })
 call s:h('DiffText',    { 'fg': s:blue })
 call s:h('ErrorMsg',    { 'fg': s:dark_red })
 call s:h('VertSplit',   { 'fg': s:dark_cyan, 'bg': s:dark_cyan })
-call s:h('Folded',      {})
+call s:h('Folded',      { 'fg': s:gutter_fg, 'bg': s:gutter_bg })
 call s:h('FoldColumn',  {})
 call s:h('SignColumn',  {})
 call s:h('IncSearch',   { 'fg': s:yellow, 'bg': s:dark_cyan })
-call s:h('LineNr',      { 'fg': s:dark_cyan, 'bg': s:gutter_bg })
+call s:h('LineNr',      { 'fg': s:gutter_fg, 'bg': s:gutter_bg })
 call s:h('CursorLineNr', { 'fg': s:yellow, 'bg': s:gutter_bg })
 call s:h('MatchParen',  { 'fg': s:yellow, 'bg': s:dark_cyan })
 call s:h('ModeMsg',     {})
