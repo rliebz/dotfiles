@@ -1,2 +1,2 @@
 # Zsh Syntax Highlighting
-source "$HOME/.zsh/vendor/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "${VENDOR_PATH}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
