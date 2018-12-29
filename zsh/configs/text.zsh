@@ -1,6 +1,10 @@
 # Set text editor to vim
-export VISUAL='vim'
-export EDITOR='vim'
+if command -v nvim &> /dev/null; then
+  export EDITOR='nvim'
+elif command -v vim &> /dev/null; then
+  export EDITOR='vim'
+fi
+export VISUAL="${EDITOR}"
 
 # Set pager to less
 export PAGER='less'
