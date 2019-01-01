@@ -13,6 +13,3 @@ alias ......='cd ../../../../..'
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
-
-# Never open vi
-alias vi="vim"
