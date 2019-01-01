@@ -6,11 +6,9 @@ zle -N self-insert url-quote-magic
 setopt BRACE_CCL          # Allow brace character class list expansion.
 setopt COMBINING_CHARS    # Combine zero-length punctuation characters (accents)
                           # with the base character.
-setopt CORRECT            # Try to correct spelling of commands.
 setopt RC_QUOTES          # Allow 'Henry''s Garage' instead of 'Henry'\''s Garage'.
 setopt RM_STAR_SILENT     # Do not query the user before executing ‘rm *’.
 unsetopt BEEP             # Silence beeps.
-unsetopt CORRECT_ALL      # Do not try to correct command arguments
 unsetopt MAIL_WARNING     # Don't print a warning message if a mail file has been accessed
 
 # Jobs
