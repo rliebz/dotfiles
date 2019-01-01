@@ -2,7 +2,7 @@ setopt promptsubst
 
 prompt_theme=(
   cyan
-  green
+  blue
   magenta
   yellow
 )
