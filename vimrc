@@ -295,7 +295,7 @@ nmap <leader>v :source ~/.vimrc<cr>
 nmap <leader>w :w!<cr>
 
 " Copy to system clipboard
-noremap <leader>y "*y
+noremap <leader>y "+y
 
 " Toggle paste mode
 map <leader>pp :setlocal paste!<cr>
