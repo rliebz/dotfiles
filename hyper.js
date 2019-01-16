@@ -3,22 +3,22 @@
 // See https://hyper.is#cfg for all currently supported options.
 
 const colors = {
-  black: '#000f14',
-  red: '#f3361c',
-  green: '#7aC021',
-  yellow: '#f4b21c',
-  blue: '#a568fe',
-  magenta: '#fc3c99',
-  cyan: '#34b0d2',
-  white: '#c4e3e8',
-  lightBlack: '#002932',
-  lightRed: '#8b3828',
-  lightGreen: '#537c22',
-  lightYellow: '#947226',
-  lightBlue: '#54406e',
-  lightMagenta: '#a83467',
-  lightCyan: '#348298',
-  lightWhite: '#7a898d',
+  black: '#000000',
+  red: '#f02A04',
+  green: '#92e009',
+  yellow: '#ffb702',
+  blue: '#8a60ff',
+  magenta: '#ff57fe',
+  cyan: '#00bee2',
+  white: '#dbf8ff',
+  lightBlack: '#00212a',
+  lightRed: '#7d0701',
+  lightGreen: '#355a05',
+  lightYellow: '#b08500',
+  lightBlue: '#231944',
+  lightMagenta: '#892f89',
+  lightCyan: '#007992',
+  lightWhite: '#91a6ab',
 };
 
 module.exports = {

@@ -24,29 +24,29 @@ endfunction
 " => Color Variables
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let s:red           = { 'gui': '#C00C03', 'cterm': '1' }
-let s:dark_red      = { 'gui': '#7D0701', 'cterm': '9' }
+let s:red           = { 'gui': '#f02A04', 'cterm': '1' }
+let s:dark_red      = { 'gui': '#7d0701', 'cterm': '9' }
 
-let s:green         = { 'gui': '#63A60A', 'cterm': '2' }
-let s:dark_green    = { 'gui': '#355A05', 'cterm': '10' }
+let s:green         = { 'gui': '#92e009', 'cterm': '2' }
+let s:dark_green    = { 'gui': '#355a05', 'cterm': '10' }
 
-let s:yellow        = { 'gui': '#DEA000', 'cterm': '3' }
-let s:dark_yellow   = { 'gui': '#A07300', 'cterm': '11' }
+let s:yellow        = { 'gui': '#ffb702', 'cterm': '3' }
+let s:dark_yellow   = { 'gui': '#b08500', 'cterm': '11' }
 
-let s:blue          = { 'gui': '#A663FF', 'cterm': '4' }
-let s:dark_blue     = { 'gui': '#4B2C73', 'cterm': '12' }
+let s:blue          = { 'gui': '#8a60ff', 'cterm': '4' }
+let s:dark_blue     = { 'gui': '#231944', 'cterm': '12' }
 
-let s:magenta       = { 'gui': '#DD187A', 'cterm': '5' }
-let s:dark_magenta  = { 'gui': '#760D41', 'cterm': '13' }
+let s:magenta       = { 'gui': '#ff57fe', 'cterm': '5' }
+let s:dark_magenta  = { 'gui': '#892f89', 'cterm': '13' }
 
-let s:cyan          = { 'gui': '#00ADD6', 'cterm': '6' }
-let s:dark_cyan     = { 'gui': '#00566A', 'cterm': '14' }
+let s:cyan          = { 'gui': '#00bee2', 'cterm': '6' }
+let s:dark_cyan     = { 'gui': '#007992', 'cterm': '14' }
 
-let s:white         = { 'gui': '#B1CDD0', 'cterm': '7' }
-let s:dark_white    = { 'gui': '#515D5F', 'cterm': '15' }
+let s:white         = { 'gui': '#dbf8ff', 'cterm': '7' }
+let s:dark_white    = { 'gui': '#91a6ab', 'cterm': '15' }
 
-let s:black         = { 'gui': '#001014', 'cterm': '0' }
-let s:bright_black  = { 'gui': '#002B36', 'cterm': '8' }
+let s:black         = { 'gui': '#000000', 'cterm': '0' }
+let s:bright_black  = { 'gui': '#00212a', 'cterm': '8' }
 
 " Related colors
 let s:special_grey  = s:bright_black
