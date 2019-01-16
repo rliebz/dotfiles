@@ -132,13 +132,12 @@ let g:go_fmt_fail_silently = 1
 let g:go_highlight_operators = 1
 let g:go_fmt_command = 'goimports'
 
-augroup VimGo
-  autocmd!
-  autocmd FileType go nmap <silent> <buffer> <F2> <Plug>(go-rename)
-augroup END
-
 " LanguageClient-neovim
+let g:LanguageClient_rootMarkers = {
+      \ 'go': ['git', 'go.mod'],
+      \ }
 let g:LanguageClient_serverCommands = {
+      \ 'go': ['bingo', '--disable-func-snippet'],
       \ 'sh': ['bash-language-server', 'start'],
       \ 'css': ['css-languageserver', '--stdio'],
       \ 'less': ['css-languageserver', '--stdio'],
@@ -152,7 +151,7 @@ let g:LanguageClient_diagnosticsEnable = 0
 
 augroup LanguageClient
   autocmd!
-  autocmd FileType sh,css,less,scss,javascript,typescript,python,rust call s:ConfigureLanguageClientBuffer()
+  autocmd FileType go,sh,css,less,scss,javascript,typescript,python,rust call s:ConfigureLanguageClientBuffer()
   function! s:ConfigureLanguageClientBuffer()
     nnoremap <silent> <buffer> K :call LanguageClient#textDocument_hover()<CR>
     nnoremap <silent> <buffer> <C-]> :call LanguageClient#textDocument_definition()<CR>
