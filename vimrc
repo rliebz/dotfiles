@@ -31,6 +31,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'markonm/traces.vim'
+Plug 'romainl/vim-cool'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive' | Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-repeat'
@@ -210,7 +211,6 @@ endif
 " Search options
 set ignorecase
 set smartcase
-set nohlsearch
 set incsearch
 
 " Show matching brackets when text indicator is over them
