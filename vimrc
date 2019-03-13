@@ -40,6 +40,18 @@ Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 Plug 'wellle/targets.vim'
 
+Plug 'Shougo/echodoc.vim'
+let g:echodoc_enable_at_startup = 1
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+
 " Language-specific plugins
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
@@ -52,6 +64,14 @@ let g:polyglot_disabled = ['go', 'markdown']
 let g:jsx_ext_required = 1
 
 call plug#end()
+
+" Deoplete
+call deoplete#custom#option('sources', {
+      \ '_': ['LanguageClient'],
+      \})
+call deoplete#custom#source('LanguageClient', 'mark', '')
+call deoplete#custom#source('LanguageClient', 'min_pattern_length', 2)
+call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
 
 " Prefer existing indentation over editorconfig
 let g:sleuth_automatic = 0
@@ -244,7 +264,7 @@ set nowritebackup
 set noswapfile
 
 " Autocomplete
-set completeopt=menuone
+set completeopt=menuone,noinsert,preview
 inoremap <C-Space> <C-x><C-o>
 imap <C-@> <C-Space>
 inoremap <silent> <expr> <Tab> pumvisible() ? "\<Down>" : "\<C-g>u\<Tab>"
