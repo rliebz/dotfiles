@@ -207,6 +207,8 @@ set scrolloff=5
 set wildmenu
 set wrap
 
+set shortmess+=c
+
 if &t_Co >= 16
   set cursorline
 endif
