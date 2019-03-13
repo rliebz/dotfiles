@@ -193,6 +193,7 @@ colorscheme dots
 set autoread
 set colorcolumn=80
 set history=1000
+set formatoptions+=j
 set laststatus=2
 set lazyredraw
 set magic
@@ -215,11 +216,6 @@ set smartindent
 
 " Fix backspace behavior
 set backspace=indent,eol,start
-
-" Delete comment character when joining commented lines
-if v:version > 703 || v:version == 703 && has("patch541")
-  set formatoptions+=j
-endif
 
 " Search options
 set ignorecase
