@@ -201,6 +201,7 @@ set formatoptions+=j
 set laststatus=2
 set lazyredraw
 set magic
+set noshowmode
 set number
 set scrolloff=5
 set wildmenu
