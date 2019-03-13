@@ -49,6 +49,7 @@ Plug 'fatih/vim-go'
 " polyglot can cause issues if not plugged last
 Plug 'sheerun/vim-polyglot'
 let g:polyglot_disabled = ['go', 'markdown']
+let g:jsx_ext_required = 1
 
 call plug#end()
 
@@ -151,6 +152,7 @@ let g:LanguageClient_serverCommands = {
       \ 'less': ['css-languageserver', '--stdio'],
       \ 'scss': ['css-languageserver', '--stdio'],
       \ 'javascript': ['javascript-typescript-stdio'],
+      \ 'javascript.jsx': ['javascript-typescript-stdio'],
       \ 'typescript': ['javascript-typescript-stdio'],
       \ 'python': ['pyls'],
       \ 'rust': ['rustup', 'run', 'stable', 'rls'],
