@@ -53,6 +53,10 @@ let g:jsx_ext_required = 1
 
 call plug#end()
 
+" Prefer existing indentation over editorconfig
+let g:sleuth_automatic = 0
+call editorconfig#AddNewHook({->execute(':Sleuth')})
+
 " ale
 let g:ale_fix_on_save = 1
 nmap <silent> [a <Plug>(ale_previous)
