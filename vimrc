@@ -126,12 +126,19 @@ nmap <silent> <leader>tf :TestFile<CR>
 nmap <silent> <leader>ts :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 
-" vim-go: Avoid conflicts with ale
+" vim-go
 let g:go_fmt_fail_silently = 1
-
-" vim-go: Various settings
 let g:go_highlight_operators = 1
 let g:go_fmt_command = 'goimports'
+
+augroup VimGo
+  autocmd!
+  autocmd FileType go call s:ConfigureVimGo()
+  function! s:ConfigureVimGo()
+    nmap <leader>cu :GoCoverage<CR>
+    nmap <leader>cd :GoCoverageClear<CR>
+  endfunction
+augroup END
 
 " LanguageClient-neovim
 let g:LanguageClient_rootMarkers = {
