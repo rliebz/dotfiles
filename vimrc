@@ -196,11 +196,12 @@ colorscheme dots
 
 set autoread
 set colorcolumn=80
-set history=1000
 set formatoptions+=j
+set history=1000
 set laststatus=2
 set lazyredraw
 set magic
+set nojoinspaces
 set noshowmode
 set number
 set scrolloff=5
