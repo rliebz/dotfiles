@@ -264,7 +264,7 @@ set nowritebackup
 set noswapfile
 
 " Autocomplete
-set completeopt=menuone,noinsert,preview
+set completeopt=menuone,noinsert
 inoremap <C-Space> <C-x><C-o>
 imap <C-@> <C-Space>
 inoremap <silent> <expr> <Tab> pumvisible() ? "\<Down>" : "\<C-g>u\<Tab>"
