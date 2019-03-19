@@ -192,6 +192,7 @@ call s:h('yamlKey',      { 'fg': s:magenta })
 " ALE
 call s:h('ALEErrorSign',   {'fg': s:red, 'bg': s:gutter_bg })
 call s:h('ALEWarningSign', {'fg': s:yellow, 'bg': s:gutter_bg })
+call s:h('ALEInfoSign',    {'fg': s:blue, 'bg': s:gutter_bg })
 
 " Signify
 hi link SignifySignAdd              LineNr
