@@ -40,6 +40,8 @@ Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 Plug 'wellle/targets.vim'
 
+Plug 'ncm2/ncm2' | Plug 'roxma/nvim-yarp'
+
 " Language-specific plugins
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
@@ -171,6 +173,8 @@ augroup LanguageClient
       return
     endif
 
+    call ncm2#enable_for_buffer()
+
     nnoremap <silent> <buffer> K :call LanguageClient#textDocument_hover()<CR>
     nnoremap <silent> <buffer> <C-]> :call LanguageClient#textDocument_definition()<CR>
     nnoremap <silent> <buffer> <F2> :call LanguageClient#textDocument_rename()<CR>
@@ -245,12 +249,12 @@ set nowritebackup
 set noswapfile
 
 " Autocomplete
-set completeopt=menuone
+set completeopt=menuone,noselect
 inoremap <C-Space> <C-x><C-o>
 imap <C-@> <C-Space>
-inoremap <silent> <expr> <Tab> pumvisible() ? "\<Down>" : "\<C-g>u\<Tab>"
-inoremap <silent> <expr> <S-Tab> pumvisible() ? "\<Up>" : "\<C-g>u\<S-Tab>"
-inoremap <silent> <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent> <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-g>u\<Tab>"
+inoremap <silent> <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-g>u\<S-Tab>"
+inoremap <silent> <expr> <CR> pumvisible() ? "\<C-y>\<CR>" : "\<C-g>u\<CR>"
 
 " Use Unix as the standard file type
 set fileformats=unix,dos,mac
