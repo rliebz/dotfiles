@@ -17,12 +17,10 @@
     ~/.hyper.js: hyper.js
     ~/.mdlrc: mdlrc
     ~/.mdlstyle: mdlstyle
-    ~/.config/nvim/init.vim:
+    ~/.config/nvim:
       create: true
-      path: nvim/init.vim
+      path: nvim
     ~/.pylintrc: pylintrc
-    ~/.vim: vim
-    ~/.vimrc: vimrc
     ~/.zsh: zsh
     ~/.zshenv: zshenv
     ~/.zshrc: zshrc

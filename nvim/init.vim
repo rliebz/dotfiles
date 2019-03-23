@@ -15,13 +15,13 @@ let s:gutter_info_char = '●'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if empty(glob('~/.vim/autoload/plug.vim'))
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 " General purpose plugins
 Plug 'airblade/vim-gitgutter'
@@ -309,7 +309,7 @@ augroup END
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Reload vimrc
-nmap <leader>v :source ~/.vimrc<cr>
+nmap <leader>v :source $MYVIMRC<cr>
 
 " Fast writes
 nmap <leader>w :w!<cr>
