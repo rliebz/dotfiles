@@ -1,10 +1,5 @@
 set encoding=utf-8
 
-" python3.7 fix: https://github.com/vim/vim/issues/3117
-if has('python3') && !has('patch-8.1.201')
-  silent! python3 1
-endif
-
 " Leader
 map <space> <nop>
 let g:mapleader = ' '
@@ -120,13 +115,6 @@ let g:lightline = {
     \ }
     \ }
 
-" gitgutter: Always show sign column
-if exists('&signcolumn')
-  set signcolumn=yes
-else
-  let g:gitgutter_sign_column_always = 1
-endif
-
 " test
 nmap <silent> <leader>tn :TestNearest<CR>
 nmap <silent> <leader>tf :TestFile<CR>
@@ -209,6 +197,7 @@ set nojoinspaces
 set noshowmode
 set number
 set scrolloff=5
+set signcolumn=yes
 set wildmenu
 set wrap
 
