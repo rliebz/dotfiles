@@ -34,11 +34,6 @@ To add a new file to your dotfiles:
     - Do not include a leading period in the file name
 2. Create an entry in install.conf.yaml
 
-To add a new Vim package:
-
-    cd vim/bundle
-    git submodule add <git-repo-url>
-
 
 Local Customizations
 --------------------
