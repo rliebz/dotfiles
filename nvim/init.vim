@@ -186,11 +186,8 @@ let g:markdown_fenced_languages = [
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme dots
 
-set autoread
 set colorcolumn=80
 set formatoptions+=j
-set history=1000
-set laststatus=2
 set lazyredraw
 set magic
 set nojoinspaces
@@ -198,7 +195,7 @@ set noshowmode
 set number
 set scrolloff=5
 set signcolumn=yes
-set wildmenu
+set smartindent
 set wrap
 
 set shortmess+=c
@@ -207,35 +204,13 @@ if &t_Co >= 16
   set cursorline
 endif
 
-" Better timeouts
-set timeoutlen=500  " From 1000
-set updatetime=250  " From 4000
-
-" Indentation
-set autoindent
-set smartindent
-
-" Fix backspace behavior
-set backspace=indent,eol,start
-
 " Search options
 set ignorecase
 set smartcase
-set incsearch
 
 " Show matching brackets when text indicator is over them
 set showmatch
 set matchtime=2
-
-" No annoying sound on errors
-set noerrorbells
-set novisualbell
-set t_vb=
-
-" Turn backup off
-set nobackup
-set nowritebackup
-set noswapfile
 
 " Autocomplete
 set completeopt=menuone,noselect
