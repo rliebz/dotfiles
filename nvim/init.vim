@@ -197,6 +197,7 @@ set number
 set scrolloff=5
 set signcolumn=yes
 set smartindent
+set updatetime=100
 set wrap
 
 set shortmess+=c
