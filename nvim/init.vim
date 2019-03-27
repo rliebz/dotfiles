@@ -44,6 +44,8 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 Plug 'fatih/vim-go'
+Plug 'jvirtanen/vim-hcl'
+Plug 'hashivim/vim-hashicorp-tools'
 " polyglot can cause issues if not plugged last
 Plug 'sheerun/vim-polyglot'
 let g:polyglot_disabled = ['go', 'markdown']

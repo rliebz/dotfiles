@@ -25,7 +25,7 @@ indent_size = 2
 indent_style = space
 trim_trailing_whitespace = false
 
-[*.tf{,vars}]
+[*.{hcl,nomad,tf,tfvars}]
 indent_size = 2
 indent_style = space
 
