@@ -197,6 +197,7 @@ set lazyredraw
 set magic
 set nojoinspaces
 set noshowmode
+set noswapfile
 set number
 set scrolloff=5
 set signcolumn=yes
