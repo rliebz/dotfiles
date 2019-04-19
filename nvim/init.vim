@@ -145,7 +145,7 @@ let g:LanguageClient_rootMarkers = {
       \ 'go': ['git', 'go.mod'],
       \ }
 let g:LanguageClient_serverCommands = {
-      \ 'go': ['bingo', '--disable-func-snippet'],
+      \ 'go': ['gopls'],
       \ 'sh': ['bash-language-server', 'start'],
       \ 'css': ['css-languageserver', '--stdio'],
       \ 'less': ['css-languageserver', '--stdio'],
