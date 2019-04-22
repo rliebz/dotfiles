@@ -26,7 +26,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plug 'markonm/traces.vim'
 Plug 'romainl/vim-cool'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -193,6 +192,7 @@ colorscheme dots
 
 set colorcolumn=80
 set formatoptions+=j
+set inccommand=nosplit
 set lazyredraw
 set magic
 set nojoinspaces
