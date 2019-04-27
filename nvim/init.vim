@@ -128,7 +128,6 @@ nmap <silent> <leader>tl :TestLast<CR>
 " vim-go
 let g:go_template_autocreate = 0
 let g:go_fmt_fail_silently = 1
-let g:go_highlight_operators = 1
 let g:go_fmt_command = 'goimports'
 
 augroup VimGo
