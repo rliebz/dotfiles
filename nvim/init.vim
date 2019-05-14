@@ -288,9 +288,6 @@ nmap <leader>w :w!<cr>
 " Copy to system clipboard
 noremap <leader>y "+y
 
-" Toggle paste mode
-map <leader>pp :setlocal paste!<cr>
-
 " Toggle spell checking
 map <leader>ss :setlocal spell!<cr>
 
