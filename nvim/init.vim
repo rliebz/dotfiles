@@ -38,13 +38,10 @@ Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 Plug 'wellle/targets.vim'
 
-Plug 'ncm2/ncm2' | Plug 'roxma/nvim-yarp'
 
-" Language-specific plugins
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+
+" " Language-specific plugins
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'fatih/vim-go'
 Plug 'jvirtanen/vim-hcl'
 Plug 'hashivim/vim-hashicorp-tools'
@@ -126,6 +123,37 @@ nmap <silent> <leader>tf :TestFile<CR>
 nmap <silent> <leader>ts :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 
+" coc-nvim
+augroup CocLanguages
+  autocmd!
+  autocmd FileType * call s:ConfigureCoCBuffer()
+  function! s:ConfigureCoCBuffer()
+    if (index(['vim','help'], &filetype) >= 0)
+      return
+    endif
+    nnoremap <buffer> <silent> K :call CocAction('doHover')<CR>
+    nmap <buffer> <silent> <C-]> <Plug>(coc-definition)
+    nmap <buffer> <silent> <F2> <Plug>(coc-rename)
+  endfunction
+augroup END
+
+" coc-nvim: Completion
+inoremap <silent> <expr> <C-Space> coc#refresh()
+inoremap <silent> <expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <silent> <expr> <S-Tab>
+      \ pumvisible() ? "\<C-p>" :
+      \ "\<C-g>u\<S-Tab>"
+inoremap <silent> <expr> <cr>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ "\<C-g>u\<cr>\<C-r>=coc#on_enter()\<cr>"
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
 " vim-go
 let g:go_template_autocreate = 0
 let g:go_fmt_fail_silently = 1
@@ -137,40 +165,6 @@ augroup VimGo
   function! s:ConfigureVimGo()
     nmap <leader>cu :GoCoverage<CR>
     nmap <leader>cd :GoCoverageClear<CR>
-  endfunction
-augroup END
-
-" LanguageClient-neovim
-let g:LanguageClient_rootMarkers = {
-      \ 'go': ['git', 'go.mod'],
-      \ }
-let g:LanguageClient_serverCommands = {
-      \ 'go': ['gopls'],
-      \ 'sh': ['bash-language-server', 'start'],
-      \ 'css': ['css-languageserver', '--stdio'],
-      \ 'less': ['css-languageserver', '--stdio'],
-      \ 'scss': ['css-languageserver', '--stdio'],
-      \ 'javascript': ['javascript-typescript-stdio'],
-      \ 'javascript.jsx': ['javascript-typescript-stdio'],
-      \ 'typescript': ['javascript-typescript-stdio'],
-      \ 'python': ['pyls'],
-      \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-      \ }
-let g:LanguageClient_diagnosticsEnable = 0
-
-augroup LanguageClient
-  autocmd!
-  autocmd FileType * call s:ConfigureLanguageClientBuffer()
-  function! s:ConfigureLanguageClientBuffer()
-    if !has_key(g:LanguageClient_serverCommands, &filetype)
-      return
-    endif
-
-    call ncm2#enable_for_buffer()
-
-    nnoremap <silent> <buffer> K :call LanguageClient#textDocument_hover()<CR>
-    nnoremap <silent> <buffer> <C-]> :call LanguageClient#textDocument_definition()<CR>
-    nnoremap <silent> <buffer> <F2> :call LanguageClient#textDocument_rename()<CR>
   endfunction
 augroup END
 
@@ -219,14 +213,6 @@ set smartcase
 " Show matching brackets when text indicator is over them
 set showmatch
 set matchtime=2
-
-" Autocomplete
-set completeopt=menuone,noselect
-inoremap <C-Space> <C-x><C-o>
-imap <C-@> <C-Space>
-inoremap <silent> <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-g>u\<Tab>"
-inoremap <silent> <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-g>u\<S-Tab>"
-inoremap <silent> <expr> <CR> pumvisible() ? "\<C-y>\<CR>" : "\<C-g>u\<CR>"
 
 " Use Unix as the standard file type
 set fileformats=unix,dos,mac
