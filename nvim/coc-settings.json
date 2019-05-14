@@ -1,0 +1,14 @@
+{
+  "coc.source.around.enable": false,
+  "coc.source.buffer.enable": false,
+  "diagnostic.displayByAle": true,
+  "suggest.detailField": "menu",
+  "suggest.disableKind": true,
+  "suggest.snippetIndicator": "",
+  "languageserver": {
+    "gopls": {
+      "command": "gopls",
+      "filetypes": ["go"]
+    }
+  }
+}
