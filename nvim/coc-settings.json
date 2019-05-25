@@ -4,6 +4,7 @@
   "diagnostic.displayByAle": true,
   "suggest.detailField": "menu",
   "suggest.disableKind": true,
+  "suggest.disableMenuShortcut": true,
   "suggest.snippetIndicator": "",
   "languageserver": {
     "gopls": {
