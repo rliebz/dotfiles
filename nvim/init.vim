@@ -186,6 +186,7 @@ let g:markdown_fenced_languages = [
 colorscheme dots
 
 set colorcolumn=80
+set diffopt+=vertical
 set formatoptions+=j
 set inccommand=nosplit
 set lazyredraw
