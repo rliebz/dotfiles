@@ -2,6 +2,10 @@
 extends: default
 
 rules:
+  braces:
+    level: warning
+  brackets:
+    level: warning
   document-start: disable
   hyphens:
     level: warning
