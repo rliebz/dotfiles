@@ -38,8 +38,6 @@ Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 Plug 'wellle/targets.vim'
 
-
-
 " " Language-specific plugins
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'fatih/vim-go'

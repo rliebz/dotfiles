@@ -24,8 +24,8 @@ endfunction
 " => Color Variables
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let s:red           = { 'gui': '#f02A04', 'cterm': '1' }
-let s:dark_red      = { 'gui': '#7d0701', 'cterm': '9' }
+let s:red           = { 'gui': '#f72c09', 'cterm': '1' }
+let s:dark_red      = { 'gui': '#ac0a01', 'cterm': '9' }
 
 let s:green         = { 'gui': '#92e009', 'cterm': '2' }
 let s:dark_green    = { 'gui': '#355a05', 'cterm': '10' }
@@ -76,8 +76,8 @@ call s:h('Conditional', { 'fg': s:magenta })
 call s:h('Repeat',      { 'fg': s:magenta })
 call s:h('Label',       { 'fg': s:magenta })
 call s:h('Operator',    { 'fg': s:blue })
-call s:h('Keyword',     { 'fg': s:red })
-call s:h('Exception',   { 'fg': s:red })
+call s:h('Keyword',     { 'fg': s:dark_red })
+call s:h('Exception',   { 'fg': s:dark_red })
 
 call s:h('PreProc',     { 'fg': s:yellow })
 call s:h('Include',     { 'fg': s:magenta })
@@ -121,7 +121,7 @@ call s:h('DiffAdd',     { 'fg': s:green })
 call s:h('DiffChange',  { 'fg': s:dark_yellow })
 call s:h('DiffDelete',  { 'fg': s:red })
 call s:h('DiffText',    { 'fg': s:blue })
-call s:h('ErrorMsg',    { 'fg': s:dark_red })
+call s:h('ErrorMsg',    { 'fg': s:red })
 call s:h('VertSplit',   { 'fg': s:dark_cyan, 'bg': s:dark_cyan })
 call s:h('Folded',      { 'fg': s:gutter_fg, 'bg': s:gutter_bg })
 call s:h('FoldColumn',  {})
@@ -141,16 +141,16 @@ call s:h('PmenuThumb',  { 'bg': s:white })
 call s:h('Question',    { 'fg': s:magenta })
 call s:h('Search',      { 'bg': s:dark_cyan })
 call s:h('SpecialKey',  { 'fg': s:special_grey })
-call s:h('SpellBad',    { 'bg': s:dark_red })
-call s:h('SpellCap',    { 'fg': s:yellow })
-call s:h('SpellLocal',  { 'fg': s:yellow })
-call s:h('SpellRare',   { 'fg': s:yellow })
+call s:h('SpellBad',    { 'fg': s:red, 'gui': 'undercurl', 'cterm': 'undercurl' })
+call s:h('SpellCap',    { 'fg': s:yellow, 'gui': 'undercurl', 'cterm': 'undercurl' })
+call s:h('SpellLocal',  { 'fg': s:yellow, 'gui': 'undercurl', 'cterm': 'undercurl' })
+call s:h('SpellRare',   { 'fg': s:yellow, 'gui': 'undercurl', 'cterm': 'undercurl' })
 call s:h('StatusLine',  { 'fg': s:cyan, 'bg': s:dark_cyan })
 call s:h('StatusLineNC', { 'fg': s:dark_white, 'bg': s:bright_black })
 call s:h('TabLine',     { 'fg': s:black, 'bg': s:dark_cyan })
 call s:h('TabLineFill', { 'fg': s:white, 'bg': s:bright_black })
 call s:h('TabLineSel',  { 'fg': s:black, 'bg': s:cyan })
-call s:h('Title',       { 'fg': s:red, 'gui': 'bold', 'cterm': 'bold' })
+call s:h('Title',       { 'fg': s:dark_red, 'gui': 'bold', 'cterm': 'bold' })
 call s:h('Visual',      { 'bg': s:visual_bg })
 call s:h('VisualNOS',   { 'bg': s:visual_bg })
 call s:h('WarningMsg',  { 'fg': s:yellow })
@@ -171,15 +171,15 @@ call s:h('pythonDottedName',        { 'fg': s:yellow })
 call s:h('pythonRawString',         { 'fg': s:yellow })
 call s:h('pythonBuiltinFunc',       { 'fg': s:blue })
 
-call s:h('rubyBlockParameterList',     { 'fg': s:red })
+call s:h('rubyBlockParameterList',     { 'fg': s:dark_red })
 call s:h('rubyInterpolation',          { 'fg': s:green })
-call s:h('rubyInterpolationDelimiter', { 'fg': s:red })
+call s:h('rubyInterpolationDelimiter', { 'fg': s:dark_red })
 
 call s:h('tomlKey',        { 'fg': s:magenta })
 call s:h('tomlKeyDq',      { 'fg': s:magenta })
 call s:h('tomlKeySq',      { 'fg': s:magenta })
-call s:h('tomlTable',      { 'fg': s:red })
-call s:h('tomlTableArray', { 'fg': s:red })
+call s:h('tomlTable',      { 'fg': s:dark_red })
+call s:h('tomlTableArray', { 'fg': s:dark_red })
 
 call s:h('yamlConstant', { 'fg': s:cyan })
 call s:h('yamlKey',      { 'fg': s:magenta })

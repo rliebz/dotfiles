@@ -4,7 +4,7 @@
 
 const colors = {
   black: '#000000',
-  red: '#f02A04',
+  red: '#f72c09',
   green: '#92e009',
   yellow: '#ffb702',
   blue: '#8a60ff',
@@ -12,7 +12,7 @@ const colors = {
   cyan: '#00bee2',
   white: '#dbf8ff',
   lightBlack: '#00212a',
-  lightRed: '#7d0701',
+  lightRed: '#ac0a01',
   lightGreen: '#355a05',
   lightYellow: '#b08500',
   lightBlue: '#231944',
