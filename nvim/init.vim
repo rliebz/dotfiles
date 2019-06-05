@@ -46,7 +46,7 @@ Plug 'hashivim/vim-hashicorp-tools'
 Plug 'jparise/vim-graphql'
 " polyglot can cause issues if not plugged last
 Plug 'sheerun/vim-polyglot'
-let g:polyglot_disabled = ['go', 'markdown']
+let g:polyglot_disabled = ['go', 'markdown', 'gmpl']
 let g:jsx_ext_required = 1
 
 call plug#end()
