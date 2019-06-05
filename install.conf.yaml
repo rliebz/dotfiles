@@ -10,7 +10,7 @@
       path: flake8
     ~/.config/yamllint/config:
       create: true
-      path: yamllint
+      path: yamllint.yml
     ~/.editorconfig: editorconfig
     ~/.gitconfig: gitconfig
     ~/.gitignore: gitignore
