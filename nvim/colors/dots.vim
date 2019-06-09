@@ -223,6 +223,8 @@ let g:fzf_colors = {
       \ }
 
 " vim-go
+call s:h('goCoverageCovered', { 'fg': s:green })
+call s:h('goCoverageUncover', { 'fg': s:red })
 let g:go_highlight_operators = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_function_parameters = 0
