@@ -101,7 +101,7 @@ call s:h('Underlined',  {})
 
 call s:h('Ignore',      {})
 
-call s:h('Error',       { 'bg': s:dark_red })
+call s:h('Error',       { 'bg': s:red })
 
 call s:h('Todo',        { 'fg': s:magenta })
 
