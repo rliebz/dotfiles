@@ -25,6 +25,7 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'janko-m/vim-test'
+Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'romainl/vim-cool'
 Plug 'tpope/vim-abolish'
@@ -99,6 +100,10 @@ let g:ctrlsf_extra_backend_args = {
 let g:ctrlsf_auto_focus = { 'at': 'start' }
 let g:ctrlsf_confirm_save = 0
 nmap <C-F> <Plug>CtrlSFPrompt
+
+" vim-easy-align
+nmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
 
 " fzf
 nnoremap <C-P> :FZF<CR>
