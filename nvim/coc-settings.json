@@ -9,7 +9,8 @@
   "languageserver": {
     "gopls": {
       "command": "gopls",
-      "filetypes": ["go"]
+      "filetypes": ["go"],
+      "rootPatterns": ["go.mod", ".git/", ".hg/"]
     },
     "bash": {
       "command": "bash-language-server",
