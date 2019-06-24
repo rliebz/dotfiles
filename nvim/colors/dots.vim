@@ -25,7 +25,7 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let s:red           = { 'gui': '#f72c09', 'cterm': '1' }
-let s:dark_red      = { 'gui': '#ac0a01', 'cterm': '9' }
+let s:dark_red      = { 'gui': '#cd6200', 'cterm': '9' }
 
 let s:green         = { 'gui': '#92e009', 'cterm': '2' }
 let s:dark_green    = { 'gui': '#355a05', 'cterm': '10' }

@@ -12,7 +12,7 @@ const colors = {
   cyan: '#00bee2',
   white: '#dbf8ff',
   lightBlack: '#00212a',
-  lightRed: '#ac0a01',
+  lightRed: '#cd6200',
   lightGreen: '#355a05',
   lightYellow: '#b08500',
   lightBlue: '#231944',
