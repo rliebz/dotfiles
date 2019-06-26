@@ -44,3 +44,4 @@ tags
 .vscode/
 .tool-versions
 .tool-versions-e
+.~lock.*#
