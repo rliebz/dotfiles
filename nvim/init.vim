@@ -159,7 +159,6 @@ function! s:check_back_space() abort
 endfunction
 
 " vim-go
-let g:go_template_autocreate = 0
 let g:go_fmt_fail_silently = 1
 let g:go_fmt_command = 'goimports'
 
