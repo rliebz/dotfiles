@@ -223,7 +223,7 @@ set fileformats=unix,dos,mac
 
 " Show whitespace
 set list
-set listchars=eol:¬,tab:»\ ,space:·,trail:·,nbsp:␣
+set listchars=tab:»\ ,space:·,trail:·,nbsp:␣
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Netrw
