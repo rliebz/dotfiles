@@ -40,7 +40,7 @@ Plug 'w0rp/ale'
 Plug 'wellle/targets.vim'
 
 " Language-specific plugins
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/vim-go'
 Plug 'jvirtanen/vim-hcl'
 Plug 'hashivim/vim-hashicorp-tools'
