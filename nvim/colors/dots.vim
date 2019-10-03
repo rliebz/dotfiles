@@ -24,6 +24,9 @@ endfunction
 " => Color Variables
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+let s:black         = { 'gui': '#000000', 'cterm': '0' }
+let s:bright_black  = { 'gui': '#00212a', 'cterm': '8' }
+
 let s:red           = { 'gui': '#f72c09', 'cterm': '1' }
 let s:dark_red      = { 'gui': '#cd6200', 'cterm': '9' }
 
@@ -44,9 +47,6 @@ let s:dark_cyan     = { 'gui': '#007992', 'cterm': '14' }
 
 let s:white         = { 'gui': '#dbf8ff', 'cterm': '7' }
 let s:dark_white    = { 'gui': '#91a6ab', 'cterm': '15' }
-
-let s:black         = { 'gui': '#000000', 'cterm': '0' }
-let s:bright_black  = { 'gui': '#00212a', 'cterm': '8' }
 
 " Related colors
 let s:special_grey  = s:bright_black
