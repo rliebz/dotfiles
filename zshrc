@@ -1,3 +1,6 @@
+# Load local secrets first
+[[ -f ~/.secrets.local ]] && source ~/.secrets.local
+
 # Load ~/.zsh/configs/pre , ~/.zsh/configs , and ~/.zsh/configs/post, in order
 _load_settings() {
   local _dir="$1"
@@ -38,4 +41,3 @@ _load_settings "${HOME}/.zsh/configs"
 
 # Load local configuration settings
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
-[[ -f ~/.secrets.local ]] && source ~/.secrets.local
