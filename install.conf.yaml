@@ -11,6 +11,9 @@
     ~/.config/yamllint/config:
       create: true
       path: yamllint.yml
+    ~/.config/kitty/kitty.conf:
+      create: true
+      path: kitty.conf
     ~/.editorconfig: editorconfig
     ~/.gitconfig: gitconfig
     ~/.gitignore: gitignore
