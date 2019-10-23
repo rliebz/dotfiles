@@ -3,6 +3,7 @@ all
 
 exclude_rule "MD002" # first header should be level 1
 exclude_rule "MD012" # multiple consecutive blank lines
+exclude_rule "MD013" # line length
 exclude_rule "MD022" # headers should be surrounded by blank lines
 exclude_rule "MD024" # multiple headers with the same content
 exclude_rule "MD025" # only 1 level 1 header
@@ -15,6 +16,4 @@ exclude_rule "MD041" # first line should be a top-level header
 rule "MD003", :style => :consistent # header style
 rule "MD004", :style => :consistent # unordered list style
 rule "MD007", :indent => 2 # unordered list indentation
-rule "MD013", :line_length => 100 # line length
 rule "MD035", :style => :consistent # consistent horizontal rules
-
