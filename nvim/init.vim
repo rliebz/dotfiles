@@ -151,8 +151,8 @@ inoremap <silent> <expr> <S-Tab>
       \ pumvisible() ? "\<C-p>" :
       \ "\<C-g>u\<S-Tab>"
 inoremap <silent> <expr> <cr>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ "\<C-g>u\<cr>\<C-r>=coc#on_enter()\<cr>"
+      \ complete_info()["selected"] != "-1" ? "\<C-y>" :
+      \ "\<C-g>u\<CR>"
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
