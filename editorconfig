@@ -11,6 +11,8 @@ indent_size = 2
 
 [{*.go,go.mod}]
 indent_style = tab
+# Handled better by gofmt
+trim_trailing_whitespace = false
 
 [*.{js,ts}]
 indent_size = 2
