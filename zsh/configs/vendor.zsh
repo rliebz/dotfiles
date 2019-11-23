@@ -5,6 +5,9 @@ export MANPATH=${HOME}/.man:${MANPATH}
 source "${VENDOR_PATH}/asdf/asdf.sh"
 source "${VENDOR_PATH}/asdf/completions/asdf.bash"
 
+# Homebrew
+export HOMEBREW_NO_ANALYTICS=1
+
 # z (autojump)
 source ${VENDOR_PATH}/z/z.sh
 if ! [[ -f "${HOME}/.man/man1/z.1" ]]; then
