@@ -10,7 +10,12 @@
     "gopls": {
       "command": "gopls",
       "filetypes": ["go"],
-      "rootPatterns": ["go.mod", ".git/", ".hg/"]
+      "rootPatterns": ["go.mod", ".git/", ".hg/"],
+      "settings": {
+        "gopls": {
+          "linkTarget": ""
+        }
+      }
     },
     "bash": {
       "command": "bash-language-server",
