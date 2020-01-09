@@ -21,6 +21,7 @@ call plug#begin('~/.config/nvim/plugged')
 " General purpose plugins
 Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'b4winckler/vim-angry'
 Plug 'dyng/ctrlsf.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
