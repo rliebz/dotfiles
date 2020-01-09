@@ -45,7 +45,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/vim-go'
 Plug 'jvirtanen/vim-hcl'
 Plug 'hashivim/vim-hashicorp-tools'
-Plug 'jparise/vim-graphql'
 " polyglot can cause issues if not plugged last
 Plug 'sheerun/vim-polyglot'
 let g:polyglot_disabled = ['go', 'markdown', 'gmpl']
