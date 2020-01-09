@@ -138,6 +138,7 @@ augroup CocLanguages
     nnoremap <buffer> <silent> K :call CocAction('doHover')<CR>
     nmap <buffer> <silent> <C-]> <Plug>(coc-definition)
     nmap <buffer> <silent> <F2> <Plug>(coc-rename)
+    nmap <buffer> <silent> <leader>r <Plug>(coc-references)
   endfunction
 augroup END
 
