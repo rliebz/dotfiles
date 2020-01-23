@@ -110,7 +110,7 @@ call s:h('Todo',        { 'fg': s:magenta })
 " => Highlight Groups (:h highlight-groups)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-call s:h('ColorColumn', { 'bg': s:bright_black })
+call s:h('ColorColumn', { 'bg': s:dark_blue })
 call s:h('Conceal',     {})
 call s:h('Cursor',      { 'fg': s:black, 'bg': s:blue })
 call s:h('CursorIM',    {})
