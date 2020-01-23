@@ -3,31 +3,38 @@
 " Author: Robert Liebowitz
 " License: MIT License
 " =============================================================================
-let s:red = [ '#800000', 1 ]
-let s:dark_red = [ '#ff0000', 9 ]
-
-let s:green = [ '#008000', 2 ]
-let s:dark_green = [ '#00ff00', 10 ]
-
-let s:yellow = [ '#808000', 3 ]
-let s:dark_yellow = [ '#ffff00', 11  ]
-
-let s:blue = [ '#000080', 4 ]
-let s:dark_blue = [ '#0000ff', 12 ]
-
-let s:magenta = [ '#800080', 5 ]
-let s:dark_magenta = [ '#ff00ff', 13 ]
-
-let s:cyan = [ '#008080', 6 ]
-let s:dark_cyan = [ '#00ffff', 14 ]
-
-let s:white = [ '#c0c0c0', 7 ]
-let s:dark_white = [ '#ffffff', 15 ]
-
-let s:bright_black = [ '#808080', 8 ]
 let s:black = [ '#000000', 0 ]
+let s:bright_black = [ '#00212a', 8 ]
 
-let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
+let s:red = [ '#f72c09', 1 ]
+let s:dark_red = [ '#cd6200', 9 ]
+
+let s:green = [ '#92e009', 2 ]
+let s:dark_green = [ '#355a05', 10 ]
+
+let s:yellow = [ '#ffb702', 3 ]
+let s:dark_yellow = [ '#b08500', 11  ]
+
+let s:blue = [ '#8a60ff', 4 ]
+let s:dark_blue = [ '#231944', 12 ]
+
+let s:magenta = [ '#ff57fe', 5 ]
+let s:dark_magenta = [ '#892f89', 13 ]
+
+let s:cyan = [ '#00bee2', 6 ]
+let s:dark_cyan = [ '#007992', 14 ]
+
+let s:white = [ '#dbf8ff', 7 ]
+let s:dark_white = [ '#91a6ab', 15 ]
+
+let s:p = {
+      \ 'normal': {},
+      \ 'inactive': {},
+      \ 'insert': {},
+      \ 'replace': {},
+      \ 'visual': {},
+      \ 'tabline': {},
+      \ }
 
 let s:p.normal.left = [ [ s:black, s:blue ], [ s:black, s:cyan ] ]
 let s:p.insert.left = [ [ s:black, s:yellow ], [ s:black, s:cyan ] ]

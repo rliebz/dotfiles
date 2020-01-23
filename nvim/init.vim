@@ -187,6 +187,9 @@ let g:markdown_fenced_languages = [
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if $COLORTERM ==# 'truecolor'
+  set termguicolors
+endif
 colorscheme dots
 
 set colorcolumn=80
