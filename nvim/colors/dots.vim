@@ -205,6 +205,10 @@ call s:h('GitGutterDelete',         { 'fg': s:red, 'bg': s:gutter_bg })
 call s:h('GitGutterChange',         { 'fg': s:yellow, 'bg': s:gutter_bg })
 call s:h('GitGutterChangeDelete',   { 'fg': s:red, 'bg': s:gutter_bg })
 
+" Floaterm
+let g:floaterm_background = s:black.gui
+let g:floaterm_border_color = s:dark_cyan.gui
+
 " FZF
 let g:fzf_colors = {
       \ 'fg':      ['fg', 'Normal'],

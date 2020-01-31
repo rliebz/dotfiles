@@ -37,6 +37,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
+Plug 'voldikss/vim-floaterm'
 Plug 'w0rp/ale'
 Plug 'wellle/targets.vim'
 
@@ -55,6 +56,9 @@ call plug#end()
 " Prefer existing indentation over editorconfig
 let g:sleuth_automatic = 0
 call editorconfig#AddNewHook({->execute(':Sleuth')})
+
+let g:floaterm_keymap_toggle = '<C-t>'
+let g:floaterm_position = 'center'
 
 " ale
 let g:ale_fix_on_save = 1
