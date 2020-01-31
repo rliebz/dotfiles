@@ -203,13 +203,19 @@ set nojoinspaces
 set noshowmode
 set noswapfile
 set number
-set scrolloff=5
 set signcolumn=yes
 set smartindent
 set updatetime=100
 set wrap
 
 set shortmess+=c
+
+let s:scrolloff = 5
+augroup ScrollOff
+  autocmd!
+  autocmd TermEnter * setlocal scrolloff=0
+  autocmd TermLeave * setlocal scrolloff=5
+augroup END
 
 if &t_Co >= 16
   set cursorline
