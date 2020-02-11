@@ -59,6 +59,8 @@ call editorconfig#AddNewHook({->execute(':Sleuth')})
 
 let g:floaterm_keymap_toggle = '<C-t>'
 let g:floaterm_position = 'center'
+let g:floaterm_width=0.9
+let g:floaterm_height=0.8
 
 " ale
 let g:ale_fix_on_save = 1
@@ -111,7 +113,7 @@ xmap ga <Plug>(EasyAlign)
 
 " fzf
 nnoremap <C-P> :FZF<CR>
-let g:fzf_layout = { 'down': 15 }
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'FloatBorder' } }
 if executable('rg')
   let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
 endif
