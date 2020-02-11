@@ -17,6 +17,11 @@
         }
       }
     },
+    "typescript": {
+      "command": "typescript-language-server",
+      "args": ["--stdio"],
+      "filetypes": ["javascript", "javascriptreact", "typescript", "typescriptreact"]
+    },
     "bash": {
       "command": "bash-language-server",
       "args": ["start"],
