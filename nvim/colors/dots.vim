@@ -207,6 +207,14 @@ hi link SignifySignAdd              LineNr
 hi link SignifySignDelete           LineNr
 hi link SignifySignChange           LineNr
 
+" Clap
+call s:h('ClapSpinner',              {'fg': s:magenta, 'bg': s:dark_blue, 'gui': 'bold'})
+call s:h('ClapSearchText',           {'bg': s:dark_blue, 'gui': 'bold'})
+call s:h('ClapInput',                {'bg': s:dark_blue})
+call s:h('ClapCurrentSelection',     {'fg': s:white, 'bg': s:dark_cyan, 'gui': 'bold'})
+call s:h('ClapCurrentSelectionSign', {'fg': s:yellow, 'bg': s:dark_cyan, 'gui': 'bold'})
+call s:h('ClapPreview',              {'bg': s:dark_blue})
+
 " GitGutter
 call s:h('GitGutterAdd',            { 'fg': s:green, 'bg': s:gutter_bg })
 call s:h('GitGutterDelete',         { 'fg': s:red, 'bg': s:gutter_bg })

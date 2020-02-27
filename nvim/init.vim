@@ -22,12 +22,11 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'b4winckler/vim-angry'
-Plug 'dyng/ctrlsf.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
 Plug 'romainl/vim-cool'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
@@ -91,32 +90,24 @@ let g:ale_go_golangci_lint_options = ''
 let g:ale_go_golangci_lint_package = 1
 let g:ale_rust_rls_toolchain = 'stable'
 
-" ctrlsf
-if executable('rg')
-  let g:ctrlsf_ackprg = 'rg'
-endif
-let g:ctrlsf_extra_backend_args = {
-      \ 'rg': '
-      \   --hidden
-      \   --glob "!.git/*"
-      \   --glob "!*.min.js"
-      \   --glob "!*.js.map"
-      \ ',
+" Clap
+let g:clap_provider_delay = 100
+let g:clap_layout = {
+      \ 'relative': 'editor',
+      \ 'height': '33%',
+      \ 'row': '17%',
+      \ 'width': '80%',
+      \ 'col': '10%'
       \ }
-let g:ctrlsf_auto_focus = { 'at': 'start' }
-let g:ctrlsf_confirm_save = 0
-nmap <C-F> <Plug>CtrlSFPrompt
+let g:clap_prompt_format = '%forerunner_status% %provider_id%: '
+let g:rg_ignore_opts = '--hidden -g !.git/* -g !*.min.js -g !*.js.map'
+let g:clap_provider_grep_opts = '-LS --vimgrep ' . g:rg_ignore_opts
+nnoremap <C-F> :Clap grep<CR>
+nnoremap <expr> <C-P> ':Clap files ++finder=rg --files ' . g:rg_ignore_opts . '<CR>'
 
 " vim-easy-align
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
-
-" fzf
-nnoremap <C-P> :FZF<CR>
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'FloatBorder' } }
-if executable('rg')
-  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
-endif
 
 " lightline
 let g:lightline = {
