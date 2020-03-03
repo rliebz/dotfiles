@@ -203,6 +203,7 @@ set colorcolumn=80
 set cinwords=""
 set diffopt+=vertical
 set formatoptions+=j
+set hidden
 set inccommand=nosplit
 set lazyredraw
 set magic
@@ -259,13 +260,6 @@ let g:netrw_list_hide = '\.DS_Store,\.git/,\.gitmodules/,\.vscode/,__pycache__/,
 " Treat long lines as break lines
 map j gj
 map k gk
-
-" Disable highlight when <leader><cr> is pressed
-map <silent> <leader><cr> :noh<cr>
-
-" Specify the behavior when switching between buffers
-set hidden
-set switchbuf=useopen,vsplit
 
 " Window-closing shortcuts
 map <silent> <leader>qq :cclose <bar> pclose <bar> helpclose<cr>
