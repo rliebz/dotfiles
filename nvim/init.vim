@@ -22,12 +22,12 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'b4winckler/vim-angry'
-Plug 'dyng/ctrlsf.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
 Plug 'romainl/vim-cool'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
@@ -91,32 +91,33 @@ let g:ale_go_golangci_lint_options = ''
 let g:ale_go_golangci_lint_package = 1
 let g:ale_rust_rls_toolchain = 'stable'
 
-" ctrlsf
-if executable('rg')
-  let g:ctrlsf_ackprg = 'rg'
-endif
-let g:ctrlsf_extra_backend_args = {
-      \ 'rg': '
-      \   --hidden
-      \   --glob "!.git/*"
-      \   --glob "!*.min.js"
-      \   --glob "!*.js.map"
-      \ ',
-      \ }
-let g:ctrlsf_auto_focus = { 'at': 'start' }
-let g:ctrlsf_confirm_save = 0
-nmap <C-F> <Plug>CtrlSFPrompt
-
 " vim-easy-align
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
 
 " fzf
-nnoremap <C-P> :FZF<CR>
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'FloatBorder' } }
+let s:rg_ignore_opts = '--hidden -g "!.git/*" -g "!*.min.js" -g "!*.js.map"'
 if executable('rg')
-  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+  let $FZF_DEFAULT_COMMAND = 'rg --files --follow ' . s:rg_ignore_opts
 endif
+
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'FloatBorder' } }
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case '
+        \ . s:rg_ignore_opts . ' %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': [
+        \ '--reverse',
+        \ '--phony',
+        \ '--query', a:query,
+        \ '--bind', 'change:reload:'.reload_command,
+        \ ]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+nnoremap <C-P> :FZF --reverse<CR>
+nnoremap <C-F> :RG<CR>
 
 " lightline
 let g:lightline = {
