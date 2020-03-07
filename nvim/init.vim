@@ -102,20 +102,19 @@ if executable('rg')
 endif
 
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'FloatBorder' } }
-function! RipgrepFzf(query, fullscreen)
+function! RipgrepFzf(args)
   let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case '
-        \ . s:rg_ignore_opts . ' %s || true'
-  let initial_command = printf(command_fmt, shellescape(a:query))
-  let reload_command = printf(command_fmt, '{q}')
+        \ . s:rg_ignore_opts . ' %s %s || true'
+  let initial_command = printf(command_fmt, a:args, '""')
+  let reload_command = printf(command_fmt, a:args, '{q}')
   let spec = {'options': [
         \ '--reverse',
         \ '--phony',
-        \ '--query', a:query,
         \ '--bind', 'change:reload:'.reload_command,
         \ ]}
-  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec))
 endfunction
-command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+command! -nargs=* RG call RipgrepFzf(<q-args>)
 nnoremap <C-P> :FZF --reverse<CR>
 nnoremap <C-F> :RG<CR>
 
