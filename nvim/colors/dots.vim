@@ -101,7 +101,7 @@ call s:h('Underlined',  {})
 
 call s:h('Ignore',      {})
 
-call s:h('Error',       { 'bg': s:red })
+call s:h('Error',       { 'sp': s:red, 'gui': 'undercurl', 'cterm': 'undercurl' })
 
 call s:h('Todo',        { 'fg': s:magenta })
 
@@ -166,6 +166,9 @@ call s:h('javaScriptIdentifier',    { 'fg': s:magenta })
 call s:h('javaScriptNull',          { 'fg': s:yellow })
 call s:h('javaScriptNumber',        { 'fg': s:yellow })
 
+call s:h('jsonCommentError',        { 'fg': s:dark_white, 'sp': s:red, 'gui': 'undercurl', 'cterm': 'undercurl' })
+hi link jsonKeyword Identifier
+
 call s:h('pythonDecorator',         { 'fg': s:yellow, 'gui': 'bold', 'cterm': 'bold' })
 call s:h('pythonDottedName',        { 'fg': s:yellow })
 call s:h('pythonRawString',         { 'fg': s:yellow })
@@ -174,15 +177,6 @@ call s:h('pythonBuiltinFunc',       { 'fg': s:blue })
 call s:h('rubyBlockParameterList',     { 'fg': s:dark_red })
 call s:h('rubyInterpolation',          { 'fg': s:green })
 call s:h('rubyInterpolationDelimiter', { 'fg': s:dark_red })
-
-call s:h('tomlKey',        { 'fg': s:magenta })
-call s:h('tomlKeyDq',      { 'fg': s:magenta })
-call s:h('tomlKeySq',      { 'fg': s:magenta })
-call s:h('tomlTable',      { 'fg': s:dark_red })
-call s:h('tomlTableArray', { 'fg': s:dark_red })
-
-call s:h('yamlConstant', { 'fg': s:cyan })
-call s:h('yamlKey',      { 'fg': s:magenta })
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
