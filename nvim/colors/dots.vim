@@ -208,8 +208,8 @@ call s:h('GitGutterChange',         { 'fg': s:yellow, 'bg': s:gutter_bg })
 call s:h('GitGutterChangeDelete',   { 'fg': s:red, 'bg': s:gutter_bg })
 
 " Floaterm
-call s:h('FloatermNF',       { 'bg': s:black })
-call s:h('FloatermBorderNF', { 'fg': s:dark_cyan })
+call s:h('Floaterm',       { 'bg': s:black })
+call s:h('FloatermBorder', { 'fg': s:dark_cyan })
 
 " FZF
 let g:fzf_colors = {
