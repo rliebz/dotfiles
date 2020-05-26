@@ -4,7 +4,7 @@
 " License: MIT License
 " =============================================================================
 let s:black = [ '#000000', 0 ]
-let s:bright_black = [ '#00212a', 8 ]
+let s:bright_black = [ '#00313a', 8 ]
 
 let s:red = [ '#f72c09', 1 ]
 let s:dark_red = [ '#cd6200', 9 ]

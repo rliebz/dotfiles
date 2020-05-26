@@ -25,7 +25,7 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let s:black         = { 'gui': '#000000', 'cterm': '0' }
-let s:bright_black  = { 'gui': '#00212a', 'cterm': '8' }
+let s:bright_black  = { 'gui': '#00313a', 'cterm': '8' }
 
 let s:red           = { 'gui': '#f72c09', 'cterm': '1' }
 let s:dark_red      = { 'gui': '#cd6200', 'cterm': '9' }
@@ -125,7 +125,7 @@ call s:h('ErrorMsg',    { 'fg': s:red })
 call s:h('VertSplit',   { 'fg': s:dark_cyan, 'bg': s:dark_cyan })
 call s:h('Folded',      { 'fg': s:gutter_fg, 'bg': s:gutter_bg })
 call s:h('FoldColumn',  {})
-call s:h('SignColumn',  {})
+call s:h('SignColumn',  { 'bg': s:gutter_bg })
 call s:h('IncSearch',   { 'fg': s:yellow, 'bg': s:dark_cyan })
 call s:h('LineNr',      { 'fg': s:gutter_fg, 'bg': s:gutter_bg })
 call s:h('CursorLineNr', { 'fg': s:yellow, 'bg': s:gutter_bg })
@@ -161,13 +161,10 @@ call s:h('WildMenu',    { 'fg': s:yellow, 'bg': s:dark_cyan })
 " => Language-Specific Highlighting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-call s:h('javaScriptBraces',        { 'fg': s:white })
-call s:h('javaScriptIdentifier',    { 'fg': s:magenta })
-call s:h('javaScriptNull',          { 'fg': s:yellow })
-call s:h('javaScriptNumber',        { 'fg': s:yellow })
-
-call s:h('jsonCommentError',        { 'fg': s:dark_white, 'sp': s:red, 'gui': 'undercurl', 'cterm': 'undercurl' })
 hi link jsonKeyword Identifier
+call s:h('jsonCommentError',        {
+      \ 'fg': s:dark_white, 'sp': s:yellow, 'gui': 'undercurl', 'cterm': 'undercurl'
+      \ })
 
 call s:h('pythonDecorator',         { 'fg': s:yellow, 'gui': 'bold', 'cterm': 'bold' })
 call s:h('pythonDottedName',        { 'fg': s:yellow })

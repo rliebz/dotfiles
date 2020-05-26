@@ -11,7 +11,7 @@ const colors = {
   magenta: '#ff57fe',
   cyan: '#00bee2',
   white: '#dbf8ff',
-  lightBlack: '#00212a',
+  lightBlack: '#00313a',
   lightRed: '#cd6200',
   lightGreen: '#355a05',
   lightYellow: '#b08500',
