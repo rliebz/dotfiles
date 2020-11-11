@@ -3,7 +3,6 @@ export MANPATH=${HOME}/.man:${MANPATH}
 
 # asdf
 source "${VENDOR_PATH}/asdf/asdf.sh"
-source "${VENDOR_PATH}/asdf/completions/asdf.bash"
 
 # Homebrew
 export HOMEBREW_NO_ANALYTICS=1
