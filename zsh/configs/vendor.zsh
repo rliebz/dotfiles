@@ -21,3 +21,7 @@ fi
 
 # jq
 export JQ_COLORS='1;97:0;39:0;39:0;39:0;32:1;39:1;39'
+
+# docker
+export DOCKER_BUILDKIT=1
+export COMPOSE_DOCKER_CLI_BUILD=1
