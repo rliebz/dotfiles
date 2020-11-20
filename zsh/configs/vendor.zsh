@@ -18,3 +18,6 @@ if test -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zs
   source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
   source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 fi
+
+# jq
+export JQ_COLORS='1;97:0;39:0;39:0;39:0;32:1;39:1;39'
