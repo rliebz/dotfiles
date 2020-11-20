@@ -48,7 +48,7 @@ Plug 'jvirtanen/vim-hcl'
 Plug 'hashivim/vim-hashicorp-tools'
 " polyglot can cause issues if not plugged last
 Plug 'sheerun/vim-polyglot'
-let g:polyglot_disabled = ['go', 'markdown', 'gmpl']
+let g:polyglot_disabled = ['go']
 let g:jsx_ext_required = 1
 
 call plug#end()
@@ -180,7 +180,7 @@ augroup VimGo
 augroup END
 
 " vim-markdown
-let g:markdown_fenced_languages = [
+let g:vim_markdown_fenced_languages = [
       \'bash=sh', 'sh',
       \'html',
       \'javascript', 'js=javascript',
@@ -188,6 +188,7 @@ let g:markdown_fenced_languages = [
       \'go',
       \'python',
       \'json', 'toml', 'yaml',
+      \'sql',
       \]
 
 
