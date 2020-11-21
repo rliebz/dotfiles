@@ -41,8 +41,15 @@ Plug 'voldikss/vim-floaterm'
 Plug 'w0rp/ale'
 Plug 'wellle/targets.vim'
 
+" Language Server Protocol
+Plug 'nathunsmitty/nvim-ale-diagnostic'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+" Remove vim-vsnip/-integ once snippets are natively supported
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+
 " Language-specific plugins
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/vim-go'
 Plug 'jvirtanen/vim-hcl'
 Plug 'hashivim/vim-hashicorp-tools'
@@ -52,6 +59,12 @@ let g:polyglot_disabled = ['go']
 let g:jsx_ext_required = 1
 
 call plug#end()
+
+lua require('lsp')
+
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Prefer existing indentation over editorconfig
 let g:sleuth_automatic = 0
@@ -92,6 +105,10 @@ let g:ale_fixers = {
 let g:ale_go_golangci_lint_options = ''
 let g:ale_go_golangci_lint_package = 1
 let g:ale_rust_rls_toolchain = 'stable'
+
+" completion-nvim
+let g:completion_sorting = 'none'
+let g:completion_enable_snippet = 'vim-vsnip'
 
 " vim-easy-align
 nmap ga <Plug>(EasyAlign)
@@ -134,40 +151,6 @@ nmap <silent> <leader>tn :TestNearest<CR>
 nmap <silent> <leader>tf :TestFile<CR>
 nmap <silent> <leader>ts :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
-
-" coc-nvim
-augroup CocLanguages
-  autocmd!
-  autocmd FileType * call s:ConfigureCoCBuffer()
-  function! s:ConfigureCoCBuffer()
-    if (index(['vim','help'], &filetype) >= 0)
-      return
-    endif
-    nnoremap <buffer> <silent> K :call CocAction('doHover')<CR>
-    nmap <buffer> <silent> <C-]> <Plug>(coc-definition)
-    nmap <buffer> <silent> gr <Plug>(coc-references)
-    nmap <buffer> <silent> gi <Plug>(coc-implementation)
-    nmap <buffer> <silent> <leader>rn <Plug>(coc-rename)
-    nmap <buffer> <silent> <leader>ca <Plug>(coc-codeaction)
-  endfunction
-augroup END
-
-" coc-nvim: Completion
-inoremap <silent> <expr> <C-Space> coc#refresh()
-inoremap <silent> <expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
-inoremap <silent> <expr> <S-Tab>
-      \ pumvisible() ? "\<C-p>" :
-      \ "\<C-g>u\<S-Tab>"
-inoremap <silent> <expr> <cr>
-      \ complete_info()["selected"] != "-1" ? "\<C-y>" :
-      \ "\<C-g>u\<CR>"
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
 
 " vim-go
 let g:go_def_mapping_enabled = 0
@@ -221,6 +204,7 @@ set smartindent
 set updatetime=100
 set wrap
 
+set completeopt=menuone,noinsert,noselect
 set shortmess+=c
 
 let s:scrolloff = 5

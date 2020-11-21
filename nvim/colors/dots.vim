@@ -175,6 +175,9 @@ call s:h('rubyBlockParameterList',     { 'fg': s:dark_red })
 call s:h('rubyInterpolation',          { 'fg': s:green })
 call s:h('rubyInterpolationDelimiter', { 'fg': s:dark_red })
 
+" Fix issue with LSP hover windows
+highlight link mkdLineBreak NONE
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Custom Highlight Groups
