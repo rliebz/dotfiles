@@ -8,6 +8,9 @@
     ~/.config/flake8:
       create: true
       path: flake8
+    ~/.config/hadolint.yaml:
+      create: true
+      path: hadolint.yaml
     ~/.config/yamllint/config:
       create: true
       path: yamllint.yml
