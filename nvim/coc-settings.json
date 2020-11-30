@@ -13,7 +13,12 @@
       "rootPatterns": ["go.mod", ".git/", ".hg/"],
       "settings": {
         "gopls": {
-          "linkTarget": ""
+          "buildFlags": [
+            // Add common testing build tags
+            "-tags=e2e,integration,integrity"
+          ],
+          "gofumpt": true,
+          "linksInHover": false
         }
       }
     },
