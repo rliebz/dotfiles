@@ -1,15 +1,6 @@
-[submodule "zsh/vendor/zsh-completions"]
-	path = zsh/vendor/zsh-completions
-	url = https://github.com/zsh-users/zsh-completions.git
-[submodule "zsh/vendor/z"]
-	path = zsh/vendor/z
-	url = https://github.com/rupa/z.git
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 [submodule "zsh/vendor/asdf"]
-	path = zsh/vendor/asdf
+	path = asdf
 	url = https://github.com/asdf-vm/asdf.git
-[submodule "zsh/vendor/zsh-syntax-highlighting"]
-	path = zsh/vendor/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting.git

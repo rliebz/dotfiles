@@ -3,9 +3,24 @@
       create: true
       relink: true
 
-- clean: ["~"]
+- clean:
+    ~/:
+      force: true
+    ~/.config:
+      recursive: true
 
 - link:
+    ~/.config/fish/config.fish: fish/config.fish
+    ~/.config/fish/completions/:
+      glob: true
+      path: fish/completions/*
+    ~/.config/fish/conf.d/:
+      glob: true
+      path: fish/conf.d/*
+    ~/.config/fish/fish_plugins: fish/fish_plugins
+    ~/.config/fish/functions/:
+      glob: true
+      path: fish/functions/*
     ~/.config/flake8: flake8
     ~/.config/hadolint.yaml: hadolint.yaml
     ~/.config/kitty/kitty.conf: kitty.conf
@@ -17,10 +32,14 @@
     ~/.mdlrc: mdlrc
     ~/.mdlstyle: mdlstyle
     ~/.pylintrc: pylintrc
-    ~/.zsh: zsh
-    ~/.zshenv: zshenv
-    ~/.zshrc: zshrc
 
 - shell:
-    - [mkdir -p ~/.man/man1, Creating custom man directory]
-    - [git submodule update --init --recursive, Installing submodules]
+  - command: git submodule update --init --recursive
+    description: Installing submodules
+  - command: >
+      if ! command -sq fisher
+        curl -sL https://git.io/fisher | source
+      end
+
+      fisher update
+    description: Installing fisher plugins
