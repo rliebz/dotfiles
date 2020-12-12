@@ -1,23 +1,13 @@
-#!/usr/bin/env bash
-set -e
-
-for req in curl git python3; do
-  if ! command -v $req &> /dev/null; then
-    >&2 echo "$req is required for installation"
+#!/usr/bin/env fish
+for cmd in curl git python3
+  if ! command -q $cmd
+    echo "$req is required for installation" >&2
     exit 1
-  fi
-done
+  end
+end
 
-CONFIG="install.conf.yaml"
-DOTBOT_DIR="dotbot"
+git submodule sync --quiet --recursive
+git submodule update --init --recursive
 
-DOTBOT_BIN="bin/dotbot"
-BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-# Update submodules
-cd "${BASEDIR}"
-git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
-git submodule update --init --recursive "${DOTBOT_DIR}"
-
-# Run dotbot
-"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" --no-color "${@}"
+set -lx SHELL fish
+./dotbot/bin/dotbot -c install.conf.yaml --no-color

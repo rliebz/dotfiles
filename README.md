@@ -7,7 +7,7 @@ email address.
 Install
 -------
 
-Requires `git`, `python`, and `curl`.
+Requires `fish`, `git`, `python3`, and `curl`.
 
 Start by running `fish`. If it's not already the default shell, run the
 following and open a new terminal window:

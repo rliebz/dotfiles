@@ -34,12 +34,9 @@
     ~/.pylintrc: pylintrc
 
 - shell:
-  - command: git submodule update --init --recursive
-    description: Installing submodules
   - command: >
-      if ! command -sq fisher
+      if ! type -q fisher
         curl -sL https://git.io/fisher | source
+        and fisher update
       end
-
-      fisher update
-    description: Installing fisher plugins
+    description: Updating fisher plugins
