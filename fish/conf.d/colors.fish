@@ -30,3 +30,12 @@ set -g fish_pager_color_description yellow
 
 # dirh
 set -g fish_color_history_current   --bold
+
+# fzf
+set -gx FZF_DEFAULT_OPTS '
+  --color fg:7,bg:-1,hl:6,fg+:7,bg+:12,hl+:6
+  --color info:14,border:14,prompt:5,spinner:5,pointer:3,marker:3,header:15
+'
+
+# jq
+set -gx JQ_COLORS '1;97:0;39:0;39:0;39:0;32:1;39:1;39'
