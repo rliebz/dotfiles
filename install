@@ -9,5 +9,4 @@ end
 git submodule sync --quiet --recursive
 git submodule update --init --recursive
 
-set -lx SHELL fish
-./dotbot/bin/dotbot -c install.conf.yaml --no-color
+SHELL=fish ./dotbot/bin/dotbot -c install.conf.yaml

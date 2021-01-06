@@ -1,2 +1,2 @@
 #!/usr/bin/env fish
-./dotbot/bin/dotbot --plugin uninstall.py -c uninstall.conf.yaml --no-color
+./dotbot/bin/dotbot --plugin uninstall.py -c uninstall.conf.yaml
