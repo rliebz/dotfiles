@@ -63,6 +63,7 @@ let g:floaterm_width=0.9
 let g:floaterm_height=0.8
 
 " ale
+let g:ale_disable_lsp = 1
 let g:ale_fix_on_save = 1
 nmap <silent> [a <Plug>(ale_previous)
 nmap <silent> ]a <Plug>(ale_next)
