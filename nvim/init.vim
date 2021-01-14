@@ -61,6 +61,7 @@ let g:jsx_ext_required = 1
 call plug#end()
 
 lua require('lsp')
+command! LspRestart lua vim.lsp.stop_client(vim.lsp.get_active_clients())
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
