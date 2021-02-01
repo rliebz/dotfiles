@@ -35,21 +35,21 @@ local function on_attach(client, bufnr)
   nnoremap('<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>')
 
   if client.resolved_capabilities.code_action then
-    require('lspconfig').util.nvim_multiline_command [[
+    vim.api.nvim_exec([[
       augroup lsp_organize_imports
         autocmd!
         autocmd BufWritePre <buffer> lua lsp_organize_imports()
       augroup END
-    ]]
+    ]], false)
   end
 
   if client.resolved_capabilities.document_formatting then
-    require('lspconfig').util.nvim_multiline_command [[
+    vim.api.nvim_exec([[
       augroup lsp_format
         autocmd!
         autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
       augroup END
-    ]]
+    ]], false)
   end
 end
 
