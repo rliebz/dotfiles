@@ -59,8 +59,9 @@ call editorconfig#AddNewHook({->execute(':Sleuth')})
 
 let g:floaterm_keymap_toggle = '<C-t>'
 let g:floaterm_position = 'center'
-let g:floaterm_width=0.9
-let g:floaterm_height=0.8
+let g:floaterm_width = 0.9
+let g:floaterm_height = 0.8
+let g:floaterm_opener = ''
 
 " ale
 let g:ale_disable_lsp = 1
