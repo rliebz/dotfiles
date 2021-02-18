@@ -11,13 +11,17 @@ function lsp_organize_imports()
   local timeout = 1000 -- ms
 
   local resp = vim.lsp.buf_request_sync(0, method, params, timeout)
-  if not resp or not resp[1] then return end
+  if not resp then return end
 
-  local result = resp[1].result
-  if not result or not result[1] then return end
+  for _, client in ipairs(vim.lsp.get_active_clients()) do
+    if resp[client.id] then
+      local result = resp[client.id].result
+      if not result or not result[1] then return end
 
-  local edit = result[1].edit
-  vim.lsp.util.apply_workspace_edit(edit)
+      local edit = result[1].edit
+      vim.lsp.util.apply_workspace_edit(edit)
+    end
+  end
 end
 
 local function on_attach(client, bufnr)
@@ -37,7 +41,7 @@ local function on_attach(client, bufnr)
   if client.resolved_capabilities.code_action then
     vim.api.nvim_exec([[
       augroup lsp_organize_imports
-        autocmd!
+        autocmd! * <buffer>
         autocmd BufWritePre <buffer> lua lsp_organize_imports()
       augroup END
     ]], false)
@@ -46,7 +50,7 @@ local function on_attach(client, bufnr)
   if client.resolved_capabilities.document_formatting then
     vim.api.nvim_exec([[
       augroup lsp_format
-        autocmd!
+        autocmd! * <buffer>
         autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
       augroup END
     ]], false)
@@ -81,6 +85,8 @@ require'lspconfig'.gopls.setup{
   },
 }
 require'lspconfig'.tsserver.setup{}
+
+require'nvim-ale-diagnostic'
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
