@@ -7,20 +7,25 @@ function lsp_organize_imports()
   local params = vim.lsp.util.make_range_params()
   params.context = context
 
-  local method = "textDocument/codeAction"
-  local timeout = 1000 -- ms
-
-  local resp = vim.lsp.buf_request_sync(0, method, params, timeout)
+  local timeout_ms = 1000
+  local resp = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeout_ms)
   if not resp then return end
 
-  for _, client in ipairs(vim.lsp.get_active_clients()) do
-    if resp[client.id] then
-      local result = resp[client.id].result
-      if not result or not result[1] then return end
+  -- Assume we have at most one LSP that can organize imports.
+  -- If not, just do the first one and ignore the rest.
+  local _, result = next(resp)
+  if not result or not result.result or not result.result[1] then return end
 
-      local edit = result[1].edit
-      vim.lsp.util.apply_workspace_edit(edit)
+  local action = result.result[1]
+  if action.edit or type(action.command) == "table" then
+    if action.edit then
+      vim.lsp.util.apply_workspace_edit(action.edit)
     end
+    if type(action.command) == "table" then
+      vim.lsp.buf.execute_command(action.command)
+    end
+  else
+    vim.lsp.buf.execute_command(action)
   end
 end
 
