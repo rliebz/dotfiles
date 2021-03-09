@@ -1,11 +1,8 @@
 local lspconfig = require'lspconfig'
 
 function lsp_organize_imports()
-  local context = { source = { organizeImports = true } }
-  vim.validate { context = { context, "table", true } }
-
   local params = vim.lsp.util.make_range_params()
-  params.context = context
+  params.context = { only = { 'source.organizeImports' } }
 
   local timeout_ms = 1000
   local resp = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeout_ms)
