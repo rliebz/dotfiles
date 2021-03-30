@@ -61,7 +61,6 @@ let g:jsx_ext_required = 1
 call plug#end()
 
 lua require('lsp')
-command! LspRestart lua vim.lsp.stop_client(vim.lsp.get_active_clients())
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -75,7 +74,6 @@ let g:floaterm_keymap_toggle = '<C-t>'
 let g:floaterm_position = 'center'
 let g:floaterm_width = 0.9
 let g:floaterm_height = 0.8
-let g:floaterm_opener = ''
 
 " ale
 let g:ale_disable_lsp = 1
