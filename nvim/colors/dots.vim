@@ -228,6 +228,9 @@ let g:fzf_colors = {
       \ 'header':  ['fg', 'Comment'],
       \ }
 
+" Treesitter
+hi link TSParameter TSVariable
+
 " vim-go
 call s:h('goCoverageCovered', { 'fg': s:green })
 call s:h('goCoverageUncover', { 'fg': s:red })

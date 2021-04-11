@@ -28,6 +28,7 @@ Plug 'janko-m/vim-test'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'romainl/vim-cool'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
@@ -61,6 +62,7 @@ let g:jsx_ext_required = 1
 call plug#end()
 
 lua require('lsp')
+lua require('treesitter')
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
