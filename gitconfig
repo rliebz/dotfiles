@@ -31,5 +31,7 @@
 	followRedirects = true
 [pull]
 	ff = only
+[init]
+	defaultBranch = main
 [include]
 	path = ~/.gitconfig.local
