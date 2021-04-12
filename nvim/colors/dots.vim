@@ -230,6 +230,7 @@ let g:fzf_colors = {
 
 " Treesitter
 hi link TSParameter TSVariable
+hi link TSConstant TSVariable
 
 " vim-go
 call s:h('goCoverageCovered', { 'fg': s:green })
