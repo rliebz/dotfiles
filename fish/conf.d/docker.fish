@@ -1,2 +1,4 @@
 set -gx DOCKER_BUILDKIT 1
 set -gx COMPOSE_DOCKER_CLI_BUILD 1
+
+set -gx DOCKER_SCAN_SUGGEST false
