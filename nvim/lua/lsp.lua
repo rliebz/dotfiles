@@ -27,18 +27,18 @@ function lsp_organize_imports()
 end
 
 local function on_attach(client, bufnr)
-  require'completion'.on_attach()
-
-  local function nnoremap(key, value)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', key, value, { noremap = true})
+  local function noremap(mode, key, value)
+    vim.api.nvim_buf_set_keymap(bufnr, mode, key, value, { noremap = true})
   end
 
-  nnoremap('<c-]>',      '<cmd>lua vim.lsp.buf.definition()<CR>')
-  nnoremap('K',          '<cmd>lua vim.lsp.buf.hover()<CR>')
-  nnoremap('gr',         '<cmd>lua vim.lsp.buf.references()<CR>')
-  nnoremap('gi',         '<cmd>lua vim.lsp.buf.implementation()<CR>')
-  nnoremap('<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
-  nnoremap('<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+  noremap('n', '<c-]>',      '<cmd>lua vim.lsp.buf.definition()<CR>')
+  noremap('n', 'K',          '<cmd>lua vim.lsp.buf.hover()<CR>')
+  noremap('n', 'gr',         '<cmd>lua vim.lsp.buf.references()<CR>')
+  noremap('n', 'gi',         '<cmd>lua vim.lsp.buf.implementation()<CR>')
+  noremap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+  noremap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+  noremap('n', '<C-k>',      '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+  noremap('i', '<C-k>',      '<cmd>lua vim.lsp.buf.signature_help()<CR>')
 
   if client.resolved_capabilities.code_action then
     vim.api.nvim_exec([[

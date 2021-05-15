@@ -44,10 +44,9 @@ Plug 'wellle/targets.vim'
 " Language Server Protocol
 Plug 'nathunsmitty/nvim-ale-diagnostic'
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
-" Remove vim-vsnip/-integ once snippets are natively supported
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'hrsh7th/nvim-compe'
 
 " Language-specific plugins
 Plug 'fatih/vim-go'
@@ -61,10 +60,7 @@ let g:jsx_ext_required = 1
 call plug#end()
 
 lua require('lsp')
-
-" Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+lua require('nvim-compe')
 
 " Prefer existing indentation over editorconfig
 let g:sleuth_automatic = 0
@@ -104,10 +100,6 @@ let g:ale_fixers = {
 let g:ale_go_golangci_lint_options = ''
 let g:ale_go_golangci_lint_package = 1
 let g:ale_rust_rls_toolchain = 'stable'
-
-" completion-nvim
-let g:completion_sorting = 'none'
-let g:completion_enable_snippet = 'vim-vsnip'
 
 " vim-easy-align
 nmap ga <Plug>(EasyAlign)
@@ -210,7 +202,7 @@ set smartindent
 set updatetime=100
 set wrap
 
-set completeopt=menuone,noinsert,noselect
+set completeopt=menuone,noselect
 set shortmess+=c
 
 let s:scrolloff = 5
