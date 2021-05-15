@@ -134,6 +134,7 @@ call s:h('ModeMsg',     {})
 call s:h('MoreMsg',     {})
 call s:h('NonText',     { 'fg': s:special_grey })
 call s:h('Normal',      { 'fg': s:white })
+call s:h('NormalFloat', { 'fg': s:white })
 call s:h('Pmenu',       { 'fg': s:white, 'bg': s:bright_black })
 call s:h('PmenuSel',    { 'fg': s:yellow, 'bg': s:dark_cyan })
 call s:h('PmenuSbar',   { 'bg': s:dark_cyan })
@@ -195,6 +196,9 @@ call s:h('FloatBorder', {'fg': s:dark_cyan})
 call s:h('ALEErrorSign',   {'fg': s:red, 'bg': s:gutter_bg })
 call s:h('ALEWarningSign', {'fg': s:yellow, 'bg': s:gutter_bg })
 call s:h('ALEInfoSign',    {'fg': s:blue, 'bg': s:gutter_bg })
+
+" Compe
+hi link CompeDocumentation Pmenu
 
 " Signify
 hi link SignifySignAdd              LineNr
