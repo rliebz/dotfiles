@@ -41,21 +41,21 @@ local function on_attach(client, bufnr)
   noremap('i', '<C-k>',      '<cmd>lua vim.lsp.buf.signature_help()<CR>')
 
   if client.resolved_capabilities.code_action then
-    vim.api.nvim_exec([[
+    vim.cmd([[
       augroup lsp_organize_imports
         autocmd! * <buffer>
         autocmd BufWritePre <buffer> lua lsp_organize_imports()
       augroup END
-    ]], false)
+    ]])
   end
 
   if client.resolved_capabilities.document_formatting then
-    vim.api.nvim_exec([[
+    vim.cmd([[
       augroup lsp_format
         autocmd! * <buffer>
         autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
       augroup END
-    ]], false)
+    ]])
   end
 end
 
