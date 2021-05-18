@@ -4,10 +4,6 @@ scriptencoding utf-8
 map <space> <nop>
 let g:mapleader = ' '
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General Settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if $COLORTERM ==# 'truecolor'
   set termguicolors
 endif
@@ -59,20 +55,12 @@ set fileformats=unix,dos,mac
 set list
 set listchars=tab:»\ ,space:·,trail:·,nbsp:␣
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Netrw
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Easy way to open file explorer
 map <leader>e :Explore<cr>
 
 let g:netrw_banner = 0
 let g:netrw_list_hide = '\.DS_Store,\.git/,\.gitmodules/,\.vscode/,__pycache__/,\.log,\.pid'
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Moving around, tabs, windows and buffers
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Treat long lines as break lines
 map j gj
 map k gk
@@ -89,10 +77,6 @@ augroup lastEdit
         \ | endif
 augroup END
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Misc
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Reload vimrc
 nmap <leader>v :source $MYVIMRC<cr>
 
@@ -105,13 +89,10 @@ noremap <leader>y "+y
 " Toggle spell checking
 map <leader>ss :setlocal spell!<cr>
 
-" Local config
+" Configure plugins
+lua require('cfg.plugins')
+
+" Source local config last
 if filereadable($HOME . '/.vimrc.local')
   source ~/.vimrc.local
 endif
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Plugins
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-lua require('cfg.plugins')
