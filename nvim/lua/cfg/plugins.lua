@@ -39,10 +39,8 @@ packer.startup({function()
   -- Language Server Protocol
   use 'nathunsmitty/nvim-ale-diagnostic'
   use 'neovim/nvim-lspconfig'
-  use {
-    'hrsh7th/nvim-compe',
-    requires = {'hrsh7th/vim-vsnip', 'hrsh7th/vim-vsnip-integ'},
-  }
+  use 'hrsh7th/nvim-compe'
+  use 'hrsh7th/vim-vsnip'
 
   -- Language-specific plugins
   use 'fatih/vim-go'
