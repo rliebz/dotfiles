@@ -43,12 +43,13 @@ packer.startup({function()
   use 'hrsh7th/vim-vsnip'
 
   -- Language-specific plugins
+  use 'blankname/vim-fish'
+  use 'cespare/vim-toml'
   use { 'fatih/vim-go', config = [[require'plugin.go']] }
   use 'jvirtanen/vim-hcl'
-
-  -- polyglot can cause issues if not sourced last
-  use { 'sheerun/vim-polyglot', config = [[require'plugin.polyglot']] }
-
+  use 'MaxMEllon/vim-jsx-pretty'
+  use { 'plasticboy/vim-markdown', config = [[require'plugin.markdown']] }
+  use 'tbastos/vim-lua'
 end, config = {
   disable_commands = true,
   display = {

@@ -1,5 +1,3 @@
-vim.g.polyglot_disabled = {'autoindent', 'go'}
-
 vim.g.vim_markdown_fenced_languages = {
   'html',
   'javascript', 'js=javascript',
