@@ -90,7 +90,16 @@ noremap <leader>y "+y
 map <leader>ss :setlocal spell!<cr>
 
 " Configure plugins
-lua require('cfg.plugins')
+command! Pack lua require('cfg.plugins')
+
+lua << EOM
+for pack, _ in pairs(package.loaded) do
+  -- TODO: Top level directory for easier pattern matching?
+  if string.match(pack, '^cfg%.') or string.match(pack, '^plugin%.') then
+    package.loaded[pack] = nil
+  end
+end
+EOM
 
 " Source local config last
 if filereadable($HOME . '/.vimrc.local')
