@@ -89,17 +89,16 @@ noremap <leader>y "+y
 " Toggle spell checking
 map <leader>ss :setlocal spell!<cr>
 
-" Configure plugins
-command! Pack lua require('cfg.plugins')
+lua require('cfg.reload')
+lua reload()
 
-lua << EOM
-for pack, _ in pairs(package.loaded) do
-  -- TODO: Top level directory for easier pattern matching?
-  if string.match(pack, '^cfg%.') or string.match(pack, '^plugin%.') then
-    package.loaded[pack] = nil
-  end
-end
-EOM
+" Configure plugins
+command! Pack lua require('cfg.plugins').sync()
+augroup packer_compile
+  autocmd!
+  autocmd BufWritePost */cfg/plugins.lua,*/cfg/plugin/*.lua
+        \ lua reload(); require('cfg.plugins').compile()
+augroup END
 
 " Source local config last
 if filereadable($HOME . '/.vimrc.local')
