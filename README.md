@@ -45,3 +45,4 @@ else, the following local dotfiles files are read automatically:
 
 - `~/.gitconfig.local`
 - `~/.vimrc.local`
+- `~/.vimrc-local.lua`
