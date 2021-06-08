@@ -65,10 +65,10 @@ vim.api.nvim_set_keymap('', 'k', 'gk', {})
 
 vim.api.nvim_set_keymap('n', '<leader>e', ':Explore<CR>', { silent = true })
 vim.api.nvim_set_keymap('n', '<leader>qq', ':cclose <bar> pclose <bar> helpclose<CR>', { silent = true })
-vim.api.nvim_set_keymap('n', '<leader>ss', ':setlocal spell!', { silent = true })
-vim.api.nvim_set_keymap('n', '<leader>v', ':source $MYVIMRC<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ss', ':setlocal spell!<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>v', ':luafile $MYVIMRC<CR>', { silent = true })
 vim.api.nvim_set_keymap('n', '<leader>w', ':w!<CR>', { silent = true })
-vim.api.nvim_set_keymap('n', '<leader>y', '"+y', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>y', '"+y', { noremap = true })
 
 require('cfg.reload')
 reload()
