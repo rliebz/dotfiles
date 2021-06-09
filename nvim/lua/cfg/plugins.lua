@@ -63,7 +63,7 @@ use 'cespare/vim-toml'
 use { 'fatih/vim-go', config = [[require('cfg.plugin.go')]] }
 use 'jvirtanen/vim-hcl'
 use 'MaxMEllon/vim-jsx-pretty'
-use { 'plasticboy/vim-markdown', config = [[require('cfg.plugin.markdown')]] }
+use { 'tpope/vim-markdown', config = [[require('cfg.plugin.markdown')]] }
 use 'tbastos/vim-lua'
 
 return packer
