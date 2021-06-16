@@ -6,17 +6,17 @@ endif
 let g:colors_name='dots'
 
 function! s:h(group, style)
-  if get(g:, 'dots_terminal_italics', 1) ==# 0 && get(a:style, 'cterm') ==# 'italic'
-    unlet a:style.cterm
+  if get(g:, 'dots_terminal_italics', 1) ==# 0 && get(a:style, 'ui') ==# 'italic'
+    unlet a:style.ui
   endif
   execute 'highlight' a:group
-    \ 'guifg='   (has_key(a:style, 'fg')    ? a:style.fg.gui   : 'NONE')
-    \ 'guibg='   (has_key(a:style, 'bg')    ? a:style.bg.gui   : 'NONE')
-    \ 'guisp='   (has_key(a:style, 'sp')    ? a:style.sp.gui   : 'NONE')
-    \ 'gui='     (has_key(a:style, 'gui')   ? a:style.gui      : 'NONE')
-    \ 'ctermfg=' (has_key(a:style, 'fg')    ? a:style.fg.cterm : 'NONE')
-    \ 'ctermbg=' (has_key(a:style, 'bg')    ? a:style.bg.cterm : 'NONE')
-    \ 'cterm='   (has_key(a:style, 'cterm') ? a:style.cterm    : 'NONE')
+    \ 'guifg='   (has_key(a:style, 'fg') ? a:style.fg.gui   : 'NONE')
+    \ 'guibg='   (has_key(a:style, 'bg') ? a:style.bg.gui   : 'NONE')
+    \ 'guisp='   (has_key(a:style, 'sp') ? a:style.sp.gui   : 'NONE')
+    \ 'gui='     (has_key(a:style, 'ui') ? a:style.ui       : 'NONE')
+    \ 'ctermfg=' (has_key(a:style, 'fg') ? a:style.fg.cterm : 'NONE')
+    \ 'ctermbg=' (has_key(a:style, 'bg') ? a:style.bg.cterm : 'NONE')
+    \ 'cterm='   (has_key(a:style, 'ui') ? a:style.ui       : 'NONE')
 endfunction
 
 
@@ -59,13 +59,13 @@ let s:visual_bg     = s:dark_green
 " => Syntax Groups (:h group-name)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-call s:h('Comment',     { 'fg': s:dark_white, 'gui': 'italic', 'cterm': 'italic' })
+call s:h('Comment',     { 'fg': s:dark_white, 'ui': 'italic' })
 
 call s:h('Constant',    { 'fg': s:cyan })
 call s:h('String',      { 'fg': s:green })
 call s:h('Character',   { 'fg': s:dark_magenta })
 call s:h('Number',      { 'fg': s:yellow })
-call s:h('Boolean',     { 'fg': s:cyan, 'gui': 'italic', 'cterm': 'italic' })
+call s:h('Boolean',     { 'fg': s:cyan, 'ui': 'italic' })
 call s:h('Float',       { 'fg': s:yellow })
 
 call s:h('Identifier',  { 'fg': s:cyan })
@@ -101,7 +101,7 @@ call s:h('Underlined',  {})
 
 call s:h('Ignore',      {})
 
-call s:h('Error',       { 'sp': s:red, 'gui': 'undercurl', 'cterm': 'undercurl' })
+call s:h('Error',       { 'sp': s:red, 'ui': 'undercurl' })
 
 call s:h('Todo',        { 'fg': s:magenta })
 
@@ -142,16 +142,16 @@ call s:h('PmenuThumb',  { 'bg': s:white })
 call s:h('Question',    { 'fg': s:magenta })
 call s:h('Search',      { 'bg': s:dark_cyan })
 call s:h('SpecialKey',  { 'fg': s:special_grey })
-call s:h('SpellBad',    { 'sp': s:red, 'gui': 'undercurl', 'cterm': 'undercurl' })
-call s:h('SpellCap',    { 'sp': s:yellow, 'gui': 'undercurl', 'cterm': 'undercurl' })
-call s:h('SpellLocal',  { 'sp': s:yellow, 'gui': 'undercurl', 'cterm': 'undercurl' })
-call s:h('SpellRare',   { 'sp': s:yellow, 'gui': 'undercurl', 'cterm': 'undercurl' })
+call s:h('SpellBad',    { 'sp': s:red, 'ui': 'undercurl' })
+call s:h('SpellCap',    { 'sp': s:yellow, 'ui': 'undercurl' })
+call s:h('SpellLocal',  { 'sp': s:yellow, 'ui': 'undercurl' })
+call s:h('SpellRare',   { 'sp': s:yellow, 'ui': 'undercurl' })
 call s:h('StatusLine',  { 'fg': s:cyan, 'bg': s:dark_cyan })
 call s:h('StatusLineNC', { 'fg': s:dark_white, 'bg': s:bright_black })
 call s:h('TabLine',     { 'fg': s:black, 'bg': s:dark_cyan })
 call s:h('TabLineFill', { 'fg': s:white, 'bg': s:bright_black })
 call s:h('TabLineSel',  { 'fg': s:black, 'bg': s:cyan })
-call s:h('Title',       { 'fg': s:dark_red, 'gui': 'bold', 'cterm': 'bold' })
+call s:h('Title',       { 'fg': s:dark_red, 'ui': 'bold' })
 call s:h('Visual',      { 'bg': s:visual_bg })
 call s:h('VisualNOS',   { 'bg': s:visual_bg })
 call s:h('WarningMsg',  { 'fg': s:yellow })
@@ -163,11 +163,9 @@ call s:h('WildMenu',    { 'fg': s:yellow, 'bg': s:dark_cyan })
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 hi link jsonKeyword Identifier
-call s:h('jsonCommentError',        {
-      \ 'fg': s:dark_white, 'sp': s:yellow, 'gui': 'undercurl', 'cterm': 'undercurl'
-      \ })
+call s:h('jsonCommentError',        { 'fg': s:dark_white, 'sp': s:yellow, 'ui': 'undercurl' })
 
-call s:h('pythonDecorator',         { 'fg': s:yellow, 'gui': 'bold', 'cterm': 'bold' })
+call s:h('pythonDecorator',         { 'fg': s:yellow, 'ui': 'bold' })
 call s:h('pythonDottedName',        { 'fg': s:yellow })
 call s:h('pythonRawString',         { 'fg': s:yellow })
 call s:h('pythonBuiltinFunc',       { 'fg': s:blue })
@@ -175,6 +173,13 @@ call s:h('pythonBuiltinFunc',       { 'fg': s:blue })
 call s:h('rubyBlockParameterList',     { 'fg': s:dark_red })
 call s:h('rubyInterpolation',          { 'fg': s:green })
 call s:h('rubyInterpolationDelimiter', { 'fg': s:dark_red })
+
+call s:h('markdownCode',             { 'fg': s:green })
+call s:h('markdownCodeDelimiter',    { 'fg': s:green })
+call s:h('markdownId',               { 'fg': s:magenta })
+call s:h('markdownIdDeclaration',    { 'fg': s:magenta })
+call s:h('markdownHeadingDelimiter', { 'fg': s:dark_magenta })
+call s:h('markdownLinkText',         { 'fg': s:cyan, 'sp': s:dark_cyan, 'ui': 'underline' })
 
 " Fix issue with LSP hover windows
 highlight link mkdLineBreak NONE
