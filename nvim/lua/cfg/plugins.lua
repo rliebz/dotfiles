@@ -18,6 +18,10 @@ packer.init({
 
 packer.reset()
 
+function cfg(filename)
+  return string.format([[require('cfg.plugin.%s')]], filename)
+end
+
 local use = packer.use
 
 -- Manage packer with packer
@@ -27,14 +31,14 @@ use { 'wbthomason/packer.nvim', opt = true }
 use 'airblade/vim-gitgutter'
 use 'AndrewRadev/splitjoin.vim'
 use 'b4winckler/vim-angry'
-use { 'editorconfig/editorconfig-vim', config = [[require('cfg.plugin.editorconfig')]] }
-use { 'itchyny/lightline.vim', config = [[require('cfg.plugin.lightline')]] }
-use { 'janko-m/vim-test', config = [[require('cfg.plugin.test')]] }
-use { 'junegunn/vim-easy-align', config = [[require('cfg.plugin.easy-align')]] }
+use { 'editorconfig/editorconfig-vim', config = cfg('editorconfig') }
+use { 'itchyny/lightline.vim', config = cfg('lightline') }
+use { 'janko-m/vim-test', config = cfg('test') }
+use { 'junegunn/vim-easy-align', config = cfg('easy-align') }
 use {
   'junegunn/fzf',
   run = function() vim.fn['fzf#install']() end,
-  config = [[require('cfg.plugin.fzf')]],
+  config = cfg('fzf'),
 }
 use 'junegunn/fzf.vim'
 use 'romainl/vim-cool'
@@ -47,23 +51,23 @@ use {
 use 'tpope/vim-repeat'
 use 'tpope/vim-sleuth'
 use 'tpope/vim-surround'
-use { 'voldikss/vim-floaterm', config = [[require('cfg.plugin.floaterm')]] }
-use { 'w0rp/ale', config = [[require('cfg.plugin.ale')]] }
+use { 'voldikss/vim-floaterm', config = cfg('floaterm') }
+use { 'w0rp/ale', config = cfg('ale') }
 use 'wellle/targets.vim'
 
 -- Language Server Protocol
 use 'nathunsmitty/nvim-ale-diagnostic'
-use { 'neovim/nvim-lspconfig', config = [[require('cfg.plugin.lspconfig')]] }
-use { 'hrsh7th/nvim-compe', config = [[require('cfg.plugin.compe')]] }
+use { 'neovim/nvim-lspconfig', config = cfg('lspconfig') }
+use { 'hrsh7th/nvim-compe', config = cfg('compe') }
 use 'hrsh7th/vim-vsnip'
 
 -- Language-specific plugins
 use 'blankname/vim-fish'
 use 'cespare/vim-toml'
-use { 'fatih/vim-go', config = [[require('cfg.plugin.go')]] }
+use { 'fatih/vim-go', config = cfg('go') }
 use 'jvirtanen/vim-hcl'
 use 'MaxMEllon/vim-jsx-pretty'
-use { 'tpope/vim-markdown', config = [[require('cfg.plugin.markdown')]] }
+use { 'tpope/vim-markdown', config = cfg('markdown') }
 use 'tbastos/vim-lua'
 
 return packer
