@@ -14,6 +14,8 @@ function lsp_organize_imports()
   if not result or not result.result or not result.result[1] then return end
 
   local action = result.result[1]
+  if action.kind and action.kind ~= 'source.organizeImports' then return end
+
   if action.edit or type(action.command) == "table" then
     if action.edit then
       vim.lsp.util.apply_workspace_edit(action.edit)
@@ -68,7 +70,6 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
     'additionalTextEdits',
   },
 }
-
 
 lspconfig.util.default_config = vim.tbl_extend(
   "force",
