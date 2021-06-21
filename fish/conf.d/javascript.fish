@@ -1,9 +1,13 @@
 # Yarn
+set -l yarnrc $HOME/.yarnrc
+set -l config_dir $HOME/.local/share/yarn
+
 if command -sq yarn
   # Keep global binaries global
-  if test -f $HOME/.yarnrc && ! grep -q prefix $HOME/.yarnrc
-    yarn config set prefix $HOME/.yarn
+  if test -f $yarnrc && ! grep -q prefix $yarnrc
+    yarn config set prefix $config_dir
+    mkdir -p $config_dir/bin
   end
 
-  set -gx PATH (yarn global bin) $PATH
+  fish_add_path -g $config_dir/bin
 end
