@@ -80,33 +80,6 @@ lspconfig.util.default_config = vim.tbl_extend(
   }
 )
 
-require'lspconfig'.bashls.setup{}
-require'lspconfig'.gopls.setup{
-  settings = {
-    gopls = {
-      linksInHover = false,
-      buildFlags = {
-        -- Enable common build flags used for test files
-        '-tags=e2e,integration,integrity',
-      },
-      gofumpt = true,
-    },
-  },
-}
-require'lspconfig'.pyright.setup{}
-require'lspconfig'.tsserver.setup{}
-
-require'nvim-ale-diagnostic'
-
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = false,
-    virtual_text = false,
-    signs = true,
-    update_in_insert = false,
-  }
-)
-
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
   vim.lsp.handlers.hover, {
     border = 'single',

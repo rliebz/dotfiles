@@ -56,8 +56,17 @@ use { 'w0rp/ale', config = cfg('ale') }
 use 'wellle/targets.vim'
 
 -- Language Server Protocol
-use 'nathunsmitty/nvim-ale-diagnostic'
 use { 'neovim/nvim-lspconfig', config = cfg('lspconfig') }
+use {
+  'nathunsmitty/nvim-ale-diagnostic',
+  requires = {'neovim/nvim-lspconfig'},
+  config = cfg('ale-diagnostic'),
+}
+use {
+  'kabouzeid/nvim-lspinstall',
+  requires = {'neovim/nvim-lspconfig'},
+  config = cfg('lspinstall'),
+}
 use { 'hrsh7th/nvim-compe', config = cfg('compe') }
 use 'hrsh7th/vim-vsnip'
 
