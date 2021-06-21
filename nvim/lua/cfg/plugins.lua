@@ -5,7 +5,7 @@ end
 
 vim.cmd[[packadd packer.nvim]]
 
-packer = require('packer')
+local packer = require('packer')
 
 packer.init({
   disable_commands = true,
@@ -18,7 +18,7 @@ packer.init({
 
 packer.reset()
 
-function cfg(filename)
+local function cfg(filename)
   return string.format([[require('cfg.plugin.%s')]], filename)
 end
 
