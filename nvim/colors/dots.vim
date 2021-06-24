@@ -28,7 +28,7 @@ let s:black         = { 'gui': '#000000', 'cterm': '0' }
 let s:bright_black  = { 'gui': '#00313a', 'cterm': '8' }
 
 let s:red           = { 'gui': '#f72c09', 'cterm': '1' }
-let s:dark_red      = { 'gui': '#cd6200', 'cterm': '9' }
+let s:dark_red      = { 'gui': '#ed6200', 'cterm': '9' }
 
 let s:green         = { 'gui': '#92e009', 'cterm': '2' }
 let s:dark_green    = { 'gui': '#355a05', 'cterm': '10' }
@@ -40,7 +40,7 @@ let s:blue          = { 'gui': '#8a60ff', 'cterm': '4' }
 let s:dark_blue     = { 'gui': '#231944', 'cterm': '12' }
 
 let s:magenta       = { 'gui': '#ff57fe', 'cterm': '5' }
-let s:dark_magenta  = { 'gui': '#892f89', 'cterm': '13' }
+let s:dark_magenta  = { 'gui': '#d92f79', 'cterm': '13' }
 
 let s:cyan          = { 'gui': '#00bee2', 'cterm': '6' }
 let s:dark_cyan     = { 'gui': '#007992', 'cterm': '14' }

@@ -7,7 +7,7 @@ let s:black = [ '#000000', 0 ]
 let s:bright_black = [ '#00313a', 8 ]
 
 let s:red = [ '#f72c09', 1 ]
-let s:dark_red = [ '#cd6200', 9 ]
+let s:dark_red = [ '#ed6200', 9 ]
 
 let s:green = [ '#92e009', 2 ]
 let s:dark_green = [ '#355a05', 10 ]
@@ -19,7 +19,7 @@ let s:blue = [ '#8a60ff', 4 ]
 let s:dark_blue = [ '#231944', 12 ]
 
 let s:magenta = [ '#ff57fe', 5 ]
-let s:dark_magenta = [ '#892f89', 13 ]
+let s:dark_magenta = [ '#d92f79', 13 ]
 
 let s:cyan = [ '#00bee2', 6 ]
 let s:dark_cyan = [ '#007992', 14 ]
