@@ -68,7 +68,7 @@ vim.api.nvim_set_keymap("n", "<leader>qq", ":cclose <bar> pclose <bar> helpclose
 vim.api.nvim_set_keymap("n", "<leader>ss", ":setlocal spell!<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<leader>v", ":luafile $MYVIMRC<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<leader>w", ":w!<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<leader>y", '"+y', { noremap = true })
+vim.api.nvim_set_keymap("", "<leader>y", '"+y', { noremap = true })
 
 require("cfg.reload")
 reload()
