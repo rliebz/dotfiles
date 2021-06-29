@@ -1,14 +1,14 @@
 vim.g.fzf_layout = {
-  window = {
-    width = 0.9,
-    height = 0.6,
-    highlight = 'FloatBorder',
-  },
+	window = {
+		width = 0.9,
+		height = 0.6,
+		highlight = "FloatBorder",
+	},
 }
 
 vim.g.rg_ignore_opts = '--hidden -g "!.git/*" -g "!*.min.js" -g "!*.js.map"'
 if vim.api.nvim_eval('executable("rg")') then
-  vim.env.FZF_DEFAULT_COMMAND = 'rg --files --follow ' .. vim.g.rg_ignore_opts
+	vim.env.FZF_DEFAULT_COMMAND = "rg --files --follow " .. vim.g.rg_ignore_opts
 end
 
 vim.cmd([[

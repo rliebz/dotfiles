@@ -10,13 +10,13 @@ vim.g.go_echo_command_info = 0
 vim.g.go_jump_to_error = 0
 
 function configure_vim_go()
-  vim.api.nvim_buf_set_keymap(0, 'n', '<leader>cu', ':GoCoverage<CR>', { noremap = true })
-  vim.api.nvim_buf_set_keymap(0, 'n', '<leader>cd', ':GoCoverageClear<CR>', { noremap = true })
+	vim.api.nvim_buf_set_keymap(0, "n", "<leader>cu", ":GoCoverage<CR>", { noremap = true })
+	vim.api.nvim_buf_set_keymap(0, "n", "<leader>cd", ":GoCoverageClear<CR>", { noremap = true })
 end
 
 vim.cmd([[
-  augroup vim_go
-    autocmd!
-    autocmd FileType go lua configure_vim_go()
-  augroup END
+augroup vim_go
+	autocmd!
+	autocmd FileType go lua configure_vim_go()
+augroup END
 ]])
