@@ -11,15 +11,15 @@ vim.g.ale_sign_warning = gutter_info_char
 vim.g.ale_echo_msg_format = '[%linter%%: code%] %s'
 
 vim.g.ale_linters = {
-  ['sh'] = {'shellcheck'},
-  ['go'] = {'golangci-lint'},
-  ['javascript'] = {'eslint'},
-  ['rust'] = {'rls'},
-  ['typescript'] = {'prettier', 'tslint', 'tsserver'},
+  sh = { 'shellcheck' },
+  go = { 'golangci-lint' },
+  javascript = { 'eslint' },
+  rust = { 'rls' },
+  typescript = { 'prettier', 'tslint', 'tsserver' },
 }
 
 vim.g.ale_fixers = {
-  ['rust'] = {'rustfmt'},
+  rust = { 'rustfmt' },
 }
 
 vim.g.ale_go_golangci_lint_options = ''

@@ -108,7 +108,7 @@ table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
 local language_configs = {
-  ['go'] = {
+  go = {
     settings = {
       gopls = {
         linksInHover = false,
@@ -120,7 +120,7 @@ local language_configs = {
       },
     },
   },
-  ['lua'] = {
+  lua = {
     settings = {
       Lua = {
         runtime = {
