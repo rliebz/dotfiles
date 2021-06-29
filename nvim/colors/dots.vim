@@ -30,17 +30,17 @@ let s:bright_black  = { 'gui': '#00313a', 'cterm': '8' }
 let s:red           = { 'gui': '#f72c09', 'cterm': '1' }
 let s:dark_red      = { 'gui': '#ed6200', 'cterm': '9' }
 
-let s:green         = { 'gui': '#92e009', 'cterm': '2' }
-let s:dark_green    = { 'gui': '#355a05', 'cterm': '10' }
+let s:green         = { 'gui': '#a2f009', 'cterm': '2' }
+let s:dark_green    = { 'gui': '#35faa5', 'cterm': '10' }
 
 let s:yellow        = { 'gui': '#ffb702', 'cterm': '3' }
-let s:dark_yellow   = { 'gui': '#b08500', 'cterm': '11' }
+let s:dark_yellow   = { 'gui': '#ff9000', 'cterm': '11' }
 
 let s:blue          = { 'gui': '#8a60ff', 'cterm': '4' }
 let s:dark_blue     = { 'gui': '#231944', 'cterm': '12' }
 
 let s:magenta       = { 'gui': '#ff57fe', 'cterm': '5' }
-let s:dark_magenta  = { 'gui': '#d92f79', 'cterm': '13' }
+let s:dark_magenta  = { 'gui': '#c030ff', 'cterm': '13' }
 
 let s:cyan          = { 'gui': '#00bee2', 'cterm': '6' }
 let s:dark_cyan     = { 'gui': '#007992', 'cterm': '14' }
@@ -51,8 +51,8 @@ let s:dark_white    = { 'gui': '#91a6ab', 'cterm': '15' }
 " Related colors
 let s:special_grey  = s:bright_black
 let s:gutter_fg     = s:dark_cyan
-let s:gutter_bg     = s:bright_black
-let s:visual_bg     = s:dark_green
+let s:gutter_bg     = s:black
+let s:visual_bg     = s:bright_black
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -63,9 +63,9 @@ call s:h('Comment',     { 'fg': s:dark_white, 'ui': 'italic' })
 
 call s:h('Constant',    { 'fg': s:cyan })
 call s:h('String',      { 'fg': s:green })
-call s:h('Character',   { 'fg': s:dark_magenta })
+call s:h('Character',   { 'fg': s:dark_green })
 call s:h('Number',      { 'fg': s:yellow })
-call s:h('Boolean',     { 'fg': s:cyan, 'ui': 'italic' })
+call s:h('Boolean',     { 'fg': s:dark_magenta, 'ui': 'italic' })
 call s:h('Float',       { 'fg': s:yellow })
 
 call s:h('Identifier',  { 'fg': s:cyan })
@@ -151,7 +151,7 @@ call s:h('StatusLineNC', { 'fg': s:dark_white, 'bg': s:bright_black })
 call s:h('TabLine',     { 'fg': s:black, 'bg': s:dark_cyan })
 call s:h('TabLineFill', { 'fg': s:white, 'bg': s:bright_black })
 call s:h('TabLineSel',  { 'fg': s:black, 'bg': s:cyan })
-call s:h('Title',       { 'fg': s:dark_red, 'ui': 'bold' })
+call s:h('Title',       { 'fg': s:dark_green, 'ui': 'bold' })
 call s:h('Visual',      { 'bg': s:visual_bg })
 call s:h('VisualNOS',   { 'bg': s:visual_bg })
 call s:h('WarningMsg',  { 'fg': s:yellow })
@@ -174,11 +174,12 @@ call s:h('rubyBlockParameterList',     { 'fg': s:dark_red })
 call s:h('rubyInterpolation',          { 'fg': s:green })
 call s:h('rubyInterpolationDelimiter', { 'fg': s:dark_red })
 
+call s:h('markdownBlockQuote',       { 'fg': s:dark_magenta })
 call s:h('markdownCode',             { 'fg': s:green })
 call s:h('markdownCodeDelimiter',    { 'fg': s:green })
 call s:h('markdownId',               { 'fg': s:magenta })
 call s:h('markdownIdDeclaration',    { 'fg': s:magenta })
-call s:h('markdownHeadingDelimiter', { 'fg': s:dark_magenta })
+call s:h('markdownHeadingDelimiter', { 'fg': s:dark_yellow })
 call s:h('markdownLinkText',         { 'fg': s:cyan, 'sp': s:dark_cyan, 'ui': 'underline' })
 
 " Fix issue with LSP hover windows
@@ -206,9 +207,9 @@ call s:h('ALEInfoSign',    {'fg': s:blue, 'bg': s:gutter_bg })
 hi link CompeDocumentation Pmenu
 
 " Signify
-hi link SignifySignAdd              LineNr
-hi link SignifySignDelete           LineNr
-hi link SignifySignChange           LineNr
+call s:h('SignifyAdd',            { 'fg': s:green, 'bg': s:gutter_bg })
+call s:h('SignifyDelete',         { 'fg': s:red, 'bg': s:gutter_bg })
+call s:h('SignifyChange',         { 'fg': s:yellow, 'bg': s:gutter_bg })
 
 " GitGutter
 call s:h('GitGutterAdd',            { 'fg': s:green, 'bg': s:gutter_bg })
@@ -238,8 +239,13 @@ let g:fzf_colors = {
       \ }
 
 " Treesitter
-hi link TSParameter TSVariable
 hi link TSConstant TSVariable
+hi link TSConstBuiltin Boolean
+hi link TSStringEscape Special
+call s:h('TSParameter',    { 'fg': s:dark_green })
+call s:h('TSConstBuiltin', { 'fg': s:dark_magenta, 'ui': 'italic' })
+call s:h('bashTSConstant', { 'fg': s:cyan })
+call s:h('fishTSConstant', { 'fg': s:cyan })
 
 " vim-go
 call s:h('goCoverageCovered', { 'fg': s:green })
