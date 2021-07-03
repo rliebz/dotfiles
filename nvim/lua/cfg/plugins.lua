@@ -28,7 +28,6 @@ local use = packer.use
 use({ "wbthomason/packer.nvim", opt = true })
 
 -- General Purpose Plugins
-use("airblade/vim-gitgutter")
 use("AndrewRadev/splitjoin.vim")
 use("b4winckler/vim-angry")
 use({ "editorconfig/editorconfig-vim", config = cfg("editorconfig") })
@@ -43,6 +42,11 @@ use({
 	config = cfg("fzf"),
 })
 use("junegunn/fzf.vim")
+use({
+	"lewis6991/gitsigns.nvim",
+	requires = { "nvim-lua/plenary.nvim" },
+	config = cfg("gitsigns"),
+})
 use("romainl/vim-cool")
 use("tpope/vim-abolish")
 use("tpope/vim-commentary")

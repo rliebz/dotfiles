@@ -206,6 +206,14 @@ call s:h('ALEInfoSign',    {'fg': s:blue, 'bg': s:gutter_bg })
 " Compe
 hi link CompeDocumentation Pmenu
 
+" GitSigns
+call s:h('GitSignsAdd',            { 'fg': s:green, 'bg': s:gutter_bg })
+call s:h('GitSignsDelete',         { 'fg': s:red, 'bg': s:gutter_bg })
+call s:h('GitSignsChange',         { 'fg': s:yellow, 'bg': s:gutter_bg })
+call s:h('diffAdded',              { 'fg': s:green })
+call s:h('diffRemoved',            { 'fg': s:red })
+call s:h('diffChanged',            { 'fg': s:yellow })
+
 " Signify
 call s:h('SignifyAdd',            { 'fg': s:green, 'bg': s:gutter_bg })
 call s:h('SignifyDelete',         { 'fg': s:red, 'bg': s:gutter_bg })
