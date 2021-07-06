@@ -19,6 +19,7 @@ vim.g.ale_linters = {
 }
 
 vim.g.ale_fixers = {
+	lua = { "stylua" },
 	rust = { "rustfmt" },
 }
 
