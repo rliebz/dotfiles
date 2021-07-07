@@ -40,7 +40,7 @@ let s:blue          = { 'gui': '#8a60ff', 'cterm': '4' }
 let s:dark_blue     = { 'gui': '#231944', 'cterm': '12' }
 
 let s:magenta       = { 'gui': '#ff57fe', 'cterm': '5' }
-let s:dark_magenta  = { 'gui': '#c030ff', 'cterm': '13' }
+let s:dark_magenta  = { 'gui': '#ffa0fe', 'cterm': '13' }
 
 let s:cyan          = { 'gui': '#00bee2', 'cterm': '6' }
 let s:dark_cyan     = { 'gui': '#007992', 'cterm': '14' }

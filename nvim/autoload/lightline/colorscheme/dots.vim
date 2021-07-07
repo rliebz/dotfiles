@@ -19,7 +19,7 @@ let s:blue = [ '#8a60ff', 4 ]
 let s:dark_blue = [ '#231944', 12 ]
 
 let s:magenta = [ '#ff57fe', 5 ]
-let s:dark_magenta = [ '#c030ff', 13 ]
+let s:dark_magenta = [ '#ffa0fe', 13 ]
 
 let s:cyan = [ '#00bee2', 6 ]
 let s:dark_cyan = [ '#007992', 14 ]
