@@ -61,6 +61,13 @@ use({ "voldikss/vim-floaterm", config = cfg("floaterm") })
 use({ "w0rp/ale", config = cfg("ale") })
 use("wellle/targets.vim")
 
+use({
+	"nvim-treesitter/nvim-treesitter",
+	requires = { "nvim-treesitter/playground" },
+	run = ":TSUpdate",
+	config = cfg("treesitter"),
+})
+
 -- Language Server Protocol
 use({
 	"neovim/nvim-lspconfig",
