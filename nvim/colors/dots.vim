@@ -69,7 +69,7 @@ call s:h('Boolean',     { 'fg': s:dark_magenta, 'ui': 'italic' })
 call s:h('Float',       { 'fg': s:yellow })
 
 call s:h('Identifier',  { 'fg': s:cyan })
-call s:h('Function',    { 'fg': s:blue })
+call s:h('Function',    { 'fg': s:dark_green })
 
 call s:h('Statement',   { 'fg': s:magenta })
 call s:h('Conditional', { 'fg': s:magenta })
@@ -93,7 +93,7 @@ call s:h('Typedef',     { 'fg': s:yellow })
 call s:h('Special',     { 'fg': s:yellow })
 call s:h('SpecialChar', {})
 call s:h('Tag',         {})
-call s:h('Delimiter',   {})
+call s:h('Delimiter',   { 'fg': s:blue })
 call s:h('SpecialComment', {})
 call s:h('Debug',       {})
 
@@ -116,7 +116,7 @@ call s:h('Cursor',      { 'fg': s:black, 'bg': s:blue })
 call s:h('CursorIM',    {})
 call s:h('CursorColumn', { 'bg': s:bright_black })
 call s:h('CursorLine',  { 'bg': s:dark_blue })
-call s:h('Directory',   {})
+call s:h('Directory',   { 'fg': s:blue })
 call s:h('DiffAdd',     { 'fg': s:green })
 call s:h('DiffChange',  { 'fg': s:dark_yellow })
 call s:h('DiffDelete',  { 'fg': s:red })
@@ -250,10 +250,6 @@ let g:fzf_colors = {
 hi link TSConstant TSVariable
 hi link TSConstBuiltin Boolean
 hi link TSStringEscape Special
-call s:h('TSParameter',    { 'fg': s:dark_green })
-call s:h('TSConstBuiltin', { 'fg': s:dark_magenta, 'ui': 'italic' })
-call s:h('bashTSConstant', { 'fg': s:cyan })
-call s:h('fishTSConstant', { 'fg': s:cyan })
 
 " vim-go
 call s:h('goCoverageCovered', { 'fg': s:green })
