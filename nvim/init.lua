@@ -66,17 +66,12 @@ vim.api.nvim_set_keymap("", "k", "gk", {})
 vim.api.nvim_set_keymap("n", "<leader>e", ":Explore<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<leader>qq", ":cclose <bar> pclose <bar> helpclose<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<leader>ss", ":setlocal spell!<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<leader>v", ":luafile $MYVIMRC<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<leader>v", ":source $MYVIMRC<CR> | :runtime! plugin/**/*.lua<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<leader>w", ":w!<CR>", { silent = true })
 vim.api.nvim_set_keymap("", "<leader>y", '"+y', { noremap = true })
 
-require("cfg.reload")
-reload()
-
-vim.cmd([[command! Pack lua require('cfg.plugins').sync()]])
-vim.cmd([[
-augroup packer_compile
-	autocmd!
-	autocmd BufWritePost */cfg/plugins.lua,*/cfg/plugin/*.lua lua reload(); require('cfg.plugins').compile()
-augroup END
-]])
+function pack()
+	package.loaded["cfg.plugins"] = nil
+	require("cfg.plugins").sync()
+end
+vim.cmd([[command! Pack lua pack()]])

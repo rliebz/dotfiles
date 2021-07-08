@@ -18,10 +18,6 @@ packer.init({
 
 packer.reset()
 
-local function cfg(filename)
-	return string.format([[require('cfg.plugin.%s')]], filename)
-end
-
 local use = packer.use
 
 -- Manage packer with packer
@@ -30,22 +26,20 @@ use({ "wbthomason/packer.nvim", opt = true })
 -- General Purpose Plugins
 use("AndrewRadev/splitjoin.vim")
 use("b4winckler/vim-angry")
-use({ "editorconfig/editorconfig-vim", config = cfg("editorconfig") })
-use({ "itchyny/lightline.vim", config = cfg("lightline") })
-use({ "janko-m/vim-test", config = cfg("test") })
-use({ "junegunn/vim-easy-align", config = cfg("easy-align") })
+use("editorconfig/editorconfig-vim")
+use("itchyny/lightline.vim")
+use("janko-m/vim-test")
+use("junegunn/vim-easy-align")
 use({
 	"junegunn/fzf",
 	run = function()
 		vim.fn["fzf#install"]()
 	end,
-	config = cfg("fzf"),
 })
 use("junegunn/fzf.vim")
 use({
 	"lewis6991/gitsigns.nvim",
 	requires = { "nvim-lua/plenary.nvim" },
-	config = cfg("gitsigns"),
 })
 use("romainl/vim-cool")
 use("tpope/vim-abolish")
@@ -57,33 +51,31 @@ use({
 use("tpope/vim-repeat")
 use("tpope/vim-sleuth")
 use("tpope/vim-surround")
-use({ "voldikss/vim-floaterm", config = cfg("floaterm") })
-use({ "w0rp/ale", config = cfg("ale") })
+use("voldikss/vim-floaterm")
+use("w0rp/ale")
 use("wellle/targets.vim")
 
 use({
 	"nvim-treesitter/nvim-treesitter",
 	requires = { "nvim-treesitter/playground" },
 	run = ":TSUpdate",
-	config = cfg("treesitter"),
 })
 
 -- Language Server Protocol
 use({
 	"neovim/nvim-lspconfig",
 	requires = { "nathunsmitty/nvim-ale-diagnostic", "kabouzeid/nvim-lspinstall" },
-	config = cfg("lspconfig"),
 })
-use({ "hrsh7th/nvim-compe", config = cfg("compe") })
+use("hrsh7th/nvim-compe")
 use("hrsh7th/vim-vsnip")
 
 -- Language-specific plugins
 use("blankname/vim-fish")
 use("cespare/vim-toml")
-use({ "fatih/vim-go", config = cfg("go") })
+use("fatih/vim-go")
 use("jvirtanen/vim-hcl")
 use("MaxMEllon/vim-jsx-pretty")
-use({ "tpope/vim-markdown", config = cfg("markdown") })
+use("tpope/vim-markdown")
 use("tbastos/vim-lua")
 
 return packer
