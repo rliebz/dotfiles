@@ -28,7 +28,7 @@ use("AndrewRadev/splitjoin.vim")
 use("b4winckler/vim-angry")
 use("editorconfig/editorconfig-vim")
 use("itchyny/lightline.vim")
-use("janko-m/vim-test")
+use("vim-test/vim-test")
 use("junegunn/vim-easy-align")
 use({
 	"junegunn/fzf",
