@@ -203,6 +203,11 @@ call s:h('ALEErrorSign',   {'fg': s:red, 'bg': s:gutter_bg })
 call s:h('ALEWarningSign', {'fg': s:yellow, 'bg': s:gutter_bg })
 call s:h('ALEInfoSign',    {'fg': s:blue, 'bg': s:gutter_bg })
 
+" Clover
+call s:h('CloverCovered',   { 'fg': s:green })
+call s:h('CloverUncovered', { 'fg': s:red })
+call s:h('CloverIgnored',   { 'fg': s:dark_white })
+
 " Compe
 hi link CompeDocumentation Pmenu
 

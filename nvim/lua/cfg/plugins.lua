@@ -41,6 +41,7 @@ use({
 	"lewis6991/gitsigns.nvim",
 	requires = { "nvim-lua/plenary.nvim" },
 })
+use("rliebz/vim-clover")
 use("romainl/vim-cool")
 use("tpope/vim-abolish")
 use("tpope/vim-commentary")
@@ -72,7 +73,6 @@ use("hrsh7th/vim-vsnip")
 -- Language-specific plugins
 use("blankname/vim-fish")
 use("cespare/vim-toml")
-use("fatih/vim-go")
 use("jvirtanen/vim-hcl")
 use("MaxMEllon/vim-jsx-pretty")
 use("tpope/vim-markdown")
