@@ -52,6 +52,7 @@ use({
 use("tpope/vim-repeat")
 use("tpope/vim-sleuth")
 use("tpope/vim-surround")
+use("tyru/open-browser.vim")
 use("voldikss/vim-floaterm")
 use("w0rp/ale")
 use("wellle/targets.vim")
