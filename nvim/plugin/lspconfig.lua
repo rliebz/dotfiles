@@ -103,8 +103,19 @@ local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
+local gopls_root_dir = nil
+local gomodcache = vim.fn.trim(vim.fn.system("go env GOMODCACHE"))
+
 local language_configs = {
 	go = {
+		root_dir = function(fname)
+			local fullpath = vim.fn.expand(fname, ":p")
+			if string.find(fullpath, gomodcache) and gopls_root_dir ~= nil then
+				return gopls_root_dir
+			end
+			gopls_root_dir = lspconfig.util.root_pattern("go.mod", ".git")(fname)
+			return gopls_root_dir
+		end,
 		settings = {
 			gopls = {
 				linksInHover = false,
