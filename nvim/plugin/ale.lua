@@ -15,12 +15,13 @@ vim.g.ale_linters = {
 	go = { "golangci-lint" },
 	javascript = { "eslint" },
 	rust = { "rls" },
-	typescript = { "prettier", "tslint", "tsserver" },
+	typescript = { "prettier", "eslint" },
 }
 
 vim.g.ale_fixers = {
 	lua = { "stylua" },
 	rust = { "rustfmt" },
+	typescript = { "prettier" },
 }
 
 vim.g.ale_go_golangci_lint_options = ""
