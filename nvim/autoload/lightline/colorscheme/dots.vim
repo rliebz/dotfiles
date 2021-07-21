@@ -10,7 +10,7 @@ let s:red = [ '#f72c09', 1 ]
 let s:dark_red = [ '#ed6200', 9 ]
 
 let s:green = [ '#a2f009', 2 ]
-let s:dark_green = [ '#35fac5', 10 ]
+let s:dark_green = [ '#15da95', 10 ]
 
 let s:yellow = [ '#ffb702', 3 ]
 let s:dark_yellow = [ '#ff9000', 11  ]
