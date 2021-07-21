@@ -72,11 +72,7 @@ use("hrsh7th/nvim-compe")
 use("hrsh7th/vim-vsnip")
 
 -- Language-specific plugins
-use("blankname/vim-fish")
-use("cespare/vim-toml")
-use("jvirtanen/vim-hcl")
-use("MaxMEllon/vim-jsx-pretty")
+use("chrisbra/csv.vim")
 use("tpope/vim-markdown")
-use("tbastos/vim-lua")
 
 return packer

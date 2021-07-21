@@ -8,7 +8,6 @@ vim.g.markdown_fenced_languages = {
 	"sh",
 	"bash=sh",
 	"sql",
-	"toml",
 	"typescript",
 	"ts=typescript",
 	"yaml",
