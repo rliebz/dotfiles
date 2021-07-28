@@ -37,6 +37,7 @@ use({
 	end,
 })
 use("junegunn/fzf.vim")
+use("justinmk/vim-dirvish")
 use({
 	"lewis6991/gitsigns.nvim",
 	requires = { "nvim-lua/plenary.nvim" },

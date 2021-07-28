@@ -57,13 +57,11 @@ augroup restore_cursor
 augroup END
 ]])
 
-vim.g.netrw_banner = 0
-vim.g.netrw_list_hide = [[\.DS_Store,\.git/,\.gitmodules/,\.vscode/,__pycache__/,\.log,\.pid]]
+vim.g.loaded_netrwPlugin = 1
 
 vim.api.nvim_set_keymap("", "j", "gj", {})
 vim.api.nvim_set_keymap("", "k", "gk", {})
 
-vim.api.nvim_set_keymap("n", "<leader>e", ":Explore<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<leader>qq", ":cclose <bar> pclose <bar> helpclose<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<leader>ss", ":setlocal spell!<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<leader>v", ":source $MYVIMRC<CR> | :runtime! plugin/**/*.lua<CR>", { silent = true })
