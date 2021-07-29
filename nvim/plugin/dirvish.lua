@@ -62,11 +62,17 @@ end
 
 function dirvish_mkfile()
 	local filename = vim.fn.input("File name: ")
+
+	if filename == "" then
+		print("Canceled")
+		return
+	end
+
 	vim.cmd("e " .. filename)
 end
 
 function dirvish_config()
-	vim.opt_local.number = false
+	vim.cmd("setlocal nonumber")
 
 	vim.api.nvim_buf_del_keymap(0, "", "<C-p>")
 
@@ -74,6 +80,7 @@ function dirvish_config()
 	vim.api.nvim_buf_set_keymap(0, "n", "D", ":lua dirvish_delete()<CR>", { silent = true })
 	vim.api.nvim_buf_set_keymap(0, "n", "d", ":lua dirvish_mkdir()<CR>", { nowait = true, silent = true })
 	vim.api.nvim_buf_set_keymap(0, "n", "%", ":lua dirvish_mkfile()<CR>", { silent = true })
+	vim.api.nvim_buf_set_keymap(0, "n", "<C-l>", ":Dirvish %<CR>", { silent = true })
 end
 
 vim.cmd([[
