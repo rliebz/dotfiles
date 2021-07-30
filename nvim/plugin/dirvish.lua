@@ -56,7 +56,7 @@ function dirvish_mkdir()
 	local dirname = vim.fn.input("Directory name: ")
 	vim.cmd("mode")
 
-	vim.fn.system({ "mkdir", dirname })
+	vim.fn.system({ "mkdir", vim.fn.expand("%") .. dirname })
 	vim.cmd("Dirvish %")
 end
 
@@ -68,7 +68,7 @@ function dirvish_mkfile()
 		return
 	end
 
-	vim.cmd("e " .. filename)
+	vim.cmd("e " .. vim.fn.expand("%") .. filename)
 end
 
 function dirvish_config()
