@@ -69,8 +69,13 @@ use({
 	"neovim/nvim-lspconfig",
 	requires = { "nathunsmitty/nvim-ale-diagnostic", "kabouzeid/nvim-lspinstall" },
 })
-use("hrsh7th/nvim-compe")
-use("hrsh7th/vim-vsnip")
+use({
+	"hrsh7th/nvim-cmp",
+	requires = {
+		"hrsh7th/cmp-nvim-lsp",
+		"hrsh7th/vim-vsnip",
+	},
+})
 
 -- Language-specific plugins
 use("chrisbra/csv.vim")

@@ -8,7 +8,6 @@ vim.cmd([[colorscheme dots]])
 
 vim.opt.cinwords = {}
 vim.opt.colorcolumn = "80"
-vim.opt.completeopt = { "menuone", "noselect" }
 vim.opt.cursorline = true
 vim.opt.diffopt:append("vertical")
 vim.opt.fileformats = { "unix", "dos", "mac" }
