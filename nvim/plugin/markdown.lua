@@ -2,7 +2,9 @@ vim.g.markdown_fenced_languages = {
 	"html",
 	"javascript",
 	"js=javascript",
+	"jsx=javascriptreact",
 	"json",
+	"jsonc",
 	"go",
 	"python",
 	"sh",
@@ -10,5 +12,6 @@ vim.g.markdown_fenced_languages = {
 	"sql",
 	"typescript",
 	"ts=typescript",
+	"tsx=typescriptreact",
 	"yaml",
 }
