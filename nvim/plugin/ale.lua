@@ -14,6 +14,7 @@ vim.g.ale_linters = {
 	sh = { "shellcheck" },
 	go = { "golangci-lint" },
 	javascript = { "eslint" },
+	json = { "jq" },
 	rust = { "rls" },
 	typescript = { "prettier", "eslint" },
 }
