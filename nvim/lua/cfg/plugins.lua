@@ -67,7 +67,10 @@ use({
 -- Language Server Protocol
 use({
 	"neovim/nvim-lspconfig",
-	requires = { "nathunsmitty/nvim-ale-diagnostic", "kabouzeid/nvim-lspinstall" },
+	requires = {
+		"nathunsmitty/nvim-ale-diagnostic",
+		"williamboman/nvim-lsp-installer",
+	},
 })
 use({
 	"hrsh7th/nvim-cmp",

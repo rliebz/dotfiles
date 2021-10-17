@@ -114,7 +114,7 @@ local gomodcache_loaded = false
 local gopls_root_dir = nil
 
 local language_configs = {
-	go = {
+	gopls = {
 		root_dir = function(fname)
 			local fullpath = vim.fn.expand(fname, ":p")
 
@@ -148,7 +148,7 @@ local language_configs = {
 			},
 		},
 	},
-	lua = {
+	sumneko_lua = {
 		settings = {
 			Lua = {
 				runtime = {
@@ -171,21 +171,9 @@ local language_configs = {
 	},
 }
 
-local lspinstall = require("lspinstall")
+local lsp_installer = require("nvim-lsp-installer")
 
-local function setup_servers()
-	lspinstall.setup()
-
-	local servers = lspinstall.installed_servers()
-	for _, server in ipairs(servers) do
-		local config = language_configs[server]
-		lspconfig[server].setup(config or {})
-	end
-end
-
-setup_servers()
-
-lspinstall.post_install_hook = function()
-	setup_servers()
-	vim.cmd("bufdo e")
-end
+lsp_installer.on_server_ready(function(server)
+	server:setup(language_configs[server] or {})
+	vim.cmd([[ do User LspAttachBuffers ]])
+end)
