@@ -174,6 +174,6 @@ local language_configs = {
 local lsp_installer = require("nvim-lsp-installer")
 
 lsp_installer.on_server_ready(function(server)
-	server:setup(language_configs[server] or {})
+	server:setup(language_configs[server.name] or {})
 	vim.cmd([[ do User LspAttachBuffers ]])
 end)
