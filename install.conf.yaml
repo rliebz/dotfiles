@@ -26,6 +26,7 @@
     ~/.config/kitty/kitty.conf: kitty.conf
     ~/.config/nvim: nvim
     ~/.config/yamllint/config: yamllint.yml
+    ~/.asdfrc: asdfrc
     ~/.editorconfig: editorconfig
     ~/.gitconfig: gitconfig
     ~/.gitignore: gitignore
