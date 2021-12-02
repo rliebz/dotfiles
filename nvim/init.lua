@@ -1,4 +1,6 @@
+vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 if vim.env.COLORTERM == "truecolor" then
 	vim.opt.termguicolors = true
