@@ -13,10 +13,7 @@ vim.opt.colorcolumn = "80"
 vim.opt.cursorline = true
 vim.opt.diffopt:append("vertical")
 vim.opt.fileformats = { "unix", "dos", "mac" }
-vim.opt.hidden = true
 vim.opt.ignorecase = true
-vim.opt.inccommand = "nosplit"
-vim.opt.joinspaces = false
 vim.opt.lazyredraw = true
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", space = "·", trail = "·", nbsp = "␣" }
