@@ -49,13 +49,8 @@ local function on_attach(client, bufnr)
 	noremap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
 	noremap("i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
 
-	if client.resolved_capabilities.code_action then
-		vim.cmd([[
-		augroup lsp_organize_imports
-			autocmd! * <buffer>
-			autocmd BufWritePre <buffer> lua lsp_organize_imports()
-		augroup END
-		]])
+	if client.name == "tsserver" then
+		return
 	end
 
 	if client.resolved_capabilities.document_formatting then
@@ -66,18 +61,23 @@ local function on_attach(client, bufnr)
 		augroup END
 		]])
 	end
+
+	if client.name == "null-ls" then
+		return
+	end
+
+	if client.resolved_capabilities.code_action then
+		vim.cmd([[
+		augroup lsp_organize_imports
+			autocmd! * <buffer>
+			autocmd BufWritePre <buffer> lua lsp_organize_imports()
+		augroup END
+		]])
+	end
 end
 
 lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
 	on_attach = on_attach,
-})
-
-require("nvim-ale-diagnostic")
-
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-	underline = false,
-	virtual_text = false,
-	signs = false,
 })
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
@@ -169,3 +169,22 @@ lsp_installer.on_server_ready(function(server)
 	server:setup(language_configs[server.name] or {})
 	vim.cmd([[ do User LspAttachBuffers ]])
 end)
+
+local null_ls = require("null-ls")
+
+null_ls.config({
+	sources = {
+		null_ls.builtins.formatting.black,
+		null_ls.builtins.formatting.prettier,
+		null_ls.builtins.formatting.rustfmt,
+		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.diagnostics.eslint,
+		null_ls.builtins.diagnostics.flake8,
+		null_ls.builtins.diagnostics.golangci_lint,
+		null_ls.builtins.diagnostics.hadolint,
+		null_ls.builtins.diagnostics.shellcheck,
+		null_ls.builtins.diagnostics.vint,
+	},
+})
+
+lspconfig["null-ls"].setup({})

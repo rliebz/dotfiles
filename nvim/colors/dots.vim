@@ -251,6 +251,22 @@ let g:fzf_colors = {
       \ 'header':  ['fg', 'Comment'],
       \ }
 
+" Diagnostics
+sign define DiagnosticSignError text=● texthl=DiagnosticSignError linehl= numhl=
+sign define DiagnosticSignWarn text=● texthl=DiagnosticSignWarn linehl= numhl=
+sign define DiagnosticSignInfo text=● texthl=DiagnosticSignInfo linehl= numhl=
+sign define DiagnosticSignHint text=● texthl=DiagnosticSignHint linehl= numhl=
+
+call s:h('DiagnosticError', { 'fg': s:red })
+call s:h('DiagnosticWarn',  { 'fg': s:yellow })
+call s:h('DiagnosticInfo',  { 'fg': s:blue })
+call s:h('DiagnosticHint',  { 'fg': s:dark_white })
+
+call s:h('DiagnosticUnderlineError', { 'sp': s:red, 'ui': 'undercurl' })
+call s:h('DiagnosticUnderlineWarn',  { 'sp': s:yellow, 'ui': 'undercurl' })
+call s:h('DiagnosticUnderlineInfo',  { 'sp': s:blue, 'ui': 'undercurl' })
+call s:h('DiagnosticUnderlineHint',  { 'sp': s:dark_white, 'ui': 'undercurl' })
+
 " Treesitter
 hi link TSConstant TSVariable
 hi link TSConstBuiltin Boolean

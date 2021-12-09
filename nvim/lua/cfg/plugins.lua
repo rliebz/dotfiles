@@ -55,7 +55,6 @@ use("tpope/vim-sleuth")
 use("tpope/vim-surround")
 use("tyru/open-browser.vim")
 use("voldikss/vim-floaterm")
-use("w0rp/ale")
 use("wellle/targets.vim")
 
 use({
@@ -68,8 +67,9 @@ use({
 use({
 	"neovim/nvim-lspconfig",
 	requires = {
-		"nathunsmitty/nvim-ale-diagnostic",
 		"williamboman/nvim-lsp-installer",
+		"jose-elias-alvarez/null-ls.nvim",
+		"nvim-lua/plenary.nvim", -- For null-ls
 	},
 })
 use({
