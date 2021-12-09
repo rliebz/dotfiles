@@ -36,7 +36,7 @@ end
 
 local function on_attach(client, bufnr)
 	local function noremap(mode, key, value)
-		vim.api.nvim_buf_set_keymap(bufnr, mode, key, value, { noremap = true })
+		vim.api.nvim_buf_set_keymap(bufnr, mode, key, value, { noremap = true, silent = true })
 	end
 
 	noremap("n", "<c-]>", "<cmd>lua vim.lsp.buf.definition()<CR>")
