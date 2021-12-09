@@ -6,6 +6,7 @@ vim.g.markdown_fenced_languages = {
 	"json",
 	"jsonc",
 	"go",
+	"lua",
 	"python",
 	"sh",
 	"bash=sh",
