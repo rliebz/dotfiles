@@ -152,6 +152,15 @@ local language_configs = {
 			},
 		},
 	},
+	tsserver = {
+		on_attach = function(client, bufnr)
+			-- Disable in favor of prettier
+			client.resolved_capabilities.document_formatting = false
+			client.resolved_capabilities.document_formatting_range = false
+
+			return on_attach(client, bufnr)
+		end,
+	},
 }
 
 local lsp_installer = require("nvim-lsp-installer")
