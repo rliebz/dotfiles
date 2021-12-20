@@ -5,6 +5,7 @@ vim.api.nvim_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", op
 
 vim.diagnostic.config({
 	float = {
+		border = "single",
 		format = function(diagnostic)
 			if diagnostic.code then
 				return string.format("[%s: %s] %s", diagnostic.source, diagnostic.code, diagnostic.message)
