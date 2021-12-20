@@ -172,7 +172,8 @@ end)
 
 local null_ls = require("null-ls")
 
-null_ls.config({
+null_ls.setup({
+	on_attach = on_attach,
 	sources = {
 		null_ls.builtins.formatting.black,
 		null_ls.builtins.formatting.prettier,
@@ -186,5 +187,3 @@ null_ls.config({
 		null_ls.builtins.diagnostics.vint,
 	},
 })
-
-lspconfig["null-ls"].setup({})
