@@ -268,6 +268,8 @@ call s:h('DiagnosticUnderlineInfo',  { 'sp': s:blue, 'ui': 'undercurl' })
 call s:h('DiagnosticUnderlineHint',  { 'sp': s:dark_white, 'ui': 'undercurl' })
 
 " Treesitter
+call s:h('TSTextReference', { 'fg': s:yellow })
+call s:h('TSURI', { 'fg': s:cyan, 'sp': s:dark_cyan, 'ui': 'underline' })
 hi link TSConstant TSVariable
 hi link TSConstBuiltin Boolean
 hi link TSStringEscape Special
