@@ -131,6 +131,13 @@ local language_configs = {
 			},
 		},
 	},
+	jsonls = {
+		settings = {
+			json = {
+				schemas = require("schemastore").json.schemas(),
+			},
+		},
+	},
 	sumneko_lua = {
 		settings = {
 			Lua = {
