@@ -64,11 +64,13 @@ use({
 
 -- Language Server Protocol
 use({
+	"jose-elias-alvarez/null-ls.nvim",
+	requires = { "nvim-lua/plenary.nvim" },
+})
+use({
 	"neovim/nvim-lspconfig",
 	requires = {
 		"williamboman/nvim-lsp-installer",
-		"jose-elias-alvarez/null-ls.nvim",
-		"nvim-lua/plenary.nvim", -- For null-ls
 		"b0o/schemastore.nvim",
 	},
 })
