@@ -1,13 +1,13 @@
 root = true
 
 [*]
-indent_style = space
-indent_size = 2
 insert_final_newline = true
+tab_width = 2
 trim_trailing_whitespace = true
 
 [*.{css,scss}]
 indent_size = 2
+indent_style = space
 
 [{*.go,go.mod}]
 indent_style = tab
@@ -16,37 +16,39 @@ trim_trailing_whitespace = false
 
 [*.{js,ts}]
 indent_size = 2
+indent_style = space
 
 [*.py]
-indent_style = space
 indent_size = 4
+indent_style = space
 
 [*.rs]
-indent_style = space
 indent_size = 4
+indent_style = space
 
 [*.md]
-indent_style = space
 indent_size = 2
+indent_style = space
 trim_trailing_whitespace = false
 
 [*.{hcl,nomad,tf,tfvars}]
-indent_style = space
 indent_size = 2
+indent_style = space
 
 [*.yml]
-indent_style = space
 indent_size = 2
+indent_style = space
 
 [.gitconfig]
 indent_style = tab
 
 [package.json]
-indent_style = space
 indent_size = 2
+indent_style = space
 
 [Makefile]
 indent_style = tab
 
 [{.vimrc,vimrc,*.vim}]
 indent_size = 2
+indent_style = space

@@ -26,7 +26,6 @@ use({ "wbthomason/packer.nvim", opt = true })
 -- General Purpose Plugins
 use("AndrewRadev/splitjoin.vim")
 use("b4winckler/vim-angry")
-use("editorconfig/editorconfig-vim")
 use("itchyny/lightline.vim")
 use("vim-test/vim-test")
 use("junegunn/vim-easy-align")
