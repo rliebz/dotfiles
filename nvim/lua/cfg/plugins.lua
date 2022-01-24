@@ -84,6 +84,5 @@ use({
 
 -- Language-specific plugins
 use("chrisbra/csv.vim")
-use("tpope/vim-markdown")
 
 return packer
