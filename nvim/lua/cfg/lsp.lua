@@ -12,7 +12,7 @@ function lsp_organize_imports()
 
 	-- Assume we have at most one LSP that can organize imports.
 	-- If not, just do the first one and ignore the rest.
-	local _, result = next(resp)
+	local client_id, result = next(resp)
 	if not result or not result.result or not result.result[1] then
 		return
 	end
@@ -24,7 +24,8 @@ function lsp_organize_imports()
 
 	if action.edit or type(action.command) == "table" then
 		if action.edit then
-			vim.lsp.util.apply_workspace_edit(action.edit)
+			local client = vim.lsp.get_client_by_id(client_id)
+			vim.lsp.util.apply_workspace_edit(action.edit, client.offset_encoding)
 		end
 		if type(action.command) == "table" then
 			vim.lsp.buf.execute_command(action.command)
