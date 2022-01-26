@@ -1,4 +1,4 @@
-vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
+vim.keymap.set("", "<Space>", "<Nop>", { silent = true })
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -57,14 +57,14 @@ augroup END
 
 vim.g.loaded_netrwPlugin = 1
 
-vim.api.nvim_set_keymap("", "j", "gj", {})
-vim.api.nvim_set_keymap("", "k", "gk", {})
+vim.keymap.set("", "j", "gj")
+vim.keymap.set("", "k", "gk")
 
-vim.api.nvim_set_keymap("n", "<leader>qq", ":cclose <bar> pclose <bar> helpclose<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<leader>ss", ":setlocal spell!<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<leader>v", ":source $MYVIMRC<CR> | :runtime! plugin/**/*.lua<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<leader>w", ":w!<CR>", { silent = true })
-vim.api.nvim_set_keymap("", "<leader>y", '"+y', { noremap = true })
+vim.keymap.set("n", "<leader>qq", ":cclose <bar> pclose <bar> helpclose<CR>", { silent = true })
+vim.keymap.set("n", "<leader>ss", ":setlocal spell!<CR>", { silent = true })
+vim.keymap.set("n", "<leader>v", ":source $MYVIMRC<CR> | :runtime! plugin/**/*.lua<CR>", { silent = true })
+vim.keymap.set("n", "<leader>w", ":w!<CR>", { silent = true })
+vim.keymap.set("", "<leader>y", '"+y')
 
 function pack()
 	package.loaded["cfg.plugins"] = nil

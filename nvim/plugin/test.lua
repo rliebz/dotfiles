@@ -1,7 +1,7 @@
-vim.api.nvim_set_keymap("n", "<leader>tn", ":TestNearest<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>tf", ":TestFile<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>ts", ":TestSuite<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>tl", ":TestLast<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>tn", ":TestNearest<CR>")
+vim.keymap.set("n", "<leader>tf", ":TestFile<CR>")
+vim.keymap.set("n", "<leader>ts", ":TestSuite<CR>")
+vim.keymap.set("n", "<leader>tl", ":TestLast<CR>")
 
 vim.g["test#strategy"] = "floaterm"
 vim.g["test#go#gotest#options"] = {

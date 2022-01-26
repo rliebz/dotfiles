@@ -1,4 +1,4 @@
-vim.api.nvim_set_keymap("n", "<leader>e", ":Dirvish %:h<CR>", { silent = true })
+vim.keymap.set("n", "<leader>e", ":Dirvish %:h<CR>", { silent = true })
 
 local ignored = {
 	[[\.DS_Store]],
@@ -74,13 +74,13 @@ end
 function dirvish_config()
 	vim.cmd("setlocal nonumber")
 
-	vim.api.nvim_buf_del_keymap(0, "", "<C-p>")
+	vim.keymap.del("", "<C-p>", { buffer = true })
 
-	vim.api.nvim_buf_set_keymap(0, "n", "R", ":lua dirvish_rename()<CR>", { silent = true })
-	vim.api.nvim_buf_set_keymap(0, "n", "D", ":lua dirvish_delete()<CR>", { silent = true })
-	vim.api.nvim_buf_set_keymap(0, "n", "d", ":lua dirvish_mkdir()<CR>", { nowait = true, silent = true })
-	vim.api.nvim_buf_set_keymap(0, "n", "%", ":lua dirvish_mkfile()<CR>", { silent = true })
-	vim.api.nvim_buf_set_keymap(0, "n", "<C-l>", ":Dirvish %<CR>", { silent = true })
+	vim.keymap.set("n", "R", dirvish_rename, { buffer = true, silent = true })
+	vim.keymap.set("n", "D", dirvish_delete, { buffer = true, silent = true })
+	vim.keymap.set("n", "d", dirvish_mkdir, { buffer = true, nowait = true, silent = true })
+	vim.keymap.set("n", "%", dirvish_mkfile, { buffer = true, silent = true })
+	vim.keymap.set("n", "<C-l>", ":Dirvish %<CR>", { buffer = true, silent = true })
 end
 
 vim.cmd([[

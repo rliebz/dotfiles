@@ -36,19 +36,15 @@ function lsp_organize_imports()
 end
 
 M.on_attach = function(client, bufnr)
-	local function noremap(mode, key, value)
-		vim.api.nvim_buf_set_keymap(bufnr, mode, key, value, { noremap = true, silent = true })
-	end
-
-	noremap("n", "<c-]>", "<cmd>lua vim.lsp.buf.definition()<CR>")
-	noremap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
-	noremap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
-	noremap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
-	noremap("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
-	noremap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
-	noremap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
-	noremap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
-	noremap("i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
+	local opts = { silent = true }
+	vim.keymap.set("n", "<c-]>", vim.lsp.buf.definition, opts)
+	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+	vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+	vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, opts)
+	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+	vim.keymap.set({ "i", "n" }, "<c-k>", vim.lsp.buf.signature_help, opts)
 
 	if client.name == "tsserver" then
 		return
