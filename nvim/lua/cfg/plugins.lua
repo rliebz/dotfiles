@@ -41,6 +41,7 @@ use({
 	"lewis6991/gitsigns.nvim",
 	requires = { "nvim-lua/plenary.nvim" },
 })
+use("ntpeters/vim-better-whitespace")
 use("rliebz/vim-clover")
 use("romainl/vim-cool")
 use("tpope/vim-abolish")
