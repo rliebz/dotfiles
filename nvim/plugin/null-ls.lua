@@ -1,5 +1,70 @@
 local null_ls = require("null-ls")
+local helpers = require("null-ls.helpers")
 local lsp = require("cfg.lsp")
+
+local ibm_openapi_validator = {
+	name = "openapi-validator",
+	method = null_ls.methods.DIAGNOSTICS,
+	filetypes = {
+		"openapi",
+		"yaml.openapi", -- hack because null-ls doesn't support multi ft
+	},
+	generator = helpers.generator_factory({
+		command = "lint-openapi",
+		args = { "--json", "$FILENAME" },
+		format = "json_raw",
+		check_exit_code = function(code, stderr)
+			return code <= 1
+		end,
+		on_output = function(params)
+			local diagnostics = {}
+
+			if params.err then
+				-- If we have an output, it's more informative than a JSON parse error.
+				-- If not, show what we have.
+				table.insert(diagnostics, { message = params.output or params.err })
+			end
+
+			if type(params.output) == "table" then
+				local severities = {
+					{
+						source = params.output.errors,
+						level = helpers.diagnostics.severities["error"],
+					},
+					{
+						source = params.output.warnings,
+						level = helpers.diagnostics.severities["warning"],
+					},
+					{
+						source = params.output.infos,
+						level = helpers.diagnostics.severities["information"],
+					},
+					{
+						source = params.output.hints,
+						level = helpers.diagnostics.severities["hint"],
+					},
+				}
+
+				for _, severity in ipairs(severities) do
+					if type(severity.source) == "table" then
+						for _, e in ipairs(severity.source) do
+							table.insert(diagnostics, {
+								source = "openapi-validator",
+								row = e.line,
+								message = e.message,
+								code = e.rule,
+								severity = severity.level,
+							})
+						end
+					end
+				end
+			end
+
+			return diagnostics
+		end,
+	}),
+}
+null_ls.register({ ibm_openapi_validator })
 
 null_ls.setup({
 	on_attach = lsp.on_attach,
