@@ -7,6 +7,7 @@ local ignored = {
 	[[\.pytest_cache/]],
 	[[\.vscode/]],
 	[[__pycache__/]],
+	[[\.bak]],
 	[[\.log]],
 	[[\.pid]],
 	[[\.pyc]],
