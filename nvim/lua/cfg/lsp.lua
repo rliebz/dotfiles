@@ -35,8 +35,8 @@ function lsp_organize_imports()
 	end
 end
 
-M.on_attach = function(client, bufnr)
-	local opts = { silent = true }
+M.on_attach = function(client)
+	local opts = { buffer = true, silent = true }
 	vim.keymap.set("n", "<c-]>", vim.lsp.buf.definition, opts)
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
