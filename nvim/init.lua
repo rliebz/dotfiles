@@ -38,7 +38,8 @@ augroup END
 ]])
 
 function jump_to_last_position()
-	if vim.opt.filetype == "commit" then
+	local ft = vim.opt.filetype:get()
+	if ft == "gitcommit" or ft == "gitrebase" then
 		return
 	end
 
@@ -51,7 +52,7 @@ end
 vim.cmd([[
 augroup restore_cursor
 	autocmd!
-	autocmd BufReadPost * lua jump_to_last_position()
+	autocmd BufReadPost * autocmd FileType <buffer> ++once lua jump_to_last_position()
 augroup END
 ]])
 
