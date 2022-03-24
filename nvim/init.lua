@@ -19,6 +19,7 @@ vim.opt.list = true
 vim.opt.listchars = { tab = "» ", space = "·", trail = "·", nbsp = "␣" }
 vim.opt.matchtime = 2
 vim.opt.number = true
+vim.opt.scrolloff = 5
 vim.opt.showmatch = true
 vim.opt.showmode = false
 vim.opt.signcolumn = "yes"
@@ -27,15 +28,6 @@ vim.opt.smartindent = true
 vim.opt.shortmess:append("c")
 vim.opt.swapfile = false
 vim.opt.updatetime = 100
-
-vim.opt.scrolloff = 5
-vim.cmd([[
-augroup scroll_off
-	autocmd!
-	autocmd TermEnter * lua vim.opt.scrolloff = 0
-	autocmd TermLeave * lua vim.opt.scrolloff = 5
-augroup END
-]])
 
 function jump_to_last_position()
 	local ft = vim.opt.filetype:get()
