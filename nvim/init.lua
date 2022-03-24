@@ -59,8 +59,7 @@ vim.keymap.set("n", "<leader>v", ":source $MYVIMRC<CR> | :runtime! plugin/**/*.l
 vim.keymap.set("n", "<leader>w", ":w!<CR>", { silent = true })
 vim.keymap.set("", "<leader>y", '"+y')
 
-function pack()
+vim.api.nvim_add_user_command("Pack", function()
 	package.loaded["cfg.plugins"] = nil
 	require("cfg.plugins").sync()
-end
-vim.cmd([[command! Pack lua pack()]])
+end, { desc = "lua packer.sync()" })
