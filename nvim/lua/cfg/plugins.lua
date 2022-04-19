@@ -14,6 +14,7 @@ packer.init({
 			return require("packer.util").float({ border = "single" })
 		end,
 	},
+	autoremove = true,
 })
 
 packer.reset()
