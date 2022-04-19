@@ -273,6 +273,7 @@ call s:h('TSURI', { 'fg': s:cyan, 'sp': s:dark_cyan, 'ui': 'underline' })
 hi link TSConstant TSVariable
 hi link TSConstBuiltin Boolean
 hi link TSStringEscape Special
+hi link TSInclude Keyword
 
 " vim-go
 call s:h('goCoverageCovered', { 'fg': s:green })
