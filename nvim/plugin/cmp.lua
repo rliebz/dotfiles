@@ -8,22 +8,21 @@ cmp.setup({
 		end,
 	},
 
-	completion = {
-		completeopt = "menuone,noselect",
-	},
-
 	mapping = {
 		["<S-Tab>"] = cmp.mapping.select_prev_item(),
 		["<Tab>"] = cmp.mapping.select_next_item(),
 		["<C-Space>"] = cmp.mapping.complete(),
-		["<C-e>"] = cmp.mapping.close(),
-		["<CR>"] = cmp.mapping.confirm({
-			behavior = cmp.ConfirmBehavior.Insert,
-		}),
+		["<C-e>"] = cmp.mapping.abort(),
+		["<CR>"] = cmp.mapping.confirm(),
 	},
 
 	sources = {
 		{ name = "nvim_lsp" },
+	},
+
+	window = {
+		completion = cmp.config.window.bordered({ winhighlight = "" }),
+		documentation = cmp.config.window.bordered({ winhighlight = "" }),
 	},
 })
 
