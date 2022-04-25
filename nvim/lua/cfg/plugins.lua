@@ -42,6 +42,7 @@ use({
 	"lewis6991/gitsigns.nvim",
 	requires = { "nvim-lua/plenary.nvim" },
 })
+use("numToStr/FTerm.nvim")
 use("ntpeters/vim-better-whitespace")
 use("rliebz/vim-clover")
 use("romainl/vim-cool")
@@ -55,7 +56,6 @@ use("tpope/vim-repeat")
 use("tpope/vim-sleuth")
 use("tpope/vim-surround")
 use("tyru/open-browser.vim")
-use("voldikss/vim-floaterm")
 use("wellle/targets.vim")
 
 use({
