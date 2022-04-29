@@ -21,7 +21,9 @@ local gomodcache = nil
 local gomodcache_loaded = false
 local gopls_root_dir = nil
 
-local language_configs = {
+local server_configs = {
+	bashls = {},
+	cssls = {},
 	gopls = {
 		root_dir = function(fname)
 			local fullpath = vim.fn.expand(fname, ":p")
@@ -63,6 +65,8 @@ local language_configs = {
 			},
 		},
 	},
+	pylsp = {},
+	rust_analyzer = {},
 	sumneko_lua = {
 		settings = {
 			Lua = {
@@ -95,9 +99,15 @@ local language_configs = {
 	},
 }
 
-local lsp_installer = require("nvim-lsp-installer")
+local ensure_installed = {}
+for server in pairs(server_configs) do
+	table.insert(ensure_installed, server)
+end
 
-lsp_installer.on_server_ready(function(server)
-	server:setup(language_configs[server.name] or {})
-	vim.cmd([[ do User LspAttachBuffers ]])
-end)
+require("nvim-lsp-installer").setup({
+	ensure_installed = ensure_installed,
+})
+
+for server, config in pairs(server_configs) do
+	lspconfig[server].setup(config)
+end
