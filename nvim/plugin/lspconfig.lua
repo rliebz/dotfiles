@@ -2,10 +2,10 @@ local lspconfig = require("lspconfig")
 local lsp = require("cfg.lsp")
 
 lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
-	on_attach = function(client)
+	on_attach = function(client, bufnr)
 		lsp.bind_keys(client)
-		lsp.format_on_save(client)
-		lsp.organize_imports_on_save(client)
+		lsp.format_on_save(client, bufnr)
+		lsp.organize_imports_on_save(client, bufnr)
 	end,
 })
 
@@ -97,7 +97,7 @@ local server_configs = {
 		on_attach = function(client, bufnr)
 			lsp.bind_keys(client)
 			-- TODO: This seems like it doesn't work
-			lsp.organize_imports_on_save(client)
+			lsp.organize_imports_on_save(client, bufnr)
 		end,
 	},
 }
