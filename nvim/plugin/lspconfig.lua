@@ -2,7 +2,11 @@ local lspconfig = require("lspconfig")
 local lsp = require("cfg.lsp")
 
 lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
-	on_attach = lsp.on_attach,
+	on_attach = function(client)
+		lsp.bind_keys(client)
+		lsp.format_on_save(client)
+		lsp.organize_imports_on_save(client)
+	end,
 })
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
@@ -89,12 +93,11 @@ local server_configs = {
 		},
 	},
 	tsserver = {
+		-- Skip formatting in favor of prettier
 		on_attach = function(client, bufnr)
-			-- Disable in favor of prettier
-			client.resolved_capabilities.document_formatting = false
-			client.resolved_capabilities.document_formatting_range = false
-
-			return lsp.on_attach(client, bufnr)
+			lsp.bind_keys(client)
+			-- TODO: This seems like it doesn't work
+			lsp.organize_imports_on_save(client)
 		end,
 	},
 }

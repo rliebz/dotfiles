@@ -67,7 +67,10 @@ local ibm_openapi_validator = {
 null_ls.register({ ibm_openapi_validator })
 
 null_ls.setup({
-	on_attach = lsp.on_attach,
+	on_attach = function(client)
+		lsp.bind_keys(client)
+		lsp.format_on_save(client)
+	end,
 	sources = {
 		null_ls.builtins.formatting.black,
 		null_ls.builtins.formatting.prettier.with({

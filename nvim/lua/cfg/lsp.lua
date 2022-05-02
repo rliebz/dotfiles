@@ -35,7 +35,7 @@ function lsp_organize_imports()
 	end
 end
 
-M.on_attach = function(client)
+M.bind_keys = function(client)
 	local opts = { buffer = true, silent = true }
 	vim.keymap.set("n", "<c-]>", vim.lsp.buf.definition, opts)
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
@@ -45,12 +45,10 @@ M.on_attach = function(client)
 	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 	vim.keymap.set({ "i", "n" }, "<c-k>", vim.lsp.buf.signature_help, opts)
+end
 
-	if client.name == "tsserver" then
-		return
-	end
-
-	if client.resolved_capabilities.document_formatting then
+M.format_on_save = function(client)
+	if client.supports_method("textDocument/formatting") then
 		vim.cmd([[
 		augroup lsp_format
 			autocmd! * <buffer>
@@ -58,12 +56,10 @@ M.on_attach = function(client)
 		augroup END
 		]])
 	end
+end
 
-	if client.name == "null-ls" then
-		return
-	end
-
-	if client.resolved_capabilities.code_action then
+M.organize_imports_on_save = function(client)
+	if client.supports_method("textDocument/codeAction") then
 		vim.cmd([[
 		augroup lsp_organize_imports
 			autocmd! * <buffer>
