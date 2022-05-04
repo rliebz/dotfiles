@@ -94,7 +94,17 @@ null_ls.setup({
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.diagnostics.eslint,
 		null_ls.builtins.diagnostics.flake8,
-		null_ls.builtins.diagnostics.golangci_lint,
+		null_ls.builtins.diagnostics.golangci_lint.with({
+			-- Drop --fast, we're fast enough and want all diagnostics
+			args = {
+				"run",
+				"--fix=false",
+				"--out-format=json",
+				"$DIRNAME",
+				"--path-prefix",
+				"$ROOT",
+			},
+		}),
 		null_ls.builtins.diagnostics.hadolint,
 		null_ls.builtins.diagnostics.shellcheck,
 		null_ls.builtins.diagnostics.vint,
