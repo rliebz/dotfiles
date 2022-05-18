@@ -1,5 +1,6 @@
 local fterm = require("FTerm")
 fterm.setup({
+	border = "rounded",
 	dimensions = {
 		height = 0.9,
 		width = 0.9,
