@@ -30,7 +30,7 @@
 [http "https://gopkg.in"]
 	followRedirects = true
 [pull]
-	ff = only
+	rebase = true
 [init]
 	defaultBranch = main
 [include]
