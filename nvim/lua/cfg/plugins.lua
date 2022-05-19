@@ -11,7 +11,7 @@ packer.init({
 	disable_commands = true,
 	display = {
 		open_fn = function()
-			return require("packer.util").float({ border = "single" })
+			return require("packer.util").float({ border = "rounded" })
 		end,
 	},
 	autoremove = true,
