@@ -17,10 +17,6 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 	border = "single",
 })
 
-local runtime_path = vim.split(package.path, ";")
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
-
 local gomodcache = nil
 local gomodcache_loaded = false
 local gopls_root_dir = nil
@@ -76,7 +72,6 @@ local server_configs = {
 			Lua = {
 				runtime = {
 					version = "LuaJIT",
-					path = runtime_path,
 				},
 				diagnostics = {
 					globals = { "vim" },
