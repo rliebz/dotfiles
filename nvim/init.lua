@@ -33,24 +33,26 @@ vim.opt.swapfile = false
 vim.opt.tabstop = 2
 vim.opt.updatetime = 100
 
-function jump_to_last_position()
-	local ft = vim.opt.filetype:get()
-	if ft == "gitcommit" or ft == "gitrebase" then
-		return
-	end
+-- Restore cursor position when opening new files
+vim.api.nvim_create_autocmd("BufReadPost", {
+	callback = function()
+		vim.api.nvim_create_autocmd("FileType", {
+			buffer = 0,
+			once = true,
+			callback = function()
+				local ft = vim.opt.filetype:get()
+				if ft == "gitcommit" or ft == "gitrebase" then
+					return
+				end
 
-	local last = vim.fn.line([['"]])
-	if last >= 1 and last <= vim.fn.line("$") then
-		vim.cmd([[exe 'normal! g`"']])
-	end
-end
-
-vim.cmd([[
-augroup restore_cursor
-	autocmd!
-	autocmd BufReadPost * autocmd FileType <buffer> ++once lua jump_to_last_position()
-augroup END
-]])
+				local last = vim.fn.line([['"]])
+				if last >= 1 and last <= vim.fn.line("$") then
+					vim.cmd([[exe 'normal! g`"']])
+				end
+			end,
+		})
+	end,
+})
 
 vim.g.loaded_netrwPlugin = 1
 
