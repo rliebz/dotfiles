@@ -20,6 +20,4 @@ function! RipgrepFzf(args)
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec))
 endfunction
 command! -nargs=* RG call RipgrepFzf(<q-args>)
-nnoremap <C-P> :FZF --reverse<CR>
-nnoremap <C-F> :RG<CR>
 ]])

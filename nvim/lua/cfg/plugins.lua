@@ -64,6 +64,15 @@ use({
 	run = ":TSUpdate",
 })
 
+use({
+	"nvim-telescope/telescope.nvim",
+	requires = {
+		{ "nvim-lua/plenary.nvim" },
+		{ "nvim-telescope/telescope-live-grep-raw.nvim" },
+		{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+	},
+})
+
 -- Language Server Protocol
 use({
 	"jose-elias-alvarez/null-ls.nvim",

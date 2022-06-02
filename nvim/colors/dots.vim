@@ -232,7 +232,7 @@ call s:h('GitGutterChangeDelete',   { 'fg': s:red, 'bg': s:gutter_bg })
 
 " Floaterm
 call s:h('Floaterm',       { 'bg': s:black })
-call s:h('FloatermBorder', { 'fg': s:dark_cyan })
+hi link FloatermBorder FloatBorder
 
 " FZF
 let g:fzf_colors = {
@@ -266,6 +266,9 @@ call s:h('DiagnosticUnderlineError', { 'sp': s:red, 'ui': 'undercurl' })
 call s:h('DiagnosticUnderlineWarn',  { 'sp': s:yellow, 'ui': 'undercurl' })
 call s:h('DiagnosticUnderlineInfo',  { 'sp': s:blue, 'ui': 'undercurl' })
 call s:h('DiagnosticUnderlineHint',  { 'sp': s:dark_white, 'ui': 'undercurl' })
+
+" Telescope
+hi link TelescopeBorder FloatBorder
 
 " Treesitter
 call s:h('TSTextReference', { 'fg': s:yellow })
