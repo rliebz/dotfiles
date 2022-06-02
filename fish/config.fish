@@ -2,9 +2,9 @@ set -g fish_greeting
 
 # Editor defaults
 if command -sq nvim
-  set -gx EDITOR nvim
+    set -gx EDITOR nvim
 else if command -sq vim
-  set -gx EDITOR vim
+    set -gx EDITOR vim
 end
 set -gx VISUAL $EDITOR
 

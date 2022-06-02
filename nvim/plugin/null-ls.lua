@@ -73,6 +73,7 @@ null_ls.setup({
 	end,
 	sources = {
 		null_ls.builtins.formatting.black,
+		null_ls.builtins.formatting.fish_indent,
 		null_ls.builtins.formatting.prettier.with({
 			condition = function(utils)
 				return utils.root_has_file({
