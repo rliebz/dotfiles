@@ -72,21 +72,19 @@ function dirvish_mkfile()
 	vim.cmd("e " .. vim.fn.expand("%") .. filename)
 end
 
-function dirvish_config()
-	vim.cmd("setlocal nonumber")
+vim.api.nvim_create_autocmd("Filetype", {
+	pattern = "dirvish",
+	callback = function()
+		vim.opt_local.number = false
 
-	vim.keymap.del("", "<C-p>", { buffer = true })
+		-- Set a noop keymap so we can delete idempotently
+		vim.keymap.set("", "<C-p>", function() end, { buffer = true })
+		vim.keymap.del("", "<C-p>", { buffer = true })
 
-	vim.keymap.set("n", "R", dirvish_rename, { buffer = true, silent = true })
-	vim.keymap.set("n", "D", dirvish_delete, { buffer = true, silent = true })
-	vim.keymap.set("n", "d", dirvish_mkdir, { buffer = true, nowait = true, silent = true })
-	vim.keymap.set("n", "%", dirvish_mkfile, { buffer = true, silent = true })
-	vim.keymap.set("n", "<C-l>", ":Dirvish %<CR>", { buffer = true, silent = true })
-end
-
-vim.cmd([[
-augroup filetype_dirvish
-	autocmd!
-	autocmd Filetype dirvish silent! lua dirvish_config()
-augroup END
-]])
+		vim.keymap.set("n", "R", dirvish_rename, { buffer = true, silent = true })
+		vim.keymap.set("n", "D", dirvish_delete, { buffer = true, silent = true })
+		vim.keymap.set("n", "d", dirvish_mkdir, { buffer = true, nowait = true, silent = true })
+		vim.keymap.set("n", "%", dirvish_mkfile, { buffer = true, silent = true })
+		vim.keymap.set("n", "<C-l>", ":Dirvish %<CR>", { buffer = true, silent = true })
+	end,
+})
