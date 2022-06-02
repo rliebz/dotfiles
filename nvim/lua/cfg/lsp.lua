@@ -35,7 +35,7 @@ function lsp_organize_imports()
 	end
 end
 
-M.bind_keys = function(client)
+M.bind_keys = function()
 	local opts = { buffer = true, silent = true }
 	vim.keymap.set("n", "<c-]>", vim.lsp.buf.definition, opts)
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
