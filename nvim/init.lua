@@ -26,8 +26,11 @@ vim.opt.showmode = false
 vim.opt.signcolumn = "yes"
 vim.opt.smartcase = true
 vim.opt.smartindent = true
+vim.opt.shiftwidth = 0
 vim.opt.shortmess:append("c")
+vim.opt.softtabstop = -1
 vim.opt.swapfile = false
+vim.opt.tabstop = 2
 vim.opt.updatetime = 100
 
 function jump_to_last_position()
