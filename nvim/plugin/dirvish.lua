@@ -43,7 +43,7 @@ function dirvish_delete()
 	local path = vim.fn.getline(".")
 
 	local rm = "rm"
-	if vim.fn.executable("trash") then
+	if vim.fn.executable("trash") == 1 then
 		rm = "trash"
 	elseif string.sub(path, -1) == "/" then
 		rm = "rmdir"
