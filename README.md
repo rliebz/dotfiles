@@ -44,5 +44,4 @@ Fish will autoload files placed in the appropriate location. For everything
 else, the following local dotfiles files are read automatically:
 
 - `~/.gitconfig.local`
-- `~/.vimrc.local`
-- `~/.vimrc-local.lua`
+- `~/.vimrc.lua`
