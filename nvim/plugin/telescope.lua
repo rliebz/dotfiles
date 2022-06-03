@@ -37,6 +37,18 @@ telescope.setup({
 	pickers = {
 		find_files = {
 			hidden = true,
+			find_command = {
+				"rg",
+				"--files",
+				-- Overrides
+				"--hidden",
+				"-g",
+				"!.git/*",
+				"-g",
+				"!*.min.js",
+				"-g",
+				"!*.js.map",
+			},
 		},
 	},
 })
