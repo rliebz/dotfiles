@@ -104,6 +104,7 @@ end
 
 require("nvim-lsp-installer").setup({
 	ensure_installed = ensure_installed,
+	ui = { border = "rounded" },
 })
 
 for server, config in pairs(server_configs) do
