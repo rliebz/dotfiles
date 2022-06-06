@@ -2,7 +2,7 @@ vim.opt.background = "dark"
 vim.cmd([[
 highlight clear
 if exists('syntax_on')
-  syntax reset
+	syntax reset
 endif
 ]])
 vim.g.colors_name = "dots"
@@ -14,26 +14,27 @@ end
 ---------
 -- Colors
 ---------
+local colors = require("cfg.colors")
 
-local black = "#000000"
-local bright_black = "#00313a"
-local red = "#f72c09"
-local dark_red = "#ed6200"
-local green = "#a2f009"
-local dark_green = "#15da95"
-local yellow = "#ffb702"
-local dark_yellow = "#ff9000"
-local blue = "#8a60ff"
-local dark_blue = "#231944"
-local magenta = "#ff57fe"
-local dark_magenta = "#ffa0fe"
-local cyan = "#00bee2"
-local dark_cyan = "#007992"
-local white = "#dbf8ff"
-local dark_white = "#91a6ab"
+local black = colors.black
+local bright_black = colors.bright_black
+local red = colors.red
+local dark_red = colors.dark_red
+local green = colors.green
+local dark_green = colors.dark_green
+local yellow = colors.yellow
+local dark_yellow = colors.dark_yellow
+local blue = colors.blue
+local dark_blue = colors.dark_blue
+local magenta = colors.magenta
+local dark_magenta = colors.dark_magenta
+local cyan = colors.cyan
+local dark_cyan = colors.dark_cyan
+local white = colors.white
+local dark_white = colors.dark_white
 
-local gutter_fg = dark_cyan
-local gutter_bg = black
+local gutter_fg = colors.dark_cyan
+local gutter_bg = colors.black
 
 --------------------------------
 -- Syntax Groups (:h group-name)
