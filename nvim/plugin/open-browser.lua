@@ -1,5 +1,2 @@
-vim.cmd([[
-let g:netrw_nogx = 1 " disable netrw's gx mapping.
-nmap gx <Plug>(openbrowser-smart-search)
-vmap gx <Plug>(openbrowser-smart-search)
-]])
+vim.g.netrw_nogx = true
+vim.keymap.set({ "n", "v" }, "gx", "<Plug>(openbrowser-smart-search)", {})
