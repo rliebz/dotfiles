@@ -53,7 +53,7 @@ telescope.setup({
 	},
 })
 telescope.load_extension("fzf")
-telescope.load_extension("live_grep_raw")
+telescope.load_extension("live_grep_args")
 
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<C-p>", builtin.find_files, {})
