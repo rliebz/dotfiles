@@ -1,5 +1,22 @@
 local telescope = require("telescope")
 
+local function rg(args)
+	local command = {
+		"rg",
+		"--hidden",
+		"-g",
+		"!.git/*",
+		"-g",
+		"!*.min.js",
+		"-g",
+		"!*.js.map",
+	}
+	for _, arg in ipairs(args) do
+		table.insert(command, arg)
+	end
+	return command
+end
+
 local actions = require("telescope.actions")
 telescope.setup({
 	defaults = {
@@ -15,40 +32,21 @@ telescope.setup({
 				["<C-k>"] = actions.move_selection_previous,
 			},
 		},
-		vimgrep_arguments = {
-			"rg",
-			-- Defaults
+		vimgrep_arguments = rg({
 			"--color=never",
 			"--no-heading",
 			"--with-filename",
 			"--line-number",
 			"--column",
 			"--smart-case",
-			-- Overrides
-			"--hidden",
-			"-g",
-			"!.git/*",
-			"-g",
-			"!*.min.js",
-			"-g",
-			"!*.js.map",
-		},
+		}),
 	},
 	pickers = {
 		find_files = {
 			hidden = true,
-			find_command = {
-				"rg",
+			find_command = rg({
 				"--files",
-				-- Overrides
-				"--hidden",
-				"-g",
-				"!.git/*",
-				"-g",
-				"!*.min.js",
-				"-g",
-				"!*.js.map",
-			},
+			}),
 		},
 	},
 })
