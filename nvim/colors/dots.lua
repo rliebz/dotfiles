@@ -160,7 +160,6 @@ highlight("markdownId", { fg = magenta })
 highlight("markdownIdDeclaration", { fg = magenta })
 highlight("markdownHeadingDelimiter", { fg = dark_yellow })
 highlight("markdownLinkText", { fg = cyan, sp = dark_cyan, underline = true })
-highlight("markdownTSNone", { fg = white })
 
 -- Fix issue with LSP hover windows
 highlight("mkdLineBreak", { link = "NONE" })
@@ -255,6 +254,7 @@ highlight("TSConstant", { link = "TSVariable" })
 highlight("TSConstBuiltin", { link = "Boolean" })
 highlight("TSStringEscape", { link = "Special" })
 highlight("TSInclude", { link = "Keyword" })
+highlight("TSNone", { link = "Normal" })
 
 -- vim-go
 highlight("goCoverageCovered", { fg = green })
