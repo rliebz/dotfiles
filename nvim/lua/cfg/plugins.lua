@@ -30,13 +30,6 @@ use("b4winckler/vim-angry")
 use("itchyny/lightline.vim")
 use("vim-test/vim-test")
 use("junegunn/vim-easy-align")
-use({
-	"junegunn/fzf",
-	run = function()
-		vim.fn["fzf#install"]()
-	end,
-})
-use("junegunn/fzf.vim")
 use("justinmk/vim-dirvish")
 use({
 	"lewis6991/gitsigns.nvim",
