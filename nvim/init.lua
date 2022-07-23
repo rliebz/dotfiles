@@ -65,6 +65,23 @@ vim.keymap.set("n", "<leader>v", ":source $MYVIMRC<CR> | :runtime! plugin/**/*.l
 vim.keymap.set("n", "<leader>w", ":w!<CR>", { silent = true })
 vim.keymap.set("", "<leader>y", '"+y')
 
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { silent = true })
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { silent = true })
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { silent = true })
+
+vim.diagnostic.config({
+	float = {
+		border = "single",
+		format = function(diagnostic)
+			if diagnostic.code then
+				return string.format("[%s: %s] %s", diagnostic.source, diagnostic.code, diagnostic.message)
+			end
+
+			return string.format("[%s] %s", diagnostic.source, diagnostic.message)
+		end,
+	},
+})
+
 vim.api.nvim_create_user_command("Pack", function()
 	package.loaded["cfg.plugins"] = nil
 	require("cfg.plugins").sync()
