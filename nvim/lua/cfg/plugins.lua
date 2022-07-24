@@ -140,8 +140,10 @@ use({
 			vim.cmd("e " .. vim.fn.expand("%") .. filename)
 		end
 
+		local augroup_dirvish_settings = vim.api.nvim_create_augroup("dirvish_settings", {})
 		vim.api.nvim_create_autocmd("Filetype", {
 			pattern = "dirvish",
+			group = augroup_dirvish_settings,
 			callback = function()
 				vim.opt_local.number = false
 

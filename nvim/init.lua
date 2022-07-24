@@ -34,9 +34,11 @@ vim.opt.tabstop = 2
 vim.opt.updatetime = 100
 
 -- Restore cursor position when opening new files
+local augroup_cursor_position = vim.api.nvim_create_augroup("cursor_position", {})
 vim.api.nvim_create_autocmd("BufReadPost", {
 	callback = function()
 		vim.api.nvim_create_autocmd("FileType", {
+			group = augroup_cursor_position,
 			buffer = 0,
 			once = true,
 			callback = function()
@@ -69,6 +71,16 @@ vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { silent = true })
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { silent = true })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { silent = true })
 
+vim.keymap.set("n", "<leader>ps", function()
+	package.loaded["cfg.plugins"] = nil
+	require("cfg.plugins").sync()
+end)
+
+vim.keymap.set("n", "<leader>pc", function()
+	package.loaded["cfg.plugins"] = nil
+	require("cfg.plugins").compile()
+end)
+
 vim.diagnostic.config({
 	float = {
 		border = "single",
@@ -83,6 +95,7 @@ vim.diagnostic.config({
 })
 
 vim.api.nvim_create_user_command("Pack", function()
+	vim.notify("DEPRECATED: Use <leader>ps", vim.log.levels.WARN)
 	package.loaded["cfg.plugins"] = nil
 	require("cfg.plugins").sync()
 end, {
