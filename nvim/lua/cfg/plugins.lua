@@ -458,7 +458,13 @@ use({
 use({
 	"neovim/nvim-lspconfig",
 	requires = {
-		{ "williamboman/mason.nvim", requires = { "williamboman/mason-lspconfig.nvim" } },
+		{
+			"williamboman/mason.nvim",
+			requires = {
+				"WhoIsSethDaniel/mason-tool-installer.nvim",
+				"williamboman/mason-lspconfig.nvim",
+			},
+		},
 		"b0o/schemastore.nvim",
 	},
 	config = function()
@@ -561,16 +567,27 @@ use({
 			},
 		}
 
-		local ensure_installed = {}
-		for server in pairs(server_configs) do
-			table.insert(ensure_installed, server)
-		end
-
 		require("mason").setup({
 			ui = { border = "rounded" },
 		})
+
+		local lsp_server_names = {}
+		for server_name in pairs(server_configs) do
+			table.insert(lsp_server_names, server_name)
+		end
 		require("mason-lspconfig").setup({
-			ensure_installed = ensure_installed,
+			ensure_installed = lsp_server_names,
+		})
+
+		require("mason-tool-installer").setup({
+			ensure_installed = {
+				"black",
+				"eslint_d",
+				"prettier",
+				"shellcheck",
+				"stylua",
+				"vint",
+			},
 		})
 
 		for server, config in pairs(server_configs) do
