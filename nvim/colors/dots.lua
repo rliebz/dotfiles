@@ -141,6 +141,10 @@ highlight("WildMenu", { fg = yellow, bg = dark_cyan })
 -- Language-Specific Highlighting
 ---------------------------------
 
+highlight("healthSuccess", { fg = green })
+highlight("healthWarning", { fg = yellow })
+highlight("healthError", { fg = red })
+
 highlight("jsonKeyword", { link = "Identifier" })
 highlight("jsonCommentError", { fg = dark_white, sp = yellow, undercurl = true })
 
