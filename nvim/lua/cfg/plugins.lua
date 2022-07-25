@@ -257,7 +257,10 @@ use({
 			ignore_install = { "phpdoc" },
 			highlight = {
 				enable = true,
-				disable = { "yaml" },
+				disable = {
+					"sql",
+					"yaml",
+				},
 			},
 		})
 	end,
