@@ -455,7 +455,7 @@ use({
 use({
 	"neovim/nvim-lspconfig",
 	requires = {
-		"williamboman/nvim-lsp-installer",
+		{ "williamboman/mason.nvim", requires = { "williamboman/mason-lspconfig.nvim" } },
 		"b0o/schemastore.nvim",
 	},
 	config = function()
@@ -563,9 +563,11 @@ use({
 			table.insert(ensure_installed, server)
 		end
 
-		require("nvim-lsp-installer").setup({
-			ensure_installed = ensure_installed,
+		require("mason").setup({
 			ui = { border = "rounded" },
+		})
+		require("mason-lspconfig").setup({
+			ensure_installed = ensure_installed,
 		})
 
 		for server, config in pairs(server_configs) do
