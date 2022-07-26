@@ -582,6 +582,7 @@ use({
 		require("mason-tool-installer").setup({
 			ensure_installed = {
 				"black",
+				"hadolint",
 				"eslint_d",
 				"prettier",
 				"shellcheck",
