@@ -528,6 +528,7 @@ use({
 					},
 				},
 			},
+			intelephense = {},
 			jsonls = {
 				settings = {
 					json = {
@@ -535,8 +536,10 @@ use({
 					},
 				},
 			},
+			omnisharp = {},
 			pylsp = {},
 			rust_analyzer = {},
+			solargraph = {},
 			sumneko_lua = {
 				settings = {
 					Lua = {
