@@ -587,6 +587,7 @@ use({
 				"black",
 				"hadolint",
 				"eslint_d",
+				"flake8",
 				"prettier",
 				"shellcheck",
 				"stylua",
