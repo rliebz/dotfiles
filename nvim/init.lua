@@ -65,7 +65,9 @@ vim.keymap.set("n", "<leader>qq", ":cclose <bar> pclose <bar> helpclose<CR>", { 
 vim.keymap.set("n", "<leader>ss", ":setlocal spell!<CR>", { silent = true })
 vim.keymap.set("n", "<leader>v", ":source $MYVIMRC<CR> | :runtime! plugin/**/*.lua<CR>", { silent = true })
 vim.keymap.set("n", "<leader>w", ":w!<CR>", { silent = true })
-vim.keymap.set("", "<leader>y", '"+y')
+vim.keymap.set("", "gy", '"+y')
+vim.keymap.set("", "gp", '"+p')
+vim.keymap.set("", "gP", '"+P')
 
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { silent = true })
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { silent = true })
