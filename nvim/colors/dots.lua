@@ -248,6 +248,9 @@ highlight("DiagnosticUnderlineWarn", { sp = yellow, undercurl = true })
 highlight("DiagnosticUnderlineInfo", { sp = blue, undercurl = true })
 highlight("DiagnosticUnderlineHint", { sp = dark_white, undercurl = true })
 
+-- Lspconfig
+highlight("LspInfoBorder", { link = "FloatBorder" })
+
 -- Telescope
 highlight("TelescopeBorder", { link = "FloatBorder" })
 

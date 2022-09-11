@@ -471,6 +471,8 @@ use({
 		local lspconfig = require("lspconfig")
 		local lsp = require("cfg.lsp")
 
+		require("lspconfig.ui.windows").default_options.border = "rounded"
+
 		lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
 			on_attach = function(client, bufnr)
 				lsp.bind_keys()
