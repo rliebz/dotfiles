@@ -646,6 +646,14 @@ use({
 		})
 	end,
 })
+use({
+	"ray-x/lsp_signature.nvim",
+	config = function()
+		require("lsp_signature").setup({
+			doc_lines = 0,
+		})
+	end,
+})
 
 -- Language-specific plugins
 use("chrisbra/csv.vim")

@@ -251,6 +251,9 @@ highlight("DiagnosticUnderlineHint", { sp = dark_white, undercurl = true })
 -- Lspconfig
 highlight("LspInfoBorder", { link = "FloatBorder" })
 
+-- LSP Signature
+highlight("LspSignatureActiveParameter", { bg = dark_blue, bold = true })
+
 -- Telescope
 highlight("TelescopeBorder", { link = "FloatBorder" })
 
