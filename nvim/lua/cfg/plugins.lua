@@ -456,18 +456,35 @@ use({
 	end,
 })
 use({
+	"williamboman/mason.nvim",
+	config = function()
+		require("mason").setup({
+			ui = { border = "rounded" },
+		})
+	end,
+})
+use({
+	"jayp0521/mason-null-ls.nvim",
+	after = {
+		"mason.nvim",
+		"null-ls.nvim",
+	},
+	config = function()
+		require("mason-null-ls").setup({ automatic_installation = true })
+	end,
+})
+use({
 	"neovim/nvim-lspconfig",
+	after = {
+		"mason.nvim",
+	},
 	requires = {
-		{
-			"williamboman/mason.nvim",
-			requires = {
-				"WhoIsSethDaniel/mason-tool-installer.nvim",
-				"williamboman/mason-lspconfig.nvim",
-			},
-		},
+		"williamboman/mason-lspconfig.nvim",
 		"b0o/schemastore.nvim",
 	},
 	config = function()
+		require("mason-lspconfig").setup({ automatic_installation = true })
+
 		local lspconfig = require("lspconfig")
 		local lsp = require("cfg.lsp")
 
@@ -572,30 +589,10 @@ use({
 			},
 		}
 
-		require("mason").setup({
-			ui = { border = "rounded" },
-		})
-
 		local lsp_server_names = {}
 		for server_name in pairs(server_configs) do
 			table.insert(lsp_server_names, server_name)
 		end
-		require("mason-lspconfig").setup({
-			ensure_installed = lsp_server_names,
-		})
-
-		require("mason-tool-installer").setup({
-			ensure_installed = {
-				"black",
-				"hadolint",
-				"eslint_d",
-				"flake8",
-				"prettier",
-				"shellcheck",
-				"stylua",
-				"vint",
-			},
-		})
 
 		for server, config in pairs(server_configs) do
 			lspconfig[server].setup(config)
@@ -604,6 +601,9 @@ use({
 })
 use({
 	"hrsh7th/nvim-cmp",
+	after = {
+		"nvim-lspconfig",
+	},
 	requires = {
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/vim-vsnip",
