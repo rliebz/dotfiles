@@ -1,10 +1,5 @@
-vim.opt.background = "dark"
-vim.cmd([[
-highlight clear
-if exists('syntax_on')
-	syntax reset
-endif
-]])
+vim.o.background = "dark"
+vim.cmd.highlight("clear")
 vim.g.colors_name = "dots"
 
 local function highlight(...)

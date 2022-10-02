@@ -4,6 +4,6 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 		".validaterc",
 	},
 	callback = function()
-		vim.opt.filetype = "json"
+		vim.bo.filetype = "json"
 	end,
 })

@@ -6,6 +6,8 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 		"swagger.yaml",
 	},
 	callback = function()
-		vim.opt.filetype:append(".openapi")
+		if not vim.bo.filetype:find("openapi") then
+			vim.bo.filetype = vim.bo.filetype .. ".openapi"
+		end
 	end,
 })

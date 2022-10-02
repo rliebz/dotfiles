@@ -3,7 +3,7 @@ if vim.fn.empty(vim.fn.glob(install_path)) == 1 then
 	vim.fn.system({ "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path })
 end
 
-vim.cmd([[packadd packer.nvim]])
+vim.cmd.packadd("packer.nvim")
 
 local packer = require("packer")
 
@@ -93,15 +93,15 @@ use({
 			local path = vim.fn.getline(".")
 
 			local target = vim.fn.input("Rename: ", path)
-			vim.cmd("mode")
+			vim.cmd.mode()
 
 			vim.fn.system({ "mv", path, target })
-			vim.cmd("Dirvish %")
+			vim.cmd.Dirvish("%")
 		end
 
 		function dirvish_delete()
 			local confirm = vim.fn.input("Confirm deletion [y/n]: ")
-			vim.cmd("mode")
+			vim.cmd.mode()
 
 			if confirm ~= "y" then
 				print("Canceled")
@@ -118,15 +118,15 @@ use({
 			end
 
 			vim.fn.system({ rm, path })
-			vim.cmd("Dirvish %")
+			vim.cmd.Dirvish("%")
 		end
 
 		function dirvish_mkdir()
 			local dirname = vim.fn.input("Directory name: ")
-			vim.cmd("mode")
+			vim.cmd.mode()
 
 			vim.fn.system({ "mkdir", vim.fn.expand("%") .. dirname })
-			vim.cmd("Dirvish %")
+			vim.cmd.Dirvish("%")
 		end
 
 		function dirvish_mkfile()
@@ -137,7 +137,7 @@ use({
 				return
 			end
 
-			vim.cmd("e " .. vim.fn.expand("%") .. filename)
+			vim.cmd.edit(vim.fn.expand("%") .. filename)
 		end
 
 		local augroup_dirvish_settings = vim.api.nvim_create_augroup("dirvish_settings", {})

@@ -3,35 +3,36 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 if vim.env.COLORTERM == "truecolor" then
-	vim.opt.termguicolors = true
+	vim.o.termguicolors = true
 end
 
-vim.cmd([[colorscheme dots]])
+vim.cmd.colorscheme("dots")
 
 vim.opt.cinwords = {}
-vim.opt.colorcolumn = "80"
+vim.o.colorcolumn = "80"
 vim.opt.completeopt = { "menuone", "noselect" }
-vim.opt.cursorline = true
+vim.o.cursorline = true
 vim.opt.diffopt:append("vertical")
 vim.opt.fileformats = { "unix", "dos", "mac" }
-vim.opt.ignorecase = true
-vim.opt.lazyredraw = true
-vim.opt.list = true
+vim.o.ignorecase = true
+vim.o.lazyredraw = true
+vim.o.list = true
 vim.opt.listchars = { tab = "» ", space = "·", trail = "·", nbsp = "␣" }
-vim.opt.matchtime = 2
-vim.opt.number = true
-vim.opt.scrolloff = 5
-vim.opt.showmatch = true
-vim.opt.showmode = false
-vim.opt.signcolumn = "yes"
-vim.opt.smartcase = true
-vim.opt.smartindent = true
-vim.opt.shiftwidth = 0
+vim.o.matchtime = 2
+vim.o.mouse = ""
+vim.go.number = true
+vim.o.scrolloff = 5
+vim.o.showmatch = true
+vim.o.showmode = false
+vim.o.signcolumn = "yes"
+vim.o.smartcase = true
+vim.o.smartindent = true
+vim.o.shiftwidth = 0
 vim.opt.shortmess:append("c")
-vim.opt.softtabstop = -1
-vim.opt.swapfile = false
-vim.opt.tabstop = 2
-vim.opt.updatetime = 100
+vim.o.softtabstop = -1
+vim.o.swapfile = false
+vim.o.tabstop = 2
+vim.o.updatetime = 100
 
 -- Restore cursor position when opening new files
 local augroup_cursor_position = vim.api.nvim_create_augroup("cursor_position", {})
@@ -42,14 +43,13 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 			buffer = 0,
 			once = true,
 			callback = function()
-				local ft = vim.opt.filetype:get()
-				if ft == "gitcommit" or ft == "gitrebase" then
+				if vim.o.filetype == "gitcommit" or vim.o.filetype == "gitrebase" then
 					return
 				end
 
 				local last = vim.fn.line([['"]])
 				if last >= 1 and last <= vim.fn.line("$") then
-					vim.cmd([[exe 'normal! g`"']])
+					vim.cmd.normal({ [[g`"']], bang = true })
 				end
 			end,
 		})
