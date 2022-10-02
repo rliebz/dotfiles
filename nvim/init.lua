@@ -61,9 +61,9 @@ vim.g.loaded_netrwPlugin = 1
 vim.keymap.set("", "j", "gj")
 vim.keymap.set("", "k", "gk")
 
-vim.keymap.set("n", "<leader>qq", ":cclose <bar> pclose <bar> helpclose<CR>", { silent = true })
+vim.keymap.set("n", "<leader>qq", ":cclose | pclose | helpclose<CR>", { silent = true })
 vim.keymap.set("n", "<leader>ss", ":setlocal spell!<CR>", { silent = true })
-vim.keymap.set("n", "<leader>v", ":source $MYVIMRC<CR> | :runtime! plugin/**/*.lua<CR>", { silent = true })
+vim.keymap.set("n", "<leader>v", ":source $MYVIMRC | :runtime! plugin/**/*.lua<CR>", { silent = true })
 vim.keymap.set("n", "<leader>w", ":w!<CR>", { silent = true })
 vim.keymap.set("", "gy", '"+y')
 vim.keymap.set("", "gp", '"+p')
