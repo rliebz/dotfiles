@@ -8,7 +8,6 @@ end
 
 vim.cmd.colorscheme("dots")
 
-vim.opt.cinwords = {}
 vim.o.colorcolumn = "80"
 vim.opt.completeopt = { "menuone", "noselect" }
 vim.o.cursorline = true
@@ -26,7 +25,6 @@ vim.o.showmatch = true
 vim.o.showmode = false
 vim.o.signcolumn = "yes"
 vim.o.smartcase = true
-vim.o.smartindent = true
 vim.o.shiftwidth = 0
 vim.opt.shortmess:append("c")
 vim.o.softtabstop = -1
