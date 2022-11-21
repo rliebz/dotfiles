@@ -587,6 +587,7 @@ use({
 							disable = { "lowercase-global" },
 						},
 						workspace = {
+							checkThirdParty = false,
 							library = vim.api.nvim_get_runtime_file("", true),
 							preloadFileSize = 1000,
 						},
