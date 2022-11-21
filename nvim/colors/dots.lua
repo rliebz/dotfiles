@@ -260,13 +260,17 @@ highlight("LspSignatureActiveParameter", { bg = dark_blue, bold = true })
 highlight("TelescopeBorder", { link = "FloatBorder" })
 
 -- Treesitter
-highlight("@text.reference", { fg = yellow })
-highlight("@text.uri", { fg = cyan, sp = dark_cyan, underline = true })
 highlight("@constant", { link = "@variable" })
 highlight("@constant.builtin", { link = "Boolean" })
-highlight("@string.escape", { link = "Special" })
 highlight("@include", { link = "Keyword" })
 highlight("@none", { link = "Normal" })
+highlight("@string.escape", { link = "Special" })
+highlight("@text.emphasis", { italic = true })
+highlight("@text.literal", { fg = green })
+highlight("@text.reference", { fg = yellow })
+highlight("@text.strong", { bold = true })
+highlight("@text.title", { link = "Title" })
+highlight("@text.uri", { fg = cyan, sp = dark_cyan, underline = true })
 
 -- vim-go
 highlight("goCoverageCovered", { fg = green })
