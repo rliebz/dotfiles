@@ -187,6 +187,13 @@ highlight("CloverIgnored", { fg = dark_white })
 -- Compe
 highlight("CompeDocumentation", { link = "Pmenu" })
 
+-- csv.vim
+highlight("CSVColumnHeaderEven", { fg = magenta })
+highlight("CSVColumnHeaderOdd", { fg = dark_magenta })
+highlight("CSVColumnEven", { fg = dark_white })
+highlight("CSVColumnOdd", { fg = white })
+highlight("CSVDelimiter", { link = "Delimiter" })
+
 -- GitSigns
 highlight("GitSignsAdd", { fg = green, bg = gutter_bg })
 highlight("GitSignsDelete", { fg = red, bg = gutter_bg })

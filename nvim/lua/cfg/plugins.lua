@@ -672,6 +672,11 @@ use({
 })
 
 -- Language-specific plugins
-use("chrisbra/csv.vim")
+use({
+	"chrisbra/csv.vim",
+	config = function()
+		vim.g.csv_no_conceal = 1
+	end,
+})
 
 return packer
