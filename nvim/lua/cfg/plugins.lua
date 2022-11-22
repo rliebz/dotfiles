@@ -498,6 +498,13 @@ use({
 	requires = {
 		"williamboman/mason-lspconfig.nvim",
 		"b0o/schemastore.nvim",
+		{
+			"hrsh7th/nvim-cmp",
+			requires = {
+				"hrsh7th/cmp-nvim-lsp",
+				"hrsh7th/vim-vsnip",
+			},
+		},
 	},
 	config = function()
 		require("mason-lspconfig").setup({ automatic_installation = true })
@@ -612,21 +619,6 @@ use({
 			table.insert(lsp_server_names, server_name)
 		end
 
-		for server, config in pairs(server_configs) do
-			lspconfig[server].setup(config)
-		end
-	end,
-})
-use({
-	"hrsh7th/nvim-cmp",
-	after = {
-		"nvim-lspconfig",
-	},
-	requires = {
-		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/vim-vsnip",
-	},
-	config = function()
 		local cmp = require("cmp")
 		cmp.setup({
 			preselect = cmp.PreselectMode.None,
@@ -656,19 +648,13 @@ use({
 		})
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-		local lspconfig = require("lspconfig")
 		lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
 			capabilities = capabilities,
 		})
-	end,
-})
-use({
-	"ray-x/lsp_signature.nvim",
-	config = function()
-		require("lsp_signature").setup({
-			doc_lines = 0,
-		})
+
+		for server, config in pairs(server_configs) do
+			lspconfig[server].setup(config)
+		end
 	end,
 })
 
