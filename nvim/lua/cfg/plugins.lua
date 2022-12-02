@@ -280,6 +280,8 @@ use({
 				},
 			},
 		})
+
+		vim.keymap.set("n", "<leader>hi", vim.cmd.TSHighlightCapturesUnderCursor, {})
 	end,
 })
 
