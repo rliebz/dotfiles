@@ -1,3 +1,4 @@
+# vi:ft=gitconfig
 [user]
 	name = Robert Liebowitz
 	email = rliebz@gmail.com
@@ -37,5 +38,3 @@
 	path = ~/.gitconfig.local
 [advice]
 	skippedCherryPicks = false
-
-# vi:ft=gitconfig
