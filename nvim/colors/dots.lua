@@ -44,7 +44,7 @@ highlight("Number", { fg = yellow })
 highlight("Boolean", { fg = dark_magenta, italic = true })
 highlight("Float", { fg = yellow })
 
-highlight("Identifier", { fg = cyan })
+highlight("Identifier", { fg = white })
 highlight("Function", { fg = dark_green })
 
 highlight("Statement", { fg = magenta })
@@ -163,6 +163,12 @@ highlight("markdownLinkText", { fg = cyan, sp = dark_cyan, underline = true })
 -- Fix issue with LSP hover windows
 highlight("mkdLineBreak", { link = "NONE" })
 
+highlight("yamlBlockCollectionItemStart", { link = "@punctuation" })
+highlight("yamlBlockMappingKey", { link = "@field" })
+highlight("yamlBool", { link = "@boolean" })
+highlight("yamlFlowIndicator", { link = "@punctuation" })
+highlight("yamlKeyValueDelimiter", { link = "@punctuation" })
+
 --------------------------
 -- Custom Highlight Groups
 --------------------------
@@ -256,14 +262,23 @@ highlight("LspInfoBorder", { link = "FloatBorder" })
 -- LSP Signature
 highlight("LspSignatureActiveParameter", { bg = dark_blue, bold = true })
 
+-- SQL
+highlight("sqlKeyword", { link = "Keyword" })
+highlight("sqlParen", { link = "Delimiter" })
+highlight("sqlParenFunc", { link = "Delimiter" })
+highlight("sqlUnknownFunc", { link = "Function" })
+
 -- Telescope
 highlight("TelescopeBorder", { link = "FloatBorder" })
 
 -- Treesitter
-highlight("@constant", { link = "@variable" })
-highlight("@constant.builtin", { link = "Boolean" })
+highlight("@attribute", { fg = blue, italic = true })
+highlight("@constant.builtin", { link = "Constant" })
+highlight("@field", { fg = cyan })
 highlight("@include", { link = "Keyword" })
+highlight("@namespace", { fg = dark_magenta })
 highlight("@none", { link = "Normal" })
+highlight("@property", { link = "@field" })
 highlight("@string.escape", { link = "Special" })
 highlight("@text.emphasis", { italic = true })
 highlight("@text.literal", { fg = green })
@@ -271,6 +286,11 @@ highlight("@text.reference", { fg = yellow })
 highlight("@text.strong", { bold = true })
 highlight("@text.title", { link = "Title" })
 highlight("@text.uri", { fg = cyan, sp = dark_cyan, underline = true })
+highlight("@variable", { fg = white })
+highlight("@variable.builtin", { fg = dark_yellow, italic = true })
+
+highlight("@constant.fish", { link = "@variable.fish" })
+highlight("@variable.fish", { fg = cyan })
 
 -- vim-go
 highlight("goCoverageCovered", { fg = green })
