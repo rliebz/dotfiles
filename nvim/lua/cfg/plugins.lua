@@ -661,6 +661,7 @@ use({
 })
 
 -- Language-specific plugins
+use("shmup/vim-sql-syntax")
 use({
 	"chrisbra/csv.vim",
 	config = function()
