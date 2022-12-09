@@ -28,6 +28,12 @@ use({ "wbthomason/packer.nvim", opt = true })
 use("AndrewRadev/splitjoin.vim")
 use("b4winckler/vim-angry")
 use({
+	"bkad/CamelCaseMotion",
+	config = function()
+		vim.g.camelcasemotion_key = "<leader>"
+	end,
+})
+use({
 	"itchyny/lightline.vim",
 	config = function()
 		vim.g.lightline = {
