@@ -12,6 +12,12 @@ set -gx VISUAL $EDITOR
 set -gx PAGER less
 set -gx LESS '-F -g -i -M -R -S -w -X -z-4'
 
+# Fast upward directory navigation
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+
 # Docker
 set -gx DOCKER_BUILDKIT 1
 set -gx COMPOSE_DOCKER_CLI_BUILD 1
