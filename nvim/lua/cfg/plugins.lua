@@ -30,7 +30,7 @@ use("b4winckler/vim-angry")
 use({
 	"bkad/CamelCaseMotion",
 	config = function()
-		vim.g.camelcasemotion_key = "<leader>"
+		vim.g.camelcasemotion_key = "g"
 	end,
 })
 use({
