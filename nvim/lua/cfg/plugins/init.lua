@@ -23,6 +23,12 @@ return {
 	},
 	{
 		"vim-test/vim-test",
+		keys = {
+			"<leader>tn",
+			"<leader>tf",
+			"<leader>ts",
+			"<leader>tl",
+		},
 		config = function()
 			vim.keymap.set("n", "<leader>tn", vim.cmd.TestNearest)
 			vim.keymap.set("n", "<leader>tf", vim.cmd.TestFile)
@@ -39,6 +45,7 @@ return {
 	},
 	{
 		"junegunn/vim-easy-align",
+		keys = { "ga" },
 		config = function()
 			vim.keymap.set({ "n", "x" }, "ga", "<Plug>(EasyAlign)")
 		end,
@@ -198,6 +205,7 @@ return {
 	},
 	{
 		"numToStr/FTerm.nvim",
+		keys = { "<C-t>" },
 		config = function()
 			local fterm = require("FTerm")
 			fterm.setup({
@@ -637,9 +645,13 @@ return {
 	},
 
 	-- Language-specific plugins
-	"shmup/vim-sql-syntax",
+	{
+		"shmup/vim-sql-syntax",
+		ft = "sql",
+	},
 	{
 		"chrisbra/csv.vim",
+		ft = "csv",
 		config = function()
 			vim.g.csv_no_conceal = 1
 		end,
