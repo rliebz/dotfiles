@@ -474,13 +474,7 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"b0o/schemastore.nvim",
-			{
-				"hrsh7th/nvim-cmp",
-				dependencies = {
-					"hrsh7th/cmp-nvim-lsp",
-					"hrsh7th/vim-vsnip",
-				},
-			},
+			"hrsh7th/cmp-nvim-lsp",
 		},
 		config = function()
 			require("mason-lspconfig").setup({ automatic_installation = true })
@@ -595,6 +589,23 @@ return {
 				table.insert(lsp_server_names, server_name)
 			end
 
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
+				capabilities = capabilities,
+			})
+
+			for server, config in pairs(server_configs) do
+				lspconfig[server].setup(config)
+			end
+		end,
+	},
+	{
+		"hrsh7th/nvim-cmp",
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/vim-vsnip",
+		},
+		config = function()
 			local cmp = require("cmp")
 			cmp.setup({
 				preselect = cmp.PreselectMode.None,
@@ -622,15 +633,6 @@ return {
 					documentation = cmp.config.window.bordered({ winhighlight = "" }),
 				},
 			})
-
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
-				capabilities = capabilities,
-			})
-
-			for server, config in pairs(server_configs) do
-				lspconfig[server].setup(config)
-			end
 		end,
 	},
 
