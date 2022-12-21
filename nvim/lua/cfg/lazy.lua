@@ -15,4 +15,8 @@ require("lazy").setup("cfg.plugins", {
 	install = { colorscheme = { "dots" } },
 	ui = { border = "rounded" },
 	defaults = { lazy = false },
+	concurrency = 8,
+	change_detection = {
+		notify = false,
+	},
 })
