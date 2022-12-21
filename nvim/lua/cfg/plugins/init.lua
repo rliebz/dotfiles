@@ -24,10 +24,10 @@ return {
 	{
 		"vim-test/vim-test",
 		config = function()
-			vim.keymap.set("n", "<leader>tn", ":TestNearest<CR>")
-			vim.keymap.set("n", "<leader>tf", ":TestFile<CR>")
-			vim.keymap.set("n", "<leader>ts", ":TestSuite<CR>")
-			vim.keymap.set("n", "<leader>tl", ":TestLast<CR>")
+			vim.keymap.set("n", "<leader>tn", vim.cmd.TestNearest)
+			vim.keymap.set("n", "<leader>tf", vim.cmd.TestFile)
+			vim.keymap.set("n", "<leader>ts", vim.cmd.TestSuite)
+			vim.keymap.set("n", "<leader>tl", vim.cmd.TestLast)
 
 			vim.g["test#go#gotest#options"] = {
 				all = "-count 1",
@@ -337,7 +337,11 @@ return {
 	-- Language Server Protocol
 	{
 		"jose-elias-alvarez/null-ls.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
+		dependencies = {
+			"williamboman/mason.nvim",
+			"jayp0521/mason-null-ls.nvim",
+			"nvim-lua/plenary.nvim",
+		},
 		config = function()
 			local null_ls = require("null-ls")
 			local helpers = require("null-ls.helpers")
@@ -452,6 +456,8 @@ return {
 					null_ls.builtins.diagnostics.vint,
 				},
 			})
+
+			require("mason-null-ls").setup({ automatic_installation = true })
 		end,
 	},
 	{
@@ -463,21 +469,9 @@ return {
 		end,
 	},
 	{
-		"jayp0521/mason-null-ls.nvim",
-		after = {
-			"mason.nvim",
-			"null-ls.nvim",
-		},
-		config = function()
-			require("mason-null-ls").setup({ automatic_installation = true })
-		end,
-	},
-	{
 		"neovim/nvim-lspconfig",
-		after = {
-			"mason.nvim",
-		},
 		dependencies = {
+			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"b0o/schemastore.nvim",
 			{
