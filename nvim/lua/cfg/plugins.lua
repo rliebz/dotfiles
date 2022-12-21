@@ -280,6 +280,10 @@ return {
 			{ "nvim-telescope/telescope-live-grep-args.nvim" },
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		},
+		keys = {
+			"<C-p>",
+			"<C-f>",
+		},
 		config = function()
 			local telescope = require("telescope")
 
