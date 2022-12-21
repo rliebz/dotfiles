@@ -333,50 +333,100 @@ vim.g.go_highlight_variable_declarations = 0
 vim.g.go_highlight_variable_assignments = 0
 
 -- lightline
-local ll = {
-	black = { colors.black, 0 },
-	bright_black = { colors.bright_black, 8 },
-	red = { colors.red, 1 },
-	dark_red = { colors.dark_red, 9 },
-	green = { colors.green, 2 },
-	dark_green = { colors.dark_green, 10 },
-	yellow = { colors.yellow, 3 },
-	dark_yellow = { colors.dark_yellow, 11 },
-	blue = { colors.blue, 4 },
-	dark_blue = { colors.dark_blue, 12 },
-	magenta = { colors.magenta, 5 },
-	dark_magenta = { colors.dark_magenta, 13 },
-	cyan = { colors.cyan, 6 },
-	dark_cyan = { colors.dark_cyan, 14 },
-	white = { colors.white, 7 },
-	dark_white = { colors.dark_white, 15 },
+local color_to_number = {
+	[colors.black] = 0,
+	[colors.bright_black] = 8,
+	[colors.red] = 1,
+	[colors.dark_red] = 9,
+	[colors.green] = 2,
+	[colors.dark_green] = 10,
+	[colors.yellow] = 3,
+	[colors.dark_yellow] = 11,
+	[colors.blue] = 4,
+	[colors.dark_blue] = 12,
+	[colors.magenta] = 5,
+	[colors.dark_magenta] = 13,
+	[colors.cyan] = 6,
+	[colors.dark_cyan] = 14,
+	[colors.white] = 7,
+	[colors.dark_white] = 15,
 }
-vim.g["lightline#colorscheme#dots#palette"] = vim.fn["lightline#colorscheme#flatten"]({
+
+local fill = function(cfg)
+	for _, mode in pairs(cfg) do
+		for _, position in pairs(mode) do
+			for i, c in ipairs(position) do
+				position[i] = { c.fg, c.bg, color_to_number[c.fg], color_to_number[c.bg] }
+			end
+		end
+	end
+
+	return cfg
+end
+
+vim.g["lightline#colorscheme#dots#palette"] = fill({
 	normal = {
-		left = { { ll.black, ll.blue }, { ll.black, ll.cyan } },
-		middle = { { ll.black, ll.dark_cyan } },
-		right = { { ll.black, ll.white }, { ll.black, ll.cyan } },
-		error = { { ll.white, ll.red } },
-		warning = { { ll.black, ll.yellow } },
+		left = {
+			{ fg = colors.black, bg = colors.blue },
+			{ fg = colors.black, bg = colors.cyan },
+		},
+		middle = {
+			{ fg = colors.black, bg = colors.dark_cyan },
+		},
+		right = {
+			{ fg = colors.black, bg = colors.white },
+			{ fg = colors.black, bg = colors.cyan },
+		},
+		error = {
+			{ fg = colors.white, bg = colors.red },
+		},
+		warning = {
+			{ fg = colors.black, bg = colors.yellow },
+		},
 	},
 	inactive = {
-		left = { { ll.dark_cyan, ll.bright_black }, { ll.dark_cyan, ll.bright_black } },
-		middle = { { ll.dark_cyan, ll.bright_black } },
-		right = { { ll.dark_cyan, ll.bright_black }, { ll.dark_cyan, ll.bright_black } },
+		left = {
+			{ fg = colors.dark_cyan, bg = colors.bright_black },
+			{ fg = colors.dark_cyan, bg = colors.bright_black },
+		},
+		middle = {
+			{ fg = colors.dark_cyan, bg = colors.bright_black },
+		},
+		right = {
+			{ fg = colors.dark_cyan, bg = colors.bright_black },
+			{ fg = colors.dark_cyan, bg = colors.bright_black },
+		},
 	},
 	insert = {
-		left = { { ll.black, ll.yellow }, { ll.black, ll.cyan } },
+		left = {
+			{ fg = colors.black, bg = colors.yellow },
+			{ fg = colors.black, bg = colors.cyan },
+		},
 	},
 	replace = {
-		left = { { ll.black, ll.magenta }, { ll.black, ll.cyan } },
+		left = {
+			{ fg = colors.black, bg = colors.magenta },
+			{ fg = colors.black, bg = colors.cyan },
+		},
 	},
 	visual = {
-		left = { { ll.black, ll.green }, { ll.black, ll.cyan } },
+		left = {
+			{ fg = colors.black, bg = colors.green },
+			{ fg = colors.black, bg = colors.cyan },
+		},
 	},
 	tabline = {
-		left = { { ll.black, ll.dark_cyan } },
-		middle = { { ll.black, ll.bright_black } },
-		right = { { ll.black, ll.dark_cyan } },
-		tabsel = { { ll.black, ll.cyan } },
+		left = {
+			{ fg = colors.black, bg = colors.dark_cyan },
+		},
+		middle = {
+			{ fg = colors.black, bg = colors.bright_black },
+		},
+		right = {
+			{ fg = colors.black, bg = colors.dark_cyan },
+		},
+		tabsel = {
+			{ fg = colors.black, bg = colors.cyan },
+		},
 	},
 })
