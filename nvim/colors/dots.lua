@@ -33,6 +33,9 @@ local colors = {
 
 	white = "#dbf8ff",
 	dark_white = "#91a6ab",
+
+	highlight_1 = "#231944",
+	highlight_2 = "#00313a",
 }
 
 local black = colors.black
@@ -52,6 +55,8 @@ local dark_cyan = colors.dark_cyan
 local white = colors.white
 local dark_white = colors.dark_white
 
+local highlight_1 = colors.highlight_1
+local highlight_2 = colors.highlight_2
 local gutter_fg = colors.dark_cyan
 local gutter_bg = colors.black
 
@@ -109,12 +114,12 @@ highlight("Todo", { fg = magenta })
 -- Highlight Groups (:h highlight-groups)
 -----------------------------------------
 
-highlight("ColorColumn", { bg = dark_blue })
+highlight("ColorColumn", { bg = highlight_1 })
 highlight("Conceal", {})
 highlight("Cursor", { fg = black, bg = blue })
 highlight("CursorIM", {})
-highlight("CursorColumn", { bg = bright_black })
-highlight("CursorLine", { bg = dark_blue })
+highlight("CursorColumn", { bg = highlight_2 })
+highlight("CursorLine", { bg = highlight_1 })
 highlight("Directory", { fg = blue })
 highlight("DiffAdd", { fg = green })
 highlight("DiffChange", { fg = dark_yellow })
@@ -131,10 +136,10 @@ highlight("CursorLineNr", { fg = yellow, bg = gutter_bg })
 highlight("MatchParen", { fg = yellow, bg = dark_cyan })
 highlight("ModeMsg", {})
 highlight("MoreMsg", {})
-highlight("NonText", { fg = bright_black })
+highlight("NonText", { fg = highlight_2 })
 highlight("Normal", { fg = white })
 highlight("NormalFloat", { fg = white })
-highlight("Pmenu", { fg = white, bg = bright_black })
+highlight("Pmenu", { fg = white, bg = highlight_2 })
 highlight("PmenuSel", { fg = yellow, bg = dark_cyan })
 highlight("PmenuSbar", { bg = dark_cyan })
 highlight("PmenuThumb", { bg = white })
@@ -146,12 +151,12 @@ highlight("SpellCap", { sp = yellow, undercurl = true })
 highlight("SpellLocal", { sp = yellow, undercurl = true })
 highlight("SpellRare", { sp = yellow, undercurl = true })
 highlight("StatusLine", { fg = cyan, bg = dark_cyan })
-highlight("StatusLineNC", { fg = dark_white, bg = bright_black })
+highlight("StatusLineNC", { fg = dark_white, bg = highlight_2 })
 highlight("TabLine", { fg = black, bg = dark_cyan })
 highlight("TabLineFill", { fg = white, bg = bright_black })
 highlight("TabLineSel", { fg = black, bg = cyan })
 highlight("Title", { fg = dark_green, bold = true })
-highlight("Visual", { bg = bright_black })
+highlight("Visual", { bg = highlight_2 })
 highlight("VisualNOS", { link = "VisualNOS" })
 highlight("WarningMsg", { fg = yellow })
 highlight("WildMenu", { fg = yellow, bg = dark_cyan })
@@ -284,7 +289,7 @@ highlight("DiagnosticUnderlineHint", { sp = dark_white, undercurl = true })
 highlight("LspInfoBorder", { link = "FloatBorder" })
 
 -- LSP Signature
-highlight("LspSignatureActiveParameter", { bg = dark_blue, bold = true })
+highlight("LspSignatureActiveParameter", { bg = highlight_1, bold = true })
 
 -- SQL
 highlight("sqlKeyword", { link = "Keyword" })
