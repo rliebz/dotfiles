@@ -38,25 +38,6 @@ local colors = {
 	highlight_2 = "#00313a",
 }
 
-local black = colors.black
-local bright_black = colors.bright_black
-local red = colors.red
-local dark_red = colors.dark_red
-local green = colors.green
-local dark_green = colors.dark_green
-local yellow = colors.yellow
-local dark_yellow = colors.dark_yellow
-local blue = colors.blue
-local dark_blue = colors.dark_blue
-local magenta = colors.magenta
-local dark_magenta = colors.dark_magenta
-local cyan = colors.cyan
-local dark_cyan = colors.dark_cyan
-local white = colors.white
-local dark_white = colors.dark_white
-
-local highlight_1 = colors.highlight_1
-local highlight_2 = colors.highlight_2
 local gutter_fg = colors.dark_cyan
 local gutter_bg = colors.black
 
@@ -64,41 +45,41 @@ local gutter_bg = colors.black
 -- Syntax Groups (:h group-name)
 --------------------------------
 
-highlight("Comment", { fg = dark_white, italic = true })
+highlight("Comment", { fg = colors.dark_white, italic = true })
 
-highlight("Constant", { fg = cyan })
-highlight("String", { fg = green })
-highlight("Character", { fg = dark_green })
-highlight("Number", { fg = yellow })
-highlight("Boolean", { fg = dark_magenta, italic = true })
-highlight("Float", { fg = yellow })
+highlight("Constant", { fg = colors.cyan })
+highlight("String", { fg = colors.green })
+highlight("Character", { fg = colors.dark_green })
+highlight("Number", { fg = colors.yellow })
+highlight("Boolean", { fg = colors.dark_magenta, italic = true })
+highlight("Float", { fg = colors.yellow })
 
-highlight("Identifier", { fg = white })
-highlight("Function", { fg = dark_green })
+highlight("Identifier", { fg = colors.white })
+highlight("Function", { fg = colors.dark_green })
 
-highlight("Statement", { fg = magenta })
-highlight("Conditional", { fg = magenta })
-highlight("Repeat", { fg = magenta })
-highlight("Label", { fg = magenta })
-highlight("Operator", { fg = blue })
-highlight("Keyword", { fg = dark_red })
-highlight("Exception", { fg = dark_red })
+highlight("Statement", { fg = colors.magenta })
+highlight("Conditional", { fg = colors.magenta })
+highlight("Repeat", { fg = colors.magenta })
+highlight("Label", { fg = colors.magenta })
+highlight("Operator", { fg = colors.blue })
+highlight("Keyword", { fg = colors.dark_red })
+highlight("Exception", { fg = colors.dark_red })
 
-highlight("PreProc", { fg = yellow })
-highlight("Include", { fg = magenta })
-highlight("Define", { fg = magenta })
-highlight("Macro", { fg = magenta })
-highlight("PreCondit", { fg = yellow })
+highlight("PreProc", { fg = colors.yellow })
+highlight("Include", { fg = colors.magenta })
+highlight("Define", { fg = colors.magenta })
+highlight("Macro", { fg = colors.magenta })
+highlight("PreCondit", { fg = colors.yellow })
 
-highlight("Type", { fg = yellow })
-highlight("StorageClass", { fg = yellow })
-highlight("Structure", { fg = yellow })
-highlight("Typedef", { fg = yellow })
+highlight("Type", { fg = colors.yellow })
+highlight("StorageClass", { fg = colors.yellow })
+highlight("Structure", { fg = colors.yellow })
+highlight("Typedef", { fg = colors.yellow })
 
-highlight("Special", { fg = yellow })
+highlight("Special", { fg = colors.yellow })
 highlight("SpecialChar", {})
-highlight("Tag", { fg = magenta })
-highlight("Delimiter", { fg = blue })
+highlight("Tag", { fg = colors.magenta })
+highlight("Delimiter", { fg = colors.blue })
 highlight("SpecialComment", {})
 highlight("Debug", {})
 
@@ -106,88 +87,88 @@ highlight("Underlined", {})
 
 highlight("Ignore", {})
 
-highlight("Error", { sp = red, undercurl = true })
+highlight("Error", { sp = colors.red, undercurl = true })
 
-highlight("Todo", { fg = magenta })
+highlight("Todo", { fg = colors.magenta })
 
 -----------------------------------------
 -- Highlight Groups (:h highlight-groups)
 -----------------------------------------
 
-highlight("ColorColumn", { bg = highlight_1 })
+highlight("ColorColumn", { bg = colors.highlight_1 })
 highlight("Conceal", {})
-highlight("Cursor", { fg = black, bg = blue })
+highlight("Cursor", { fg = colors.black, bg = colors.blue })
 highlight("CursorIM", {})
-highlight("CursorColumn", { bg = highlight_2 })
-highlight("CursorLine", { bg = highlight_1 })
-highlight("Directory", { fg = blue })
-highlight("DiffAdd", { fg = green })
-highlight("DiffChange", { fg = dark_yellow })
-highlight("DiffDelete", { fg = red })
-highlight("DiffText", { fg = blue })
-highlight("ErrorMsg", { fg = red })
-highlight("VertSplit", { fg = dark_cyan, bg = dark_cyan })
+highlight("CursorColumn", { bg = colors.highlight_2 })
+highlight("CursorLine", { bg = colors.highlight_1 })
+highlight("Directory", { fg = colors.blue })
+highlight("DiffAdd", { fg = colors.green })
+highlight("DiffChange", { fg = colors.dark_yellow })
+highlight("DiffDelete", { fg = colors.red })
+highlight("DiffText", { fg = colors.blue })
+highlight("ErrorMsg", { fg = colors.red })
+highlight("VertSplit", { fg = colors.dark_cyan, bg = colors.dark_cyan })
 highlight("Folded", { fg = gutter_fg, bg = gutter_bg })
 highlight("FoldColumn", {})
 highlight("SignColumn", { bg = gutter_bg })
-highlight("IncSearch", { fg = yellow, bg = dark_cyan })
+highlight("IncSearch", { fg = colors.yellow, bg = colors.dark_cyan })
 highlight("LineNr", { fg = gutter_fg, bg = gutter_bg })
-highlight("CursorLineNr", { fg = yellow, bg = gutter_bg })
-highlight("MatchParen", { fg = yellow, bg = dark_cyan })
+highlight("CursorLineNr", { fg = colors.yellow, bg = gutter_bg })
+highlight("MatchParen", { fg = colors.yellow, bg = colors.dark_cyan })
 highlight("ModeMsg", {})
 highlight("MoreMsg", {})
-highlight("NonText", { fg = highlight_2 })
-highlight("Normal", { fg = white })
-highlight("NormalFloat", { fg = white })
-highlight("Pmenu", { fg = white, bg = highlight_2 })
-highlight("PmenuSel", { fg = yellow, bg = dark_cyan })
-highlight("PmenuSbar", { bg = dark_cyan })
-highlight("PmenuThumb", { bg = white })
-highlight("Question", { fg = magenta })
-highlight("Search", { bg = dark_cyan })
-highlight("SpecialKey", { fg = dark_magenta })
-highlight("SpellBad", { sp = red, undercurl = true })
-highlight("SpellCap", { sp = yellow, undercurl = true })
-highlight("SpellLocal", { sp = yellow, undercurl = true })
-highlight("SpellRare", { sp = yellow, undercurl = true })
-highlight("StatusLine", { fg = cyan, bg = dark_cyan })
-highlight("StatusLineNC", { fg = dark_white, bg = highlight_2 })
-highlight("TabLine", { fg = black, bg = dark_cyan })
-highlight("TabLineFill", { fg = white, bg = bright_black })
-highlight("TabLineSel", { fg = black, bg = cyan })
-highlight("Title", { fg = dark_green, bold = true })
-highlight("Visual", { bg = highlight_2 })
+highlight("NonText", { fg = colors.highlight_2 })
+highlight("Normal", { fg = colors.white })
+highlight("NormalFloat", { fg = colors.white })
+highlight("Pmenu", { fg = colors.white, bg = colors.highlight_2 })
+highlight("PmenuSel", { fg = colors.yellow, bg = colors.dark_cyan })
+highlight("PmenuSbar", { bg = colors.dark_cyan })
+highlight("PmenuThumb", { bg = colors.white })
+highlight("Question", { fg = colors.magenta })
+highlight("Search", { bg = colors.dark_cyan })
+highlight("SpecialKey", { fg = colors.dark_magenta })
+highlight("SpellBad", { sp = colors.red, undercurl = true })
+highlight("SpellCap", { sp = colors.yellow, undercurl = true })
+highlight("SpellLocal", { sp = colors.yellow, undercurl = true })
+highlight("SpellRare", { sp = colors.yellow, undercurl = true })
+highlight("StatusLine", { fg = colors.cyan, bg = colors.dark_cyan })
+highlight("StatusLineNC", { fg = colors.dark_white, bg = colors.highlight_2 })
+highlight("TabLine", { fg = colors.black, bg = colors.dark_cyan })
+highlight("TabLineFill", { fg = colors.white, bg = colors.bright_black })
+highlight("TabLineSel", { fg = colors.black, bg = colors.cyan })
+highlight("Title", { fg = colors.dark_green, bold = true })
+highlight("Visual", { bg = colors.highlight_2 })
 highlight("VisualNOS", { link = "VisualNOS" })
-highlight("WarningMsg", { fg = yellow })
-highlight("WildMenu", { fg = yellow, bg = dark_cyan })
+highlight("WarningMsg", { fg = colors.yellow })
+highlight("WildMenu", { fg = colors.yellow, bg = colors.dark_cyan })
 
 ---------------------------------
 -- Language-Specific Highlighting
 ---------------------------------
 
-highlight("healthSuccess", { fg = green })
-highlight("healthWarning", { fg = yellow })
-highlight("healthError", { fg = red })
+highlight("healthSuccess", { fg = colors.green })
+highlight("healthWarning", { fg = colors.yellow })
+highlight("healthError", { fg = colors.red })
 
 highlight("jsonKeyword", { link = "Identifier" })
-highlight("jsonCommentError", { fg = dark_white, sp = yellow, undercurl = true })
+highlight("jsonCommentError", { fg = colors.dark_white, sp = colors.yellow, undercurl = true })
 
-highlight("pythonDecorator", { fg = yellow, bold = true })
-highlight("pythonDottedName", { fg = yellow })
-highlight("pythonRawString", { fg = yellow })
-highlight("pythonBuiltinFunc", { fg = blue })
+highlight("pythonDecorator", { fg = colors.yellow, bold = true })
+highlight("pythonDottedName", { fg = colors.yellow })
+highlight("pythonRawString", { fg = colors.yellow })
+highlight("pythonBuiltinFunc", { fg = colors.blue })
 
-highlight("rubyBlockParameterList", { fg = dark_red })
-highlight("rubyInterpolation", { fg = green })
-highlight("rubyInterpolationDelimiter", { fg = dark_red })
+highlight("rubyBlockParameterList", { fg = colors.dark_red })
+highlight("rubyInterpolation", { fg = colors.green })
+highlight("rubyInterpolationDelimiter", { fg = colors.dark_red })
 
-highlight("markdownBlockQuote", { fg = dark_magenta })
-highlight("markdownCode", { fg = green })
-highlight("markdownCodeDelimiter", { fg = green })
-highlight("markdownId", { fg = magenta })
-highlight("markdownIdDeclaration", { fg = magenta })
-highlight("markdownHeadingDelimiter", { fg = dark_yellow })
-highlight("markdownLinkText", { fg = cyan, sp = dark_cyan, underline = true })
+highlight("markdownBlockQuote", { fg = colors.dark_magenta })
+highlight("markdownCode", { fg = colors.green })
+highlight("markdownCodeDelimiter", { fg = colors.green })
+highlight("markdownId", { fg = colors.magenta })
+highlight("markdownIdDeclaration", { fg = colors.magenta })
+highlight("markdownHeadingDelimiter", { fg = colors.dark_yellow })
+highlight("markdownLinkText", { fg = colors.cyan, sp = colors.dark_cyan, underline = true })
 
 -- Fix issue with LSP hover windows
 highlight("mkdLineBreak", { link = "NONE" })
@@ -203,53 +184,53 @@ highlight("yamlKeyValueDelimiter", { link = "@punctuation" })
 --------------------------
 
 -- For drawing borders around floating windows
-highlight("FloatBorder", { fg = dark_cyan })
+highlight("FloatBorder", { fg = colors.dark_cyan })
 
 ----------------------
 -- Plugin Highlighting
 ----------------------
 
 -- ALE
-highlight("ALEErrorSign", { fg = red, bg = gutter_bg })
-highlight("ALEWarningSign", { fg = yellow, bg = gutter_bg })
-highlight("ALEInfoSign", { fg = blue, bg = gutter_bg })
+highlight("ALEErrorSign", { fg = colors.red, bg = gutter_bg })
+highlight("ALEWarningSign", { fg = colors.yellow, bg = gutter_bg })
+highlight("ALEInfoSign", { fg = colors.blue, bg = gutter_bg })
 
 -- Clover
-highlight("CloverCovered", { fg = green })
-highlight("CloverUncovered", { fg = red })
-highlight("CloverIgnored", { fg = dark_white })
+highlight("CloverCovered", { fg = colors.green })
+highlight("CloverUncovered", { fg = colors.red })
+highlight("CloverIgnored", { fg = colors.dark_white })
 
 -- Compe
 highlight("CompeDocumentation", { link = "Pmenu" })
 
 -- csv.vim
-highlight("CSVColumnHeaderEven", { fg = magenta })
-highlight("CSVColumnHeaderOdd", { fg = dark_magenta })
-highlight("CSVColumnEven", { fg = dark_white })
-highlight("CSVColumnOdd", { fg = white })
+highlight("CSVColumnHeaderEven", { fg = colors.magenta })
+highlight("CSVColumnHeaderOdd", { fg = colors.dark_magenta })
+highlight("CSVColumnEven", { fg = colors.dark_white })
+highlight("CSVColumnOdd", { fg = colors.white })
 highlight("CSVDelimiter", { link = "Delimiter" })
 
 -- GitSigns
-highlight("GitSignsAdd", { fg = green, bg = gutter_bg })
-highlight("GitSignsDelete", { fg = red, bg = gutter_bg })
-highlight("GitSignsChange", { fg = yellow, bg = gutter_bg })
-highlight("diffAdded", { fg = green })
-highlight("diffRemoved", { fg = red })
-highlight("diffChanged", { fg = yellow })
+highlight("GitSignsAdd", { fg = colors.green, bg = gutter_bg })
+highlight("GitSignsDelete", { fg = colors.red, bg = gutter_bg })
+highlight("GitSignsChange", { fg = colors.yellow, bg = gutter_bg })
+highlight("diffAdded", { fg = colors.green })
+highlight("diffRemoved", { fg = colors.red })
+highlight("diffChanged", { fg = colors.yellow })
 
 -- Signify
-highlight("SignifyAdd", { fg = green, bg = gutter_bg })
-highlight("SignifyDelete", { fg = red, bg = gutter_bg })
-highlight("SignifyChange", { fg = yellow, bg = gutter_bg })
+highlight("SignifyAdd", { fg = colors.green, bg = gutter_bg })
+highlight("SignifyDelete", { fg = colors.red, bg = gutter_bg })
+highlight("SignifyChange", { fg = colors.yellow, bg = gutter_bg })
 
 -- GitGutter
-highlight("GitGutterAdd", { fg = green, bg = gutter_bg })
-highlight("GitGutterDelete", { fg = red, bg = gutter_bg })
-highlight("GitGutterChange", { fg = yellow, bg = gutter_bg })
-highlight("GitGutterChangeDelete", { fg = red, bg = gutter_bg })
+highlight("GitGutterAdd", { fg = colors.green, bg = gutter_bg })
+highlight("GitGutterDelete", { fg = colors.red, bg = gutter_bg })
+highlight("GitGutterChange", { fg = colors.yellow, bg = gutter_bg })
+highlight("GitGutterChangeDelete", { fg = colors.red, bg = gutter_bg })
 
 -- Floaterm
-highlight("Floaterm", { bg = black })
+highlight("Floaterm", { bg = colors.black })
 highlight("FloatermBorder", { link = "FloatBorder" })
 
 -- FZF
@@ -275,21 +256,21 @@ vim.fn.sign_define("DiagnosticSignWarn", { text = "●", texthl = "DiagnosticSig
 vim.fn.sign_define("DiagnosticSignInfo", { text = "●", texthl = "DiagnosticSignInfo" })
 vim.fn.sign_define("DiagnosticSignHint", { text = "●", texthl = "DiagnosticSignHint" })
 
-highlight("DiagnosticError", { fg = red })
-highlight("DiagnosticWarn", { fg = yellow })
-highlight("DiagnosticInfo", { fg = blue })
-highlight("DiagnosticHint", { fg = dark_white })
+highlight("DiagnosticError", { fg = colors.red })
+highlight("DiagnosticWarn", { fg = colors.yellow })
+highlight("DiagnosticInfo", { fg = colors.blue })
+highlight("DiagnosticHint", { fg = colors.dark_white })
 
-highlight("DiagnosticUnderlineError", { sp = red, undercurl = true })
-highlight("DiagnosticUnderlineWarn", { sp = yellow, undercurl = true })
-highlight("DiagnosticUnderlineInfo", { sp = blue, undercurl = true })
-highlight("DiagnosticUnderlineHint", { sp = dark_white, undercurl = true })
+highlight("DiagnosticUnderlineError", { sp = colors.red, undercurl = true })
+highlight("DiagnosticUnderlineWarn", { sp = colors.yellow, undercurl = true })
+highlight("DiagnosticUnderlineInfo", { sp = colors.blue, undercurl = true })
+highlight("DiagnosticUnderlineHint", { sp = colors.dark_white, undercurl = true })
 
 -- Lspconfig
 highlight("LspInfoBorder", { link = "FloatBorder" })
 
 -- LSP Signature
-highlight("LspSignatureActiveParameter", { bg = highlight_1, bold = true })
+highlight("LspSignatureActiveParameter", { bg = colors.highlight_1, bold = true })
 
 -- SQL
 highlight("sqlKeyword", { link = "Keyword" })
@@ -301,31 +282,31 @@ highlight("sqlUnknownFunc", { link = "Function" })
 highlight("TelescopeBorder", { link = "FloatBorder" })
 
 -- Treesitter
-highlight("@attribute", { fg = blue, italic = true })
+highlight("@attribute", { fg = colors.blue, italic = true })
 highlight("@constant.builtin", { link = "Constant" })
-highlight("@field", { fg = cyan })
+highlight("@field", { fg = colors.cyan })
 highlight("@include", { link = "Keyword" })
-highlight("@namespace", { fg = dark_magenta })
+highlight("@namespace", { fg = colors.dark_magenta })
 highlight("@none", { link = "Normal" })
 highlight("@property", { link = "@field" })
 highlight("@string.escape", { link = "Special" })
 highlight("@tag.attribute", { link = "@field" })
 highlight("@tag.delimiter", { link = "Delimiter" })
 highlight("@text.emphasis", { italic = true })
-highlight("@text.literal", { fg = green })
-highlight("@text.reference", { fg = yellow })
+highlight("@text.literal", { fg = colors.green })
+highlight("@text.reference", { fg = colors.yellow })
 highlight("@text.strong", { bold = true })
 highlight("@text.title", { link = "Title" })
-highlight("@text.uri", { fg = cyan, sp = dark_cyan, underline = true })
-highlight("@variable", { fg = white })
-highlight("@variable.builtin", { fg = dark_yellow, italic = true })
+highlight("@text.uri", { fg = colors.cyan, sp = colors.dark_cyan, underline = true })
+highlight("@variable", { fg = colors.white })
+highlight("@variable.builtin", { fg = colors.dark_yellow, italic = true })
 
 highlight("@constant.fish", { link = "@variable.fish" })
-highlight("@variable.fish", { fg = cyan })
+highlight("@variable.fish", { fg = colors.cyan })
 
 -- vim-go
-highlight("goCoverageCovered", { fg = green })
-highlight("goCoverageUncover", { fg = red })
+highlight("goCoverageCovered", { fg = colors.green })
+highlight("goCoverageUncover", { fg = colors.red })
 vim.g.go_highlight_operators = 1
 vim.g.go_highlight_functions = 1
 vim.g.go_highlight_function_parameters = 0
