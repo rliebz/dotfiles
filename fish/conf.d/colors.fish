@@ -32,7 +32,7 @@ set -g fish_pager_color_description yellow
 set -g fish_color_history_current   --bold
 
 # fzf
-set -gx FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS --color fg:7,bg:-1,hl:6,fg+:7,bg+:12,hl+:6"
+set -gx FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS --color fg:7,bg:-1,hl:6,fg+:7,bg+:8,hl+:6"
 set -gx FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS --color info:14,border:14,prompt:5,spinner:5,pointer:3,marker:3,header:15"
 
 # jq
