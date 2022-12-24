@@ -55,7 +55,7 @@ M.format_on_save = function(client, bufnr)
 			group = augroup_format,
 			buffer = bufnr,
 			callback = function()
-				vim.lsp.buf.formatting_seq_sync()
+				vim.lsp.buf.format()
 			end,
 		})
 	end
