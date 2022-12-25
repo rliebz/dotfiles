@@ -1,5 +1,8 @@
 return {
-	"AndrewRadev/splitjoin.vim",
+	{
+		"AndrewRadev/splitjoin.vim",
+		keys = { "gS", "gJ" },
+	},
 	"b4winckler/vim-angry",
 	{
 		"bkad/CamelCaseMotion",
@@ -24,17 +27,12 @@ return {
 	{
 		"vim-test/vim-test",
 		keys = {
-			"<leader>tn",
-			"<leader>tf",
-			"<leader>ts",
-			"<leader>tl",
+			{ "<leader>tn", vim.cmd.TestNearest },
+			{ "<leader>tf", vim.cmd.TestFile },
+			{ "<leader>ts", vim.cmd.TestSuite },
+			{ "<leader>tl", vim.cmd.TestLast },
 		},
 		config = function()
-			vim.keymap.set("n", "<leader>tn", vim.cmd.TestNearest)
-			vim.keymap.set("n", "<leader>tf", vim.cmd.TestFile)
-			vim.keymap.set("n", "<leader>ts", vim.cmd.TestSuite)
-			vim.keymap.set("n", "<leader>tl", vim.cmd.TestLast)
-
 			vim.g["test#go#gotest#options"] = {
 				all = "-count 1",
 				nearest = "-tags integration,e2e",
@@ -45,10 +43,9 @@ return {
 	},
 	{
 		"junegunn/vim-easy-align",
-		keys = { "ga" },
-		config = function()
-			vim.keymap.set({ "n", "x" }, "ga", "<Plug>(EasyAlign)")
-		end,
+		keys = {
+			{ "ga", "<Plug>(EasyAlign)", mode = { "n", "x" } },
+		},
 	},
 	{
 		"justinmk/vim-dirvish",
@@ -205,18 +202,24 @@ return {
 	},
 	{
 		"numToStr/FTerm.nvim",
-		keys = { "<C-t>" },
+		keys = {
+			{
+				"<C-t>",
+				function()
+					require("FTerm").toggle()
+				end,
+				mode = { "n", "t" },
+				silent = true,
+			},
+		},
 		config = function()
-			local fterm = require("FTerm")
-			fterm.setup({
+			require("FTerm").setup({
 				border = "rounded",
 				dimensions = {
 					height = 0.9,
 					width = 0.9,
 				},
 			})
-
-			vim.keymap.set({ "n", "t" }, "<C-t>", fterm.toggle, { silent = true })
 		end,
 	},
 	{
@@ -228,14 +231,19 @@ return {
 	},
 	{
 		"rliebz/vim-clover",
-		config = function()
-			vim.keymap.set("n", "<leader>cu", ":CloverUp<CR>")
-			vim.keymap.set("n", "<leader>cd", ":CloverDown<CR>")
-		end,
+		keys = {
+			{ "<leader>cu", vim.cmd.CloverUp },
+			{ "<leader>cd", vim.cmd.CloverDown },
+		},
 	},
 	"romainl/vim-cool",
 	"tpope/vim-abolish",
-	"tpope/vim-commentary",
+	{
+		"tpope/vim-commentary",
+		keys = {
+			{ "gc", mode = { "n", "x" } },
+		},
+	},
 	{
 		"tpope/vim-fugitive",
 		dependencies = { "tpope/vim-rhubarb", "shumphrey/fugitive-gitlab.vim" },
@@ -245,9 +253,11 @@ return {
 	"tpope/vim-surround",
 	{
 		"tyru/open-browser.vim",
-		config = function()
+		keys = {
+			{ "gx", "<Plug>(openbrowser-smart-search)", mode = { "n", "v" } },
+		},
+		init = function()
 			vim.g.netrw_nogx = true
-			vim.keymap.set({ "n", "v" }, "gx", "<Plug>(openbrowser-smart-search)", {})
 		end,
 	},
 	"wellle/targets.vim",
@@ -281,8 +291,18 @@ return {
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		},
 		keys = {
-			"<C-p>",
-			"<C-f>",
+			{
+				"<C-p>",
+				function()
+					vim.cmd.Telescope("find_files")
+				end,
+			},
+			{
+				"<C-f>",
+				function()
+					vim.cmd.Telescope("live_grep")
+				end,
+			},
 		},
 		config = function()
 			local telescope = require("telescope")
@@ -339,10 +359,6 @@ return {
 			})
 			telescope.load_extension("fzf")
 			telescope.load_extension("live_grep_args")
-
-			local builtin = require("telescope.builtin")
-			vim.keymap.set("n", "<C-p>", builtin.find_files, {})
-			vim.keymap.set("n", "<C-f>", builtin.live_grep, {})
 		end,
 	},
 
