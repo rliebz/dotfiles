@@ -39,7 +39,7 @@ return {
 			cssls = {},
 			gopls = {
 				root_dir = function(fname)
-					local fullpath = vim.fn.expand(fname, ":p")
+					local fullpath = vim.fn.expand(fname .. ":p")
 
 					if gopls_root_dir ~= nil then
 						if not gomodcache_loaded then
