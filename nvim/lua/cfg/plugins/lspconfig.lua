@@ -5,9 +5,11 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		"b0o/schemastore.nvim",
 		"hrsh7th/cmp-nvim-lsp",
+		"folke/neodev.nvim",
 	},
 	config = function()
 		require("mason-lspconfig").setup({ automatic_installation = true })
+		require("neodev").setup()
 
 		local lspconfig = require("lspconfig")
 		local lsp = require("cfg.lsp")
@@ -86,17 +88,8 @@ return {
 			sumneko_lua = {
 				settings = {
 					Lua = {
-						runtime = {
-							version = "LuaJIT",
-						},
-						diagnostics = {
-							globals = { "vim" },
-							disable = { "lowercase-global" },
-						},
 						workspace = {
 							checkThirdParty = false,
-							library = vim.api.nvim_get_runtime_file("", true),
-							preloadFileSize = 1000,
 						},
 						telemetry = {
 							enable = false,
