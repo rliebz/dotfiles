@@ -24,7 +24,7 @@ return {
 
 		vim.g.dirvish_mode = ":" .. table.concat(cmds, "|")
 
-		function dirvish_rename()
+		local function dirvish_rename()
 			local path = vim.fn.getline(".")
 
 			local target = vim.fn.input("Rename: ", path)
@@ -34,7 +34,7 @@ return {
 			vim.cmd.Dirvish("%")
 		end
 
-		function dirvish_delete()
+		local function dirvish_delete()
 			local confirm = vim.fn.input("Confirm deletion [y/n]: ")
 			vim.cmd.mode()
 
@@ -56,7 +56,7 @@ return {
 			vim.cmd.Dirvish("%")
 		end
 
-		function dirvish_mkdir()
+		local function dirvish_mkdir()
 			local dirname = vim.fn.input("Directory name: ")
 			vim.cmd.mode()
 
@@ -64,7 +64,7 @@ return {
 			vim.cmd.Dirvish("%")
 		end
 
-		function dirvish_mkfile()
+		local function dirvish_mkfile()
 			local filename = vim.fn.input("File name: ")
 
 			if filename == "" then
