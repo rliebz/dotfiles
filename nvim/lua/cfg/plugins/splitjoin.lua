@@ -1,4 +1,1 @@
-return {
-	"AndrewRadev/splitjoin.vim",
-	keys = { "gS", "gJ" },
-}
+return "AndrewRadev/splitjoin.vim"

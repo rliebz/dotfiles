@@ -1,6 +1,6 @@
 return {
 	"bkad/CamelCaseMotion",
-	config = function()
+	init = function()
 		vim.g.camelcasemotion_key = "g"
 	end,
 }
