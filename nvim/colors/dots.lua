@@ -272,6 +272,9 @@ highlight("LspInfoBorder", { link = "FloatBorder" })
 -- LSP Signature
 highlight("LspSignatureActiveParameter", { bg = colors.highlight_1, bold = true })
 
+-- Null LS
+highlight("NullLSInfoBorder", { link = "FloatBorder" })
+
 -- SQL
 highlight("sqlKeyword", { link = "Keyword" })
 highlight("sqlParen", { link = "Delimiter" })

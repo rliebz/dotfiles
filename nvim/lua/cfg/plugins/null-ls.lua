@@ -75,6 +75,7 @@ return {
 		null_ls.register({ ibm_openapi_validator })
 
 		null_ls.setup({
+			border = "rounded",
 			on_attach = function(client, bufnr)
 				lsp.bind_keys()
 				lsp.format_on_save(client, bufnr)
