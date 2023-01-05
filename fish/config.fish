@@ -36,7 +36,8 @@ set -gx HOMEBREW_NO_ANALYTICS 1
 set -gx HOMEBREW_NO_ENV_HINTS 1
 
 # Rust
-fish_add_path -g $HOME/.cargo/bin
+set -gx CARGO_HOME $HOME/.local/share/cargo
+fish_add_path -g $CARGO_HOME/bin
 
 # Yarn
 if command -sq yarn
