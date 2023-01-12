@@ -13,10 +13,10 @@ set -gx PAGER less
 set -gx LESS '-F -g -i -M -R -S -w -X -z-4'
 
 # Fast upward directory navigation
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ......="cd ../../../../.."
+function __multicd
+    echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
+end
+abbr --add dotdot --regex '^\.\.+$' --function __multicd
 
 # Docker
 set -gx DOCKER_BUILDKIT 1
