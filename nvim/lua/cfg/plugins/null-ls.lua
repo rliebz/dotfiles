@@ -118,6 +118,7 @@ return {
 				}),
 				null_ls.builtins.diagnostics.hadolint,
 				null_ls.builtins.diagnostics.shellcheck,
+				null_ls.builtins.diagnostics.yamllint,
 			},
 		})
 
