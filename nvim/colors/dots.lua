@@ -20,10 +20,10 @@ local colors = {
 	dark_green = "#15da95",
 
 	yellow = "#ffb702",
-	dark_yellow = "#ff9000",
+	dark_yellow = "#ff8800",
 
 	blue = "#8a60ff",
-	dark_blue = "#231944",
+	dark_blue = "#2979ff",
 
 	magenta = "#ff57fe",
 	dark_magenta = "#ffa0fe",
@@ -47,11 +47,11 @@ local gutter_bg = colors.black
 
 highlight("Comment", { fg = colors.dark_white, italic = true })
 
-highlight("Constant", { fg = colors.cyan })
+highlight("Constant", { fg = colors.dark_blue })
 highlight("String", { fg = colors.green })
 highlight("Character", { fg = colors.dark_green })
 highlight("Number", { fg = colors.yellow })
-highlight("Boolean", { fg = colors.dark_magenta, italic = true })
+highlight("Boolean", { fg = colors.dark_yellow, italic = true })
 highlight("Float", { fg = colors.yellow })
 
 highlight("Identifier", { fg = colors.white })
@@ -286,7 +286,7 @@ highlight("TelescopeBorder", { link = "FloatBorder" })
 
 -- Treesitter
 highlight("@attribute", { fg = colors.blue, italic = true })
-highlight("@constant.builtin", { link = "Constant" })
+highlight("@constant.builtin", { fg = colors.dark_blue, italic = true })
 highlight("@field", { fg = colors.cyan })
 highlight("@include", { link = "Keyword" })
 highlight("@namespace", { fg = colors.dark_magenta })
@@ -302,7 +302,7 @@ highlight("@text.strong", { bold = true })
 highlight("@text.title", { link = "Title" })
 highlight("@text.uri", { fg = colors.cyan, sp = colors.dark_cyan, underline = true })
 highlight("@variable", { fg = colors.white })
-highlight("@variable.builtin", { fg = colors.dark_yellow, italic = true })
+highlight("@variable.builtin", { fg = colors.dark_blue, italic = true })
 
 highlight("@constant.fish", { link = "@variable.fish" })
 highlight("@variable.fish", { fg = colors.cyan })
