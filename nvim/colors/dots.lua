@@ -58,11 +58,11 @@ highlight("Identifier", { fg = colors.white })
 highlight("Function", { fg = colors.dark_green })
 
 highlight("Statement", { fg = colors.magenta })
-highlight("Conditional", { fg = colors.magenta })
+highlight("Conditional", { fg = colors.magenta, bold = true })
 highlight("Repeat", { fg = colors.magenta })
 highlight("Label", { fg = colors.magenta })
 highlight("Operator", { fg = colors.blue })
-highlight("Keyword", { fg = colors.dark_red })
+highlight("Keyword", { fg = colors.dark_red, bold = true })
 highlight("Exception", { fg = colors.dark_red })
 
 highlight("PreProc", { fg = colors.yellow })
