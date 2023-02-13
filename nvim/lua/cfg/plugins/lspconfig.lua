@@ -81,11 +81,7 @@ return {
 					},
 				},
 			},
-			omnisharp = {},
-			pylsp = {},
-			rust_analyzer = {},
-			solargraph = {},
-			sumneko_lua = {
+			lua_ls = {
 				settings = {
 					Lua = {
 						workspace = {
@@ -97,6 +93,10 @@ return {
 					},
 				},
 			},
+			omnisharp = {},
+			pylsp = {},
+			rust_analyzer = {},
+			solargraph = {},
 			tsserver = {
 				-- Skip formatting in favor of prettier
 				on_attach = function(client, bufnr)
