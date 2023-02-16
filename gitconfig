@@ -18,7 +18,7 @@
 	changed = yellow
 	untracked = blue
 [alias]
-	delete-branches = "!git branch --merged | grep -v '\\*' | xargs -I {} git branch -d {}"
+	delete-branches = "!git fetch --prune && for branch in $(git for-each-ref --format '%(refname) %(upstream:track)' refs/heads | awk '$2 == \"[gone]\" {sub(\"refs/heads/\", \"\", $1); print $1}'); do git branch -D $branch; done"
 	branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 [core]
