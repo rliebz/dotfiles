@@ -67,7 +67,9 @@ vim.keymap.set("", "gy", '"+y')
 vim.keymap.set("", "gp", '"+p')
 vim.keymap.set("", "gP", '"+P')
 
-vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { silent = true })
+vim.keymap.set("n", "<leader>di", vim.diagnostic.open_float, { silent = true })
+vim.keymap.set("n", "<leader>de", vim.diagnostic.enable, { silent = true })
+vim.keymap.set("n", "<leader>dd", vim.diagnostic.disable, { silent = true })
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { silent = true })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { silent = true })
 
