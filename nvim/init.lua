@@ -77,7 +77,7 @@ vim.keymap.set("n", "<leader>l", vim.cmd.Lazy)
 
 vim.diagnostic.config({
 	float = {
-		border = "single",
+		border = "rounded",
 		format = function(diagnostic)
 			if diagnostic.code then
 				return string.format("[%s: %s] %s", diagnostic.source, diagnostic.code, diagnostic.message)
