@@ -14,13 +14,13 @@ local colors = {
 	bright_black = "#00313a",
 
 	red = "#f72c09",
-	dark_red = "#ed6200",
+	dark_red = "#8d18a0",
 
 	green = "#a2f009",
 	dark_green = "#15da95",
 
 	yellow = "#ffb702",
-	dark_yellow = "#ff8800",
+	dark_yellow = "#ff6802",
 
 	blue = "#8a60ff",
 	dark_blue = "#458fff",
@@ -89,7 +89,7 @@ highlight("Ignore", {})
 
 highlight("Error", { sp = colors.red, undercurl = true })
 
-highlight("Todo", { fg = colors.magenta })
+highlight("Todo", { fg = colors.red })
 
 -----------------------------------------
 -- Highlight Groups (:h highlight-groups)
