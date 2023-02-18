@@ -23,7 +23,7 @@ local colors = {
 	dark_yellow = "#ff8800",
 
 	blue = "#8a60ff",
-	dark_blue = "#2979ff",
+	dark_blue = "#458fff",
 
 	magenta = "#ff57fe",
 	dark_magenta = "#ffa0fe",

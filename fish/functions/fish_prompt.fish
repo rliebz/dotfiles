@@ -15,6 +15,9 @@ function fish_prompt --description 'Write out the prompt'
     set -g __fish_git_prompt_showdirtystate 1
     set -g __fish_git_prompt_showuntrackedfiles 1
 
+    set -g __fish_git_prompt_color_branch brblue
+    set -g __fish_git_prompt_color_dirtystate yellow
+
     # Write pipestatus
     set -l prompt_status (__fish_print_pipestatus " [" "]" "|" (set_color $fish_color_status) (set_color --bold $fish_color_status) $last_pipestatus)
 
