@@ -58,4 +58,6 @@ fish_add_path -g $HOME/.local/bin
 # ASDF
 #
 # We want this last because it puts asdf at the front of our path
+set -gx ASDF_CONFIG_FILE $HOME/.config/asdf/.asdfrc
+set -gx ASDF_DATA_DIR $HOME/.local/share/asdf
 source $HOME/.dotfiles/asdf/asdf.fish
