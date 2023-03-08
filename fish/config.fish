@@ -41,20 +41,6 @@ set -gx HOMEBREW_NO_ENV_HINTS 1
 set -gx CARGO_HOME $HOME/.local/share/cargo
 fish_add_path -g $CARGO_HOME/bin
 
-# Yarn
-if command -sq yarn
-    set -l yarnrc $HOME/.yarnrc
-    set -l config_dir $HOME/.local/share/yarn
-
-    # Keep global binaries global
-    if test -f $yarnrc && ! grep -q prefix $yarnrc
-        yarn config set prefix $config_dir
-        mkdir -p $config_dir/bin
-    end
-
-    fish_add_path -g $config_dir/bin
-end
-
 # ASDF
 #
 # We want this last because it puts asdf at the front of our path
