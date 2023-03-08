@@ -17,6 +17,9 @@ function __multicd
 end
 abbr --add dotdot --regex '^\.\.+$' --function __multicd
 
+# XDG bin directory
+fish_add_path -g $HOME/.local/bin
+
 # Docker
 set -gx DOCKER_BUILDKIT 1
 set -gx COMPOSE_DOCKER_CLI_BUILD 1
@@ -51,9 +54,6 @@ if command -sq yarn
 
     fish_add_path -g $config_dir/bin
 end
-
-# pipx executable location
-fish_add_path -g $HOME/.local/bin
 
 # ASDF
 #
