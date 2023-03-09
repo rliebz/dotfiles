@@ -1,7 +1,7 @@
 return {
 	"justinmk/vim-dirvish",
 	config = function()
-		vim.keymap.set("n", "<leader>e", ":Dirvish %:h<CR>", { silent = true })
+		vim.keymap.set("n", "<leader>E", ":Dirvish %:h<CR>", { silent = true })
 
 		local ignored = {
 			[[\.DS_Store]],
