@@ -12,28 +12,20 @@ end
 local colors = {
 	black = "#000000",
 	bright_black = "#00313a",
-
 	red = "#f72c09",
 	dark_red = "#ad18ff",
-
 	green = "#a2f009",
 	dark_green = "#15da95",
-
 	yellow = "#ffb702",
 	dark_yellow = "#ff6802",
-
 	blue = "#8a60ff",
 	dark_blue = "#458fff",
-
 	magenta = "#ff57fe",
 	dark_magenta = "#ffa0fe",
-
 	cyan = "#00bee2",
 	dark_cyan = "#007992",
-
 	white = "#dbf8ff",
 	dark_white = "#91a6ab",
-
 	highlight_1 = "#231944",
 	highlight_2 = "#00313a",
 }
@@ -54,7 +46,7 @@ highlight("Number", { fg = colors.yellow })
 highlight("Boolean", { fg = colors.dark_yellow, italic = true })
 highlight("Float", { fg = colors.yellow })
 
-highlight("Identifier", { fg = colors.white })
+highlight("Identifier", {})
 highlight("Function", { fg = colors.dark_green })
 
 highlight("Statement", { fg = colors.magenta })
@@ -271,6 +263,7 @@ highlight("LspInfoBorder", { link = "FloatBorder" })
 
 -- LSP Signature
 highlight("LspSignatureActiveParameter", { bg = colors.highlight_1, bold = true })
+highlight("@lsp.type.property", { link = "@property" })
 
 -- Null LS
 highlight("NullLSInfoBorder", { link = "FloatBorder" })
