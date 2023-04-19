@@ -55,7 +55,11 @@ M.format_on_save = function(client, bufnr)
 			group = augroup_format,
 			buffer = bufnr,
 			callback = function()
-				vim.lsp.buf.format()
+				vim.lsp.buf.format({
+					filter = function(c)
+						return c.name == client.name
+					end,
+				})
 			end,
 		})
 	end
