@@ -63,6 +63,7 @@ vim.keymap.set("n", "<leader>qq", ":cclose | pclose | helpclose<CR>", { silent =
 vim.keymap.set("n", "<leader>ss", ":setlocal spell!<CR>", { silent = true })
 vim.keymap.set("n", "<leader>V", ":source $MYVIMRC | :runtime! plugin/**/*.lua<CR>", { silent = true })
 vim.keymap.set("n", "<leader>W", ":w!<CR>", { silent = true })
+vim.keymap.set("n", "<leader>hi", vim.cmd.Inspect, {})
 vim.keymap.set("", "gy", '"+y')
 vim.keymap.set("", "gp", '"+p')
 vim.keymap.set("", "gP", '"+P')
