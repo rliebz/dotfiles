@@ -263,7 +263,11 @@ highlight("LspInfoBorder", { link = "FloatBorder" })
 
 -- LSP Signature
 highlight("LspSignatureActiveParameter", { bg = colors.highlight_1, bold = true })
+
+-- LSP Semantic Tokens
 highlight("@lsp.type.property", { link = "@property" })
+highlight("@lsp.type.comment", {}) -- this clobbers TODO, etc.
+highlight("@lsp.typemod.function.defaultLibrary", { link = "@function.builtin" })
 
 -- Null LS
 highlight("NullLSInfoBorder", { link = "FloatBorder" })
