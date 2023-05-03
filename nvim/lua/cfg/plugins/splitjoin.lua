@@ -1,1 +1,1 @@
-return "AndrewRadev/splitjoin.vim"
+return { "AndrewRadev/splitjoin.vim" }
