@@ -31,6 +31,7 @@ vim.o.softtabstop = -1
 vim.o.swapfile = false
 vim.o.tabstop = 2
 vim.o.updatetime = 100
+vim.o.wrap = false
 
 -- Restore cursor position when opening new files
 local augroup_cursor_position = vim.api.nvim_create_augroup("cursor_position", {})
