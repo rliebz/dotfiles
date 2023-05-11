@@ -46,4 +46,5 @@ fish_add_path -g $CARGO_HOME/bin
 # We want this last because it puts asdf at the front of our path
 set -gx ASDF_CONFIG_FILE $HOME/.config/asdf/.asdfrc
 set -gx ASDF_DATA_DIR $HOME/.local/share/asdf
+set -gx ASDF_GOLANG_MOD_VERSION_ENABLED false
 source $HOME/.dotfiles/asdf/asdf.fish
