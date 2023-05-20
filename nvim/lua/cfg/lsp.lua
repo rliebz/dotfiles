@@ -1,11 +1,11 @@
 local M = {}
 
-function lsp_organize_imports()
+local function lsp_organize_imports(bufnr)
 	local params = vim.lsp.util.make_range_params()
 	params.context = { only = { "source.organizeImports" } }
 
 	local timeout_ms = 1000
-	local resp = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeout_ms)
+	local resp = vim.lsp.buf_request_sync(bufnr, "textDocument/codeAction", params, timeout_ms)
 	if not resp then
 		return
 	end
@@ -35,8 +35,8 @@ function lsp_organize_imports()
 	end
 end
 
-M.bind_keys = function()
-	local opts = { buffer = true, silent = true }
+M.bind_keys = function(bufnr)
+	local opts = { buffer = bufnr, silent = true }
 	vim.keymap.set("n", "<c-]>", vim.lsp.buf.definition, opts)
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
@@ -55,15 +55,14 @@ M.format_on_save = function(client, bufnr)
 			group = augroup_format,
 			buffer = bufnr,
 			callback = function()
-				vim.lsp.buf.format({
-					filter = function(c)
-						return c.name == client.name
-					end,
-				})
+				vim.lsp.buf.format({ id = client.id })
 			end,
 		})
 	end
 end
+
+
+
 
 local augroup_imports = vim.api.nvim_create_augroup("lsp_organize_imports", {})
 M.organize_imports_on_save = function(client, bufnr)
@@ -73,7 +72,7 @@ M.organize_imports_on_save = function(client, bufnr)
 			group = augroup_imports,
 			buffer = bufnr,
 			callback = function()
-				lsp_organize_imports()
+				lsp_organize_imports(bufnr)
 			end,
 		})
 	end

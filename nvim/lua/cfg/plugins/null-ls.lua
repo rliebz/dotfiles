@@ -77,7 +77,7 @@ return {
 		null_ls.setup({
 			border = "rounded",
 			on_attach = function(client, bufnr)
-				lsp.bind_keys()
+				lsp.bind_keys(bufnr)
 				lsp.format_on_save(client, bufnr)
 			end,
 			sources = {

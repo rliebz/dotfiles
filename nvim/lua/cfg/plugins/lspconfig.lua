@@ -18,7 +18,7 @@ return {
 
 		lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
 			on_attach = function(client, bufnr)
-				lsp.bind_keys()
+				lsp.bind_keys(bufnr)
 				lsp.format_on_save(client, bufnr)
 				lsp.organize_imports_on_save(client, bufnr)
 			end,
@@ -100,7 +100,7 @@ return {
 			tsserver = {
 				-- Skip formatting in favor of prettier
 				on_attach = function(client, bufnr)
-					lsp.bind_keys()
+					lsp.bind_keys(bufnr)
 					-- TODO: This seems like it doesn't work
 					lsp.organize_imports_on_save(client, bufnr)
 				end,
