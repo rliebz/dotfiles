@@ -43,7 +43,7 @@ M.bind_keys = function(bufnr)
 	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 	vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, opts)
 	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+	vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
 	vim.keymap.set({ "i", "n" }, "<c-k>", vim.lsp.buf.signature_help, opts)
 end
 
@@ -60,9 +60,6 @@ M.format_on_save = function(client, bufnr)
 		})
 	end
 end
-
-
-
 
 local augroup_imports = vim.api.nvim_create_augroup("lsp_organize_imports", {})
 M.organize_imports_on_save = function(client, bufnr)
