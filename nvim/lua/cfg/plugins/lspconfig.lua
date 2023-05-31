@@ -67,7 +67,7 @@ return {
 						linksInHover = false,
 						buildFlags = {
 							-- Enable common build flags used for test files
-							"-tags=e2e,integration,integrity",
+							"-tags=e2e,integration,integrity,loadtest",
 						},
 						gofumpt = true,
 					},
