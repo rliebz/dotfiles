@@ -39,6 +39,8 @@ return {
 		local server_configs = {
 			bashls = {},
 			cssls = {},
+			eslint = {},
+			golangci_lint_ls = {},
 			gopls = {
 				root_dir = function(fname)
 					local fullpath = vim.fn.expand(fname .. ":p")
