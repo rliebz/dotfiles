@@ -130,7 +130,7 @@ highlight("TabLineFill", { fg = colors.white, bg = colors.bright_black })
 highlight("TabLineSel", { fg = colors.black, bg = colors.cyan })
 highlight("Title", { fg = colors.dark_green, bold = true })
 highlight("Visual", { bg = colors.highlight_2 })
-highlight("VisualNOS", { link = "VisualNOS" })
+highlight("VisualNOS", { link = "Visual" })
 highlight("WarningMsg", { fg = colors.yellow })
 highlight("WildMenu", { fg = colors.yellow, bg = colors.dark_cyan })
 
@@ -160,7 +160,7 @@ highlight("markdownCodeDelimiter", { fg = colors.green })
 highlight("markdownId", { fg = colors.magenta })
 highlight("markdownIdDeclaration", { fg = colors.magenta })
 highlight("markdownHeadingDelimiter", { fg = colors.dark_yellow })
-highlight("markdownLinkText", { fg = colors.cyan, sp = colors.dark_cyan, underline = true })
+highlight("markdownLinkText", { link = "@text.uri" })
 
 -- Fix issue with LSP hover windows
 highlight("mkdLineBreak", { link = "NONE" })
