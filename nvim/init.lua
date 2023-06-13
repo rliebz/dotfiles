@@ -56,6 +56,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 })
 
 vim.g.loaded_netrwPlugin = 1
+vim.g.sql_type_default = "postgresql"
 
 vim.keymap.set("", "j", "gj")
 vim.keymap.set("", "k", "gk")
