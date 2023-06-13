@@ -32,38 +32,12 @@ return {
 			border = "rounded",
 		})
 
-		local gomodcache = nil
-		local gomodcache_loaded = false
-		local gopls_root_dir = nil
-
 		local server_configs = {
 			bashls = {},
 			cssls = {},
 			eslint = {},
 			golangci_lint_ls = {},
 			gopls = {
-				root_dir = function(fname)
-					local fullpath = vim.fn.expand(fname .. ":p")
-
-					if gopls_root_dir ~= nil then
-						if not gomodcache_loaded then
-							gomodcache_loaded = true
-
-							local path = vim.fn.trim(vim.fn.system("go env GOMODCACHE"))
-							if vim.v.shell_error == 0 then
-								gomodcache = path
-							end
-						end
-
-						if gomodcache ~= nil and string.find(fullpath, gomodcache) then
-							return gopls_root_dir
-						end
-					end
-
-					gopls_root_dir = lspconfig.util.root_pattern("go.mod", ".git")(fname)
-
-					return gopls_root_dir
-				end,
 				settings = {
 					gopls = {
 						linksInHover = false,
