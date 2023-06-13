@@ -1,6 +1,7 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	dependencies = {
+		"JoosepAlviste/nvim-ts-context-commentstring",
 		"nvim-treesitter/nvim-treesitter-textobjects",
 	},
 	build = ":TSUpdate",
@@ -16,6 +17,9 @@ return {
 				"sql",
 				"yaml",
 			},
+		},
+		context_commentstring = {
+			enable = true,
 		},
 		textobjects = {
 			select = {
