@@ -183,9 +183,9 @@ highlight("FloatBorder", { fg = colors.dark_cyan })
 ----------------------
 
 -- ALE
-highlight("ALEErrorSign", { fg = colors.red, bg = gutter_bg })
-highlight("ALEWarningSign", { fg = colors.yellow, bg = gutter_bg })
-highlight("ALEInfoSign", { fg = colors.blue, bg = gutter_bg })
+highlight("ALEErrorSign", { link = "DiagnosticSignError" })
+highlight("ALEWarningSign", { link = "DiagnosticSignWarn" })
+highlight("ALEInfoSign", { link = "DiagnosticSignInfo" })
 
 -- Clover
 highlight("CloverCovered", { fg = colors.green })
