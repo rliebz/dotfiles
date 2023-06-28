@@ -269,6 +269,13 @@ highlight("@lsp.type.property", { link = "@property" })
 highlight("@lsp.type.comment", {}) -- this clobbers TODO, etc.
 highlight("@lsp.typemod.function.defaultLibrary", { link = "@function.builtin" })
 
+-- NeoTree
+highlight("NeoTreeGitAdded", { fg = colors.green })
+highlight("NeoTreeGitConflict", { fg = colors.dark_yellow })
+highlight("NeoTreeGitDeleted", { fg = colors.red })
+highlight("NeoTreeGitModified", { fg = colors.yellow })
+highlight("NeoTreeGitUntracked", { fg = colors.dark_white })
+
 -- Null LS
 highlight("NullLSInfoBorder", { link = "FloatBorder" })
 
