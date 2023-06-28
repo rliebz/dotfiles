@@ -19,7 +19,7 @@ vim.o.list = true
 vim.opt.listchars = { tab = "» ", space = "·", trail = "·", nbsp = "␣" }
 vim.o.matchtime = 2
 vim.o.mouse = ""
-vim.go.number = true
+vim.o.number = true
 vim.o.scrolloff = 5
 vim.o.showmatch = true
 vim.o.showmode = false
