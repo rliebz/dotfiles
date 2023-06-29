@@ -6,6 +6,11 @@ return {
 		vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
 	end,
 	opts = {
+		win_options = {
+			concealcursor = "nvic",
+			number = false,
+			signcolumn = "yes",
+		},
 		view_options = {
 			show_hidden = true,
 		},
