@@ -26,7 +26,7 @@
     ~/.config/git/config: gitconfig
     ~/.config/git/ignore: gitignore
     ~/.config/hadolint.yaml: hadolint.yaml
-    ~/.config/kitty/kitty.conf: kitty.conf
+    ~/.config/kitty: kitty
     ~/.config/nvim: nvim
     ~/.config/yamllint/config: yamllint.yml
     ~/.editorconfig: editorconfig
