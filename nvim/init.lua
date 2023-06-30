@@ -14,7 +14,6 @@ vim.o.cursorline = true
 vim.opt.diffopt:append("vertical")
 vim.opt.fileformats = { "unix", "dos", "mac" }
 vim.o.ignorecase = true
-vim.o.lazyredraw = true
 vim.o.list = true
 vim.opt.listchars = { tab = "⟶ ", space = "·", trail = "·", nbsp = "␣" }
 vim.o.matchtime = 2
