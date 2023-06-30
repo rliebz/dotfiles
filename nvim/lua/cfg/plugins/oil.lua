@@ -1,3 +1,16 @@
+local ignored_file_patterns = {
+	'__pycache__',
+	'%.DS_Store',
+	'%.git',
+	'%.gitmodules',
+	'%.pytest_cache',
+	'%.vscode',
+	'.*%.bak',
+	'.*%.log',
+	'.*%.pid',
+	'.*%.pyc',
+}
+
 return {
 	"stevearc/oil.nvim",
 	init = function()
@@ -12,7 +25,14 @@ return {
 			signcolumn = "yes",
 		},
 		view_options = {
-			show_hidden = true,
+			is_hidden_file = function(name)
+				for _, pattern in ipairs(ignored_file_patterns) do
+					if string.match(name, pattern) then
+						return true
+					end
+				end
+				return false
+			end,
 		},
 		skip_confirm_for_simple_edits = true,
 		keymaps = {
