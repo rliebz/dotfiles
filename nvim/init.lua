@@ -16,7 +16,7 @@ vim.opt.fileformats = { "unix", "dos", "mac" }
 vim.o.ignorecase = true
 vim.o.lazyredraw = true
 vim.o.list = true
-vim.opt.listchars = { tab = "» ", space = "·", trail = "·", nbsp = "␣" }
+vim.opt.listchars = { tab = "⟶ ", space = "·", trail = "·", nbsp = "␣" }
 vim.o.matchtime = 2
 vim.o.mouse = ""
 vim.o.number = true
