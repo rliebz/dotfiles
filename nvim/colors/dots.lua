@@ -12,22 +12,22 @@ end
 local colors = {
 	black = "#000000",
 	bright_black = "#00313a",
-	red = "#f72c09",
+	red = "#f84425",
 	dark_red = "#ad18ff",
 	green = "#a2f009",
 	dark_green = "#15da95",
 	yellow = "#ffb702",
 	dark_yellow = "#ff6802",
-	blue = "#8a60ff",
+	blue = "#936cff",
 	dark_blue = "#458fff",
 	magenta = "#ff57fe",
 	dark_magenta = "#ffa0fe",
 	cyan = "#00bee2",
-	dark_cyan = "#007992",
+	dark_cyan = "#007f9a",
 	white = "#dbf8ff",
 	dark_white = "#91a6ab",
-	highlight_1 = "#231944",
-	highlight_2 = "#00313a",
+	highlight_1 = "#180d34",
+	highlight_2 = "#0a2400",
 }
 
 local gutter_fg = colors.dark_cyan
@@ -109,7 +109,7 @@ highlight("CursorLineNr", { fg = colors.yellow, bg = gutter_bg })
 highlight("MatchParen", { fg = colors.yellow, bg = colors.dark_cyan })
 highlight("ModeMsg", {})
 highlight("MoreMsg", {})
-highlight("NonText", { fg = colors.highlight_2 })
+highlight("NonText", { fg = colors.bright_black })
 highlight("Normal", { fg = colors.white })
 highlight("NormalFloat", { fg = colors.white })
 highlight("Pmenu", { fg = colors.white, bg = colors.highlight_2 })
