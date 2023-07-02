@@ -2,22 +2,39 @@ return {
 	"hrsh7th/nvim-cmp",
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/vim-vsnip",
+		{ 'L3MON4D3/LuaSnip', opts = {} },
 	},
 	config = function()
 		local cmp = require("cmp")
+		local luasnip = require('luasnip')
 		cmp.setup({
 			preselect = cmp.PreselectMode.None,
 
 			snippet = {
 				expand = function(args)
-					vim.fn["vsnip#anonymous"](args.body)
+					luasnip.lsp_expand(args.body)
 				end,
 			},
 
 			mapping = {
-				["<S-Tab>"] = cmp.mapping.select_prev_item(),
-				["<Tab>"] = cmp.mapping.select_next_item(),
+				['<Tab>'] = cmp.mapping(function(fallback)
+					if cmp.visible() then
+						cmp.select_next_item()
+					elseif luasnip.expand_or_locally_jumpable() then
+						luasnip.expand_or_jump()
+					else
+						fallback()
+					end
+				end, { 'i', 's' }),
+				['<S-Tab>'] = cmp.mapping(function(fallback)
+					if cmp.visible() then
+						cmp.select_prev_item()
+					elseif luasnip.locally_jumpable(-1) then
+						luasnip.jump(-1)
+					else
+						fallback()
+					end
+				end, { 'i', 's' }),
 				["<C-Space>"] = cmp.mapping.complete(),
 				["<C-e>"] = cmp.mapping.abort(),
 				["<CR>"] = cmp.mapping.confirm(),
