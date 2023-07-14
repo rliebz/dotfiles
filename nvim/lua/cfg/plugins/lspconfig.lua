@@ -51,6 +51,10 @@ return {
 			},
 			intelephense = {},
 			jsonls = {
+				-- Skip formatting in favor of prettier
+				on_attach = function(client, bufnr)
+					lsp.bind_keys(bufnr)
+				end,
 				settings = {
 					json = {
 						schemas = require("schemastore").json.schemas(),
