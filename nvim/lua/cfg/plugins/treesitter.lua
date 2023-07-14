@@ -8,9 +8,6 @@ return {
 	main = "nvim-treesitter.configs",
 	opts = {
 		ensure_installed = "all",
-		ignore_install = {
-			"smali",
-		},
 		highlight = {
 			enable = true,
 			disable = {
