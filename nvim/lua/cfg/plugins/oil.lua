@@ -1,14 +1,14 @@
 local ignored_file_patterns = {
-	'^__pycache__$',
-	'^%.DS_Store$',
-	'^%.git$',
-	'^%.gitmodules$',
-	'^%.pytest_cache$',
-	'^%.vscode$',
-	'.*%.bak$',
-	'.*%.log$',
-	'.*%.pid$',
-	'.*%.pyc$',
+	"^__pycache__$",
+	"^%.DS_Store$",
+	"^%.git$",
+	"^%.gitmodules$",
+	"^%.pytest_cache$",
+	"^%.vscode$",
+	"%.bak$",
+	"%.log$",
+	"%.pid$",
+	"%.pyc$",
 }
 
 return {
