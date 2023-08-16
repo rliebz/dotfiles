@@ -1,19 +1,24 @@
 return {
-	"vim-test/vim-test",
-	event = "VeryLazy",
-	keys = {
-		{ "<leader>tn", vim.cmd.TestNearest },
-		{ "<leader>tf", vim.cmd.TestFile },
-		{ "<leader>ts", vim.cmd.TestSuite },
-		{ "<leader>tl", vim.cmd.TestLast },
-	},
-	config = function()
-		vim.g["test#go#gotest#options"] = {
-			all = "-count 1",
-			nearest = "-tags blackbox,e2e,integration,integrity,loadtest,qualitrics_integration",
-			file = "-tags integration",
-			suite = "-tags integration",
-		}
-		vim.g["test#javascript#vitest#options"] = "--no-coverage"
-	end,
+	-- TODO: Leaving this in so I remember to:
+	-- 1. Pass all the tags for "nearest" calls, if I can figure out how to cleanly
+	--    do that exclusively for Go files
+	-- 2. Pass the --no-coverage flag for vitest
+	--
+	-- "vim-test/vim-test",
+	-- event = "VeryLazy",
+	-- keys = {
+	-- 	{ "<leader>tn", vim.cmd.TestNearest },
+	-- 	{ "<leader>tf", vim.cmd.TestFile },
+	-- 	{ "<leader>ts", vim.cmd.TestSuite },
+	-- 	{ "<leader>tl", vim.cmd.TestLast },
+	-- },
+	-- config = function()
+	-- 	vim.g["test#go#gotest#options"] = {
+	-- 		all = "-count 1",
+	-- 		nearest = "-tags blackbox,e2e,integration,integrity,loadtest,qualitrics_integration",
+	-- 		file = "-tags integration",
+	-- 		suite = "-tags integration",
+	-- 	}
+	-- 	vim.g["test#javascript#vitest#options"] = "--no-coverage"
+	-- end,
 }
