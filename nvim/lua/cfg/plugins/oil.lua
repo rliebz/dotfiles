@@ -14,7 +14,6 @@ local ignored_file_patterns = {
 return {
 	"stevearc/oil.nvim",
 	init = function()
-		vim.g.loaded_netrwPlugin = 1
 		vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
 	end,
 	opts = {
