@@ -28,6 +28,9 @@ local colors = {
 	dark_white = "#91a6ab",
 	highlight_1 = "#180d34",
 	highlight_2 = "#0a2400",
+	highlight_red = "#48240c",
+	highlight_green = "#274101",
+	highlight_yellow = "#663e01",
 }
 
 local gutter_fg = colors.dark_cyan
@@ -206,9 +209,9 @@ highlight("CSVDelimiter", { link = "Delimiter" })
 highlight("GitSignsAdd", { fg = colors.green, bg = gutter_bg })
 highlight("GitSignsDelete", { fg = colors.red, bg = gutter_bg })
 highlight("GitSignsChange", { fg = colors.yellow, bg = gutter_bg })
-highlight("diffAdded", { fg = colors.green })
-highlight("diffRemoved", { fg = colors.red })
-highlight("diffChanged", { fg = colors.yellow })
+highlight("GitSignsAddInline", { fg = colors.green, bg = colors.highlight_green })
+highlight("GitSignsDeleteInline", { fg = colors.red, bg = colors.highlight_red })
+highlight("GitSignsChangeInline", { fg = colors.yellow, bg = colors.highlight_yellow })
 
 -- Signify
 highlight("SignifyAdd", { fg = colors.green, bg = gutter_bg })
@@ -257,6 +260,14 @@ highlight("DiagnosticUnderlineError", { sp = colors.red, undercurl = true })
 highlight("DiagnosticUnderlineWarn", { sp = colors.yellow, undercurl = true })
 highlight("DiagnosticUnderlineInfo", { sp = colors.blue, undercurl = true })
 highlight("DiagnosticUnderlineHint", { sp = colors.dark_white, undercurl = true })
+
+-- Fugitive
+highlight("diffAdded", { fg = colors.green })
+highlight("diffRemoved", { fg = colors.red })
+highlight("diffChanged", { fg = colors.yellow })
+highlight("diffFile", { fg = colors.blue })
+highlight("diffIndexLine", { link = "diffFile" })
+highlight("diffLine", { fg = colors.cyan })
 
 -- Lspconfig
 highlight("LspInfoBorder", { link = "FloatBorder" })
