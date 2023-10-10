@@ -22,3 +22,5 @@ rules:
     spaces: consistent
     indent-sequences: consistent
   line-length: disable
+  truthy:
+    check-keys: false
