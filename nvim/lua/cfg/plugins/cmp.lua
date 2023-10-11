@@ -2,11 +2,15 @@ return {
 	"hrsh7th/nvim-cmp",
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
-		{ 'L3MON4D3/LuaSnip', opts = {} },
+		"hrsh7th/cmp-path",
+		"hrsh7th/cmp-cmdline",
+		{ "L3MON4D3/LuaSnip", opts = {} },
 	},
 	config = function()
 		local cmp = require("cmp")
-		local luasnip = require('luasnip')
+		local luasnip = require("luasnip")
+
+		---@diagnostic disable: missing-fields
 		cmp.setup({
 			preselect = cmp.PreselectMode.None,
 
@@ -17,7 +21,7 @@ return {
 			},
 
 			mapping = {
-				['<Tab>'] = cmp.mapping(function(fallback)
+				["<Tab>"] = cmp.mapping(function(fallback)
 					if cmp.visible() then
 						cmp.select_next_item()
 					elseif luasnip.expand_or_locally_jumpable() then
@@ -25,8 +29,8 @@ return {
 					else
 						fallback()
 					end
-				end, { 'i', 's' }),
-				['<S-Tab>'] = cmp.mapping(function(fallback)
+				end, { "i", "s" }),
+				["<S-Tab>"] = cmp.mapping(function(fallback)
 					if cmp.visible() then
 						cmp.select_prev_item()
 					elseif luasnip.locally_jumpable(-1) then
@@ -34,10 +38,11 @@ return {
 					else
 						fallback()
 					end
-				end, { 'i', 's' }),
+				end, { "i", "s" }),
 				["<C-Space>"] = cmp.mapping.complete(),
 				["<C-e>"] = cmp.mapping.abort(),
-				["<CR>"] = cmp.mapping.confirm(),
+				["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert }),
+				["<S-CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace }),
 			},
 
 			sorting = {
@@ -56,14 +61,24 @@ return {
 				},
 			},
 
-			sources = {
+			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
-			},
+				{ name = "path" },
+			}),
 
 			window = {
 				completion = cmp.config.window.bordered({ winhighlight = "" }),
 				documentation = cmp.config.window.bordered({ winhighlight = "" }),
 			},
+		})
+
+		cmp.setup.cmdline(":", {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = cmp.config.sources({
+				{ name = "path" },
+			}, {
+				{ name = "cmdline" },
+			}),
 		})
 	end,
 }
