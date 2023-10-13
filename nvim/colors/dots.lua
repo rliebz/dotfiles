@@ -287,6 +287,9 @@ highlight("NeoTreeGitDeleted", { fg = colors.red })
 highlight("NeoTreeGitModified", { fg = colors.yellow })
 highlight("NeoTreeGitUntracked", { fg = colors.dark_white })
 
+-- Noice
+highlight("LspSignatureActiveParameter", { bg = colors.highlight_1, bold = true })
+
 -- Notify
 highlight("NotifyBackground", { bg = colors.black })
 
