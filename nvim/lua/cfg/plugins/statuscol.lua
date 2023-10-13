@@ -25,6 +25,7 @@ return {
 					text = { builtin.foldfunc },
 					click = "v:lua.ScFa",
 				},
+				{ text = { " " } },
 			},
 		})
 	end,

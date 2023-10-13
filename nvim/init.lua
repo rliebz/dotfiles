@@ -13,7 +13,8 @@ vim.opt.completeopt = { "menuone", "noselect" }
 vim.o.cursorline = true
 vim.opt.diffopt:append("vertical")
 vim.opt.fileformats = { "unix", "dos", "mac" }
-vim.opt.foldcolumn = "1"
+vim.opt.fillchars = { foldopen = "", foldclose = "" }
+vim.o.foldcolumn = "auto:1"
 vim.o.ignorecase = true
 vim.o.list = true
 vim.opt.listchars = { tab = "⟶ ", space = "·", trail = "·", nbsp = "␣" }
