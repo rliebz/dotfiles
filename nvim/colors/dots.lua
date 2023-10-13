@@ -287,6 +287,9 @@ highlight("NeoTreeGitDeleted", { fg = colors.red })
 highlight("NeoTreeGitModified", { fg = colors.yellow })
 highlight("NeoTreeGitUntracked", { fg = colors.dark_white })
 
+-- Notify
+highlight("NotifyBackground", { bg = colors.black })
+
 -- Null LS
 highlight("NullLSInfoBorder", { link = "FloatBorder" })
 
