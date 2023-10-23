@@ -32,11 +32,27 @@ return {
 			border = "rounded",
 		})
 
+		local on_publish_diagnostics = vim.lsp.handlers["textDocument/publishDiagnostics"]
 		local server_configs = {
 			bashls = {},
 			cssls = {},
 			eslint = {},
-			golangci_lint_ls = {},
+			golangci_lint_ls = {
+				handlers = {
+					-- https://github.com/nametake/golangci-lint-langserver/pull/34
+					["textDocument/publishDiagnostics"] = function(_, result, ctx, config)
+						for i, diagnostic in ipairs(result.diagnostics) do
+							for position, value in pairs(diagnostic.range) do
+								if value.character == -1 then
+									result.diagnostics[i].range[position].character = 0
+								end
+							end
+						end
+
+						return on_publish_diagnostics(_, result, ctx, config)
+					end,
+				},
+			},
 			gopls = {
 				settings = {
 					gopls = {
