@@ -11,7 +11,6 @@ return {
 		highlight = {
 			enable = true,
 			disable = {
-				"sql",
 				"yaml",
 			},
 		},
