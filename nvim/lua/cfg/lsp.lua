@@ -44,6 +44,16 @@ M.bind_keys = function(bufnr)
 	vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, opts)
 	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 	vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+	vim.keymap.set("n", "<leader>cA", function()
+		vim.lsp.buf.code_action({
+			context = {
+				only = {
+					"source",
+				},
+				diagnostics = {},
+			},
+		})
+	end, opts)
 	vim.keymap.set({ "i", "n" }, "<c-k>", vim.lsp.buf.signature_help, opts)
 end
 
