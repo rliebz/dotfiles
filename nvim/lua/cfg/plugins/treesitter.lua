@@ -14,9 +14,6 @@ return {
 				"yaml",
 			},
 		},
-		context_commentstring = {
-			enable = true,
-		},
 		textobjects = {
 			select = {
 				enable = true,
