@@ -21,9 +21,6 @@ return {
 		}, neotest_ns)
 
 		require("neotest").setup({
-			quickfix = {
-				enabled = false,
-			},
 			adapters = {
 				require("neotest-go")({
 					args = {
@@ -66,7 +63,7 @@ return {
 		{
 			"<leader>to",
 			function()
-				require("neotest").output.open({ enter = true, auto_close = true })
+				require("neotest").output.open()
 			end,
 			desc = "Show Test Output",
 		},
