@@ -57,32 +57,32 @@ M.bind_keys = function(bufnr)
 	vim.keymap.set({ "i", "n" }, "<c-k>", vim.lsp.buf.signature_help, opts)
 end
 
-local augroup_format = vim.api.nvim_create_augroup("lsp_format", {})
 M.format_on_save = function(client, bufnr)
-	if client.supports_method("textDocument/formatting") then
-		vim.api.nvim_clear_autocmds({ group = augroup_format, buffer = bufnr })
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			group = augroup_format,
-			buffer = bufnr,
-			callback = function()
+	local augroup = vim.api.nvim_create_augroup("lsp_format_" .. client.name, {})
+	vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+	vim.api.nvim_create_autocmd("BufWritePre", {
+		group = augroup,
+		buffer = bufnr,
+		callback = function()
+			if client.supports_method("textDocument/formatting") then
 				vim.lsp.buf.format({ id = client.id })
-			end,
-		})
-	end
+			end
+		end,
+	})
 end
 
-local augroup_imports = vim.api.nvim_create_augroup("lsp_organize_imports", {})
 M.organize_imports_on_save = function(client, bufnr)
-	if client.supports_method("textDocument/codeAction") then
-		vim.api.nvim_clear_autocmds({ group = augroup_imports, buffer = bufnr })
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			group = augroup_imports,
-			buffer = bufnr,
-			callback = function()
+	local augroup = vim.api.nvim_create_augroup("lsp_organize_imports", {})
+	vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+	vim.api.nvim_create_autocmd("BufWritePre", {
+		group = augroup,
+		buffer = bufnr,
+		callback = function()
+			if client.supports_method("textDocument/codeAction") then
 				lsp_organize_imports(bufnr)
-			end,
-		})
-	end
+			end
+		end,
+	})
 end
 
 return M
