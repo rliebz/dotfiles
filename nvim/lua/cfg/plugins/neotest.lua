@@ -6,6 +6,7 @@ return {
 		"antoinemadec/FixCursorHold.nvim",
 		-- Adapters
 		"nvim-neotest/neotest-go",
+		"marilari88/neotest-vitest",
 	},
 	event = "VeryLazy",
 	config = function()
@@ -28,6 +29,7 @@ return {
 						"-tags integration",
 					},
 				}),
+				require("neotest-vitest"),
 			},
 		})
 	end,
