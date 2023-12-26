@@ -93,6 +93,7 @@ return {
 					lsp.organize_imports_on_save(client, bufnr)
 				end,
 			},
+			typst_lsp = {},
 		}
 
 		local lsp_server_names = {}
