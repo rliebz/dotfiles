@@ -51,6 +51,7 @@ return {
 				settings = {
 					json = {
 						schemas = require("schemastore").json.schemas(),
+						validate = { enable = true },
 					},
 				},
 			},
@@ -79,6 +80,7 @@ return {
 				end,
 			},
 			typst_lsp = {},
+			yamlls = {},
 		}
 
 		local lsp_server_names = {}
