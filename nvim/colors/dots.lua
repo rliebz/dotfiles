@@ -116,6 +116,18 @@ highlight("VisualNOS", { link = "Visual" })
 highlight("WarningMsg", { fg = colors.yellow })
 highlight("WildMenu", { fg = colors.yellow, bg = colors.dark_cyan })
 
+-------------------------------------------
+-- LSP Highlight Groups  (:h lsp-highlight)
+-------------------------------------------
+
+highlight("LspCodeLens", { fg = colors.dark_cyan, italic = true })
+highlight("LspSignatureActiveParameter", { bg = colors.highlight_1, bold = true })
+
+-- LSP Semantic Tokens
+highlight("@lsp.type.property", { link = "@property" })
+highlight("@lsp.type.comment", {}) -- this clobbers TODO, etc.
+highlight("@lsp.typemod.function.defaultLibrary", { link = "@function.builtin" })
+
 ---------------------------------
 -- Language-Specific Highlighting
 ---------------------------------
@@ -250,14 +262,6 @@ highlight("diffLine", { fg = colors.cyan })
 
 -- Lspconfig
 highlight("LspInfoBorder", { link = "FloatBorder" })
-
--- LSP Signature
-highlight("LspSignatureActiveParameter", { bg = colors.highlight_1, bold = true })
-
--- LSP Semantic Tokens
-highlight("@lsp.type.property", { link = "@property" })
-highlight("@lsp.type.comment", {}) -- this clobbers TODO, etc.
-highlight("@lsp.typemod.function.defaultLibrary", { link = "@function.builtin" })
 
 -- NeoTree
 highlight("NeoTreeGitAdded", { fg = colors.green })
