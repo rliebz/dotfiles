@@ -316,8 +316,8 @@ highlight("@constant.fish", { link = "@variable.fish" })
 highlight("@variable.fish", { fg = colors.cyan })
 
 -- vim-go
-highlight("goCoverageCovered", { fg = colors.green })
-highlight("goCoverageUncover", { fg = colors.red })
+highlight("goCoverageCovered", { link = "CloverCovered" })
+highlight("goCoverageUncover", { link = "CloverUncovered" })
 vim.g.go_highlight_operators = 1
 vim.g.go_highlight_functions = 1
 vim.g.go_highlight_function_parameters = 0
