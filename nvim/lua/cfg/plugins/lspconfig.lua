@@ -24,7 +24,6 @@ return {
 			end,
 		})
 
-		local on_publish_diagnostics = vim.lsp.handlers["textDocument/publishDiagnostics"]
 		local server_configs = {
 			bashls = {},
 			cssls = {},
