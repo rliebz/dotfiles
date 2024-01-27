@@ -28,4 +28,12 @@ return {
 			},
 		},
 	},
+	config = function (_, opts)
+		-- This doesn't appear to be a problem with all the disabled settings, so
+		-- skip the hack to avoid having conceal disabled while searching.
+		---@diagnostic disable: duplicate-set-field
+		require("noice.util.hacks").fix_incsearch = function () end
+
+		require('noice').setup(opts)
+	end,
 }
