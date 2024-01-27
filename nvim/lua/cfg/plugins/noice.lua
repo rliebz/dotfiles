@@ -6,12 +6,11 @@ return {
 	},
 	opts = {
 		presets = {
-			bottom_search = true,
-			command_palette = true,
-			long_message_to_split = true,
-			inc_rename = true,
 			lsp_doc_border = true,
 		},
+		cmdline = { enabled = false },
+		messages = { enabled = false },
+		notify = { enabled = false },
 		lsp = {
 			override = {
 				["vim.lsp.util.convert_input_to_markdown_lines"] = true,
@@ -21,6 +20,10 @@ return {
 		},
 		views = {
 			mini = {
+				position = {
+					-- Make room for cmdheight=1
+					row = -2,
+				},
 				timeout = 5000,
 			},
 		},
