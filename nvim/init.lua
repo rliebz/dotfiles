@@ -61,22 +61,27 @@ vim.g.sql_type_default = "postgresql"
 vim.keymap.set("", "j", "gj")
 vim.keymap.set("", "k", "gk")
 
-vim.keymap.set("n", "<leader>V", "<Cmd>source $MYVIMRC | runtime! plugin/**/*.lua<CR>")
-vim.keymap.set("n", "<leader>qq", "<Cmd>cclose | pclose | helpclose<CR>")
-vim.keymap.set("n", "<leader>ss", "<Cmd>setlocal spell!<CR>")
-vim.keymap.set("n", "<leader>hi", vim.cmd.Inspect)
-vim.keymap.set("n", "<C-s>", "<Cmd>w!<CR>")
+vim.keymap.set(
+	"n",
+	"<leader>V",
+	"<Cmd>source $MYVIMRC | runtime! plugin/**/*.lua<CR>",
+	{ desc = "Reload configuration" }
+)
+vim.keymap.set("n", "<leader>qq", "<Cmd>cclose | pclose | helpclose<CR>", { desc = "Close windows" })
+vim.keymap.set("n", "<leader>ss", "<Cmd>setlocal spell!<CR>", { desc = "Toggle spelling" })
+vim.keymap.set("n", "<leader>hi", "<Cmd>Inspect<CR>", { desc = "Inspect" })
+vim.keymap.set("n", "<C-s>", "<Cmd>w!<CR>", { desc = "Save buffer" })
 vim.keymap.set("", "gy", '"+y')
 vim.keymap.set("", "gp", '"+p')
 vim.keymap.set("", "gP", '"+P')
 
-vim.keymap.set("n", "<leader>di", vim.diagnostic.open_float, { silent = true })
-vim.keymap.set("n", "<leader>de", vim.diagnostic.enable, { silent = true })
-vim.keymap.set("n", "<leader>dd", vim.diagnostic.disable, { silent = true })
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { silent = true })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { silent = true })
+vim.keymap.set("n", "<leader>di", vim.diagnostic.open_float, { desc = "Diagnostic info", silent = true })
+vim.keymap.set("n", "<leader>de", vim.diagnostic.enable, { desc = "Enable diagnostics", silent = true })
+vim.keymap.set("n", "<leader>dd", vim.diagnostic.disable, { desc = "Disable diagnostics", silent = true })
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic", silent = true })
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic", silent = true })
 
-vim.keymap.set("n", "<leader>l", vim.cmd.Lazy)
+vim.keymap.set("n", "<leader>l", "<Cmd>Lazy<CR>", { desc = "Open Lazy" })
 
 vim.diagnostic.config({
 	float = {
