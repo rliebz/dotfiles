@@ -57,6 +57,9 @@ return {
 			lua_ls = {
 				settings = {
 					Lua = {
+						completion = {
+							showWord = "Disable",
+						},
 						workspace = {
 							checkThirdParty = false,
 						},
