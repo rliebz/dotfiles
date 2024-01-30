@@ -5,8 +5,8 @@ local function lsp_organize_imports(client, bufnr)
 	params.context = { only = { "source.organizeImports" } }
 
 	local timeout_ms = 1000
-	local resp = client.request_sync("textDocument/codeAction", params, timeout_ms, bufnr)
-	if resp.err or not resp.result or not resp.result[1] then
+	local resp, err = client.request_sync("textDocument/codeAction", params, timeout_ms, bufnr)
+	if err or resp.err or not resp.result or not resp.result[1] then
 		return
 	end
 
