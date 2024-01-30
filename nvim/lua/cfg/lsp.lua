@@ -1,30 +1,22 @@
 local M = {}
 
-local function lsp_organize_imports(bufnr)
+local function lsp_organize_imports(client, bufnr)
 	local params = vim.lsp.util.make_range_params()
 	params.context = { only = { "source.organizeImports" } }
 
 	local timeout_ms = 1000
-	local resp = vim.lsp.buf_request_sync(bufnr, "textDocument/codeAction", params, timeout_ms)
-	if not resp then
+	local resp = client.request_sync("textDocument/codeAction", params, timeout_ms, bufnr)
+	if resp.err or not resp.result or not resp.result[1] then
 		return
 	end
 
-	-- Assume we have at most one LSP that can organize imports.
-	-- If not, just do the first one and ignore the rest.
-	local client_id, result = next(resp)
-	if not result or not result.result or not result.result[1] then
-		return
-	end
-
-	local action = result.result[1]
+	local action = resp.result[1]
 	if action.kind and action.kind ~= "source.organizeImports" then
 		return
 	end
 
 	if action.edit or type(action.command) == "table" then
 		if action.edit then
-			local client = vim.lsp.get_client_by_id(client_id)
 			vim.lsp.util.apply_workspace_edit(action.edit, client.offset_encoding)
 		end
 		if type(action.command) == "table" then
@@ -79,7 +71,7 @@ M.organize_imports_on_save = function(client, bufnr)
 		buffer = bufnr,
 		callback = function()
 			if client.supports_method("textDocument/codeAction") then
-				lsp_organize_imports(bufnr)
+				lsp_organize_imports(client, bufnr)
 			end
 		end,
 	})
