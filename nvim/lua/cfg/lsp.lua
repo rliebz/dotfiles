@@ -58,7 +58,7 @@ M.bind_keys = function(bufnr)
 end
 
 M.format_on_save = function(client, bufnr)
-	local augroup = vim.api.nvim_create_augroup("lsp_format_" .. client.name, {})
+	local augroup = vim.api.nvim_create_augroup("lsp_format_" .. client.name, { clear = false })
 	vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 	vim.api.nvim_create_autocmd("BufWritePre", {
 		group = augroup,
@@ -72,7 +72,7 @@ M.format_on_save = function(client, bufnr)
 end
 
 M.organize_imports_on_save = function(client, bufnr)
-	local augroup = vim.api.nvim_create_augroup("lsp_organize_imports", {})
+	local augroup = vim.api.nvim_create_augroup("lsp_organize_imports_" .. client.name, { clear = false })
 	vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 	vim.api.nvim_create_autocmd("BufWritePre", {
 		group = augroup,
