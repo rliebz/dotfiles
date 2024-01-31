@@ -4,6 +4,7 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-cmdline",
+		"onsails/lspkind.nvim",
 		{ "L3MON4D3/LuaSnip", opts = {} },
 	},
 	config = function()
@@ -69,6 +70,18 @@ return {
 			window = {
 				completion = cmp.config.window.bordered({ winhighlight = "" }),
 				documentation = cmp.config.window.bordered({ winhighlight = "" }),
+			},
+
+			formatting = {
+				fields = {
+					cmp.ItemField.Kind,
+					cmp.ItemField.Abbr,
+				},
+				format = require("lspkind").cmp_format({
+					mode = "symbol",
+					maxwidth = 50,
+					ellipsis_char = "…",
+				}),
 			},
 		})
 
