@@ -49,20 +49,6 @@ M.bind_keys = function(bufnr)
 	vim.keymap.set({ "i", "n" }, "<c-k>", vim.lsp.buf.signature_help, opts)
 end
 
-M.format_on_save = function(client, bufnr)
-	local augroup = vim.api.nvim_create_augroup("lsp_format_" .. client.name, { clear = false })
-	vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-	vim.api.nvim_create_autocmd("BufWritePre", {
-		group = augroup,
-		buffer = bufnr,
-		callback = function()
-			if client.supports_method("textDocument/formatting") then
-				vim.lsp.buf.format({ id = client.id })
-			end
-		end,
-	})
-end
-
 M.organize_imports_on_save = function(client, bufnr)
 	local augroup = vim.api.nvim_create_augroup("lsp_organize_imports_" .. client.name, { clear = false })
 	vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })

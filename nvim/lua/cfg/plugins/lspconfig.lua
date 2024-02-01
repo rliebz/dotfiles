@@ -19,7 +19,6 @@ return {
 		lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
 			on_attach = function(client, bufnr)
 				lsp.bind_keys(bufnr)
-				lsp.format_on_save(client, bufnr)
 				lsp.organize_imports_on_save(client, bufnr)
 			end,
 		})
@@ -43,10 +42,6 @@ return {
 			},
 			intelephense = {},
 			jsonls = {
-				-- Skip formatting in favor of prettier
-				on_attach = function(client, bufnr)
-					lsp.bind_keys(bufnr)
-				end,
 				settings = {
 					json = {
 						schemas = require("schemastore").json.schemas(),
@@ -73,14 +68,7 @@ return {
 			pylsp = {},
 			rust_analyzer = {},
 			solargraph = {},
-			tsserver = {
-				-- Skip formatting in favor of prettier
-				on_attach = function(client, bufnr)
-					lsp.bind_keys(bufnr)
-					-- TODO: This seems like it doesn't work
-					lsp.organize_imports_on_save(client, bufnr)
-				end,
-			},
+			tsserver = {},
 			typst_lsp = {},
 			yamlls = {},
 		}
