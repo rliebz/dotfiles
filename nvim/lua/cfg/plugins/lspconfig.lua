@@ -39,6 +39,14 @@ return {
 						gofumpt = true,
 					},
 				},
+				before_init = function(_, config)
+					local module = vim.fn.trim(vim.fn.system("go list -m"))
+					if vim.v.shell_error ~= 0 or module == nil then
+						return
+					end
+					module = module:gsub("\n", ",")
+					config.settings.gopls["formatting.local"] = module
+				end,
 			},
 			intelephense = {},
 			jsonls = {
