@@ -1,0 +1,6 @@
+#!/usr/bin/env fish
+./dotbot/bin/dotbot \
+    --disable-built-in-plugins \
+    --plugin ./scripts/uninstall.py \
+    --only link \
+    -c install.conf.yaml

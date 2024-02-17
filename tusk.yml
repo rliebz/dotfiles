@@ -1,0 +1,8 @@
+tasks:
+  install:
+    usage: Sync configuration to system
+    run: ./scripts/install
+
+  uninstall:
+    usage: Remove all symlinks that point to the dotfiles directory
+    run: ./scripts/uninstall

@@ -49,7 +49,7 @@ cd $HOME/.dotfiles
 With that, the dotfiles can be installed:
 
 ```fish
-./install
+./scripts/install
 ```
 
 
@@ -90,7 +90,7 @@ Making Changes
 After making any changes, or to update submodules:
 
 ```fish
-./install
+./scripts/install
 ```
 
 To add a new file:
