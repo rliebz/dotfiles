@@ -73,7 +73,19 @@ return {
 				},
 			},
 			omnisharp = {},
-			pylsp = {},
+			pylsp = {
+				settings = {
+					pylsp = {
+						plugins = {
+							-- Black recommended settings
+							pycodestyle = {
+								ignore = { "E203", "E701" },
+								maxLineLength = 88,
+							},
+						},
+					},
+				},
+			},
 			rust_analyzer = {},
 			solargraph = {},
 			tsserver = {},
