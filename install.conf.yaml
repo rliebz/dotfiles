@@ -30,8 +30,7 @@
     ~/.config/nvim: nvim
     ~/.config/yamllint/config: yamllint.yml
     ~/.editorconfig: editorconfig
-    ~/.mdlrc: mdlrc
-    ~/.mdlstyle: mdlstyle
+    ~/.config/markdownlint/config: markdownlint.jsonc
     ~/.pylintrc: pylintrc
 
 - shell:

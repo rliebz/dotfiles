@@ -12,6 +12,7 @@ return {
 			css = { "stylelint" },
 			dockerfile = { "hadolint" },
 			less = { "stylelint" },
+			markdown = { "markdownlint" },
 			python = { "flake8" },
 			sass = { "stylelint" },
 			scss = { "stylelint" },
