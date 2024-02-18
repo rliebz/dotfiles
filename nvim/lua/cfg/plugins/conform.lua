@@ -3,12 +3,27 @@ return {
 	opts = {
 		formatters = {
 			prettierd = {
-				condition = function()
-					return require("cfg.filepath").cwd_has_glob({
-						".prettierrc*",
-						"prettier.config.*",
-						"node_modules/prettier/",
-					})
+				---@diagnostic disable-next-line: unused-local
+				condition = function(self, ctx)
+					return next(vim.fs.find({
+						".prettierrc",
+						".prettierrc.json",
+						".prettierrc.yml",
+						".prettierrc.yaml",
+						".prettierrc.json5",
+						".prettierrc.js",
+						".prettier.config.js",
+						".prettierrc.mjs",
+						".prettier.config.mjs",
+						".prettierrc.cjs",
+						".prettier.config.cjs",
+						".prettierrc.toml",
+						"node_modules/prettier",
+					}, {
+						upward = true,
+						path = ctx.dirname,
+						stop = vim.uv.os_homedir(),
+					}))
 				end,
 			},
 		},
