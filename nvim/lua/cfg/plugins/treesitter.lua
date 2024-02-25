@@ -10,9 +10,6 @@ return {
 		ensure_installed = "all",
 		highlight = {
 			enable = true,
-			disable = {
-				"yaml",
-			},
 		},
 		textobjects = {
 			select = {
@@ -56,4 +53,16 @@ return {
 			},
 		},
 	},
+	config = function(_, opts)
+		local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+		parser_config["yaml"] = {
+			install_info = {
+				url = "https://github.com/rliebz/tree-sitter-yaml",
+				revision = "close-indentation",
+				files = { "src/parser.c", "src/scanner.cc" },
+			},
+		}
+
+		require("nvim-treesitter.configs").setup(opts)
+	end,
 }
