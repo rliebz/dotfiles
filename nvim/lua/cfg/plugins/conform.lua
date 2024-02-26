@@ -40,7 +40,6 @@ return {
 			markdown = { "prettierd" },
 			["markdown.mdx"] = { "prettierd" },
 			python = { "black" },
-			rust = { "rustfmt" },
 			scss = { "prettierd" },
 			terraform = { "terraform_fmt" },
 			typescriptreact = { "prettierd" },
