@@ -61,12 +61,7 @@ vim.g.sql_type_default = "postgresql"
 vim.keymap.set("", "j", "gj")
 vim.keymap.set("", "k", "gk")
 
-vim.keymap.set(
-	"n",
-	"<leader>V",
-	"<Cmd>source $MYVIMRC | runtime! plugin/**/*.lua<CR>",
-	{ desc = "Reload configuration" }
-)
+vim.keymap.set("n", "<leader>V", "<Cmd>source $MYVIMRC<CR>", { desc = "Reload configuration" })
 vim.keymap.set("n", "<leader>qq", "<Cmd>cclose | pclose | helpclose<CR>", { desc = "Close windows" })
 vim.keymap.set("n", "<leader>ss", "<Cmd>setlocal spell!<CR>", { desc = "Toggle spelling" })
 vim.keymap.set("n", "<leader>hi", "<Cmd>Inspect<CR>", { desc = "Inspect" })
