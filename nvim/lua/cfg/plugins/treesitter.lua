@@ -3,13 +3,23 @@ return {
 	dependencies = {
 		"JoosepAlviste/nvim-ts-context-commentstring",
 		"nvim-treesitter/nvim-treesitter-textobjects",
+		"windwp/nvim-ts-autotag",
 	},
 	build = ":TSUpdate",
 	main = "nvim-treesitter.configs",
 	opts = {
 		ensure_installed = "all",
+		autotag = {
+			enable = true,
+		},
 		highlight = {
 			enable = true,
+		},
+		indent = {
+			enable = true,
+			disable = {
+				"yaml",
+			},
 		},
 		textobjects = {
 			select = {
