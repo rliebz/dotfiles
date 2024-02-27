@@ -2,6 +2,7 @@ return {
 	"Wansmer/treesj",
 	config = function()
 		require("treesj").setup({
+			notify = false,
 			use_default_keymaps = false,
 		})
 
