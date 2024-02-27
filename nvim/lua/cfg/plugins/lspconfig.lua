@@ -16,10 +16,12 @@ return {
 
 		require("lspconfig.ui.windows").default_options.border = "rounded"
 
-		lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
-			on_attach = function(client, bufnr)
-				lsp.bind_keys(bufnr)
-				lsp.organize_imports_on_save(client, bufnr)
+		vim.api.nvim_create_autocmd("LspAttach", {
+			group = vim.api.nvim_create_augroup("lsp_attach", {}),
+			callback = function(args)
+				local client = vim.lsp.get_client_by_id(args.data.client_id)
+				lsp.bind_keys(args.buf)
+				lsp.organize_imports_on_save(client, args.buf)
 			end,
 		})
 
