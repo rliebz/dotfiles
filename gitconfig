@@ -4,8 +4,6 @@
 	email = rliebz@gmail.com
 [push]
 	default = current
-[color]
-	ui = auto
 [color "diff"]
 	context = white
 	meta = blue
