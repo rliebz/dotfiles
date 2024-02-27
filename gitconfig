@@ -31,7 +31,7 @@
 	rebase = true
 [init]
 	defaultBranch = main
-[include]
-	path = ~/.gitconfig.local
 [advice]
 	skippedCherryPicks = false
+[include]
+	path = ~/.gitconfig.local
