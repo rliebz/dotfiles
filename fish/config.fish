@@ -18,7 +18,7 @@ end
 abbr --add dotdot --regex '^\.\.+$' --function __multicd
 
 # XDG bin directory
-fish_add_path -g $HOME/.local/bin
+fish_add_path -gP $HOME/.local/bin
 
 # Docker
 set -gx DOCKER_SCAN_SUGGEST false
@@ -28,16 +28,16 @@ set -gx FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS --bind ctrl-a:select-all,ctrl-d:dese
 
 # Go
 set -gx GOPATH $HOME/.local/share/go
-fish_add_path -g $GOPATH/bin
+fish_add_path -gP $GOPATH/bin
 
 # Homebrew
-fish_add_path -g /opt/homebrew/bin
 set -gx HOMEBREW_NO_ANALYTICS 1
 set -gx HOMEBREW_NO_ENV_HINTS 1
+fish_add_path -gP /opt/homebrew/bin
 
 # Rust
 set -gx CARGO_HOME $HOME/.local/share/cargo
-fish_add_path -g $CARGO_HOME/bin
+fish_add_path -gP $CARGO_HOME/bin
 
 # ASDF
 #
