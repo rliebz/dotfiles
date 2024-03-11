@@ -172,6 +172,11 @@ highlight("yamlKeyValueDelimiter", { link = "@punctuation" })
 -- For drawing borders around floating windows
 highlight("FloatBorder", { fg = colors.dark_cyan })
 
+-- For inline diffing
+highlight("DiffAddInline", { fg = colors.green, bg = colors.background_green })
+highlight("DiffDeleteInline", { fg = colors.red, bg = colors.background_red })
+highlight("DiffChangeInline", { fg = colors.yellow, bg = colors.background_yellow })
+
 ----------------------
 -- Plugin Highlighting
 ----------------------
@@ -230,9 +235,9 @@ highlight("GitSignsDelete", { fg = colors.red, bg = gutter_bg })
 highlight("GitSignsChange", { fg = colors.yellow, bg = gutter_bg })
 highlight("GitSignsAddPreview", { fg = colors.green })
 highlight("GitSignsDeletePreview", { fg = colors.red })
-highlight("GitSignsAddInline", { bg = colors.background_green })
-highlight("GitSignsDeleteInline", { bg = colors.background_red })
-highlight("GitSignsChangeInline", { bg = colors.background_yellow })
+highlight("GitSignsAddInline", { link = "DiffAddInline" })
+highlight("GitSignsDeleteInline", { link = "DiffDeleteInline" })
+highlight("GitSignsChangeInline", { link = "DiffChangeInline" })
 
 -- Signify
 highlight("SignifyAdd", { fg = colors.green, bg = gutter_bg })

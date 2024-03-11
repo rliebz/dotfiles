@@ -3,6 +3,12 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 	},
+	opts = {
+		highlight = {
+			search = "DiffDeleteInline",
+			replace = "DiffAddInline",
+		},
+	},
 	keys = {
 		{
 			"<leader>S",
