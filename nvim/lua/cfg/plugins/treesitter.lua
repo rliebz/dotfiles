@@ -73,6 +73,7 @@ return {
 			},
 		}
 
+		vim.treesitter.language.register("ini", "editorconfig")
 		require("nvim-treesitter.configs").setup(opts)
 	end,
 }
