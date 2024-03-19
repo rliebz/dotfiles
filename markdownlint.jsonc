@@ -1,4 +1,8 @@
 {
+	"MD001": false, // header levels change by one at a time
+	"MD010": { // hard tabs
+		"code_blocks": false
+	},
 	"MD012": false, // multiple consecutive blank lines
 	"MD013": false, // line length
 	"MD022": false, // headers should be surrounded by blank lines
