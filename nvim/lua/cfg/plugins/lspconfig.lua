@@ -145,7 +145,22 @@ return {
 			solargraph = {},
 			tsserver = {},
 			typst_lsp = {},
-			yamlls = {},
+			yamlls = {
+				settings = {
+					yaml = {
+						schemaStore = {
+							enable = false,
+							url = "",
+						},
+						schemas = require("schemastore").yaml.schemas({
+							ignore = { "gitlab-ci" },
+						}),
+						customTags = {
+							"!reference sequence",
+						},
+					},
+				},
+			},
 		}
 
 		local lsp_server_names = {}
