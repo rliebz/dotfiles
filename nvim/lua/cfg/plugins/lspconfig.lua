@@ -143,7 +143,12 @@ return {
 			},
 			rust_analyzer = {},
 			solargraph = {},
-			tsserver = {},
+			tsserver = {
+				on_attach = function(client)
+					client.server_capabilities.documentFormattingProvider = false
+					client.server_capabilities.documentRangeFormattingProvider = false
+				end,
+			},
 			typst_lsp = {},
 			yamlls = {
 				settings = {
