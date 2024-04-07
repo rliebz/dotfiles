@@ -21,5 +21,9 @@ function fish_prompt --description 'Write out the prompt'
     # Write pipestatus
     set -l prompt_status (__fish_print_pipestatus " [" "]" "|" (set_color $fish_color_status) (set_color --bold $fish_color_status) $last_pipestatus)
 
+    if set -q SSH_TTY
+        echo -n -s (prompt_login) " "
+    end
+
     echo -n -s (set_color $color_cwd) (prompt_pwd) $normal (fish_vcs_prompt) $normal $prompt_status (set_color --bold magenta) $suffix " " $normal
 end
