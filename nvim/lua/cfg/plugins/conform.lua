@@ -2,6 +2,10 @@ return {
 	"stevearc/conform.nvim",
 	opts = {
 		formatters = {
+			nomad_fmt = {
+				command = "nomad",
+				args = { "fmt", "-" },
+			},
 			prettierd = {
 				---@diagnostic disable-next-line: unused-local
 				condition = function(self, ctx)
@@ -30,6 +34,7 @@ return {
 		formatters_by_ft = {
 			css = { "prettierd" },
 			fish = { "fish_indent" },
+			hcl = { "nomad_fmt", "trim_newlines" },
 			html = { "prettierd" },
 			javascript = { "prettierd" },
 			javascriptreact = { "prettierd" },
@@ -39,6 +44,7 @@ return {
 			lua = { "stylua" },
 			markdown = { "prettierd" },
 			["markdown.mdx"] = { "prettierd" },
+			nomad = { "nomad_fmt", "trim_newlines" },
 			python = { "black" },
 			scss = { "prettierd" },
 			terraform = { "terraform_fmt" },
