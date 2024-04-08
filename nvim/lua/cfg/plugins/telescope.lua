@@ -32,6 +32,8 @@ return {
 				"!*.min.js",
 				"-g",
 				"!*.js.map",
+				"-g",
+				"!*.sql.go",
 			}
 			for _, arg in ipairs(args) do
 				table.insert(command, arg)
