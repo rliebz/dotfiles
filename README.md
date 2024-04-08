@@ -2,7 +2,9 @@
 
 Don't follow these steps unless you are me.
 
-## MacOS System Preferences
+## System
+
+### MacOS System Preferences
 
 The usual steps are:
 
@@ -14,6 +16,13 @@ The usual steps are:
    three finger drag
 1. Dock & Menu Bar > Bluetooth: Show in Menu Bar
 1. Dock & Menu Bar > Dock & Menu Bar: Turn off Show recent applications in dock
+
+### Fonts
+
+- JetBrains Mono NL: <https://www.jetbrains.com/lp/mono/>
+- NerdFontsSymbolsOnly: <https://github.com/ryanoasis/nerd-fonts/releases>
+
+## Command-Line
 
 ### Dependencies
 
