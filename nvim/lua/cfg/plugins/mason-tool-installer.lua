@@ -10,7 +10,9 @@ return {
 			return vim.tbl_flatten(vim.tbl_values(mapping))
 		end
 
-		local tools = {}
+		local tools = {
+			"shellcheck", -- optional dependency of bash-language-server
+		}
 		vim.list_extend(tools, extract(require("lint").linters_by_ft))
 		vim.list_extend(tools, extract(require("conform").formatters_by_ft))
 

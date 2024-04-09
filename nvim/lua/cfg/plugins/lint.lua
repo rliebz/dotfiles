@@ -8,7 +8,6 @@ return {
 			end,
 		})
 		require("lint").linters_by_ft = {
-			bash = { "shellcheck" },
 			css = { "stylelint" },
 			dockerfile = { "hadolint" },
 			less = { "stylelint" },
@@ -16,7 +15,6 @@ return {
 			python = { "flake8" },
 			sass = { "stylelint" },
 			scss = { "stylelint" },
-			sh = { "shellcheck" },
 			yaml = { "yamllint" },
 		}
 	end,
