@@ -10,6 +10,7 @@ return {
 		require("lint").linters_by_ft = {
 			css = { "stylelint" },
 			dockerfile = { "hadolint" },
+			fish = { "fish" },
 			less = { "stylelint" },
 			markdown = { "markdownlint" },
 			python = { "flake8" },
