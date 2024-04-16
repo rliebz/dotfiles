@@ -19,8 +19,7 @@
       glob: true
       path: fish/functions/*
     ~/.config/flake8: flake8
-    ~/.config/git/config: gitconfig
-    ~/.config/git/ignore: gitignore
+    ~/.config/git: git
     ~/.config/hadolint.yaml: hadolint.yaml
     ~/.config/kitty: kitty
     ~/.config/nvim: nvim
