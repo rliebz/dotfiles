@@ -31,9 +31,9 @@
     ~/.pylintrc: pylintrc
 
 - shell:
-  - command: >
-      if ! type -q fisher
-        curl -sL https://git.io/fisher | source
-        and fisher update
-      end
-    description: Updating fisher plugins
+    - command: >
+        if ! type -q fisher
+          curl -sL https://git.io/fisher | source
+          and fisher update
+        end
+      description: Updating fisher plugins
