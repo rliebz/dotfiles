@@ -22,7 +22,26 @@ return {
 				"diagnostics",
 			},
 			lualine_c = {
-				"filename",
+				{
+					function()
+						local dir = require("oil").get_current_dir()
+						if not dir then
+							dir = vim.fn.expand("%"):gsub("^oil://", "")
+						end
+
+						return vim.fn.fnamemodify(dir, ":~:.")
+					end,
+					cond = function()
+						return vim.o.filetype == "oil"
+					end,
+				},
+				{
+					"filename",
+					cond = function()
+						return vim.o.filetype ~= "oil"
+					end,
+					path = 1,
+				},
 			},
 			lualine_x = {
 				{
