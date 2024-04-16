@@ -2,6 +2,3 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
-[submodule "zsh/vendor/asdf"]
-	path = asdf
-	url = https://github.com/asdf-vm/asdf.git

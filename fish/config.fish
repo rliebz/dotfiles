@@ -22,13 +22,9 @@ fish_add_path -P /opt/homebrew/bin
 set -gx CARGO_HOME $HOME/.local/share/cargo
 fish_add_path -P $CARGO_HOME/bin
 
-# ASDF
-#
-# We want this last among paths because it puts asdf at the front
-set -gx ASDF_CONFIG_FILE $HOME/.config/asdf/.asdfrc
-set -gx ASDF_DATA_DIR $HOME/.local/share/asdf
-set -gx ASDF_GOLANG_MOD_VERSION_ENABLED false
-source $HOME/.dotfiles/asdf/asdf.fish
+# Mise
+set -gx MISE_ACTIVATE_AGGRESSIVE true
+set -gx MISE_EXPERIMENTAL true
 
 # Editor defaults
 if command -sq nvim

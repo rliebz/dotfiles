@@ -10,11 +10,7 @@
       recursive: true
 
 - link:
-    ~/.config/asdf/.asdfrc: asdfrc
     ~/.config/fish/config.fish: fish/config.fish
-    ~/.config/fish/completions/:
-      glob: true
-      path: fish/completions/*
     ~/.config/fish/conf.d/:
       glob: true
       path: fish/conf.d/*

@@ -44,4 +44,6 @@ tags
 .idea/
 .vscode/
 .tool-versions
+.mise.local.toml
+.mise.*.local.toml
 .~lock.*#
