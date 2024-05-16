@@ -64,6 +64,7 @@ return {
 	},
 	config = function(_, opts)
 		vim.treesitter.language.register("ini", "editorconfig")
+		vim.treesitter.language.register("hcl", "nomad")
 		require("nvim-treesitter.configs").setup(opts)
 	end,
 }
