@@ -25,6 +25,7 @@
 	prune = true
 [rebase]
 	autosquash = true
+	autostash = true
 [http "https://gopkg.in"]
 	followRedirects = true
 [pull]
