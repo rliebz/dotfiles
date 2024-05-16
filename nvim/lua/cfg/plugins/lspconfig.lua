@@ -11,12 +11,14 @@ return {
 		local lspconfig = require("lspconfig")
 		require("lspconfig.ui.windows").default_options.border = "rounded"
 
+		local Methods = vim.lsp.protocol.Methods
+
 		local function code_action_sync(client, bufnr, kind)
 			local params = vim.lsp.util.make_range_params()
 			params.context = { only = { kind } }
 
 			local timeout_ms = 1000
-			local resp, err = client.request_sync("textDocument/codeAction", params, timeout_ms, bufnr)
+			local resp, err = client.request_sync(Methods.textDocument_codeAction, params, timeout_ms, bufnr)
 			if err or not resp or resp.err or not resp.result or not resp.result[1] then
 				return
 			end
@@ -48,7 +50,6 @@ return {
 
 				local opts = { buffer = args.buf, silent = true }
 				vim.keymap.set("n", "<c-]>", vim.lsp.buf.definition, opts)
-				vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 				vim.keymap.set({ "i", "n" }, "<c-k>", vim.lsp.buf.signature_help, opts)
 				vim.keymap.set("n", "gr", "<Cmd>Telescope lsp_references<CR>", opts)
 				vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
@@ -70,7 +71,7 @@ return {
 					group = augroup,
 					buffer = args.buf,
 					callback = function()
-						if client.supports_method("textDocument/codeAction") then
+						if client.supports_method(Methods.textDocument_codeAction) then
 							code_action_sync(client, args.buf, "source.organizeImports")
 						end
 					end,

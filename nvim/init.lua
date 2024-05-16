@@ -2,10 +2,6 @@ vim.keymap.set("", "<Space>", "<Nop>", { silent = true })
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-if vim.env.COLORTERM == "truecolor" then
-	vim.o.termguicolors = true
-end
-
 vim.cmd.colorscheme("dots")
 
 vim.o.colorcolumn = "80"
@@ -71,10 +67,12 @@ vim.keymap.set("", "gp", '"+p')
 vim.keymap.set("", "gP", '"+P')
 
 vim.keymap.set("n", "<leader>di", vim.diagnostic.open_float, { desc = "Diagnostic info", silent = true })
-vim.keymap.set("n", "<leader>de", vim.diagnostic.enable, { desc = "Enable diagnostics", silent = true })
-vim.keymap.set("n", "<leader>dd", vim.diagnostic.disable, { desc = "Disable diagnostics", silent = true })
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic", silent = true })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic", silent = true })
+vim.keymap.set("n", "<leader>de", function()
+	vim.diagnostic.enable(true)
+end, { desc = "Enable diagnostics", silent = true })
+vim.keymap.set("n", "<leader>dd", function()
+	vim.diagnostic.enable(false)
+end, { desc = "Disable diagnostics", silent = true })
 
 vim.keymap.set("n", "<leader>l", "<Cmd>Lazy<CR>", { desc = "Open Lazy" })
 

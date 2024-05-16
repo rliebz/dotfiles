@@ -7,7 +7,7 @@ return {
 	},
 	config = function()
 		local extract = function(mapping)
-			return vim.tbl_flatten(vim.tbl_values(mapping))
+			return vim.iter(vim.tbl_values(mapping)):flatten():totable()
 		end
 
 		local tools = {
