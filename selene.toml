@@ -1,0 +1,4 @@
+std = "selene.neovim"
+
+[lints]
+mixed_table = "allow"

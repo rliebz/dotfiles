@@ -7,8 +7,7 @@ return {
 				args = { "fmt", "-" },
 			},
 			prettierd = {
-				---@diagnostic disable-next-line: unused-local
-				condition = function(self, ctx)
+				condition = function(_, ctx)
 					return next(vim.fs.find({
 						".prettierrc",
 						".prettierrc.json",

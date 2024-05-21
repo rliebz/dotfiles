@@ -10,3 +10,9 @@ tasks:
   update:
     usage: Update submodules to the latest versions
     run: git submodule update --remote
+
+  lint:
+    usage: Run static analysis
+    run:
+      - stylua --check .
+      - selene .

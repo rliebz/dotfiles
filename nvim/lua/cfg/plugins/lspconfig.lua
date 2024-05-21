@@ -195,11 +195,6 @@ return {
 			},
 		}
 
-		local lsp_server_names = {}
-		for server_name in pairs(server_configs) do
-			table.insert(lsp_server_names, server_name)
-		end
-
 		lspconfig.util.default_config = vim.tbl_deep_extend("force", lspconfig.util.default_config, {
 			capabilities = require("cmp_nvim_lsp").default_capabilities(),
 		})

@@ -42,7 +42,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 To install all the usual software:
 
 ```fish
-brew install curl fzf git gnu-sed go gpg neovim python ripgrep trash rliebz/tusk/tusk
+brew install curl fzf git gnu-sed go gpg neovim python ripgrep selene trash rliebz/tusk/tusk
 brew install --HEAD neovim
 brew install --cask bitwarden docker firefox keepingyouawake kitty
 ```

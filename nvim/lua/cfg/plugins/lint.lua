@@ -10,6 +10,7 @@ return {
 			dockerfile = { "hadolint" },
 			fish = { "fish" },
 			less = { "stylelint" },
+			lua = { "selene" },
 			markdown = { "markdownlint" },
 			python = { "flake8" },
 			sass = { "stylelint" },
