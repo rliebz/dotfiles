@@ -1,11 +1,12 @@
 return {
 	"nvim-neotest/neotest",
 	dependencies = {
+		"nvim-neotest/nvim-nio",
 		"nvim-lua/plenary.nvim",
 		"nvim-treesitter/nvim-treesitter",
 		"antoinemadec/FixCursorHold.nvim",
 		-- Adapters
-		"nvim-neotest/neotest-go",
+		"fredrikaverpil/neotest-golang",
 		"marilari88/neotest-vitest",
 	},
 	event = "VeryLazy",
@@ -23,10 +24,10 @@ return {
 
 		require("neotest").setup({
 			adapters = {
-				require("neotest-go")({
-					args = {
+				require("neotest-golang")({
+					go_test_args = {
 						"-count=1",
-						"-tags integration",
+						"-tags=integration",
 					},
 				}),
 				require("neotest-vitest"),
