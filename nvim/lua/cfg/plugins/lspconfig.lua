@@ -88,6 +88,7 @@ return {
 			bashls = {},
 			cssls = {},
 			eslint = {},
+			gdscript = {},
 			golangci_lint_ls = {},
 			gopls = {
 				settings = {
