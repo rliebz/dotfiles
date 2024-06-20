@@ -13,5 +13,6 @@ return {
 			file = "-tags integration",
 			suite = "-tags integration",
 		}
+		vim.g["test#javascript#vitest#options"] = "--no-coverage"
 	end,
 }
