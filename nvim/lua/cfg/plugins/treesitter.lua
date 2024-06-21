@@ -14,6 +14,7 @@ return {
 		indent = {
 			enable = true,
 			disable = {
+				"sql",
 				"yaml",
 			},
 		},
