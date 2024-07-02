@@ -6,10 +6,10 @@ return {
 	},
 	opts = {
 		presets = {
-			command_palette = true,
 			lsp_doc_border = true,
 		},
 		cmdline = {
+			enabled = false,
 			format = {
 				filter = { pattern = "^:%s*!", icon = "%", lang = "fish" },
 			},
