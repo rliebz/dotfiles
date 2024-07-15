@@ -148,13 +148,30 @@ return {
 			},
 			rust_analyzer = {},
 			solargraph = {},
-			tsserver = {
+			typst_lsp = {},
+			vtsls = {
 				on_attach = function(client)
 					client.server_capabilities.documentFormattingProvider = false
 					client.server_capabilities.documentRangeFormattingProvider = false
 				end,
+				settings = {
+					vtsls = {
+						enableMoveToFileCodeAction = true,
+						autoUseWorkspaceTsdk = true,
+						experimental = {
+							completion = {
+								enableServerSideFuzzyMatch = true,
+							},
+						},
+					},
+					typescript = {
+						updateImportsOnFileMove = { enabled = "always" },
+						suggest = {
+							completeFunctionCalls = true,
+						},
+					},
+				},
 			},
-			typst_lsp = {},
 			yamlls = {
 				settings = {
 					yaml = {
