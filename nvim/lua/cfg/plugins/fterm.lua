@@ -1,5 +1,6 @@
 return {
 	"numToStr/FTerm.nvim",
+	event = "VeryLazy",
 	keys = {
 		{
 			"<C-t>",

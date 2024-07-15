@@ -1,5 +1,6 @@
 return {
 	"vim-test/vim-test",
+	event = "VeryLazy",
 	keys = {
 		{ "<leader>tn", vim.cmd.TestNearest },
 		{ "<leader>tf", vim.cmd.TestFile },
