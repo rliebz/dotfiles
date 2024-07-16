@@ -67,12 +67,18 @@ vim.keymap.set("", "gp", '"+p')
 vim.keymap.set("", "gP", '"+P')
 
 vim.keymap.set("n", "<leader>di", vim.diagnostic.open_float, { desc = "Diagnostic info", silent = true })
-vim.keymap.set("n", "<leader>de", function()
-	vim.diagnostic.enable(true)
-end, { desc = "Enable diagnostics", silent = true })
-vim.keymap.set("n", "<leader>dd", function()
-	vim.diagnostic.enable(false)
-end, { desc = "Disable diagnostics", silent = true })
+vim.keymap.set(
+	"n",
+	"<leader>de",
+	function() vim.diagnostic.enable(true) end,
+	{ desc = "Enable diagnostics", silent = true }
+)
+vim.keymap.set(
+	"n",
+	"<leader>dd",
+	function() vim.diagnostic.enable(false) end,
+	{ desc = "Disable diagnostics", silent = true }
+)
 
 vim.keymap.set("n", "<leader>l", "<Cmd>Lazy<CR>", { desc = "Open Lazy" })
 

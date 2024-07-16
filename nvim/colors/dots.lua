@@ -2,9 +2,7 @@ vim.o.background = "dark"
 vim.cmd.highlight("clear")
 vim.g.colors_name = "dots"
 
-local function highlight(...)
-	vim.api.nvim_set_hl(0, ...)
-end
+local function highlight(...) vim.api.nvim_set_hl(0, ...) end
 
 ---------
 -- Colors

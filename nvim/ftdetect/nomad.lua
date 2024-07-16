@@ -3,7 +3,5 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 		"*.nomad",
 		"*.nomad.hcl",
 	},
-	callback = function()
-		vim.bo.filetype = "nomad"
-	end,
+	callback = function() vim.bo.filetype = "nomad" end,
 })

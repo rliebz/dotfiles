@@ -31,15 +31,11 @@ return {
 
 						return vim.fn.fnamemodify(dir, ":~:.")
 					end,
-					cond = function()
-						return vim.o.filetype == "oil"
-					end,
+					cond = function() return vim.o.filetype == "oil" end,
 				},
 				{
 					"filename",
-					cond = function()
-						return vim.o.filetype ~= "oil"
-					end,
+					cond = function() return vim.o.filetype ~= "oil" end,
 					path = 1,
 				},
 			},

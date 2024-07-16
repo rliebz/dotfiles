@@ -4,9 +4,7 @@ return {
 	keys = {
 		{
 			"<C-t>",
-			function()
-				require("FTerm").toggle()
-			end,
+			function() require("FTerm").toggle() end,
 			mode = { "n", "t" },
 			silent = true,
 		},

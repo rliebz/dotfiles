@@ -7,18 +7,8 @@ return {
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	},
 	keys = {
-		{
-			"<C-p>",
-			function()
-				vim.cmd.Telescope("find_files")
-			end,
-		},
-		{
-			"<C-f>",
-			function()
-				vim.cmd.Telescope("live_grep")
-			end,
-		},
+		{ "<C-p>", function() vim.cmd.Telescope("find_files") end },
+		{ "<C-f>", function() vim.cmd.Telescope("live_grep") end },
 	},
 	config = function()
 		local telescope = require("telescope")

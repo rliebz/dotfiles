@@ -11,11 +11,6 @@ return {
 		},
 	},
 	keys = {
-		{
-			"<leader>S",
-			function()
-				require("spectre").open()
-			end,
-		},
+		{ "<leader>S", function() require("spectre").open() end },
 	},
 }
