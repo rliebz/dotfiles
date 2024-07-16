@@ -87,6 +87,15 @@ vim.diagnostic.config({
 			return string.format("[%s] %s", diagnostic.source, diagnostic.message)
 		end,
 	},
+	severity_sort = true,
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = "●",
+			[vim.diagnostic.severity.WARN] = "●",
+			[vim.diagnostic.severity.INFO] = "●",
+			[vim.diagnostic.severity.HINT] = "●",
+		},
+	},
 })
 
 require("cfg.lazy")
