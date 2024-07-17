@@ -33,6 +33,10 @@ return {
 		end
 
 		local actions = require("telescope.actions")
+		local action_set = require("telescope.actions.set")
+		local page_down = function(prompt_bufnr) action_set.shift_selection(prompt_bufnr, 25) end
+		local page_up = function(prompt_bufnr) action_set.shift_selection(prompt_bufnr, -25) end
+
 		telescope.setup({
 			defaults = {
 				hidden = true,
@@ -45,6 +49,12 @@ return {
 					i = {
 						["<C-j>"] = actions.move_selection_next,
 						["<C-k>"] = actions.move_selection_previous,
+						["<C-d>"] = page_down,
+						["<C-u>"] = page_up,
+					},
+					n = {
+						["<C-d>"] = page_down,
+						["<C-u>"] = page_up,
 					},
 				},
 				vimgrep_arguments = rg({
