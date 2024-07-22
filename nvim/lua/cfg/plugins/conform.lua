@@ -53,7 +53,7 @@ return {
 		},
 		format_on_save = {
 			timeout_ms = 1000,
-			lsp_fallback = "always",
+			lsp_format = "last",
 			quiet = true,
 		},
 	},
