@@ -61,6 +61,11 @@ return {
 		},
 	},
 	config = function(_, opts)
+		vim.wo.foldlevel = 99
+		vim.wo.foldmethod = "expr"
+		vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+		vim.wo.foldtext = ""
+
 		vim.treesitter.language.register("ini", "editorconfig")
 		vim.treesitter.language.register("hcl", "nomad")
 		require("nvim-treesitter.configs").setup(opts)
