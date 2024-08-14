@@ -9,7 +9,7 @@ Don't follow these steps unless you are me.
 The usual steps are:
 
 1. Trackpad > Tracking Speed: Set to the second notch from the right
-1. Keyboard > Keyboard > Key Repeat: Farthest notch ont he right
+1. Keyboard > Keyboard > Key Repeat: Farthest notch on the right
 1. Keyboard > Keyboard > Delay Until Repeat: Second notch from the right
 1. Keyboard > Text: Turn basically everything off
 1. Accessibility > Pointer Control > Trackpad Options: Enable dragging with
