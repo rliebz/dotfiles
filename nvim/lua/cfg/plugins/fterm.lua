@@ -3,7 +3,7 @@ return {
 	event = "VeryLazy",
 	keys = {
 		{
-			"<C-t>",
+			"<C-/>",
 			function() require("FTerm").toggle() end,
 			mode = { "n", "t" },
 			silent = true,
