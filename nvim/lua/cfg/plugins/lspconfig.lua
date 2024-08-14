@@ -3,7 +3,6 @@ return {
 	dependencies = {
 		"williamboman/mason.nvim",
 		{ "williamboman/mason-lspconfig.nvim", opts = { automatic_installation = true } },
-		{ "folke/neodev.nvim", opts = {} },
 		"hrsh7th/cmp-nvim-lsp",
 		"b0o/schemastore.nvim",
 	},
