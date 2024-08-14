@@ -1,7 +1,7 @@
 return {
 	-- Base16 colors
 	black = "#000000",
-	bright_black = "#00313a",
+	bright_black = "#00515a",
 	red = "#f84425",
 	dark_red = "#ad18ff",
 	green = "#a2f009",
@@ -12,12 +12,13 @@ return {
 	dark_blue = "#458fff",
 	magenta = "#ff57fe",
 	dark_magenta = "#ffa0fe",
-	cyan = "#00bee2",
-	dark_cyan = "#007f9a",
+	cyan = "#00cee2",
+	dark_cyan = "#008f9a",
 	white = "#dbf8ff",
 	dark_white = "#91a6ab",
 
 	-- General-purpose backgrounds dark enough for syntax highlighted text
+	highlight_cyan = "#00313a",
 	highlight_purple = "#180d34",
 	highlight_green = "#0a2400",
 	highlight_blue = "#101c40",

@@ -3,7 +3,7 @@ local colors = require("cfg.colors")
 local function defaults_with(opts)
 	local out = {
 		a = { fg = colors.black, bg = colors.white, gui = "bold" },
-		b = { fg = colors.cyan, bg = colors.bright_black },
+		b = { fg = colors.cyan, bg = colors.highlight_cyan },
 		c = { fg = colors.black, bg = colors.dark_cyan },
 		x = { fg = colors.green, bg = colors.dark_cyan },
 		y = { fg = colors.black, bg = colors.cyan },
@@ -32,8 +32,8 @@ return {
 		a = { fg = colors.black, bg = colors.green, gui = "bold" },
 	}),
 	inactive = {
-		a = { fg = colors.dark_cyan, bg = colors.bright_black, gui = "bold" },
-		b = { fg = colors.dark_cyan, bg = colors.bright_black },
-		c = { fg = colors.dark_cyan, bg = colors.bright_black },
+		a = { fg = colors.dark_cyan, bg = colors.highlight_cyan, gui = "bold" },
+		b = { fg = colors.dark_cyan, bg = colors.highlight_cyan },
+		c = { fg = colors.dark_cyan, bg = colors.highlight_cyan },
 	},
 }

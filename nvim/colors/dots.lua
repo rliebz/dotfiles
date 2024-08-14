@@ -75,12 +75,12 @@ highlight("CursorLine", { bg = colors.highlight_purple, sp = colors.yellow })
 highlight("Directory", { fg = colors.blue })
 highlight("DiffAdd", { bg = colors.highlight_green })
 highlight("DiffChange", { bg = colors.highlight_blue })
-highlight("DiffDelete", { fg = colors.bright_black })
+highlight("DiffDelete", { fg = colors.highlight_cyan })
 highlight("DiffText", { bg = colors.highlight_light_blue })
 highlight("ErrorMsg", { fg = colors.red })
 highlight("WinSeparator", { fg = colors.dark_cyan, bg = colors.dark_cyan })
 highlight("VertSplit", { link = "WinSeparator" })
-highlight("Folded", { fg = colors.cyan, bg = colors.bright_black })
+highlight("Folded", { fg = colors.cyan, bg = colors.highlight_cyan })
 highlight("FoldColumn", { fg = colors.dark_cyan })
 highlight("SignColumn", { bg = gutter_bg })
 highlight("IncSearch", { fg = colors.yellow, bg = colors.dark_cyan })
@@ -94,7 +94,7 @@ highlight("Normal", { fg = colors.white })
 highlight("NormalFloat", { fg = colors.white })
 highlight("Pmenu", { fg = colors.white, bg = colors.highlight_green })
 highlight("PmenuSel", { fg = colors.yellow, bg = colors.dark_cyan })
-highlight("PmenuSbar", { bg = colors.bright_black })
+highlight("PmenuSbar", { bg = colors.highlight_cyan })
 highlight("PmenuThumb", { bg = colors.dark_cyan })
 highlight("Question", { fg = colors.magenta })
 highlight("Search", { bg = colors.dark_cyan })
@@ -106,7 +106,7 @@ highlight("SpellRare", { sp = colors.yellow, undercurl = true })
 highlight("StatusLine", { fg = colors.cyan, bg = colors.dark_cyan })
 highlight("StatusLineNC", { fg = colors.dark_white, bg = colors.highlight_green })
 highlight("TabLine", { fg = colors.black, bg = colors.dark_cyan })
-highlight("TabLineFill", { fg = colors.white, bg = colors.bright_black })
+highlight("TabLineFill", { fg = colors.white, bg = colors.highlight_cyan })
 highlight("TabLineSel", { fg = colors.black, bg = colors.cyan })
 highlight("Title", { fg = colors.dark_green, bold = true })
 highlight("Visual", { bg = colors.highlight_green })
@@ -363,7 +363,7 @@ vim.g.go_highlight_variable_assignments = 0
 -- lightline
 local color_to_number = {
 	[colors.black] = 0,
-	[colors.bright_black] = 8,
+	[colors.highlight_cyan] = 8,
 	[colors.red] = 1,
 	[colors.dark_red] = 9,
 	[colors.green] = 2,
@@ -414,15 +414,15 @@ vim.g["lightline#colorscheme#dots#palette"] = fill({
 	},
 	inactive = {
 		left = {
-			{ fg = colors.dark_cyan, bg = colors.bright_black },
-			{ fg = colors.dark_cyan, bg = colors.bright_black },
+			{ fg = colors.dark_cyan, bg = colors.highlight_cyan },
+			{ fg = colors.dark_cyan, bg = colors.highlight_cyan },
 		},
 		middle = {
-			{ fg = colors.dark_cyan, bg = colors.bright_black },
+			{ fg = colors.dark_cyan, bg = colors.highlight_cyan },
 		},
 		right = {
-			{ fg = colors.dark_cyan, bg = colors.bright_black },
-			{ fg = colors.dark_cyan, bg = colors.bright_black },
+			{ fg = colors.dark_cyan, bg = colors.highlight_cyan },
+			{ fg = colors.dark_cyan, bg = colors.highlight_cyan },
 		},
 	},
 	insert = {
@@ -448,7 +448,7 @@ vim.g["lightline#colorscheme#dots#palette"] = fill({
 			{ fg = colors.black, bg = colors.dark_cyan },
 		},
 		middle = {
-			{ fg = colors.black, bg = colors.bright_black },
+			{ fg = colors.black, bg = colors.highlight_cyan },
 		},
 		right = {
 			{ fg = colors.black, bg = colors.dark_cyan },
