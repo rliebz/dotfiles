@@ -12,10 +12,12 @@ The usual steps are:
 1. Keyboard > Keyboard > Key Repeat: Farthest notch on the right
 1. Keyboard > Keyboard > Delay Until Repeat: Second notch from the right
 1. Keyboard > Text: Turn basically everything off
-1. Accessibility > Pointer Control > Trackpad Options: Enable dragging with
+1. Accessibility > Pointer Control> Trackpad Options: Enable dragging with
    three finger drag
-1. Dock & Menu Bar > Bluetooth: Show in Menu Bar
-1. Dock & Menu Bar > Dock & Menu Bar: Turn off Show recent applications in dock
+1. Control Center > Bluetooth: Show in Menu Bar
+1. Desktop & Dock > Dock: Turn off Show recent applications in dock
+1. Desktop & Dock > Mission Control: Turn off Automatically rearrange Spaces
+   based on most recent use
 
 ### Fonts
 
