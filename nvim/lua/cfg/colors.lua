@@ -20,9 +20,9 @@ return {
 	-- General-purpose backgrounds dark enough for syntax highlighted text
 	highlight_cyan = "#00313a",
 	highlight_purple = "#180d34",
-	highlight_green = "#0a2400",
-	highlight_blue = "#101c40",
-	highlight_light_blue = "#1c356d",
+	highlight_green = "#0f3600",
+	highlight_blue = "#15275c",
+	highlight_light_blue = "#3a5cac",
 	highlight_red = "#240a00",
 
 	-- Backgrounds for the named foreground color

@@ -62,12 +62,16 @@ highlight("Error", { sp = colors.red, undercurl = true })
 
 highlight("Todo", { fg = colors.red })
 
+highlight("Added", { bg = colors.highlight_green })
+highlight("Changed", { bg = colors.highlight_blue })
+highlight("Removed", { bg = colors.highlight_cyan })
+
 -----------------------------------------
 -- Highlight Groups (:h highlight-groups)
 -----------------------------------------
 
 highlight("ColorColumn", { bg = colors.highlight_purple })
-highlight("Conceal", {})
+highlight("Conceal", { fg = colors.bright_black })
 highlight("Cursor", { fg = colors.black, bg = colors.blue })
 highlight("CursorIM", {})
 highlight("CursorColumn", { bg = colors.highlight_green })
