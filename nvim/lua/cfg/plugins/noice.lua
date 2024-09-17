@@ -1,5 +1,6 @@
 return {
 	"folke/noice.nvim",
+	tag = "v4.4.7",
 	event = "VeryLazy",
 	dependencies = {
 		"MunifTanjim/nui.nvim",
@@ -33,12 +34,4 @@ return {
 			},
 		},
 	},
-	config = function(_, opts)
-		-- This seems to cause flickering on search, but the hack is irrelevant if
-		-- we're not using the command palette.
-		---@diagnostic disable: duplicate-set-field
-		require("noice.util.hacks").fix_redraw = function() end
-
-		require("noice").setup(opts)
-	end,
 }
