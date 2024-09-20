@@ -1,6 +1,5 @@
 return {
 	"folke/noice.nvim",
-	tag = "v4.4.7",
 	event = "VeryLazy",
 	dependencies = {
 		"MunifTanjim/nui.nvim",
