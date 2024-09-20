@@ -27,7 +27,7 @@ return {
 
 	-- Backgrounds for the named foreground color
 	background_blue = "#2a194d",
-	background_cyan = "#003f35",
+	background_cyan = "#003f45",
 	background_red = "#48240c",
 	background_green = "#274101",
 	background_yellow = "#663e01",
