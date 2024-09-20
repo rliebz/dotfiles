@@ -292,6 +292,15 @@ highlight("diffFile", { fg = colors.blue })
 highlight("diffIndexLine", { link = "diffFile" })
 highlight("diffLine", { fg = colors.cyan })
 
+-- GrugFar
+highlight("GrugFarHelpHeader", { fg = colors.cyan })
+highlight("GrugFarInputLabel", { fg = colors.magenta })
+highlight("GrugFarInputPlaceholder", { fg = colors.dark_white, bg = colors.highlight_purple })
+highlight("GrugFarResultsHeader", { fg = colors.dark_cyan })
+highlight("GrugFarResultsActionMessage", { fg = colors.blue })
+highlight("GrugFarResultsPath", { fg = colors.magenta, bold = true, underline = true })
+highlight("GrugFarResultsNumberLabel", { fg = colors.dark_magenta })
+
 -- Lspconfig
 highlight("LspInfoBorder", { link = "FloatBorder" })
 
@@ -326,6 +335,9 @@ highlight("@comment.note", { fg = colors.cyan })
 highlight("@comment.todo", { link = "Todo" })
 highlight("@constant.builtin", { fg = colors.dark_blue, italic = true })
 highlight("@constructor", {})
+highlight("@diff.delta", { fg = colors.blue, bg = colors.background_blue })
+highlight("@diff.plus", { fg = colors.green, bg = colors.background_green })
+highlight("@diff.minus", { fg = colors.red, bg = colors.background_red })
 highlight("@function.builtin", { fg = colors.dark_blue, italic = true })
 highlight("@keyword.import", { link = "Keyword" })
 highlight("@markup.emphasis", { italic = true })
