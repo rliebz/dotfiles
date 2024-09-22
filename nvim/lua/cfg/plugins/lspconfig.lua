@@ -55,6 +55,8 @@ return {
 				vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, opts)
 				vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 				vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+				vim.keymap.set({ "n", "v" }, "<leader>cc", vim.lsp.codelens.run, opts)
+				vim.keymap.set({ "n" }, "<leader>cC", vim.lsp.codelens.refresh, opts)
 				vim.keymap.set(
 					"n",
 					"<leader>cA",
@@ -68,6 +70,14 @@ return {
 					end,
 					opts
 				)
+
+				if client.supports_method("textDocument/codeLens") then
+					vim.lsp.codelens.refresh()
+					vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
+						buffer = args.buf,
+						callback = vim.lsp.codelens.refresh,
+					})
+				end
 
 				local augroup = vim.api.nvim_create_augroup("lsp_organize_imports_%d" .. client.name, { clear = false })
 				vim.api.nvim_clear_autocmds({ group = augroup, buffer = args.buf })
