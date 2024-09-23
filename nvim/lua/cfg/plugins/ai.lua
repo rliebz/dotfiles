@@ -3,6 +3,7 @@ return {
 	opts = function()
 		local ai = require("mini.ai")
 		return {
+			n_lines = 500,
 			custom_textobjects = {
 				-- Argument with better whitespace handling
 				a = ai.gen_spec.argument({ separator = "%s*,%s*" }),
