@@ -80,8 +80,6 @@ vim.keymap.set(
 	{ desc = "Disable diagnostics", silent = true }
 )
 
-vim.keymap.set("n", "<leader>l", "<Cmd>Lazy<CR>", { desc = "Open Lazy" })
-
 vim.diagnostic.config({
 	float = {
 		border = "rounded",

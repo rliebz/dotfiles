@@ -19,3 +19,9 @@ require("lazy").setup("cfg.plugins", {
 		notify = false,
 	},
 })
+
+vim.api.nvim_create_autocmd("User", {
+	pattern = "VeryLazy",
+	once = true,
+	callback = function() vim.keymap.set("n", "<leader>l", "<Cmd>Lazy<CR>", { desc = "Open Lazy" }) end,
+})
