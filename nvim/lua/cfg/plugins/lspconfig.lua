@@ -4,6 +4,7 @@ return {
 		"williamboman/mason.nvim",
 		{ "williamboman/mason-lspconfig.nvim", opts = { automatic_installation = true } },
 		"hrsh7th/cmp-nvim-lsp",
+		{ "icholy/lsplinks.nvim", opts = {} },
 		"b0o/schemastore.nvim",
 	},
 	config = function()
@@ -70,6 +71,7 @@ return {
 					end,
 					opts
 				)
+				vim.keymap.set({ "n", "v" }, "gx", require("lsplinks").gx)
 
 				if client.supports_method("textDocument/codeLens") then
 					vim.lsp.codelens.refresh()
