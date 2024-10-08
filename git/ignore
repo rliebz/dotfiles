@@ -8,6 +8,7 @@ __pycache__/
 *.o
 *.py[cod]
 *.so
+*.spl
 
 # Temporary / Backup files #
 *~
