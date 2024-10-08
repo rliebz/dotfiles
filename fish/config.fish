@@ -3,6 +3,10 @@ set -g fish_greeting
 # XDG bin directory
 fish_add_path -P $HOME/.local/bin
 
+# Datadog
+set -gx DD_TRACE_ENABLED false
+set -gx DD_PROFILING_ENABLED false
+
 # Docker
 set -gx DOCKER_SCAN_SUGGEST false
 
