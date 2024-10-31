@@ -97,6 +97,7 @@ return {
 
 		local server_configs = {
 			bashls = {},
+			biome = {},
 			cssls = {},
 			eslint = {},
 			gdscript = {},
