@@ -13,30 +13,34 @@ return {
 
 		local Methods = vim.lsp.protocol.Methods
 
-		---@param client vim.lsp.Client
-		---@param bufnr integer
-		---@param kind lsp.CodeActionKind | string
-		local function code_action_sync(client, bufnr, kind)
-			local params = vim.lsp.util.make_range_params()
-			params.context = {
-				only = { kind },
-				diagnostics = {},
-			}
-
-			local timeout_ms = 1000
-			local resp, err = client.request_sync(Methods.textDocument_codeAction, params, timeout_ms, bufnr)
-			if err or not resp or resp.err or not resp.result or not resp.result[1] then
-				return
+		---@param kind lsp.CodeActionKind
+		---@param only lsp.CodeActionKind[]?
+		local function matchesOnly(kind, only)
+			if not only then
+				return true
 			end
 
-			---@type lsp.CodeAction | lsp.Command
-			local action = resp.result[1]
-			if action.kind and action.kind ~= kind then
+			for _, pattern in ipairs(only) do
+				if kind == pattern or vim.startswith(kind, pattern .. ".") then
+					return true
+				end
+			end
+
+			return false
+		end
+
+		---@param client vim.lsp.Client
+		---@param bufnr integer
+		---@param only lsp.CodeActionKind[]?
+		---@param action lsp.CodeAction | lsp.Command
+		---@param timeout_ms integer
+		local function handle_edit_sync(client, bufnr, only, action, timeout_ms)
+			if action.kind and not matchesOnly(action.kind, only) then
 				return
 			end
 
 			if not action.edit and not action.command then
-				resp, err = client.request_sync(Methods.codeAction_resolve, action, timeout_ms, bufnr)
+				local resp, err = client.request_sync(Methods.codeAction_resolve, action, timeout_ms, bufnr)
 				if err or not resp or resp.err or not resp.result then
 					return
 				end
@@ -61,6 +65,28 @@ return {
 					command = action.command,
 					arguments = action.arguments,
 				})
+			end
+		end
+
+		---@param client vim.lsp.Client
+		---@param bufnr integer
+		---@param only lsp.CodeActionKind[]?
+		local function code_action_sync(client, bufnr, only)
+			local params = vim.lsp.util.make_range_params(0, client.offset_encoding)
+			params.context = {
+				only = only,
+				diagnostics = {},
+			}
+
+			local timeout_ms = 1000
+			local resp, err = client.request_sync(Methods.textDocument_codeAction, params, timeout_ms, bufnr)
+			if err or not resp or resp.err or not resp.result or not resp.result[1] then
+				return
+			end
+
+			for _, action in ipairs(resp.result) do
+				---@cast action lsp.CodeAction | lsp.Command
+				handle_edit_sync(client, bufnr, only, action, timeout_ms)
 			end
 		end
 
@@ -112,7 +138,10 @@ return {
 					buffer = args.buf,
 					callback = function()
 						if client.supports_method(Methods.textDocument_codeAction) then
-							code_action_sync(client, args.buf, "source.organizeImports")
+							code_action_sync(client, args.buf, {
+								"source.organizeImports",
+								"source.fixAll",
+							})
 						end
 					end,
 				})
