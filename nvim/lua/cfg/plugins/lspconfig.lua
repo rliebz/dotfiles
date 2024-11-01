@@ -138,6 +138,10 @@ return {
 					buffer = args.buf,
 					callback = function()
 						if client.supports_method(Methods.textDocument_codeAction) then
+							if client.name == "vtsls" then
+								return
+							end
+
 							code_action_sync(client, args.buf, {
 								"source.organizeImports",
 								"source.fixAll",
@@ -177,6 +181,10 @@ return {
 			},
 			intelephense = {},
 			jsonls = {
+				on_attach = function(client)
+					client.server_capabilities.documentFormattingProvider = false
+					client.server_capabilities.documentRangeFormattingProvider = false
+				end,
 				settings = {
 					json = {
 						schemas = require("schemastore").json.schemas(),
