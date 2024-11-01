@@ -13,9 +13,15 @@ return {
 
 		local Methods = vim.lsp.protocol.Methods
 
+		---@param client vim.lsp.Client
+		---@param bufnr integer
+		---@param kind lsp.CodeActionKind | string
 		local function code_action_sync(client, bufnr, kind)
 			local params = vim.lsp.util.make_range_params()
-			params.context = { only = { kind } }
+			params.context = {
+				only = { kind },
+				diagnostics = {},
+			}
 
 			local timeout_ms = 1000
 			local resp, err = client.request_sync(Methods.textDocument_codeAction, params, timeout_ms, bufnr)
@@ -23,20 +29,38 @@ return {
 				return
 			end
 
-			local result = resp.result[1]
-			if result.kind and result.kind ~= kind then
+			---@type lsp.CodeAction | lsp.Command
+			local action = resp.result[1]
+			if action.kind and action.kind ~= kind then
 				return
 			end
 
-			if result.edit or type(result.command) == "table" then
-				if result.edit then
-					vim.lsp.util.apply_workspace_edit(result.edit, client.offset_encoding)
+			if not action.edit and not action.command then
+				resp, err = client.request_sync(Methods.codeAction_resolve, action, timeout_ms, bufnr)
+				if err or not resp or resp.err or not resp.result then
+					return
 				end
-				if type(result.command) == "table" then
-					vim.lsp.buf.execute_command(result.command)
+
+				action = resp.result
+			end
+
+			if action.edit or type(action.command) == "table" then
+				---@cast action lsp.CodeAction
+				if action.edit then
+					vim.lsp.util.apply_workspace_edit(action.edit, client.offset_encoding)
 				end
-			else
-				vim.lsp.buf.execute_command(result)
+				if action.command ~= nil then
+					vim.lsp.buf.execute_command({
+						command = action.command.command,
+						arguments = action.command.arguments,
+					})
+				end
+			elseif type(action.command) == "string" then
+				---@cast action lsp.Command
+				vim.lsp.buf.execute_command({
+					command = action.command,
+					arguments = action.arguments,
+				})
 			end
 		end
 
