@@ -1,12 +1,11 @@
 return {
 	"luukvbaal/statuscol.nvim",
-	branch = "0.10",
 	config = function()
 		local builtin = require("statuscol.builtin")
 		require("statuscol").setup({
 			segments = {
 				{
-					sign = { name = { ".*" } },
+					sign = { namespace = { "diagnostic/signs" } },
 					click = "v:lua.ScSa",
 				},
 				{
