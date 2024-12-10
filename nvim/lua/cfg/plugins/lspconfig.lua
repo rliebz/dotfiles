@@ -271,7 +271,10 @@ return {
 							url = "",
 						},
 						schemas = require("schemastore").yaml.schemas({
-							ignore = { "gitlab-ci" },
+							ignore = {
+								"gitlab-ci",
+								"openapi.json",
+							},
 						}),
 						customTags = {
 							"!reference sequence",
