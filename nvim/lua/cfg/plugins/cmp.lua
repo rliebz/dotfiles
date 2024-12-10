@@ -50,9 +50,7 @@ return {
 					cmp.config.compare.exact,
 					cmp.config.compare.score,
 					cmp.config.compare.sort_text,
-					---@diagnostic disable-next-line: assign-type-mismatch
 					cmp.config.compare.recently_used,
-					---@diagnostic disable-next-line: assign-type-mismatch
 					cmp.config.compare.locality,
 					cmp.config.compare.kind,
 					cmp.config.compare.length,
