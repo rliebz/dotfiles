@@ -29,6 +29,7 @@ fish_add_path -P $CARGO_HOME/bin
 # Mise
 set -gx MISE_ACTIVATE_AGGRESSIVE true
 set -gx MISE_EXPERIMENTAL true
+set -gx MISE_DEFAULT_CONFIG_FILENAME .mise.local.toml
 
 # Editor defaults
 if command -sq nvim
