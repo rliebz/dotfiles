@@ -227,7 +227,7 @@ return {
 			},
 			rust_analyzer = {},
 			solargraph = {},
-			typst_lsp = {},
+			tinymist = {},
 			vtsls = {
 				on_attach = function(client)
 					client.server_capabilities.documentFormattingProvider = false
