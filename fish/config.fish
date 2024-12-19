@@ -11,7 +11,11 @@ set -gx DD_PROFILING_ENABLED false
 set -gx DOCKER_SCAN_SUGGEST false
 
 # FZF
-set -gx FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS --bind ctrl-a:select-all,ctrl-d:deselect-all"
+set -gx FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS --bind $(
+    string join , \
+    ctrl-u:half-page-up \
+    ctrl-d:half-page-down \
+)"
 
 # Go
 set -gx GOPATH $HOME/.local/share/go

@@ -246,6 +246,9 @@ highlight("SignifyAdd", { fg = colors.green, bg = gutter_bg })
 highlight("SignifyDelete", { fg = colors.red, bg = gutter_bg })
 highlight("SignifyChange", { fg = colors.yellow, bg = gutter_bg })
 
+-- FzfLua
+highlight("FzfLuaBorder", { link = "FloatBorder" })
+
 -- GitGutter
 highlight("GitGutterAdd", { fg = colors.green, bg = gutter_bg })
 highlight("GitGutterDelete", { fg = colors.red, bg = gutter_bg })
