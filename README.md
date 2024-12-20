@@ -4,7 +4,7 @@ Don't follow these steps unless you are me.
 
 ## System
 
-### MacOS System Preferences
+### macOS System Preferences
 
 The usual steps are:
 
@@ -24,9 +24,7 @@ The usual steps are:
 - JetBrains Mono NL: <https://www.jetbrains.com/lp/mono/>
 - NerdFontsSymbolsOnly: <https://github.com/ryanoasis/nerd-fonts/releases>
 
-## Command-Line
-
-### Dependencies
+### macOS Dependencies
 
 First, homebrew:
 
@@ -43,14 +41,10 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 To install all the usual software:
 
-```fish
-brew install curl fzf git gnu-sed go gpg neovim python ripgrep selene trash rliebz/tusk/tusk
-brew install --HEAD neovim
+```bash
+brew install curl fish fzf git gnu-sed gpg mise neovim pipx ripgrep trash rliebz/tusk/tusk
 brew install --cask bitwarden docker firefox keepingyouawake kitty
 ```
-
-Next install the JetBrains Mono Nerd Font here:
-<https://www.nerdfonts.com/font-downloads>
 
 Don't swap to Fish or Kitty yet.
 
@@ -70,14 +64,14 @@ cat ~/.ssh/id_ed25519.pub | pbcopy
 
 Clone this repo into the appropriate directory:
 
-```fish
+```bash
 git clone git@github.com:rliebz/dotfiles.git $HOME/.dotfiles
 cd $HOME/.dotfiles
 ```
 
 With that, the dotfiles can be installed:
 
-```fish
+```bash
 ./scripts/install
 ```
 
@@ -89,8 +83,6 @@ chsh -s "$(which fish)"
 ```
 
 Swap to kitty now.
-
-[github-ssh]: https://github.com/settings/ssh/new
 
 ## Making Changes
 
@@ -112,3 +104,5 @@ else, the following local dotfiles files are read automatically:
 
 - `~/.gitconfig.local`
 - `~/.vimrc.lua`
+
+[github-ssh]: https://github.com/settings/ssh/new

@@ -1,12 +1,12 @@
 #!/usr/bin/env fish
-for cmd in curl git python3
-  if ! command -q $cmd
-    echo "$req is required for installation" >&2
-    exit 1
-  end
+for cmd in curl git pipx
+    if ! command -q $cmd
+        echo "$req is required for installation" >&2
+        exit 1
+    end
 end
 
 git submodule sync --quiet --recursive
 git submodule update --init --recursive
 
-SHELL=fish ./dotbot/bin/dotbot -c install.conf.yaml
+SHELL=fish pipx run dotbot -c install.conf.yaml

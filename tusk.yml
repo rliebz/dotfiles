@@ -7,10 +7,6 @@ tasks:
     usage: Remove all symlinks that point to the dotfiles directory
     run: ./scripts/uninstall
 
-  update:
-    usage: Update submodules to the latest versions
-    run: git submodule update --remote
-
   lint:
     usage: Run static analysis
     run:
