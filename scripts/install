@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 for cmd in curl git pipx
     if ! command -q $cmd
-        echo "$req is required for installation" >&2
+        echo "$cmd is required for installation" >&2
         exit 1
     end
 end
