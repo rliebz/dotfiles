@@ -48,3 +48,5 @@ tags
 .mise.local.toml
 .mise.*.local.toml
 .~lock.*#
+
+# vi:ft=gitignore
