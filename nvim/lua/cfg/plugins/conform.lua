@@ -1,5 +1,7 @@
 return {
 	"stevearc/conform.nvim",
+	---@module "conform"
+	---@type conform.setupOpts
 	opts = {
 		formatters = {
 			nomad_fmt = {
@@ -7,26 +9,9 @@ return {
 				args = { "fmt", "-" },
 			},
 			prettierd = {
-				condition = function(_, ctx)
-					return next(vim.fs.find({
-						".prettierrc",
-						".prettierrc.json",
-						".prettierrc.yml",
-						".prettierrc.yaml",
-						".prettierrc.json5",
-						".prettierrc.js",
-						".prettier.config.js",
-						".prettierrc.mjs",
-						".prettier.config.mjs",
-						".prettierrc.cjs",
-						".prettier.config.cjs",
-						".prettierrc.toml",
-						"node_modules/prettier",
-					}, {
-						upward = true,
-						path = ctx.dirname,
-						stop = vim.uv.os_homedir(),
-					}))
+				condition = function(self, ctx)
+					-- Only enable in directories where explicitly configured
+					return require("conform.formatters.prettierd").cwd(self, ctx) --[[@as boolean]]
 				end,
 			},
 		},
