@@ -17,12 +17,12 @@ vim.opt.listchars = { tab = "⟶ ", space = "·", trail = "·", nbsp = "␣" }
 vim.o.matchtime = 2
 vim.o.number = true
 vim.o.scrolloff = 5
+vim.o.shiftwidth = 0
+vim.opt.shortmess:append("c")
 vim.o.showmatch = true
 vim.o.showmode = false
 vim.o.signcolumn = "yes"
 vim.o.smartcase = true
-vim.o.shiftwidth = 0
-vim.opt.shortmess:append("c")
 vim.o.softtabstop = -1
 vim.o.swapfile = false
 vim.o.tabstop = 2
