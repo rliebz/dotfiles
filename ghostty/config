@@ -22,3 +22,5 @@ foreground = #dbf8ff
 cursor-color = #b08500
 selection-foreground = #ffffff
 selection-background = #007992
+
+# vi:ft=conf
