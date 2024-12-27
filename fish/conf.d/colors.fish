@@ -36,4 +36,4 @@ set -gx FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS --color fg:7,bg:-1,hl:6,fg+:7,bg+:8,
 set -gx FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS --color info:14,border:14,prompt:5,spinner:5,pointer:3,marker:3,header:15"
 
 # jq
-set -gx JQ_COLORS '1;97:0;39:0;39:0;39:0;32:1;39:1;39'
+set -gx JQ_COLORS '3;94:3;93:3;93:0;33:0;32:0;34:0;34:0;36'
