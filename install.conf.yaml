@@ -19,6 +19,7 @@
       glob: true
       path: fish/functions/*
     ~/.config/flake8: flake8
+    ~/.config/ghostty: ghostty
     ~/.config/git: git
     ~/.config/hadolint.yaml: hadolint.yaml
     ~/.config/kitty: kitty
