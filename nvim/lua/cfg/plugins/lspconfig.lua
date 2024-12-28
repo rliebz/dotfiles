@@ -1,9 +1,9 @@
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
+		"saghen/blink.cmp",
 		"williamboman/mason.nvim",
 		{ "williamboman/mason-lspconfig.nvim", opts = { automatic_installation = true } },
-		"hrsh7th/cmp-nvim-lsp",
 		{ "icholy/lsplinks.nvim", opts = {} },
 		"b0o/schemastore.nvim",
 	},
@@ -284,11 +284,8 @@ return {
 			},
 		}
 
-		lspconfig.util.default_config = vim.tbl_deep_extend("force", lspconfig.util.default_config, {
-			capabilities = require("cmp_nvim_lsp").default_capabilities(),
-		})
-
 		for server, config in pairs(server_configs) do
+			config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
 			lspconfig[server].setup(config)
 		end
 	end,

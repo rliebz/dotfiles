@@ -189,6 +189,14 @@ highlight("ALEErrorSign", { link = "DiagnosticSignError" })
 highlight("ALEWarningSign", { link = "DiagnosticSignWarn" })
 highlight("ALEInfoSign", { link = "DiagnosticSignInfo" })
 
+-- Blink
+highlight("BlinkCmpMenu", { link = "NormalFloat" })
+highlight("BlinkCmpMenuBorder", { link = "FloatBorder" })
+highlight("BlinkCmpDocBorder", { link = "FloatBorder" })
+highlight("BlinkCmpDocSeparator", { link = "BlinkCmpDocBorder" })
+highlight("BlinkCmpSignatureHelpBorder", { link = "BlinkCmpDocBorder" })
+highlight("BlinkCmpSignatureHelpSeparator", { link = "BlinkCmpSignatureHelpBorder" })
+
 -- Clover
 highlight("CloverCovered", { fg = colors.green })
 highlight("CloverUncovered", { fg = colors.red })

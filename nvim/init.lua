@@ -11,6 +11,7 @@ vim.opt.diffopt:append("vertical")
 vim.opt.fileformats = { "unix", "dos", "mac" }
 vim.opt.fillchars = { foldsep = " ", foldopen = "", foldclose = "", diff = "╱" }
 vim.o.foldcolumn = "auto:1"
+vim.o.linebreak = true
 vim.o.ignorecase = true
 vim.o.list = true
 vim.opt.listchars = { tab = "⟶ ", space = "·", trail = "·", nbsp = "␣" }
