@@ -1,5 +1,5 @@
 #!/usr/bin/env fish
-pipx run dotbot \
+dotbot \
     --disable-built-in-plugins \
     --plugin ./scripts/uninstall.py \
     --only link \

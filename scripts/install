@@ -1,5 +1,5 @@
 #!/usr/bin/env fish
-for cmd in curl git pipx
+for cmd in curl git dotbot
     if ! command -q $cmd
         echo "$cmd is required for installation" >&2
         exit 1
@@ -9,4 +9,4 @@ end
 git submodule sync --quiet --recursive
 git submodule update --init --recursive
 
-SHELL=fish pipx run dotbot -c install.conf.yaml
+SHELL=fish dotbot -c install.conf.yaml
