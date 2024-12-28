@@ -5,7 +5,10 @@ return {
 		require("statuscol").setup({
 			segments = {
 				{
-					sign = { namespace = { "diagnostic/signs" } },
+					sign = {
+						name = { ".*" },
+						namespace = { "diagnostic/signs" },
+					},
 					click = "v:lua.ScSa",
 				},
 				{
