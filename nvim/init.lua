@@ -58,7 +58,12 @@ vim.keymap.set("", "j", "gj")
 vim.keymap.set("", "k", "gk")
 
 vim.keymap.set("n", "<leader>V", "<Cmd>source $MYVIMRC<CR>", { desc = "Reload configuration" })
-vim.keymap.set("n", "<leader>qq", "<Cmd>cclose | pclose | helpclose<CR>", { desc = "Close windows" })
+vim.keymap.set(
+	"n",
+	"<leader>qq",
+	"<Cmd>cclose | pclose | helpclose<CR>",
+	{ desc = "Close windows" }
+)
 vim.keymap.set("n", "<leader>ss", "<Cmd>setlocal spell!<CR>", { desc = "Toggle spelling" })
 vim.keymap.set("n", "<leader>hi", "<Cmd>Inspect<CR>", { desc = "Inspect" })
 vim.keymap.set("n", "<C-s>", "<Cmd>w!<CR>", { desc = "Save buffer" })
@@ -66,7 +71,12 @@ vim.keymap.set("", "gy", '"+y')
 vim.keymap.set("", "gp", '"+p')
 vim.keymap.set("", "gP", '"+P')
 
-vim.keymap.set("n", "<leader>di", vim.diagnostic.open_float, { desc = "Diagnostic info", silent = true })
+vim.keymap.set(
+	"n",
+	"<leader>di",
+	vim.diagnostic.open_float,
+	{ desc = "Diagnostic info", silent = true }
+)
 vim.keymap.set(
 	"n",
 	"<leader>de",
@@ -85,7 +95,12 @@ vim.diagnostic.config({
 		border = "rounded",
 		format = function(diagnostic)
 			if diagnostic.code then
-				return string.format("[%s: %s] %s", diagnostic.source, diagnostic.code, diagnostic.message)
+				return string.format(
+					"[%s: %s] %s",
+					diagnostic.source,
+					diagnostic.code,
+					diagnostic.message
+				)
 			end
 
 			return string.format("[%s] %s", diagnostic.source, diagnostic.message)

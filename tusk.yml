@@ -7,6 +7,10 @@ tasks:
     usage: Remove all symlinks that point to the dotfiles directory
     run: ./scripts/uninstall
 
+  fmt:
+    usage: Format local files
+    run: stylua .
+
   lint:
     usage: Run static analysis
     run:

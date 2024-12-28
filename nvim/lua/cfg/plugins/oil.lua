@@ -13,7 +13,9 @@ local ignored_file_patterns = {
 
 return {
 	"stevearc/oil.nvim",
-	init = function() vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" }) end,
+	init = function()
+		vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
+	end,
 	opts = {
 		columns = {
 			{ "icon", add_padding = false },

@@ -6,7 +6,9 @@ return {
 		"mfussenegger/nvim-lint",
 	},
 	config = function()
-		local extract = function(mapping) return vim.iter(vim.tbl_values(mapping)):flatten():totable() end
+		local extract = function(mapping)
+			return vim.iter(vim.tbl_values(mapping)):flatten():totable()
+		end
 
 		local tools = {
 			"shellcheck", -- optional dependency of bash-language-server

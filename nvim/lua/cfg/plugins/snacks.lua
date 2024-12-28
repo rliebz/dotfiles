@@ -3,7 +3,12 @@ return {
 	priority = 1000,
 	lazy = false,
 	keys = {
-		{ "<c-/>", function() require("snacks").terminal() end, desc = "Toggle Terminal", mode = { "n", "t" } },
+		{
+			"<c-/>",
+			function() require("snacks").terminal() end,
+			desc = "Toggle Terminal",
+			mode = { "n", "t" },
+		},
 	},
 	opts = {
 		terminal = {

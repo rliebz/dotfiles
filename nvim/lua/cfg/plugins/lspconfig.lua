@@ -40,7 +40,8 @@ return {
 			end
 
 			if not action.edit and not action.command then
-				local resp, err = client.request_sync(Methods.codeAction_resolve, action, timeout_ms, bufnr)
+				local resp, err =
+					client.request_sync(Methods.codeAction_resolve, action, timeout_ms, bufnr)
 				if err or not resp or resp.err or not resp.result then
 					return
 				end
@@ -79,7 +80,8 @@ return {
 			}
 
 			local timeout_ms = 1000
-			local resp, err = client.request_sync(Methods.textDocument_codeAction, params, timeout_ms, bufnr)
+			local resp, err =
+				client.request_sync(Methods.textDocument_codeAction, params, timeout_ms, bufnr)
 			if err or not resp or resp.err or not resp.result or not resp.result[1] then
 				return
 			end
@@ -131,7 +133,10 @@ return {
 					})
 				end
 
-				local augroup = vim.api.nvim_create_augroup("lsp_organize_imports_%d" .. client.name, { clear = false })
+				local augroup = vim.api.nvim_create_augroup(
+					"code_action_format_%d" .. client.name,
+					{ clear = false }
+				)
 				vim.api.nvim_clear_autocmds({ group = augroup, buffer = args.buf })
 				vim.api.nvim_create_autocmd("BufWritePre", {
 					group = augroup,
