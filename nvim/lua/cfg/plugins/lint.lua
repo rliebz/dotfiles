@@ -12,7 +12,6 @@ return {
 			less = { "stylelint" },
 			lua = { "selene" },
 			markdown = { "markdownlint" },
-			python = { "flake8" },
 			sass = { "stylelint" },
 			scss = { "stylelint" },
 			yaml = { "yamllint" },

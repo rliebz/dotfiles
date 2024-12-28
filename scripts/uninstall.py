@@ -1,7 +1,7 @@
+import glob
 import os
 
 import dotbot
-import glob
 
 
 class Uninstall(dotbot.Plugin):

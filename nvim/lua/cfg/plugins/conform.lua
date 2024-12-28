@@ -29,7 +29,6 @@ return {
 			markdown = { "prettierd" },
 			["markdown.mdx"] = { "prettierd" },
 			nomad = { "nomad_fmt", "trim_newlines" },
-			python = { "black" },
 			scss = { "prettierd" },
 			terraform = { "terraform_fmt" },
 			typescript = { "prettierd" },
