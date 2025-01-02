@@ -15,6 +15,7 @@ return {
 			win = {
 				border = "rounded",
 				position = "float",
+				row = 0.03,
 			},
 		},
 	},
