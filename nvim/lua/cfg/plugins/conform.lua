@@ -4,10 +4,6 @@ return {
 	---@type conform.setupOpts
 	opts = {
 		formatters = {
-			nomad_fmt = {
-				command = "nomad",
-				args = { "fmt", "-" },
-			},
 			prettierd = {
 				condition = function(self, ctx)
 					-- Only enable in directories where explicitly configured
