@@ -64,10 +64,17 @@ return {
 		},
 	},
 	config = function(_, opts)
-		vim.wo.foldlevel = 99
-		vim.wo.foldmethod = "expr"
-		vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-		vim.wo.foldtext = ""
+		vim.api.nvim_create_autocmd("FileType", {
+			callback = function(ev)
+				if not pcall(vim.treesitter.get_parser, ev.buf) then
+					return
+				end
+
+				vim.opt_local.foldmethod = "expr"
+				vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+				vim.opt_local.foldtext = ""
+			end,
+		})
 
 		vim.treesitter.language.register("hcl", "nomad")
 		require("nvim-treesitter.configs").setup(opts)
