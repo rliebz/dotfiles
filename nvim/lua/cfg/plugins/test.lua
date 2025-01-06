@@ -7,7 +7,7 @@ return {
 		{ "<leader>ts", vim.cmd.TestSuite },
 		{ "<leader>tl", vim.cmd.TestLast },
 	},
-	config = function()
+	init = function()
 		vim.g["test#go#gotest#options"] = {
 			all = "-count 1",
 			nearest = "-tags blackbox,e2e,integration,integrity,loadtest,qualitrics_integration",

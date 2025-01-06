@@ -63,7 +63,7 @@ return {
 			},
 		},
 	},
-	config = function(_, opts)
+	init = function()
 		vim.api.nvim_create_autocmd("FileType", {
 			callback = function(ev)
 				if not pcall(vim.treesitter.get_parser, ev.buf) then
@@ -77,6 +77,5 @@ return {
 		})
 
 		vim.treesitter.language.register("hcl", "nomad")
-		require("nvim-treesitter.configs").setup(opts)
 	end,
 }
