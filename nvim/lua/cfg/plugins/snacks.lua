@@ -11,6 +11,9 @@ return {
 		},
 	},
 	opts = {
+		bigfile = {
+			notify = false,
+		},
 		terminal = {
 			win = {
 				border = "rounded",
