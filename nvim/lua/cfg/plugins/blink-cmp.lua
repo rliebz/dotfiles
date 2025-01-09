@@ -34,7 +34,10 @@ return {
 				},
 			},
 			list = {
-				selection = "manual",
+				selection = {
+					auto_insert = false,
+					preselect = false,
+				},
 			},
 		},
 		signature = {
