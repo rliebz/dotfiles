@@ -33,19 +33,19 @@ set -g fish_color_history_current --bold
 
 # fzf
 set -gx FZF_DEFAULT_OPTS (string join " " -- "$FZF_DEFAULT_OPTS" --color (string join , \
-    fg:7 \
+    fg:#dbf8ff \
     bg:-1 \
-    hl:6 \
-    fg+:7 \
-    bg+:8 \
-    hl+:6 \
-    info:14 \
-    border:14 \
-    prompt:5 \
-    spinner:5 \
-    pointer:3 \
-    marker:3 \
-    header:15 \
+    hl:#00cee2 \
+    fg+:#dbf8ff \
+    bg+:#180d34 \
+    hl+:#00cee2 \
+    info:#008f9a \
+    border:#008f9a \
+    prompt:#ff57fe \
+    pointer:#ffb702 \
+    marker:#ffb702 \
+    spinner:#ff57fe \
+    header:#91a6ab \
 ))
 
 # jq

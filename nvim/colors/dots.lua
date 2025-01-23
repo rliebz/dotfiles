@@ -270,19 +270,19 @@ highlight("FloatermBorder", { link = "FloatBorder" })
 
 -- FZF
 vim.g.fzf_colors = {
-	fg = { "fg", "Normal" },
-	bg = { "bg", "Normal" },
-	hl = { "fg", "Constant" },
-	["fg+"] = { "fg", "Normal" },
-	["bg+"] = { "bg", "ColorColumn" },
-	["hl+"] = { "fg", "Constant" },
-	info = { "bg", "Search" },
-	border = { "fg", "VertSplit" },
-	prompt = { "fg", "Label" },
-	pointer = { "fg", "Number" },
-	marker = { "fg", "Number" },
-	spinner = { "fg", "Label" },
-	header = { "fg", "Comment" },
+	fg = colors.white,
+	bg = "-1",
+	hl = colors.cyan,
+	["fg+"] = colors.white,
+	["bg+"] = colors.highlight_purple,
+	["hl+"] = colors.cyan,
+	info = colors.dark_cyan,
+	border = colors.dark_cyan,
+	prompt = colors.magenta,
+	pointer = colors.yellow,
+	marker = colors.yellow,
+	spinner = colors.magenta,
+	header = colors.dark_white,
 }
 
 -- Diagnostics
