@@ -42,7 +42,6 @@ return {
 				function() gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") }) end
 			)
 			map("n", "<leader>hS", gitsigns.stage_buffer)
-			map("n", "<leader>hu", gitsigns.undo_stage_hunk)
 			map("n", "<leader>hR", gitsigns.reset_buffer)
 			map("n", "<leader>hp", gitsigns.preview_hunk)
 			map("n", "<leader>hb", function() gitsigns.blame_line({ full = true }) end)
