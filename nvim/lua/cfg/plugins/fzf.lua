@@ -23,5 +23,8 @@ return {
 			git_icons = false,
 			no_header = true,
 		},
+		grep = {
+			rg_opts = [[--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --hidden -g "!.git" -e]],
+		},
 	},
 }
