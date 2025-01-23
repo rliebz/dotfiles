@@ -3,6 +3,11 @@ set -g fish_greeting
 # XDG bin directory
 fish_add_path -P $HOME/.local/bin
 
+# Homebrew
+set -gx HOMEBREW_NO_ANALYTICS 1
+set -gx HOMEBREW_NO_ENV_HINTS 1
+fish_add_path -P /opt/homebrew/bin
+
 # Datadog
 set -gx DD_TRACE_ENABLED false
 set -gx DD_PROFILING_ENABLED false
@@ -11,6 +16,9 @@ set -gx DD_PROFILING_ENABLED false
 set -gx DOCKER_SCAN_SUGGEST false
 
 # FZF
+if command -sq fzf
+    fzf --fish | source
+end
 set -gx FZF_DEFAULT_OPTS (string join " " -- "$FZF_DEFAULT_OPTS" --bind (
     string join , -- \
     ctrl-u:half-page-up \
@@ -20,11 +28,6 @@ set -gx FZF_DEFAULT_OPTS (string join " " -- "$FZF_DEFAULT_OPTS" --bind (
 # Go
 set -gx GOPATH $HOME/.local/share/go
 fish_add_path -P $GOPATH/bin
-
-# Homebrew
-set -gx HOMEBREW_NO_ANALYTICS 1
-set -gx HOMEBREW_NO_ENV_HINTS 1
-fish_add_path -P /opt/homebrew/bin
 
 # Rust
 set -gx CARGO_HOME $HOME/.local/share/cargo
