@@ -12,10 +12,6 @@ return {
 		keymap = {
 			fzf = {
 				["ctrl-q"] = "select-all+accept",
-				["ctrl-u"] = "half-page-up",
-				["ctrl-d"] = "half-page-down",
-				["ctrl-a"] = "beginning-of-line",
-				["ctrl-e"] = "end-of-line",
 			},
 		},
 		winopts = {
