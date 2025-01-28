@@ -8,6 +8,8 @@ return {
 			preset = "enter",
 			["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
 			["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+			["<Up>"] = { function(cmp) cmp.cancel() end, "fallback" },
+			["<Down>"] = { function(cmp) cmp.cancel() end, "fallback" },
 		},
 		sources = {
 			default = {
