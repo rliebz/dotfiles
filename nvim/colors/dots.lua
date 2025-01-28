@@ -257,6 +257,8 @@ highlight("SignifyChange", { fg = colors.yellow, bg = gutter_bg })
 
 -- FzfLua
 highlight("FzfLuaBorder", { link = "FloatBorder" })
+highlight("FzfLuaLivePrompt", { link = "Normal" })
+highlight("FzfLuaLiveSym", { link = "Normal" })
 
 -- GitGutter
 highlight("GitGutterAdd", { fg = colors.green, bg = gutter_bg })
