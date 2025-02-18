@@ -14,6 +14,18 @@ return {
 		bigfile = {
 			notify = false,
 		},
+		input = {
+			enabled = true,
+			win = {
+				width = 50,
+				relative = "cursor",
+				row = -3,
+				title_pos = "left",
+			},
+		},
+		picker = {
+			ui_select = true,
+		},
 		terminal = {
 			win = {
 				border = "rounded",
