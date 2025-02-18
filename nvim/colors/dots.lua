@@ -174,6 +174,7 @@ highlight("yamlKeyValueDelimiter", { link = "@punctuation" })
 
 -- For drawing borders around floating windows
 highlight("FloatBorder", { fg = colors.dark_cyan })
+highlight("FloatTitle", { fg = colors.magenta })
 
 -- For inline diffing
 highlight("DiffAddInline", { fg = colors.green, bg = colors.background_green })
@@ -259,6 +260,8 @@ highlight("SignifyChange", { fg = colors.yellow, bg = gutter_bg })
 highlight("FzfLuaBorder", { link = "FloatBorder" })
 highlight("FzfLuaLivePrompt", { link = "Normal" })
 highlight("FzfLuaLiveSym", { link = "Normal" })
+highlight("FzfLuaTitle", { link = "FloatTitle" })
+highlight("FzfLuaTitleFlags", { fg = colors.yellow })
 
 -- GitGutter
 highlight("GitGutterAdd", { fg = colors.green, bg = gutter_bg })
@@ -333,6 +336,11 @@ highlight("NotifyBackground", { bg = colors.black })
 
 -- Null LS
 highlight("NullLSInfoBorder", { link = "FloatBorder" })
+
+-- Snacks
+highlight("SnacksInputBorder", { fg = colors.cyan })
+highlight("SnacksInputIcon", { fg = colors.dark_cyan })
+highlight("SnacksInputTitle", { fg = colors.magenta })
 
 -- SQL
 highlight("sqlKeyword", { link = "Keyword" })
