@@ -96,7 +96,7 @@ return {
 			return function()
 				require("fzf-lua")[funcname]({
 					ignore_current_line = true,
-					jump_to_single_result = true,
+					jump1 = true,
 				})
 			end
 		end
