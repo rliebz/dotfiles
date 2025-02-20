@@ -20,7 +20,7 @@ return {
 		completion = {
 			accept = {
 				auto_brackets = {
-					enabled = true,
+					enabled = false,
 				},
 			},
 			menu = {
