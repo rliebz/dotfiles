@@ -37,6 +37,7 @@ fish_add_path -P $CARGO_HOME/bin
 set -gx MISE_ACTIVATE_AGGRESSIVE true
 set -gx MISE_EXPERIMENTAL true
 set -gx MISE_DEFAULT_CONFIG_FILENAME .mise.local.toml
+set -gx MISE_GO_SET_GOBIN false
 if command -sq mise; and test -z "$MISE_SHELL"
     mise activate fish | source
 end
