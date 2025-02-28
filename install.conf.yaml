@@ -21,7 +21,6 @@
     ~/.config/ghostty: ghostty
     ~/.config/git: git
     ~/.config/hadolint.yaml: hadolint.yaml
-    ~/.config/kitty: kitty
     ~/.config/nvim: nvim
     ~/.config/yamllint/config: yamllint.yml
     ~/.editorconfig: editorconfig

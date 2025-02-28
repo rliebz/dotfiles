@@ -43,10 +43,10 @@ To install all the usual software:
 
 ```bash
 brew install curl dotbot fish fzf git gnu-sed gpg mise neovim ripgrep trash rliebz/tusk/tusk
-brew install --cask bitwarden docker firefox keepingyouawake kitty
+brew install --cask bitwarden docker firefox keepingyouawake ghostty
 ```
 
-Don't swap to Fish or Kitty yet.
+Don't swap to Fish or Ghostty yet.
 
 ### Installation
 
@@ -82,7 +82,7 @@ echo "$(which fish)" | sudo tee -a /etc/shells
 chsh -s "$(which fish)"
 ```
 
-Swap to kitty now.
+Swap to Ghostty now.
 
 ## Making Changes
 
