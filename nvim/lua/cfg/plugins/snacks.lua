@@ -38,6 +38,14 @@ return {
 					},
 				},
 			},
+			sources = {
+				files = {
+					hidden = true,
+				},
+				grep = {
+					hidden = true,
+				},
+			},
 			ui_select = true,
 		},
 		terminal = {
