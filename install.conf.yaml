@@ -26,11 +26,3 @@
     ~/.editorconfig: editorconfig
     ~/.config/markdownlint/config: markdownlint.jsonc
     ~/.hushlogin: hushlogin
-
-- shell:
-    - command: >
-        if ! type -q fisher
-          curl -sL https://git.io/fisher | source
-          and fisher update
-        end
-      description: Updating fisher plugins
