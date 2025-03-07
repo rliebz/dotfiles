@@ -2,6 +2,7 @@ return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
 		"saghen/blink.cmp",
+		"folke/snacks.nvim",
 		"williamboman/mason.nvim",
 		{ "williamboman/mason-lspconfig.nvim", opts = { automatic_installation = true } },
 		{ "icholy/lsplinks.nvim", opts = {} },
@@ -92,15 +93,6 @@ return {
 			end
 		end
 
-		local function fzf_lua(funcname)
-			return function()
-				require("fzf-lua")[funcname]({
-					ignore_current_line = true,
-					jump1 = true,
-				})
-			end
-		end
-
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("lsp_attach", {}),
 			callback = function(args)
@@ -110,18 +102,18 @@ return {
 				end
 
 				local opts = { buffer = args.buf, silent = true }
-				vim.keymap.set("n", "<c-]>", fzf_lua("lsp_definitions"), opts)
-				vim.keymap.set("n", "gr", fzf_lua("lsp_references"), opts)
-				vim.keymap.set("n", "gi", fzf_lua("lsp_implementations"), opts)
-				vim.keymap.set("n", "gt", fzf_lua("lsp_typedefs"), opts)
-				vim.keymap.set({ "i", "n" }, "<c-k>", vim.lsp.buf.signature_help, opts)
-				vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-				vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+				vim.keymap.set("n", "<c-]>", Snacks.picker.lsp_definitions, opts)
+				vim.keymap.set("n", "grn", vim.lsp.buf.rename, opts)
+				vim.keymap.set("n", "grr", Snacks.picker.lsp_references, opts)
+				vim.keymap.set("n", "gri", Snacks.picker.lsp_implementations, opts)
+				vim.keymap.set("n", "grt", Snacks.picker.lsp_type_definitions, opts)
+				vim.keymap.set({ "i", "s" }, "<c-s>", vim.lsp.buf.signature_help, opts)
 				vim.keymap.set({ "n", "v" }, "<leader>cc", vim.lsp.codelens.run, opts)
 				vim.keymap.set({ "n" }, "<leader>cC", vim.lsp.codelens.refresh, opts)
+				vim.keymap.set({ "n", "v" }, "gra", vim.lsp.buf.code_action, opts)
 				vim.keymap.set(
 					"n",
-					"<leader>cA",
+					"grA",
 					function()
 						vim.lsp.buf.code_action({
 							context = {
