@@ -24,6 +24,20 @@ return {
 			},
 		},
 		picker = {
+			icons = {
+				files = {
+					enabled = false,
+				},
+			},
+			layouts = {
+				default = {
+					layout = {
+						box = "horizontal",
+						width = 0.9,
+						height = 0.9,
+					},
+				},
+			},
 			ui_select = true,
 		},
 		terminal = {
