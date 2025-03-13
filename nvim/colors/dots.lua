@@ -342,6 +342,7 @@ highlight("SnacksInputBorder", { fg = colors.cyan })
 highlight("SnacksInputIcon", { fg = colors.dark_cyan })
 highlight("SnacksInputTitle", { fg = colors.magenta })
 highlight("SnacksPickerCol", { fg = colors.dark_cyan })
+highlight("SnacksPickerDir", { link = "Directory" })
 highlight("SnacksPickerListCursorLine", { bg = colors.highlight_blue, bold = true })
 
 -- SQL
