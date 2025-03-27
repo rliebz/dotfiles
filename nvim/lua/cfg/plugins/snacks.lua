@@ -49,6 +49,9 @@ return {
 			},
 		},
 		picker = {
+			main = {
+				file = false,
+			},
 			icons = {
 				files = {
 					enabled = false,
