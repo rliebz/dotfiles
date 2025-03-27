@@ -42,7 +42,7 @@ return {
 
 			if not action.edit and not action.command then
 				local resp, err =
-					client.request_sync(Methods.codeAction_resolve, action, timeout_ms, bufnr)
+					client:request_sync(Methods.codeAction_resolve, action, timeout_ms, bufnr)
 				if err or not resp or resp.err or not resp.result then
 					return
 				end
@@ -56,17 +56,11 @@ return {
 					vim.lsp.util.apply_workspace_edit(action.edit, client.offset_encoding)
 				end
 				if action.command ~= nil then
-					vim.lsp.buf.execute_command({
-						command = action.command.command,
-						arguments = action.command.arguments,
-					})
+					client:exec_cmd(action.command)
 				end
 			elseif type(action.command) == "string" then
 				---@cast action lsp.Command
-				vim.lsp.buf.execute_command({
-					command = action.command,
-					arguments = action.arguments,
-				})
+				client:exec_cmd(action)
 			end
 		end
 
@@ -75,6 +69,7 @@ return {
 		---@param only lsp.CodeActionKind[]?
 		local function code_action_sync(client, bufnr, only)
 			local params = vim.lsp.util.make_range_params(0, client.offset_encoding)
+			---@cast params lsp.CodeActionParams
 			params.context = {
 				only = only,
 				diagnostics = {},
@@ -82,7 +77,7 @@ return {
 
 			local timeout_ms = 1000
 			local resp, err =
-				client.request_sync(Methods.textDocument_codeAction, params, timeout_ms, bufnr)
+				client:request_sync(Methods.textDocument_codeAction, params, timeout_ms, bufnr)
 			if err or not resp or resp.err or not resp.result or not resp.result[1] then
 				return
 			end
@@ -126,7 +121,7 @@ return {
 				)
 				vim.keymap.set({ "n", "v" }, "gx", require("lsplinks").gx)
 
-				if client.supports_method("textDocument/codeLens") then
+				if client:supports_method("textDocument/codeLens") then
 					vim.lsp.codelens.refresh()
 					vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
 						buffer = args.buf,
@@ -143,7 +138,7 @@ return {
 					group = augroup,
 					buffer = args.buf,
 					callback = function()
-						if client.supports_method(Methods.textDocument_codeAction) then
+						if client:supports_method(Methods.textDocument_codeAction) then
 							if client.name == "vtsls" then
 								return
 							end

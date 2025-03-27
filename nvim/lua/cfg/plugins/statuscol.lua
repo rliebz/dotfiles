@@ -7,7 +7,7 @@ return {
 				{
 					sign = {
 						name = { ".*" },
-						namespace = { "diagnostic/signs" },
+						namespace = { "diagnostic.signs" },
 					},
 					click = "v:lua.ScSa",
 				},
