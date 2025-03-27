@@ -47,6 +47,9 @@ if command -sq mise; and test -z "$MISE_SHELL"
     mise activate fish | source
 end
 
+# Bob
+fish_add_path -P $HOME/.local/share/bob/nvim-bin
+
 # Editor defaults
 if command -sq nvim
     set -gx EDITOR nvim
