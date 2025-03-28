@@ -26,6 +26,7 @@ return {
 	highlight_red = "#240a00",
 
 	-- Backgrounds for the named foreground color
+	background_black = "#001121",
 	background_blue = "#2a194d",
 	background_cyan = "#003f45",
 	background_red = "#48240c",

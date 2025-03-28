@@ -337,6 +337,13 @@ highlight("NotifyBackground", { bg = colors.black })
 -- Null LS
 highlight("NullLSInfoBorder", { link = "FloatBorder" })
 
+-- RenderMarkdown
+highlight("RenderMarkdownH3Bg", { fg = colors.dark_green, bg = colors.background_blue })
+highlight("RenderMarkdownH4Bg", { fg = colors.dark_green, bg = colors.background_blue })
+highlight("RenderMarkdownH5Bg", { fg = colors.dark_green, bg = colors.background_blue })
+highlight("RenderMarkdownH6Bg", { fg = colors.dark_green, bg = colors.background_blue })
+highlight("RenderMarkdownCode", { bg = colors.background_black })
+
 -- Snacks
 highlight("SnacksInputBorder", { fg = colors.cyan })
 highlight("SnacksInputIcon", { fg = colors.dark_cyan })
