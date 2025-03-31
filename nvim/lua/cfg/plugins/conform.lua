@@ -14,6 +14,7 @@ return {
 		formatters_by_ft = {
 			css = { "prettierd" },
 			fish = { "fish_indent" },
+			go = { "golangci-lint" },
 			hcl = { "nomad_fmt", "trim_newlines" },
 			html = { "prettierd" },
 			javascript = { "prettierd" },
