@@ -94,6 +94,9 @@ vim.keymap.set(
 )
 
 vim.diagnostic.config({
+	virtual_text = {
+		current_line = true,
+	},
 	float = {
 		format = function(diagnostic)
 			return string.format("[%s] %s", diagnostic.source, diagnostic.message)
