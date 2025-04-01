@@ -1,6 +1,6 @@
 return {
 	"saghen/blink.cmp",
-	version = "v0.*",
+	version = "*",
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
 	opts = {
