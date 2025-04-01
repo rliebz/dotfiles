@@ -10,7 +10,6 @@ return {
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
-		require("lspconfig.ui.windows").default_options.border = "rounded"
 
 		local Methods = vim.lsp.protocol.Methods
 

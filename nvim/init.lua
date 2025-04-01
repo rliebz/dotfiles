@@ -31,6 +31,7 @@ vim.o.swapfile = false
 vim.o.tabstop = 2
 vim.o.updatetime = 100
 vim.o.wrap = false
+vim.o.winborder = "rounded"
 
 -- Restore cursor position when opening new files
 local augroup_cursor_position = vim.api.nvim_create_augroup("cursor_position", {})
@@ -94,7 +95,6 @@ vim.keymap.set(
 
 vim.diagnostic.config({
 	float = {
-		border = "rounded",
 		format = function(diagnostic)
 			return string.format("[%s] %s", diagnostic.source, diagnostic.message)
 		end,

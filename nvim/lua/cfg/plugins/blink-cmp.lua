@@ -24,16 +24,12 @@ return {
 				},
 			},
 			menu = {
-				border = "rounded",
 				draw = {
 					treesitter = { "lsp" },
 				},
 			},
 			documentation = {
 				auto_show = true,
-				window = {
-					border = "rounded",
-				},
 			},
 			list = {
 				selection = {
@@ -44,9 +40,6 @@ return {
 		},
 		signature = {
 			enabled = true,
-			window = {
-				border = "rounded",
-			},
 		},
 	},
 }
