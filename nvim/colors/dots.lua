@@ -391,6 +391,19 @@ highlight("@variable", { fg = colors.white })
 highlight("@variable.builtin", { fg = colors.dark_blue, italic = true })
 highlight("@variable.member", { fg = colors.cyan })
 
+-- Remove special highlighting for backslash escapes specifically in LSP
+-- floating preview windows.
+local floating_preview_ns_id = vim.api.nvim_create_namespace("floating_preview_highlight")
+vim.api.nvim_set_hl(floating_preview_ns_id, "@string.escape.markdown_inline", { link = "Normal" })
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "markdown",
+	callback = function()
+		if vim.bo.buftype == "nofile" then
+			vim.api.nvim_win_set_hl_ns(0, floating_preview_ns_id)
+		end
+	end,
+})
+
 highlight("@constant.fish", { link = "@variable.fish" })
 highlight("@variable.fish", { fg = colors.cyan })
 
