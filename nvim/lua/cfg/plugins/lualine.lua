@@ -1,8 +1,5 @@
 return {
 	"nvim-lualine/lualine.nvim",
-	dependencies = {
-		"folke/noice.nvim",
-	},
 	opts = {
 		options = {
 			component_separators = { left = "|", right = "|" },
@@ -39,18 +36,7 @@ return {
 					path = 1,
 				},
 			},
-			lualine_x = {
-				{
-					function()
-						---@diagnostic disable-next-line: undefined-field
-						return require("noice").api.status.mode.get()
-					end,
-					cond = function()
-						---@diagnostic disable-next-line: undefined-field
-						return require("noice").api.status.mode.has()
-					end,
-				},
-			},
+			lualine_x = {},
 			lualine_y = {
 				"filetype",
 			},
