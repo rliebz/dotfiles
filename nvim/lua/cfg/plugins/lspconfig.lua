@@ -6,7 +6,6 @@ return {
 		"williamboman/mason.nvim",
 		{ "williamboman/mason-lspconfig.nvim", opts = { automatic_installation = true } },
 		{ "icholy/lsplinks.nvim", opts = {} },
-		"b0o/schemastore.nvim",
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
@@ -152,130 +151,34 @@ return {
 			end,
 		})
 
-		local server_configs = {
-			bashls = {},
-			biome = {},
-			cssls = {},
-			eslint = {},
-			gdscript = {},
-			golangci_lint_ls = {},
-			gopls = {
-				settings = {
-					gopls = {
-						linksInHover = false,
-						buildFlags = {
-							-- Enable common build flags used for test files
-							"-tags=blackbox,e2e,integration,integrity,loadtest,qualtrics_integration",
-						},
-						gofumpt = true,
-					},
-				},
-				before_init = function(_, config)
-					local module = vim.fn.trim(vim.fn.system("go list -m"))
-					if vim.v.shell_error ~= 0 or module == nil then
-						return
-					end
-					module = module:gsub("\n", ",")
-					config.settings.gopls["formatting.local"] = module
-				end,
-			},
-			intelephense = {},
-			jsonls = {
-				on_attach = function(client)
-					client.server_capabilities.documentFormattingProvider = false
-					client.server_capabilities.documentRangeFormattingProvider = false
-				end,
-				settings = {
-					json = {
-						schemas = require("schemastore").json.schemas(),
-						validate = { enable = true },
-					},
-				},
-			},
-			lua_ls = {
-				on_attach = function(client)
-					client.server_capabilities.documentFormattingProvider = false
-					client.server_capabilities.documentRangeFormattingProvider = false
-				end,
-				settings = {
-					Lua = {
-						completion = {
-							showWord = "Disable",
-						},
-						workspace = {
-							checkThirdParty = false,
-						},
-						telemetry = {
-							enable = false,
-						},
-					},
-				},
-			},
-			omnisharp = {},
-			pyright = {},
-			ruff = {},
-			rust_analyzer = {},
-			solargraph = {},
-			tinymist = {},
-			vtsls = {
-				on_attach = function(client)
-					client.server_capabilities.documentFormattingProvider = false
-					client.server_capabilities.documentRangeFormattingProvider = false
-				end,
-				settings = {
-					vtsls = {
-						enableMoveToFileCodeAction = true,
-						autoUseWorkspaceTsdk = true,
-						tsserver = {
-							globalPlugins = {
-								{
-									-- npm -g install @styled/typescript-styled-plugin
-									name = "@styled/typescript-styled-plugin",
-									location = vim.fn.expand(
-										"$HOME/.local/share/mise/installs/node/lts/lib/node_modules"
-									),
-									enableForWorkspaceTypeScriptVersions = true,
-								},
-							},
-						},
-						experimental = {
-							completion = {
-								enableServerSideFuzzyMatch = true,
-							},
-						},
-					},
-					typescript = {
-						updateImportsOnFileMove = { enabled = "always" },
-						suggest = {
-							completeFunctionCalls = true,
-						},
-					},
-				},
-			},
-			yamlls = {
-				settings = {
-					yaml = {
-						schemaStore = {
-							enable = false,
-							url = "",
-						},
-						schemas = require("schemastore").yaml.schemas({
-							ignore = {
-								"gitlab-ci",
-								"openapi.json",
-							},
-						}),
-						customTags = {
-							"!reference sequence",
-						},
-					},
-				},
-			},
-		}
-
-		for server, config in pairs(server_configs) do
-			config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
-			lspconfig[server].setup(config)
+		-- Legacy server configs, until lspconfig supports them properly
+		for _, server in ipairs({
+			"biome",
+			"eslint",
+			"omnisharp",
+		}) do
+			lspconfig[server].setup({
+				capabilities = require("blink.cmp").get_lsp_capabilities(),
+			})
 		end
+
+		vim.lsp.enable({
+			"bashls",
+			"cssls",
+			"gdscript",
+			"golangci_lint_ls",
+			"gopls",
+			"intelephense",
+			"jsonls",
+			"lua_ls",
+			"omnisharp",
+			"pyright",
+			"ruff",
+			"rust_analyzer",
+			"solargraph",
+			"tinymist",
+			"vtsls",
+			"yamlls",
+		})
 	end,
 }
