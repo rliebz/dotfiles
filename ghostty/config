@@ -4,6 +4,8 @@ font-size = 12
 keybind = ctrl+shift+,=move_tab:-1
 keybind = ctrl+shift+.=move_tab:1
 
+macos-option-as-alt = false
+
 palette = 0=#000000
 palette = 1=#f72c09
 palette = 2=#a2f009
