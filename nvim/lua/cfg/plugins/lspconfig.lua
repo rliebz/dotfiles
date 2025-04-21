@@ -153,7 +153,6 @@ return {
 
 		-- Legacy server configs, until lspconfig supports them properly
 		for _, server in ipairs({
-			"biome",
 			"eslint",
 			"omnisharp",
 		}) do
@@ -164,6 +163,7 @@ return {
 
 		vim.lsp.enable({
 			"bashls",
+			"biome",
 			"cssls",
 			"gdscript",
 			"golangci_lint_ls",
