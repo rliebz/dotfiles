@@ -151,20 +151,11 @@ return {
 			end,
 		})
 
-		-- Legacy server configs, until lspconfig supports them properly
-		for _, server in ipairs({
-			"eslint",
-			"omnisharp",
-		}) do
-			lspconfig[server].setup({
-				capabilities = require("blink.cmp").get_lsp_capabilities(),
-			})
-		end
-
 		vim.lsp.enable({
 			"bashls",
 			"biome",
 			"cssls",
+			"eslint",
 			"gdscript",
 			"golangci_lint_ls",
 			"gopls",
