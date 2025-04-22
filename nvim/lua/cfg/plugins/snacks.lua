@@ -39,6 +39,10 @@ return {
 		bigfile = {
 			notify = false,
 		},
+		image = {
+			enabled = false,
+			filetype = {}, -- ?
+		},
 		input = {
 			enabled = true,
 			win = {
