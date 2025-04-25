@@ -3,10 +3,30 @@ set -g fish_greeting
 # XDG bin directory
 fish_add_path -P $HOME/.local/bin
 
+# Mise
+set -gx MISE_ACTIVATE_AGGRESSIVE true
+set -gx MISE_EXPERIMENTAL true
+set -gx MISE_DEFAULT_CONFIG_FILENAME .mise.local.toml
+set -gx MISE_GO_SET_GOBIN false
+if command -sq mise; and test -z "$MISE_SHELL"
+    mise activate fish | source
+end
+
 # Homebrew
 set -gx HOMEBREW_NO_ANALYTICS 1
 set -gx HOMEBREW_NO_ENV_HINTS 1
 fish_add_path -P /opt/homebrew/bin
+
+# Bob
+fish_add_path -P $HOME/.local/share/bob/nvim-bin
+
+# Go
+set -gx GOPATH $HOME/.local/share/go
+fish_add_path -P $GOPATH/bin
+
+# Rust
+set -gx CARGO_HOME $HOME/.local/share/cargo
+fish_add_path -P $CARGO_HOME/bin
 
 # Datadog
 set -gx DD_TRACE_ENABLED false
@@ -25,30 +45,10 @@ set -gx FZF_DEFAULT_OPTS (string join " " -- "$FZF_DEFAULT_OPTS" --bind (
     ctrl-d:half-page-down \
 ))
 
-# Go
-set -gx GOPATH $HOME/.local/share/go
-fish_add_path -P $GOPATH/bin
-
-# Rust
-set -gx CARGO_HOME $HOME/.local/share/cargo
-fish_add_path -P $CARGO_HOME/bin
-
 # zoxide
 if command -sq zoxide
     zoxide init fish | source
 end
-
-# Mise
-set -gx MISE_ACTIVATE_AGGRESSIVE true
-set -gx MISE_EXPERIMENTAL true
-set -gx MISE_DEFAULT_CONFIG_FILENAME .mise.local.toml
-set -gx MISE_GO_SET_GOBIN false
-if command -sq mise; and test -z "$MISE_SHELL"
-    mise activate fish | source
-end
-
-# Bob
-fish_add_path -P $HOME/.local/share/bob/nvim-bin
 
 # Editor defaults
 if command -sq nvim
