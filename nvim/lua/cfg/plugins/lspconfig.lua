@@ -95,6 +95,7 @@ return {
 				end
 
 				local opts = { buffer = args.buf, silent = true }
+				vim.keymap.set("n", "K", function() vim.lsp.buf.hover({ max_width = 80 }) end, opts)
 				vim.keymap.set("n", "<c-]>", Snacks.picker.lsp_definitions, opts)
 				vim.keymap.set("n", "grn", vim.lsp.buf.rename, opts)
 				vim.keymap.set("n", "grr", Snacks.picker.lsp_references, opts)
