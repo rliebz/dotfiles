@@ -11,16 +11,18 @@ return {
 		})
 		vim.lsp.config("yamlls", {
 			settings = {
-				schemaStore = {
-					enable = false,
-					url = "",
-				},
-				schemas = require("schemastore").yaml.schemas({
-					ignore = {
-						"gitlab-ci",
-						"openapi.json",
+				yaml = {
+					schemaStore = {
+						enable = false,
+						url = "",
 					},
-				}),
+					schemas = require("schemastore").yaml.schemas({
+						ignore = {
+							"gitlab-ci",
+							"openapi.json",
+						},
+					}),
+				},
 			},
 		})
 	end,
