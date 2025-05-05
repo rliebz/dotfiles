@@ -159,6 +159,7 @@ highlight("markdownId", { fg = colors.magenta })
 highlight("markdownIdDeclaration", { fg = colors.magenta })
 highlight("markdownHeadingDelimiter", { fg = colors.dark_yellow })
 highlight("markdownLinkText", { link = "@markup.link.url" })
+highlight("markdownHorizontalSeparator", { link = "FloatBorder" })
 
 -- Fix issue with LSP hover windows
 highlight("mkdLineBreak", { link = "NONE" })
