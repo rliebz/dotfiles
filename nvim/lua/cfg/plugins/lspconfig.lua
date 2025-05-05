@@ -8,8 +8,6 @@ return {
 		{ "icholy/lsplinks.nvim", opts = {} },
 	},
 	config = function()
-		local lspconfig = require("lspconfig")
-
 		local Methods = vim.lsp.protocol.Methods
 
 		---@param kind lsp.CodeActionKind
