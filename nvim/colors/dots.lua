@@ -193,6 +193,7 @@ highlight("ALEWarningSign", { link = "DiagnosticSignWarn" })
 highlight("ALEInfoSign", { link = "DiagnosticSignInfo" })
 
 -- Blink
+highlight("BlinkCmpKind", { fg = colors.cyan })
 highlight("BlinkCmpMenu", { link = "NormalFloat" })
 highlight("BlinkCmpMenuBorder", { link = "FloatBorder" })
 highlight("BlinkCmpDocBorder", { link = "FloatBorder" })
