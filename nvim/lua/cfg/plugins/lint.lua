@@ -9,6 +9,7 @@ return {
 			css = { "stylelint" },
 			dockerfile = { "hadolint" },
 			fish = { "fish" },
+			go = { "golangcilint" },
 			less = { "stylelint" },
 			lua = { "selene" },
 			markdown = { "markdownlint" },

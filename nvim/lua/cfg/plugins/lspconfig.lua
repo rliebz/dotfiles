@@ -156,7 +156,6 @@ return {
 			"cssls",
 			"eslint",
 			"gdscript",
-			"golangci_lint_ls",
 			"gopls",
 			"intelephense",
 			"jsonls",
