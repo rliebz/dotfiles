@@ -1,7 +1,7 @@
 return {
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
 	dependencies = {
-		"williamboman/mason.nvim",
+		"mason-org/mason.nvim",
 		"stevearc/conform.nvim",
 		"mfussenegger/nvim-lint",
 	},

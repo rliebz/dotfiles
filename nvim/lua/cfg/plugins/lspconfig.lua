@@ -3,8 +3,31 @@ return {
 	dependencies = {
 		"saghen/blink.cmp",
 		"folke/snacks.nvim",
-		"williamboman/mason.nvim",
-		{ "williamboman/mason-lspconfig.nvim", opts = { automatic_installation = true } },
+		"mason-org/mason.nvim",
+		{
+			"mason-org/mason-lspconfig.nvim",
+			opts = {
+				ensure_installed = {
+					"bashls",
+					"biome",
+					"cssls",
+					"eslint",
+					"gdscript",
+					"gopls",
+					"intelephense",
+					"jsonls",
+					"lua_ls",
+					"omnisharp",
+					"pyright",
+					"ruff",
+					"rust_analyzer",
+					"solargraph",
+					"tinymist",
+					"vtsls",
+					"yamlls",
+				},
+			},
+		},
 		{ "icholy/lsplinks.nvim", opts = {} },
 	},
 	config = function()
@@ -148,26 +171,6 @@ return {
 					end,
 				})
 			end,
-		})
-
-		vim.lsp.enable({
-			"bashls",
-			"biome",
-			"cssls",
-			"eslint",
-			"gdscript",
-			"gopls",
-			"intelephense",
-			"jsonls",
-			"lua_ls",
-			"omnisharp",
-			"pyright",
-			"ruff",
-			"rust_analyzer",
-			"solargraph",
-			"tinymist",
-			"vtsls",
-			"yamlls",
 		})
 	end,
 }
