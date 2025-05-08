@@ -12,7 +12,6 @@ return {
 					"biome",
 					"cssls",
 					"eslint",
-					"gdscript",
 					"gopls",
 					"intelephense",
 					"jsonls",
@@ -171,6 +170,10 @@ return {
 					end,
 				})
 			end,
+		})
+
+		vim.lsp.enable({
+			"gdscript",
 		})
 	end,
 }
