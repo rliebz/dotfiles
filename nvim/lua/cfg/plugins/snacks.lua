@@ -5,7 +5,7 @@ return {
 	keys = {
 		{
 			"<c-/>",
-			function() require("snacks").terminal() end,
+			function() Snacks.terminal() end,
 			desc = "Toggle Terminal",
 			mode = { "n", "t" },
 		},
