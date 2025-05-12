@@ -94,6 +94,8 @@ return {
 			}
 
 			local timeout_ms = 1000
+
+			---@type {err: lsp.ResponseError?, result: (lsp.Command | lsp.CodeAction)[]}?
 			local resp, err =
 				client:request_sync(Methods.textDocument_codeAction, params, timeout_ms, bufnr)
 			if err or not resp or resp.err or not resp.result or not resp.result[1] then
@@ -101,7 +103,6 @@ return {
 			end
 
 			for _, action in ipairs(resp.result) do
-				---@cast action lsp.CodeAction | lsp.Command
 				handle_edit_sync(client, bufnr, only, action, timeout_ms)
 			end
 		end

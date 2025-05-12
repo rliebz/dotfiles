@@ -1,5 +1,7 @@
 local colors = require("cfg.colors")
 
+---@param opts table<string, vim.api.keyset.highlight>
+---@return table<string, vim.api.keyset.highlight>
 local function defaults_with(opts)
 	local out = {
 		a = { fg = colors.black, bg = colors.white, gui = "bold" },
