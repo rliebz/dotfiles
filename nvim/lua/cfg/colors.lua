@@ -23,7 +23,7 @@ return {
 	highlight_green = "#0f3600",
 	highlight_blue = "#15275c",
 	highlight_light_blue = "#3a5cac",
-	highlight_red = "#240a00",
+	highlight_red = "#480020",
 
 	-- Backgrounds for the named foreground color
 	background_black = "#001121",
