@@ -41,7 +41,7 @@ return {
 		},
 		image = {
 			enabled = false,
-			filetype = {}, -- ?
+			formats = {}, -- ?
 		},
 		input = {
 			enabled = true,
