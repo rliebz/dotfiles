@@ -15,4 +15,3 @@ tasks:
     usage: Run static analysis
     run:
       - stylua --check .
-      - selene .

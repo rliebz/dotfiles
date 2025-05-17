@@ -11,7 +11,6 @@ return {
 			fish = { "fish" },
 			go = { "golangcilint" },
 			less = { "stylelint" },
-			lua = { "selene" },
 			markdown = { "markdownlint" },
 			sass = { "stylelint" },
 			scss = { "stylelint" },
