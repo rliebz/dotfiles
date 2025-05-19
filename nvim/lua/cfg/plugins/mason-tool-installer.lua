@@ -17,7 +17,11 @@ return {
 		vim.list_extend(tools, extract(require("conform").formatters_by_ft))
 
 		local registry = require("mason-registry")
-		tools = vim.tbl_filter(function(tool) return registry.has_package(tool) end, tools)
+		tools = vim.tbl_filter(
+			---@param tool string
+			function(tool) return registry.has_package(tool) end,
+			tools
+		)
 
 		table.sort(tools)
 		require("mason-tool-installer").setup({
