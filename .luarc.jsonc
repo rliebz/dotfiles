@@ -1,0 +1,25 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
+  "runtime": {
+    "version": "LuaJIT",
+    "path": ["lua/?.lua", "/?/init.lua"],
+    "pathStrict": true
+  },
+  "workspace": {
+    "library": [
+      "$VIMRUNTIME",
+      "${3rd}/luv/library", // Remove after nvim 0.12
+      "~/.local/share/nvim/lazy/"
+    ],
+    "checkThirdParty": false
+  },
+  "completion": {
+    "showWord": "Disable"
+  },
+  "diagnostics": {
+    "groupSeverity": {
+      "strict": "Error"
+    },
+    "unusedLocalExclude": ["_*"]
+  }
+}

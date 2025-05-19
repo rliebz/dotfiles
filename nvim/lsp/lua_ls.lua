@@ -5,11 +5,18 @@ return {
 	end,
 	settings = {
 		Lua = {
-			completion = {
-				showWord = "Disable",
+			runtime = {
+				version = "LuaJIT",
 			},
 			workspace = {
+				library = {
+					"$VIMRUNTIME",
+					"${3rd}/luv/library", -- Remove after nvim 0.12
+				},
 				checkThirdParty = false,
+			},
+			completion = {
+				showWord = "Disable",
 			},
 			telemetry = {
 				enable = false,
