@@ -1,6 +1,5 @@
 return {
 	"Wansmer/treesj",
-	dependencies = { "nvim-treesitter/nvim-treesitter" },
 	event = "VeryLazy",
 	keys = {
 		{ "gS", "<Cmd>TSJSplit<CR>" },
