@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
   "runtime": {
     "version": "LuaJIT",
-    "path": ["lua/?.lua", "/?/init.lua"],
+    "path": ["nvim/lua/?.lua", "nvim/lua/?/init.lua"],
     "pathStrict": true
   },
   "workspace": {
