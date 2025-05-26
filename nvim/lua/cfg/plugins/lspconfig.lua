@@ -3,30 +3,6 @@ return {
 	dependencies = {
 		"saghen/blink.cmp",
 		"folke/snacks.nvim",
-		"mason-org/mason.nvim",
-		{
-			"mason-org/mason-lspconfig.nvim",
-			opts = {
-				ensure_installed = {
-					"bashls",
-					"biome",
-					"cssls",
-					"eslint",
-					"gopls",
-					"intelephense",
-					"jsonls",
-					"lua_ls",
-					"omnisharp",
-					"pyright",
-					"ruff",
-					"rust_analyzer",
-					"solargraph",
-					"tinymist",
-					"vtsls",
-					"yamlls",
-				},
-			},
-		},
 		{ "icholy/lsplinks.nvim", opts = {} },
 	},
 	config = function()
@@ -173,8 +149,7 @@ return {
 			end,
 		})
 
-		vim.lsp.enable({
-			"gdscript",
-		})
+		local servers = require("cfg.lsp-servers")
+		vim.lsp.enable(servers)
 	end,
 }
