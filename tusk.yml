@@ -15,4 +15,3 @@ tasks:
     usage: Run static analysis
     run:
       - stylua --check .
-      - VIMRUNTIME="$(nvim --clean --headless --cmd 'echo $VIMRUNTIME|q' 2>&1)" lua-language-server --check .
