@@ -10,10 +10,18 @@ return {
 			"shellcheck", -- optional dependency of bash-language-server
 		}
 
-		---@param mapping table<string, string[]>
+		---@param mapping table<string, string[]|conform.FiletypeFormatter>
 		---@return string[]
 		local extract_tools_by_ft = function(mapping)
-			return vim.iter(vim.tbl_values(mapping)):flatten():totable()
+			local out = {}
+			for _, cfg in pairs(mapping) do
+				if type(cfg) == "table" then
+					for _, tool in ipairs(cfg) do
+						table.insert(out, tool)
+					end
+				end
+			end
+			return out
 		end
 
 		vim.list_extend(tools, extract_tools_by_ft(require("lint").linters_by_ft))
