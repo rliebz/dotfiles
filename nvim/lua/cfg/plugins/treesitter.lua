@@ -8,7 +8,7 @@ return {
 	init = function()
 		vim.treesitter.language.register("hcl", "nomad")
 		local ignore_install = {
-			"docker",
+			"dockerfile",
 		}
 		local disable_indent = {
 			"sql",
