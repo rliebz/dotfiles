@@ -194,6 +194,7 @@ highlight("ALEInfoSign", { link = "DiagnosticSignInfo" })
 
 -- Blink
 highlight("BlinkCmpKind", { fg = colors.cyan })
+highlight("BlinkCmpLabelDescription", { link = "Comment" })
 highlight("BlinkCmpMenu", { link = "NormalFloat" })
 highlight("BlinkCmpMenuBorder", { link = "FloatBorder" })
 highlight("BlinkCmpDocBorder", { link = "FloatBorder" })
