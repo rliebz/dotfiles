@@ -139,10 +139,8 @@ return {
 								return
 							end
 
-							code_action_sync(client, args.buf, {
-								"source.organizeImports",
-								"source.fixAll",
-							})
+							code_action_sync(client, args.buf, { "source.fixAll" })
+							code_action_sync(client, args.buf, { "source.organizeImports" })
 						end
 					end,
 				})
