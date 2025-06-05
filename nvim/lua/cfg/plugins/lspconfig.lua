@@ -83,6 +83,8 @@ return {
 			end
 		end
 
+		local lsp = require("cfg.lsp")
+
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("lsp_attach", {}),
 			callback = function(args)
@@ -135,19 +137,18 @@ return {
 					buffer = args.buf,
 					callback = function()
 						if client:supports_method(Methods.textDocument_codeAction) then
-							if client.name == "vtsls" then
-								return
-							end
+							local actions = lsp.actions_on_save[client.name]
+								or { "source.fixAll", "source.organizeImports" }
 
-							code_action_sync(client, args.buf, { "source.fixAll" })
-							code_action_sync(client, args.buf, { "source.organizeImports" })
+							for _, action in ipairs(actions) do
+								code_action_sync(client, args.buf, { action })
+							end
 						end
 					end,
 				})
 			end,
 		})
 
-		local servers = require("cfg.lsp-servers")
-		vim.lsp.enable(servers)
+		vim.lsp.enable(lsp.servers)
 	end,
 }

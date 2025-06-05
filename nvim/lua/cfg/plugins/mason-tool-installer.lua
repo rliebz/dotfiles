@@ -36,7 +36,7 @@ return {
 			end
 		end
 
-		local servers = require("cfg.lsp-servers")
+		local servers = require("cfg.lsp").servers
 		for _, server in ipairs(servers) do
 			table.insert(tools, lspconfig_to_mason[server] or server)
 		end
