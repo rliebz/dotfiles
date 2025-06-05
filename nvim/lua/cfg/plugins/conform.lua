@@ -34,8 +34,7 @@ return {
 			yaml = { "prettierd" },
 		},
 		format_on_save = {
-			timeout_ms = 1000,
-			lsp_format = "last",
+			timeout_ms = 5000,
 			quiet = true,
 		},
 	},

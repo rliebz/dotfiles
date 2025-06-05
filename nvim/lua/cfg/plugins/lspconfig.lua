@@ -69,7 +69,7 @@ return {
 				diagnostics = {},
 			}
 
-			local timeout_ms = 1000
+			local timeout_ms = 5000
 
 			---@type {err: lsp.ResponseError?, result: (lsp.Command | lsp.CodeAction)[]}?
 			local resp, err =
