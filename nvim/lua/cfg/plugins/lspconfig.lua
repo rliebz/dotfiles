@@ -2,7 +2,7 @@ return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
 		"saghen/blink.cmp",
-		"folke/snacks.nvim",
+		"ibhagwan/fzf-lua",
 		{ "icholy/lsplinks.nvim", opts = {} },
 	},
 	config = function()
@@ -95,11 +95,11 @@ return {
 
 				local opts = { buffer = args.buf, silent = true }
 				vim.keymap.set("n", "K", function() vim.lsp.buf.hover({ max_width = 80 }) end, opts)
-				vim.keymap.set("n", "<c-]>", Snacks.picker.lsp_definitions, opts)
+				vim.keymap.set("n", "<c-]>", FzfLua.lsp_definitions, opts)
 				vim.keymap.set("n", "grn", vim.lsp.buf.rename, opts)
-				vim.keymap.set("n", "grr", Snacks.picker.lsp_references, opts)
-				vim.keymap.set("n", "gri", Snacks.picker.lsp_implementations, opts)
-				vim.keymap.set("n", "grt", Snacks.picker.lsp_type_definitions, opts)
+				vim.keymap.set("n", "grr", FzfLua.lsp_references, opts)
+				vim.keymap.set("n", "gri", FzfLua.lsp_implementations, opts)
+				vim.keymap.set("n", "grt", FzfLua.lsp_typedefs, opts)
 				vim.keymap.set({ "i", "s" }, "<c-s>", vim.lsp.buf.signature_help, opts)
 				vim.keymap.set({ "n", "v" }, "<leader>cc", vim.lsp.codelens.run, opts)
 				vim.keymap.set({ "n" }, "<leader>cC", vim.lsp.codelens.refresh, opts)
