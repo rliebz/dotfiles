@@ -9,31 +9,6 @@ return {
 			desc = "Toggle Terminal",
 			mode = { "n", "t" },
 		},
-		{
-			"<leader>sh",
-			function() Snacks.picker.help() end,
-			desc = "[S]earch [H]elp",
-		},
-		{
-			"<leader>sf",
-			function() Snacks.picker.files() end,
-			desc = "[S]earch [F]iles",
-		},
-		{
-			"<leader>sg",
-			function() Snacks.picker.grep() end,
-			desc = "[S]each by [G]rep",
-		},
-		{
-			"<leader>sr",
-			function() Snacks.picker.resume() end,
-			desc = "[S]earch [R]esume",
-		},
-		{
-			"<leader>sp",
-			function() Snacks.picker() end,
-			desc = "[S]earch [P]ickers",
-		},
 	},
 	opts = {
 		bigfile = {
