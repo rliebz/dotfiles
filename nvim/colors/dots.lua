@@ -358,7 +358,7 @@ highlight("SnacksInputTitle", { fg = colors.magenta })
 highlight("SnacksPickerCol", { fg = colors.dark_green })
 highlight("SnacksPickerRow", { fg = colors.cyan })
 highlight("SnacksPickerDir", { link = "Directory" })
-highlight("SnacksPickerMatch", { link = "CurSearch" })
+highlight("SnacksPickerMatch", { link = "DiffText" })
 highlight("SnacksPickerListCursorLine", { bg = colors.highlight_blue, bold = true })
 
 -- SQL

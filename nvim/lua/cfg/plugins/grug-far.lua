@@ -1,4 +1,8 @@
 return {
 	"MagicDuck/grug-far.nvim",
-	opts = {},
+	opts = {
+		openTargetWindow = {
+			preferredLocation = "right",
+		},
+	},
 }
