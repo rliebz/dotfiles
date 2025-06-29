@@ -13,7 +13,12 @@ vim.opt.runtimepath:prepend(lazypath)
 
 require("lazy").setup("cfg.plugins", {
 	install = { colorscheme = { "dots" } },
-	ui = { border = "rounded" },
+	ui = {
+		border = "rounded",
+		custom_keys = {
+			["<localleader>l"] = false,
+		},
+	},
 	concurrency = 8,
 	change_detection = {
 		notify = false,
