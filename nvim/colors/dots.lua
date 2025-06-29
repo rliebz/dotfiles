@@ -325,6 +325,11 @@ highlight("GrugFarResultsMatchRemoved", { bg = colors.highlight_red })
 highlight("GrugFarResultsNumberLabel", { fg = colors.dark_magenta })
 highlight("GrugFarResultsPath", { fg = colors.magenta, bold = true, underline = true })
 
+-- lazy.nvim
+highlight("LazyButtonActive", { bg = colors.bright_black })
+highlight("LazyH1", { bg = colors.bright_black })
+highlight("LazyProp", { fg = colors.cyan })
+
 -- Lspconfig
 highlight("LspInfoBorder", { link = "FloatBorder" })
 
