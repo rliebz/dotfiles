@@ -11,6 +11,9 @@ return {
 				end,
 			},
 		},
+		default_format_opts = {
+			lsp_format = "fallback",
+		},
 		formatters_by_ft = {
 			css = { "prettierd" },
 			fish = { "fish_indent" },
@@ -27,7 +30,6 @@ return {
 			["markdown.mdx"] = { "prettierd" },
 			nomad = { "nomad_fmt", "trim_newlines" },
 			scss = { "prettierd" },
-			sh = { "shfmt" },
 			terraform = { "terraform_fmt" },
 			typescript = { "prettierd" },
 			typescriptreact = { "prettierd" },
