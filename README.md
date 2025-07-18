@@ -42,8 +42,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 To install all the usual software:
 
 ```bash
-brew install curl dotbot fish fzf git gnu-sed gpg mise neovim ripgrep trash zoxide rliebz/tusk/tusk
+brew install curl dotbot fish git gnu-sed gpg mise trash zoxide rliebz/tusk/tusk
 brew install --cask bitwarden docker firefox keepingyouawake ghostty
+mise install
 ```
 
 Don't swap to Fish or Ghostty yet.

@@ -8,15 +8,6 @@ set -gx HOMEBREW_NO_ANALYTICS 1
 set -gx HOMEBREW_NO_ENV_HINTS 1
 fish_add_path -P /opt/homebrew/bin
 
-set -gx MISE_ACTIVATE_AGGRESSIVE true
-set -gx MISE_EXPERIMENTAL true
-set -gx MISE_DEFAULT_CONFIG_FILENAME .mise.local.toml
-set -gx MISE_IDIOMATIC_VERSION_FILE_ENABLE_TOOLS node,python
-set -gx MISE_GO_SET_GOBIN false
-if command -sq mise
-    mise activate fish | source
-end
-
 # Go
 set -gx GOPATH $HOME/.local/share/go
 fish_add_path -P $GOPATH/bin
@@ -24,6 +15,10 @@ fish_add_path -P $GOPATH/bin
 # Rust
 set -gx CARGO_HOME $HOME/.local/share/cargo
 fish_add_path -P $CARGO_HOME/bin
+
+if command -sq mise
+    mise activate fish | source
+end
 
 # Datadog
 set -gx DD_TRACE_ENABLED false

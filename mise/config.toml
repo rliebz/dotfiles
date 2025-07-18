@@ -1,0 +1,42 @@
+[settings]
+activate_aggressive = true
+experimental = true
+go_set_gobin = false
+idiomatic_version_file_enable_tools = ["node", "python"]
+
+[env]
+MISE_DEFAULT_CONFIG_FILENAME = ".mise.local.toml"
+
+[tools]
+fzf = "latest"
+go = "latest"
+neovim = "latest"
+node = "lts"
+nomad = "latest"
+python = "latest"
+ripgrep = "latest"
+ruby = "latest"
+terraform = "latest"
+
+"gem:solargraph" = "latest"
+"go:golang.org/x/tools/gopls" = "latest"
+"npm:@fsouza/prettierd" = "latest"
+"npm:@vtsls/language-server" = "latest"
+"npm:bash-language-server" = "latest"
+"npm:intelephense" = "latest"
+"npm:markdownlint-cli" = "latest"
+"npm:pyright" = "latest"
+"npm:stylelint" = "latest"
+"npm:vscode-langservers-extracted" = "latest"
+"npm:yaml-language-server" = "latest"
+"ubi:myriad-dreamin/tinymist" = "latest"
+biome = "latest"
+golangci-lint = "latest"
+hadolint = "latest"
+lua-language-server = "latest"
+ruff = "latest"
+rust-analyzer = "latest"
+shellcheck = "latest"
+shfmt = "latest"
+stylua = "latest"
+yamllint = "latest"

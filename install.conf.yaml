@@ -20,6 +20,7 @@
     ~/.config/ghostty: ghostty
     ~/.config/git: git
     ~/.config/hadolint.yaml: hadolint.yaml
+    ~/.config/mise: mise
     ~/.config/nvim: nvim
     ~/.config/yamllint/config: yamllint.yml
     ~/.editorconfig: editorconfig
