@@ -63,3 +63,6 @@ function __multicd
     echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
 end
 abbr --add dotdot --regex '^\.\.+$' --function __multicd
+
+# Force mise to reassess paths
+touch ~/.config/mise/config.toml
