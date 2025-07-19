@@ -6,7 +6,9 @@ fish_add_path -P $HOME/.local/bin
 # Homebrew
 set -gx HOMEBREW_NO_ANALYTICS 1
 set -gx HOMEBREW_NO_ENV_HINTS 1
-fish_add_path -P /opt/homebrew/bin
+if test -f /opt/homebrew/bin/brew
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+end
 
 # Go
 set -gx GOPATH $HOME/.local/share/go
@@ -16,6 +18,7 @@ fish_add_path -P $GOPATH/bin
 set -gx CARGO_HOME $HOME/.local/share/cargo
 fish_add_path -P $CARGO_HOME/bin
 
+# Mise
 if command -sq mise
     mise activate fish | source
 end

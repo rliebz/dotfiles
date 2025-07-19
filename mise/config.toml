@@ -17,6 +17,8 @@ python = "latest"
 ripgrep = "latest"
 ruby = "latest"
 terraform = "latest"
+tree-sitter = "latest"
+uv = "latest"
 
 "gem:solargraph" = "latest"
 "go:golang.org/x/tools/gopls" = "latest"

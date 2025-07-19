@@ -1,5 +1,5 @@
 #!/usr/bin/env fish
-for cmd in curl git dotbot
+for cmd in curl git dotbot mise
     if ! command -q $cmd
         echo "$cmd is required for installation" >&2
         exit 1
@@ -10,3 +10,4 @@ git submodule sync --quiet --recursive
 git submodule update --init --recursive
 
 SHELL=fish dotbot -c install.conf.yaml
+mise install

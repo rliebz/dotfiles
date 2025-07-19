@@ -11,13 +11,14 @@ The usual steps are:
 1. Trackpad > Tracking Speed: Set to the second notch from the right
 1. Keyboard > Keyboard > Key Repeat: Farthest notch on the right
 1. Keyboard > Keyboard > Delay Until Repeat: Second notch from the right
-1. Keyboard > Text: Turn basically everything off
-1. Accessibility > Pointer Control> Trackpad Options: Enable dragging with
+1. Keyboard > Text Input: Turn basically everything off
+1. Accessibility > Pointer Control > Trackpad Options: Enable dragging with
    three finger drag
 1. Control Center > Bluetooth: Show in Menu Bar
-1. Desktop & Dock > Dock: Turn off Show recent applications in dock
+1. Desktop & Dock > Dock: Turn off Show suggested and recent apps in Dock
 1. Desktop & Dock > Mission Control: Turn off Automatically rearrange Spaces
    based on most recent use
+1. Appearance > Appearance: Dark
 
 ### Fonts
 
@@ -44,7 +45,6 @@ To install all the usual software:
 ```bash
 brew install curl dotbot fish git gnu-sed gpg mise trash zoxide rliebz/tusk/tusk
 brew install --cask bitwarden docker firefox keepingyouawake ghostty
-mise install
 ```
 
 Don't swap to Fish or Ghostty yet.
