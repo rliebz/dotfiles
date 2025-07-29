@@ -43,7 +43,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 To install all the usual software:
 
 ```bash
-brew install curl dotbot fish git gnu-sed gpg mise trash zoxide rliebz/tusk/tusk
+brew install dotbot fish git gnu-sed gpg mise trash zoxide rliebz/tusk/tusk
 brew install --cask bitwarden docker firefox keepingyouawake ghostty
 ```
 
@@ -87,7 +87,7 @@ Swap to Ghostty now.
 
 ## Making Changes
 
-After making any changes, or to update submodules:
+After making any changes:
 
 ```fish
 ./scripts/install
