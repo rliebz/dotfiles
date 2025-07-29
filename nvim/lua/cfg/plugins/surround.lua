@@ -1,4 +1,6 @@
 return {
 	"echasnovski/mini.surround",
-	opts = {},
+	opts = {
+		n_lines = 500,
+	},
 }
