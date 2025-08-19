@@ -7,7 +7,7 @@ fish_add_path -P $HOME/.local/bin
 set -gx HOMEBREW_NO_ANALYTICS 1
 set -gx HOMEBREW_NO_ENV_HINTS 1
 if test -f /opt/homebrew/bin/brew
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+    /opt/homebrew/bin/brew shellenv | source
 end
 
 # Go
