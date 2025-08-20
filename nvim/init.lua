@@ -114,4 +114,4 @@ vim.diagnostic.config({
 	},
 })
 
-require("cfg.lazy")
+vim.keymap.set("n", "<leader>p", vim.pack.update, { desc = "Pack Update" })
