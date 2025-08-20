@@ -1,0 +1,27 @@
+vim.pack.add({ "https://github.com/b0o/schemastore.nvim" }, { confirm = false })
+
+vim.lsp.config("jsonls", {
+	settings = {
+		json = {
+			schemas = require("schemastore").json.schemas(),
+			validate = { enable = true },
+		},
+	},
+})
+
+vim.lsp.config("yamlls", {
+	settings = {
+		yaml = {
+			schemaStore = {
+				enable = false,
+				url = "",
+			},
+			schemas = require("schemastore").yaml.schemas({
+				ignore = {
+					"gitlab-ci",
+					"openapi.json",
+				},
+			}),
+		},
+	},
+})
