@@ -5,6 +5,9 @@ return {
 			customTags = {
 				"!reference sequence",
 			},
+			format = {
+				enable = false,
+			},
 		},
 	},
 }
