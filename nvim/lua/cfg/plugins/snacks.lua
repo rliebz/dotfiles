@@ -27,34 +27,6 @@ return {
 				title_pos = "left",
 			},
 		},
-		picker = {
-			main = {
-				file = false,
-			},
-			icons = {
-				files = {
-					enabled = false,
-				},
-			},
-			layouts = {
-				default = {
-					layout = {
-						box = "horizontal",
-						width = 0.9,
-						height = 0.9,
-					},
-				},
-			},
-			sources = {
-				files = {
-					hidden = true,
-				},
-				grep = {
-					hidden = true,
-				},
-			},
-			ui_select = true,
-		},
 		terminal = {
 			win = {
 				border = "rounded",

@@ -22,6 +22,7 @@ return {
 		{ "<leader>sr", "<cmd>FzfLua resume<cr>", desc = "[S]earch [R]esume" },
 		{ "<leader>sp", "<cmd>FzfLua<cr>", desc = "[S]earch [P]ickers" },
 	},
+	init = function() require("fzf-lua").register_ui_select() end,
 	opts = {
 		keymap = {
 			fzf = {
@@ -38,10 +39,20 @@ return {
 		},
 		defaults = {
 			no_header = true,
+			no_header_i = true,
 		},
 		lines = {
 			winopts = {
 				treesitter = false,
+			},
+		},
+		lsp = {
+			code_actions = {
+				winopts = {
+					height = 0.5,
+					width = 0.3,
+				},
+				previewer = false,
 			},
 		},
 		previewers = {
