@@ -19,6 +19,7 @@ The usual steps are:
 1. Desktop & Dock > Mission Control: Turn off Automatically rearrange Spaces
    based on most recent use
 1. Appearance > Appearance: Dark
+1. Sound > Sound Effects > Alert volume: Set to the middle notch
 
 ### Fonts
 
