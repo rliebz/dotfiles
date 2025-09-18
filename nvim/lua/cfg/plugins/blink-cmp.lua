@@ -41,5 +41,18 @@ return {
 		signature = {
 			enabled = true,
 		},
+		cmdline = {
+			completion = {
+				list = {
+					selection = {
+						auto_insert = false,
+						preselect = false,
+					},
+				},
+			},
+			keymap = {
+				["<CR>"] = { "accept", "fallback" },
+			},
+		},
 	},
 }
