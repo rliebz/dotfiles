@@ -3,6 +3,7 @@ return {
 		"bashls",
 		"biome",
 		"cssls",
+		"docker_language_server",
 		"gdscript",
 		"eslint",
 		"gopls",

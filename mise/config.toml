@@ -21,6 +21,7 @@ tree-sitter = "latest"
 uv = "latest"
 
 "gem:solargraph" = "latest"
+"go:github.com/docker/docker-language-server/cmd/docker-language-server" = "latest"
 "go:golang.org/x/tools/gopls" = "latest"
 "npm:@fsouza/prettierd" = "latest"
 "npm:@vtsls/language-server" = "latest"
