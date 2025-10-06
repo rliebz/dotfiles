@@ -1,16 +1,16 @@
 {
-	"MD001": false, // header levels change by one at a time
-	"MD010": { // hard tabs
-		"code_blocks": false
-	},
-	"MD012": false, // multiple consecutive blank lines
-	"MD013": false, // line length
-	"MD022": false, // headers should be surrounded by blank lines
-	"MD024": false, // multiple headers with the same content
-	"MD025": false, // only 1 level 1 header
-	"MD032": false, // lists should be surrounded by blank lines
-	"MD033": false, // inline HTML
-	"MD036": false, // emphasis used instead of a header
-	"MD040": false, // fenced code blocks should have a language specified
-	"MD041": false // first line should be a top-level header
+  "MD001": false, // header levels change by one at a time
+  "MD010": /* hard tabs */ {
+    "code_blocks": false
+  },
+  "MD012": false, // multiple consecutive blank lines
+  "MD013": false, // line length
+  "MD022": false, // headers should be surrounded by blank lines
+  "MD024": false, // multiple headers with the same content
+  "MD025": false, // only 1 level 1 header
+  "MD032": false, // lists should be surrounded by blank lines
+  "MD033": false, // inline HTML
+  "MD036": false, // emphasis used instead of a header
+  "MD040": false, // fenced code blocks should have a language specified
+  "MD041": false // first line should be a top-level header
 }
