@@ -6,8 +6,6 @@ return {
 		{ "icholy/lsplinks.nvim", opts = {} },
 	},
 	config = function()
-		local Methods = vim.lsp.protocol.Methods
-
 		---@param kind lsp.CodeActionKind
 		---@param only lsp.CodeActionKind[]?
 		local function matchesOnly(kind, only)
@@ -36,7 +34,7 @@ return {
 
 			if not action.edit and not action.command then
 				local resp, err =
-					client:request_sync(Methods.codeAction_resolve, action, timeout_ms, bufnr)
+					client:request_sync("codeAction/resolve", action, timeout_ms, bufnr)
 				if err or not resp or resp.err or not resp.result then
 					return
 				end
@@ -73,7 +71,7 @@ return {
 
 			---@type {err: lsp.ResponseError?, result: (lsp.Command | lsp.CodeAction)[]}?
 			local resp, err =
-				client:request_sync(Methods.textDocument_codeAction, params, timeout_ms, bufnr)
+				client:request_sync("textDocument/codeAction", params, timeout_ms, bufnr)
 			if err or not resp or resp.err or not resp.result or not resp.result[1] then
 				return
 			end
@@ -136,7 +134,7 @@ return {
 					group = augroup,
 					buffer = args.buf,
 					callback = function()
-						if client:supports_method(Methods.textDocument_codeAction) then
+						if client:supports_method("textDocument/codeAction") then
 							local actions = lsp.actions_on_save[client.name]
 								or { "source.fixAll", "source.organizeImports" }
 
