@@ -1,8 +1,5 @@
 set -g fish_greeting
 
-# XDG bin directory
-fish_add_path -P $HOME/.local/bin
-
 # Homebrew
 set -gx HOMEBREW_NO_ANALYTICS 1
 set -gx HOMEBREW_NO_ENV_HINTS 1
@@ -12,11 +9,14 @@ end
 
 # Go
 set -gx GOPATH $HOME/.local/share/go
-fish_add_path -P $GOPATH/bin
+fish_add_path -mP $GOPATH/bin
 
 # Rust
 set -gx CARGO_HOME $HOME/.local/share/cargo
-fish_add_path -P $CARGO_HOME/bin
+fish_add_path -mP $CARGO_HOME/bin
+
+# XDG bin directory
+fish_add_path -mP $HOME/.local/bin
 
 # Mise
 if command -sq mise
