@@ -1,4 +1,9 @@
-set -g fish_greeting
+if set -q fish_config_loaded
+    exit
+end
+set -gx fish_config_loaded
+
+set -gx fish_greeting
 
 # Homebrew
 set -gx HOMEBREW_NO_ANALYTICS 1
