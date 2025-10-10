@@ -5,7 +5,7 @@ return {
 			linksInHover = false,
 			buildFlags = {
 				-- Enable common build flags used for test files
-				"-tags=blackbox,e2e,integration,integrity,loadtest,qualtrics_integration",
+				"-tags=blackbox,e2e,integration,integrity,loadtest,qualtrics_integration,all",
 			},
 			gofumpt = true,
 		},
