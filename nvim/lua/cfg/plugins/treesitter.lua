@@ -11,6 +11,7 @@ return {
 			"dockerfile",
 		}
 		local disable_indent = {
+			"markdown",
 			"sql",
 			"yaml",
 		}
