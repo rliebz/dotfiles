@@ -41,7 +41,6 @@ return {
 		},
 		image = {
 			enabled = false,
-			formats = {}, -- ?
 		},
 		input = {
 			enabled = true,
