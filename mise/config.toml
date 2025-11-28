@@ -1,11 +1,25 @@
 [settings]
 activate_aggressive = true
-experimental = true
 go_set_gobin = false
 idiomatic_version_file_enable_tools = ["node", "python"]
 
 [env]
 MISE_DEFAULT_CONFIG_FILENAME = ".mise.local.toml"
+
+[alias]
+bash-language-server = "npm:bash-language-server"
+docker-language-server = "github:docker/docker-language-server"
+gopls = "go:golang.org/x/tools/gopls"
+intelephense = "npm:intelephense"
+language-server = "npm:@vtsls/language-server"
+markdownlint-cli = "npm:markdownlint-cli"
+prettierd = "npm:@fsouza/prettierd"
+pyright = "npm:pyright"
+solargraph = "gem:solargraph"
+stylelint = "npm:stylelint"
+tinymist = "github:myriad-dreamin/tinymist"
+vscode-langservers-extracted = "npm:vscode-langservers-extracted"
+yaml-language-server = "npm:yaml-language-server"
 
 [tools]
 fzf = "latest"
@@ -21,26 +35,26 @@ terraform = "latest"
 tree-sitter = "latest"
 uv = "latest"
 
-"gem:solargraph" = "latest"
-"go:github.com/docker/docker-language-server/cmd/docker-language-server" = "latest"
-"go:golang.org/x/tools/gopls" = "latest"
-"npm:@fsouza/prettierd" = "latest"
-"npm:@vtsls/language-server" = "latest"
-"npm:bash-language-server" = "latest"
-"npm:intelephense" = "latest"
-"npm:markdownlint-cli" = "latest"
-"npm:pyright" = "latest"
-"npm:stylelint" = "latest"
-"npm:vscode-langservers-extracted" = "latest"
-"npm:yaml-language-server" = "latest"
-"ubi:myriad-dreamin/tinymist" = "latest"
+bash-language-server = "latest"
 biome = "latest"
+docker-language-server = "latest"
 golangci-lint = "latest"
+gopls = "latest"
 hadolint = "latest"
+intelephense = "latest"
+language-server = "latest"
 lua-language-server = "latest"
+markdownlint-cli = "latest"
+prettierd = "latest"
+pyright = "latest"
 ruff = "latest"
 rust-analyzer = "latest"
 shellcheck = "latest"
 shfmt = "latest"
+solargraph = "latest"
+stylelint = "latest"
 stylua = "latest"
+tinymist = "latest"
+vscode-langservers-extracted = "latest"
+yaml-language-server = "latest"
 yamllint = "latest"
