@@ -13,6 +13,7 @@ gopls = "go:golang.org/x/tools/gopls"
 intelephense = "npm:intelephense"
 language-server = "npm:@vtsls/language-server"
 markdownlint-cli = "npm:markdownlint-cli"
+neovim = "github:neovim/neovim" # enables nightly installs
 prettierd = "npm:@fsouza/prettierd"
 pyright = "npm:pyright"
 solargraph = "gem:solargraph"

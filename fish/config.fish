@@ -7,9 +7,6 @@ if test -f /opt/homebrew/bin/brew
     /opt/homebrew/bin/brew shellenv | source
 end
 
-# Bob
-fish_add_path -mP $HOME/.local/share/bob/nvim-bin/
-
 # Go
 set -gx GOPATH $HOME/.local/share/go
 fish_add_path -mP $GOPATH/bin
