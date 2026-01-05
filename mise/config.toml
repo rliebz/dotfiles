@@ -6,7 +6,7 @@ idiomatic_version_file_enable_tools = ["node", "python"]
 [env]
 MISE_DEFAULT_CONFIG_FILENAME = ".mise.local.toml"
 
-[alias]
+[tool_alias]
 bash-language-server = "npm:bash-language-server"
 docker-language-server = "github:docker/docker-language-server"
 gopls = "go:golang.org/x/tools/gopls"
