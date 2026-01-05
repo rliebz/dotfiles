@@ -23,7 +23,14 @@ return {
 					return
 				end
 
-				require("nvim-treesitter").install({ lang }):wait(30000)
+				local nvim_treesitter = require("nvim-treesitter")
+
+				local available = nvim_treesitter.get_available()
+				if not vim.list_contains(available, lang) then
+					return
+				end
+
+				nvim_treesitter.install({ lang }):wait(30000)
 				if not pcall(vim.treesitter.get_parser, ev.buf) then
 					return
 				end
