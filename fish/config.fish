@@ -41,6 +41,11 @@ set -gx FZF_DEFAULT_OPTS (string join " " -- "$FZF_DEFAULT_OPTS" --bind (
     ctrl-d:half-page-down \
 ))
 
+# npm
+set -gx npm_config_audit false
+set -gx npm_config_fund false
+set -gx npm_config_update_notifier false
+
 # zoxide
 if command -sq zoxide
     zoxide init fish | source
