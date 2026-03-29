@@ -98,8 +98,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "gri", Snacks.picker.lsp_implementations, opts)
 		vim.keymap.set("n", "grt", Snacks.picker.lsp_type_definitions, opts)
 		vim.keymap.set({ "i", "s" }, "<c-s>", vim.lsp.buf.signature_help, opts)
-		vim.keymap.set({ "n", "v" }, "<leader>cc", vim.lsp.codelens.run, opts)
-		vim.keymap.set({ "n" }, "<leader>cC", vim.lsp.codelens.refresh, opts)
+		vim.keymap.set(
+			"n",
+			"<leader>x",
+			function() vim.lsp.codelens.enable(not vim.lsp.codelens.is_enabled()) end,
+			opts
+		)
 		vim.keymap.set({ "n", "v" }, "gra", vim.lsp.buf.code_action, opts)
 		vim.keymap.set(
 			"n",
@@ -115,14 +119,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			opts
 		)
 		vim.keymap.set({ "n", "v" }, "gx", require("lsplinks").gx)
-
-		if client:supports_method("textDocument/codeLens") then
-			vim.lsp.codelens.refresh()
-			vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave" }, {
-				buffer = args.buf,
-				callback = vim.lsp.codelens.refresh,
-			})
-		end
 
 		local augroup =
 			vim.api.nvim_create_augroup("code_action_format_%d" .. client.name, { clear = false })
