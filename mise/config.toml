@@ -8,8 +8,6 @@ MISE_DEFAULT_CONFIG_FILENAME = ".mise.local.toml"
 
 [tool_alias]
 bash-language-server = "npm:bash-language-server"
-copilot = "npm:@github/copilot"
-copilot-language-server = "npm:@github/copilot-language-server"
 docker-language-server = "github:docker/docker-language-server"
 gopls = "go:golang.org/x/tools/gopls"
 intelephense = "npm:intelephense"
@@ -38,8 +36,6 @@ uv = "latest"
 
 bash-language-server = "latest"
 biome = "latest"
-copilot = "latest"
-copilot-language-server = "latest"
 docker-language-server = "latest"
 golangci-lint = "latest"
 gopls = "latest"
