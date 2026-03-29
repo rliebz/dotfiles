@@ -29,6 +29,7 @@ vim.o.smartcase = true
 vim.o.softtabstop = -1
 vim.o.swapfile = false
 vim.o.tabstop = 2
+vim.o.termguicolors = true
 vim.o.updatetime = 100
 vim.o.wrap = false
 vim.o.winborder = "rounded"
