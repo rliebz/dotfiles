@@ -13,7 +13,7 @@ vim.api.nvim_create_autocmd("PackChanged", {
 vim.pack.add({
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 	"https://github.com/windwp/nvim-ts-autotag",
-}, { confirm = false })
+})
 
 require("nvim-ts-autotag").setup({})
 

@@ -1,4 +1,4 @@
-vim.pack.add({ "https://github.com/b0o/schemastore.nvim" }, { confirm = false })
+vim.pack.add({ "https://github.com/b0o/schemastore.nvim" })
 
 vim.lsp.config("jsonls", {
 	settings = {

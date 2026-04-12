@@ -1,4 +1,4 @@
-vim.pack.add({ "https://github.com/vim-test/vim-test" }, { confirm = false })
+vim.pack.add({ "https://github.com/vim-test/vim-test" })
 
 vim.g["test#go#gotest#options"] = {
 	all = "-count 1",

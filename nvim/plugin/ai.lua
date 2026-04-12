@@ -1,4 +1,4 @@
-vim.pack.add({ "https://github.com/nvim-mini/mini.ai" }, { confirm = false })
+vim.pack.add({ "https://github.com/nvim-mini/mini.ai" })
 
 local ai = require("mini.ai")
 ai.setup({

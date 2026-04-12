@@ -1,3 +1,3 @@
-vim.pack.add({ "https://github.com/nvim-mini/mini.align" }, { confirm = false })
+vim.pack.add({ "https://github.com/nvim-mini/mini.align" })
 
 require("mini.align").setup({})

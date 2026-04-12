@@ -1,6 +1,4 @@
-vim.pack.add({
-	"https://github.com/lewis6991/gitsigns.nvim",
-}, { confirm = false })
+vim.pack.add({ "https://github.com/lewis6991/gitsigns.nvim" })
 
 require("gitsigns").setup({
 	on_attach = function(bufnr)

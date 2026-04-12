@@ -1,1 +1,1 @@
-vim.pack.add({ "https://github.com/romainl/vim-cool" }, { confirm = false })
+vim.pack.add({ "https://github.com/romainl/vim-cool" })

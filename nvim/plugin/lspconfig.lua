@@ -3,7 +3,7 @@ vim.pack.add({
 	"https://github.com/saghen/blink.cmp",
 	"https://github.com/folke/snacks.nvim",
 	"https://github.com/icholy/lsplinks.nvim",
-}, { confirm = false })
+})
 
 require("lsplinks").setup({})
 

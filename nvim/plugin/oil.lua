@@ -1,4 +1,4 @@
-vim.pack.add({ "https://github.com/stevearc/oil.nvim" }, { confirm = false })
+vim.pack.add({ "https://github.com/stevearc/oil.nvim" })
 
 local ignored_file_patterns = {
 	"^__pycache__$",
