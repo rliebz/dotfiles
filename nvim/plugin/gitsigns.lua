@@ -1,6 +1,5 @@
 vim.pack.add({
 	"https://github.com/lewis6991/gitsigns.nvim",
-	"https://github.com/nvim-lua/plenary.nvim",
 }, { confirm = false })
 
 require("gitsigns").setup({
