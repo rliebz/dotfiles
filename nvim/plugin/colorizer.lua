@@ -7,6 +7,7 @@ require("colorizer").setup({
 				enable = false,
 			},
 			hex = {
+				default = false,
 				rrggbb = true,
 			},
 		},
