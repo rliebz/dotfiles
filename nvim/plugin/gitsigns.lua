@@ -1,6 +1,7 @@
 vim.pack.add({ "https://github.com/lewis6991/gitsigns.nvim" })
 
 require("gitsigns").setup({
+	max_file_length = 100000,
 	on_attach = function(bufnr)
 		local gitsigns = require("gitsigns")
 
