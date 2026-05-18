@@ -3,6 +3,10 @@ activate_aggressive = true
 go_set_gobin = false
 idiomatic_version_file_enable_tools = ["node", "python"]
 
+# TODO: Remove after version 2026.08.0
+[settings.ruby]
+compile = false
+
 [env]
 MISE_DEFAULT_CONFIG_FILENAME = ".mise.local.toml"
 
