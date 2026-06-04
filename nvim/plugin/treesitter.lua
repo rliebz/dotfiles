@@ -60,3 +60,18 @@ vim.api.nvim_create_autocmd("FileType", {
 		end
 	end,
 })
+
+-- Support `new` expressions
+vim.api.nvim_create_autocmd("User", {
+	pattern = "TSUpdate",
+	callback = function()
+		require("nvim-treesitter.parsers").go = {
+			install_info = {
+				url = "https://github.com/nvlbg/tree-sitter-go",
+				revision = "5a6af13a0a5b45bc76cac289c783b315b2b74e13",
+				branch = "new_expressions_support",
+			},
+			tier = 2,
+		}
+	end,
+})
