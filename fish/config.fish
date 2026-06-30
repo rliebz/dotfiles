@@ -29,6 +29,7 @@ set -gx DD_PROFILING_ENABLED false
 set -gx DD_APPSEC_ENABLED false
 
 # Docker
+set -gx DOCKER_CLI_HINTS false
 set -gx DOCKER_SCAN_SUGGEST false
 
 # FZF
