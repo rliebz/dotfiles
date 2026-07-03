@@ -1,15 +1,14 @@
 local library = {
 	"$VIMRUNTIME/lua",
-	"${3rd}/luv/library", -- Remove after nvim 0.12
 }
 
 if vim.fn.getcwd() == vim.fn.expand("~/.dotfiles") then
 	table.insert(library, "./nvim/lua")
 
-	local lazy_data_dir = "~/.local/share/nvim/lazy/"
-	for name, type in vim.fs.dir(lazy_data_dir) do
+	local pack_data_dir = vim.fs.joinpath(vim.fn.stdpath("data"), "/site/pack/core/opt/")
+	for name, type in vim.fs.dir(pack_data_dir) do
 		if type == "directory" then
-			table.insert(library, vim.fs.joinpath(lazy_data_dir, name, "lua"))
+			table.insert(library, vim.fs.joinpath(pack_data_dir, name, "lua"))
 		end
 	end
 end
