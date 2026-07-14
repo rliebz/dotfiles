@@ -14,7 +14,6 @@ return {
 		"pyright",
 		"ruff",
 		"rust_analyzer",
-		"solargraph",
 		"tinymist",
 		"vtsls",
 		"yamlls",
