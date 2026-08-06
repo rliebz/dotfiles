@@ -130,8 +130,10 @@ highlight("LspSignatureActiveParameter", { bg = colors.highlight_purple, bold = 
 
 -- LSP Semantic Tokens
 highlight("@lsp.type.property", { link = "@property" })
-highlight("@lsp.type.comment", {}) -- this clobbers TODO, etc.
 highlight("@lsp.typemod.function.defaultLibrary", { link = "@function.builtin" })
+-- These clobber more relevant highlights
+highlight("@lsp.type.comment", {}) -- this clobbers TODO, etc.
+highlight("@lsp.type.variable", {})
 
 ---------------------------------
 -- Language-Specific Highlighting
@@ -300,6 +302,7 @@ highlight("DiagnosticError", { fg = colors.red })
 highlight("DiagnosticWarn", { fg = colors.yellow })
 highlight("DiagnosticInfo", { fg = colors.blue })
 highlight("DiagnosticHint", { fg = colors.dark_white })
+highlight("DiagnosticDeprecated", { sp = colors.dark_magenta, undercurl = true })
 
 highlight("DiagnosticUnderlineError", { sp = colors.red, undercurl = true })
 highlight("DiagnosticUnderlineWarn", { sp = colors.yellow, undercurl = true })
