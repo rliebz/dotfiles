@@ -23,4 +23,12 @@ return {
 	actions_on_save = {
 		vtsls = {},
 	},
+	---@type table<string, string[]>
+	disable_methods = {
+		biome = { "textDocument/definition" },
+		cssls = { "textDocument/formatting", "textDocument/rangeFormatting" },
+		jsonls = { "textDocument/formatting", "textDocument/rangeFormatting" },
+		lua_ls = { "textDocument/formatting", "textDocument/rangeFormatting" },
+		vtsls = { "textDocument/formatting", "textDocument/rangeFormatting" },
+	},
 }

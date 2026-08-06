@@ -7,6 +7,28 @@ vim.pack.add({
 
 require("lsplinks").setup({})
 
+---@param client vim.lsp.Client
+---@param methods string[]
+local function disable_methods(client, methods)
+	client._disabled_methods = client._disabled_methods or {}
+	for _, method in ipairs(methods) do
+		client._disabled_methods[method] = true
+	end
+
+	if client._disabled_methods_patched then
+		return
+	end
+	client._disabled_methods_patched = true
+
+	local supports_method = client.supports_method
+	client.supports_method = function(self, method, bufnr)
+		if self._disabled_methods[method] then
+			return false
+		end
+		return supports_method(self, method, bufnr)
+	end
+end
+
 ---@param kind lsp.CodeActionKind
 ---@param only lsp.CodeActionKind[]?
 local function matchesOnly(kind, only)
@@ -88,6 +110,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local client = vim.lsp.get_client_by_id(args.data.client_id)
 		if not client then
 			return
+		end
+
+		local disabled_methods = lsp.disable_methods[client.name]
+		if disabled_methods then
+			disable_methods(client, disabled_methods)
 		end
 
 		local opts = { buffer = args.buf, silent = true }
