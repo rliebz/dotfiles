@@ -15,13 +15,13 @@ return {
 		"ruff",
 		"rust_analyzer",
 		"tinymist",
-		"vtsls",
+		"tsc",
 		"yamlls",
 	},
 	---@type table<string, lsp.CodeActionKind[]>
 	-- defaults to { "source.fixAll", "source.organizeImports" }
 	actions_on_save = {
-		vtsls = {},
+		tsc = {},
 	},
 	---@type table<string, string[]>
 	disable_methods = {
@@ -29,6 +29,6 @@ return {
 		cssls = { "textDocument/formatting", "textDocument/rangeFormatting" },
 		jsonls = { "textDocument/formatting", "textDocument/rangeFormatting" },
 		lua_ls = { "textDocument/formatting", "textDocument/rangeFormatting" },
-		vtsls = { "textDocument/formatting", "textDocument/rangeFormatting" },
+		tsc = { "textDocument/formatting", "textDocument/rangeFormatting" },
 	},
 }
