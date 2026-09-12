@@ -1,0 +1,39 @@
+#!/usr/bin/env zsh
+
+# Trackpad speed
+defaults write -g com.apple.trackpad.scaling -float 2.5
+
+# Key repeat
+defaults write -g KeyRepeat -int 2
+defaults write -g InitialKeyRepeat -int 25
+
+# Autocorrect
+defaults write -g NSAutomaticCapitalizationEnabled -bool false
+defaults write -g NSAutomaticDashSubstitutionEnabled -bool false
+defaults write -g NSAutomaticInlinePredictionEnabled -bool false
+defaults write -g NSAutomaticPeriodSubstitutionEnabled -bool false
+defaults write -g NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
+
+# Three-finger drag
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true
+
+# Show bluetooth in menu bar
+defaults write com.apple.controlcenter Bluetooth -int 18
+
+# Show recents in dock
+defaults write com.apple.dock show-recents -bool false
+
+# Automatically rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
+
+# Alert volume
+defaults write -g com.apple.sound.beep.volume -float 0.5
+
+# Dark mode
+osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to true'
+
+for app in Dock SystemUIServer ControlCenter cfprefsd; do
+    killall "$app" 2>/dev/null
+done

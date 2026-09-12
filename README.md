@@ -4,22 +4,30 @@ Don't follow these steps unless you are me.
 
 ## System
 
+### Getting Started
+
+Install the xcode-select command-line tools:
+
+```zsh
+xcode-select --install
+```
+
+Clone the repo over HTTPS:
+
+```zsh
+git clone https://github.com/rliebz/dotfiles.git $HOME/.dotfiles
+cd $HOME/.dotfiles
+```
+
 ### macOS System Preferences
 
-The usual steps are:
+To configure macOS defaults:
 
-1. Trackpad > Tracking Speed: Set to the second notch from the right
-1. Keyboard > Keyboard > Key Repeat: Farthest notch on the right
-1. Keyboard > Keyboard > Delay Until Repeat: Second notch from the right
-1. Keyboard > Text Input: Turn basically everything off
-1. Accessibility > Pointer Control > Trackpad Options: Enable dragging with
-   three finger drag
-1. Control Center > Bluetooth: Show in Menu Bar
-1. Desktop & Dock > Dock: Turn off Show suggested and recent apps in Dock
-1. Desktop & Dock > Mission Control: Turn off Automatically rearrange Spaces
-   based on most recent use
-1. Appearance > Appearance: Dark
-1. Sound > Sound Effects > Alert volume: Set to the middle notch
+```zsh
+./scripts/macos-defaults
+```
+
+Log out and back in for all changes to take effect.
 
 ### Fonts
 
@@ -30,22 +38,23 @@ The usual steps are:
 
 First, homebrew:
 
-```bash
+```zsh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 Follow the eval instruction in terminal to add it to the path temporarily. It
 probably looks like this:
 
-```bash
+```zsh
 eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
 To install all the usual software:
 
-```bash
-brew install dotbot fish git gnu-sed gpg mise trash zoxide rliebz/tusk/tusk
-brew install --cask bitwarden docker firefox keepingyouawake ghostty
+```zsh
+brew install -y dotbot fish git gnu-sed gpg mise trash zoxide rliebz/tusk/tusk
+brew install -y --cask bitwarden docker firefox keepingyouawake ghostty
+rm ~/.config/fish/config.fish
 ```
 
 Don't swap to Fish or Ghostty yet.
@@ -54,32 +63,31 @@ Don't swap to Fish or Ghostty yet.
 
 First we'll need to set up an SSH key:
 
-```bash
+```zsh
 ssh-keygen -t ed25519 -C "rliebz@gmail.com"
 ```
 
 [Navigate here][github-ssh] to add a new SSH key, then grab local public key:
 
-```bash
+```zsh
 cat ~/.ssh/id_ed25519.pub | pbcopy
 ```
 
-Clone this repo into the appropriate directory:
+Swap the repo to use SSH:
 
-```bash
-git clone git@github.com:rliebz/dotfiles.git $HOME/.dotfiles
-cd $HOME/.dotfiles
+```zsh
+git remote set-url origin git@github.com:rliebz/dotfiles.git
 ```
 
 With that, the dotfiles can be installed:
 
-```bash
+```zsh
 ./scripts/install
 ```
 
 Finally, set up fish:
 
-```bash
+```zsh
 echo "$(which fish)" | sudo tee -a /etc/shells
 chsh -s "$(which fish)"
 ```
