@@ -6,10 +6,11 @@ Don't follow these steps unless you are me.
 
 ### Getting Started
 
-Install the xcode-select command-line tools:
+Install and update the xcode-select command-line tools:
 
 ```zsh
 xcode-select --install
+sudo softwareupdate --install --all
 ```
 
 Clone the repo over HTTPS:
