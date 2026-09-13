@@ -54,9 +54,9 @@ end
 
 # Editor defaults
 if command -sq nvim
-    set -gx EDITOR nvim
-    set -gx VISUAL nvim
-    set -gx MANPAGER 'nvim +Man!'
+    set -gx EDITOR (which nvim)
+    set -gx VISUAL $EDITOR
+    set -gx MANPAGER "$EDITOR +Man!"
 end
 
 # Pager defaults
