@@ -131,9 +131,11 @@ highlight("LspSignatureActiveParameter", { bg = colors.highlight_purple, bold = 
 -- LSP Semantic Tokens
 highlight("@lsp.type.property", { link = "@property" })
 highlight("@lsp.typemod.function.defaultLibrary", { link = "@function.builtin" })
+highlight("@lsp.typemod.variable.readonly", { link = "@constant" })
 -- These clobber more relevant highlights
 highlight("@lsp.type.comment", {}) -- this clobbers TODO, etc.
 highlight("@lsp.type.variable", {})
+highlight("@lsp.type.macro.gotmpl", {})
 -- Custom semantic tokens
 highlight("@lsp.typemod.variable.comment.go", { link = "@variable.member" })
 
