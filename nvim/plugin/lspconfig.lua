@@ -167,4 +167,39 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
+-- Add highlights for tokens found within treesitter comments.
+--
+-- If gopls gets smarter semantic tokens, this probably isn't necessary.
+vim.api.nvim_create_autocmd("LspTokenUpdate", {
+	group = vim.api.nvim_create_augroup("lsp_token_update", { clear = true }),
+	callback = function(ev)
+		local token = ev.data.token
+		if token.type == "comment" then
+			return
+		end
+
+		local captures = vim.treesitter.get_captures_at_pos(ev.buf, token.line, token.start_col)
+		local in_comment = vim.iter(captures):any(
+			function(capture)
+				return capture.capture == "comment" or vim.startswith(capture.capture, "comment.")
+			end
+		)
+
+		if not in_comment then
+			return
+		end
+
+		local ft = vim.bo[ev.buf].filetype
+		local group = ("@lsp.typemod.%s.comment.%s"):format(token.type, ft)
+
+		vim.lsp.semantic_tokens.highlight_token(
+			token,
+			ev.buf,
+			ev.data.client_id,
+			group,
+			{ priority = 128 }
+		)
+	end,
+})
+
 vim.lsp.enable(lsp.servers)

@@ -134,6 +134,8 @@ highlight("@lsp.typemod.function.defaultLibrary", { link = "@function.builtin" }
 -- These clobber more relevant highlights
 highlight("@lsp.type.comment", {}) -- this clobbers TODO, etc.
 highlight("@lsp.type.variable", {})
+-- Custom semantic tokens
+highlight("@lsp.typemod.variable.comment.go", { link = "@variable.member" })
 
 ---------------------------------
 -- Language-Specific Highlighting
