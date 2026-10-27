@@ -41,6 +41,16 @@ require("oil").setup({
 		["<C-c>"] = false,
 		["<C-h>"] = false,
 		["<C-s>"] = false,
+		["<C-l>"] = {
+			desc = "Refresh current directory list",
+			callback = function()
+				local entry = require("oil").get_cursor_entry()
+				if entry then
+					require("oil.view").set_last_cursor(vim.api.nvim_buf_get_name(0), entry.name)
+				end
+				require("oil.actions").refresh.callback()
+			end,
+		},
 	},
 })
 
