@@ -197,7 +197,7 @@ vim.api.nvim_create_autocmd("LspTokenUpdate", {
 			ev.buf,
 			ev.data.client_id,
 			group,
-			{ priority = 128 }
+			{ priority = 124 }
 		)
 	end,
 })
